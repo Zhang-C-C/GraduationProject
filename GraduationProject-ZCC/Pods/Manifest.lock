@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - BaiduMapKit (3.1.0)
   - MJRefresh (3.1.12)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - BaiduMapKit
   - MJRefresh
   - SDWebImage
   - SVProgressHUD
@@ -30,11 +32,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BaiduMapKit: 4cfaedb118cff7e157e9771859a4bf65a261b2a1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
   UMengAnalytics: 0bde5737767dfc18afb03a4cd6ba9d57bb2ad10d
 
-PODFILE CHECKSUM: 31872a69beb2440ad4e4a995a478a9325cc8befa
+PODFILE CHECKSUM: 9c97409707074dfe6e04f6d246cf89fddb8c4231
 
 COCOAPODS: 1.2.0.beta.1

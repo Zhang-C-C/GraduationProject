@@ -1,0 +1,15 @@
+//
+//  MyPch.pch
+//  GraduationProject-ZCC
+//
+//  Created by 诺达科技 on 16/12/1.
+//  Copyright © 2016年 诺达科技. All rights reserved.
+//
+
+#ifndef MyPch_h
+#define MyPch_h
+
+#import "Const.h"
+#import "BaseNavigationController.h"
+
+#endif /* MyPch_h */

@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		636B739F1DEFC6680042E7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B739E1DEFC6680042E7F9 /* main.m */; };
 		636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73A11DEFC6680042E7F9 /* AppDelegate.m */; };
-		636B73A51DEFC6680042E7F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73A41DEFC6680042E7F9 /* ViewController.m */; };
-		636B73A81DEFC6680042E7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636B73A61DEFC6680042E7F9 /* Main.storyboard */; };
 		636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B73A91DEFC6680042E7F9 /* Assets.xcassets */; };
 		636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636B73AB1DEFC6680042E7F9 /* LaunchScreen.storyboard */; };
 		636B73B81DEFC6690042E7F9 /* GraduationProject_ZCCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73B71DEFC6690042E7F9 /* GraduationProject_ZCCTests.m */; };
 		636B73C31DEFC6690042E7F9 /* GraduationProject_ZCCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73C21DEFC6690042E7F9 /* GraduationProject_ZCCUITests.m */; };
+		636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D21DEFCC1B0042E7F9 /* BaseNavigationController.m */; };
+		636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */; };
+		636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */; };
+		636B73DC1DEFCC4B0042E7F9 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */; };
 		B4558E84024977644CA6C418 /* libPods-GraduationProject-ZCC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */; };
 /* End PBXBuildFile section */
 
@@ -42,9 +44,6 @@
 		636B739E1DEFC6680042E7F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		636B73A01DEFC6680042E7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		636B73A11DEFC6680042E7F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		636B73A31DEFC6680042E7F9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		636B73A41DEFC6680042E7F9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		636B73A71DEFC6680042E7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		636B73A91DEFC6680042E7F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		636B73AC1DEFC6680042E7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636B73AE1DEFC6680042E7F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +53,16 @@
 		636B73BE1DEFC6690042E7F9 /* GraduationProject-ZCCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GraduationProject-ZCCUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636B73C21DEFC6690042E7F9 /* GraduationProject_ZCCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraduationProject_ZCCUITests.m; sourceTree = "<group>"; };
 		636B73C41DEFC6690042E7F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		636B73D11DEFCC1B0042E7F9 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		636B73D21DEFCC1B0042E7F9 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		636B73D41DEFCC2A0042E7F9 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		636B73D71DEFCC3B0042E7F9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		636B73DA1DEFCC4B0042E7F9 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		636B73DD1DEFCCA10042E7F9 /* MyPch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPch.pch; sourceTree = "<group>"; };
+		636B73DE1DEFCCB00042E7F9 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		A963949E3CD318923A096B6A /* Pods-GraduationProject-ZCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,14 +126,11 @@
 		636B739C1DEFC6680042E7F9 /* GraduationProject-ZCC */ = {
 			isa = PBXGroup;
 			children = (
+				636B73D01DEFCBFD0042E7F9 /* BaseTools */,
 				636B73A01DEFC6680042E7F9 /* AppDelegate.h */,
 				636B73A11DEFC6680042E7F9 /* AppDelegate.m */,
-				636B73A31DEFC6680042E7F9 /* ViewController.h */,
-				636B73A41DEFC6680042E7F9 /* ViewController.m */,
-				636B73A61DEFC6680042E7F9 /* Main.storyboard */,
-				636B73A91DEFC6680042E7F9 /* Assets.xcassets */,
-				636B73AB1DEFC6680042E7F9 /* LaunchScreen.storyboard */,
-				636B73AE1DEFC6680042E7F9 /* Info.plist */,
+				636B73DA1DEFCC4B0042E7F9 /* StartViewController.h */,
+				636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */,
 				636B739D1DEFC6680042E7F9 /* Supporting Files */,
 			);
 			path = "GraduationProject-ZCC";
@@ -133,7 +139,12 @@
 		636B739D1DEFC6680042E7F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				636B73A91DEFC6680042E7F9 /* Assets.xcassets */,
+				636B73AB1DEFC6680042E7F9 /* LaunchScreen.storyboard */,
+				636B73AE1DEFC6680042E7F9 /* Info.plist */,
 				636B739E1DEFC6680042E7F9 /* main.m */,
+				636B73DD1DEFCCA10042E7F9 /* MyPch.pch */,
+				636B73DE1DEFCCB00042E7F9 /* Const.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,6 +165,19 @@
 				636B73C41DEFC6690042E7F9 /* Info.plist */,
 			);
 			path = "GraduationProject-ZCCUITests";
+			sourceTree = "<group>";
+		};
+		636B73D01DEFCBFD0042E7F9 /* BaseTools */ = {
+			isa = PBXGroup;
+			children = (
+				636B73D11DEFCC1B0042E7F9 /* BaseNavigationController.h */,
+				636B73D21DEFCC1B0042E7F9 /* BaseNavigationController.m */,
+				636B73D41DEFCC2A0042E7F9 /* BaseTableViewController.h */,
+				636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */,
+				636B73D71DEFCC3B0042E7F9 /* BaseViewController.h */,
+				636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */,
+			);
+			path = BaseTools;
 			sourceTree = "<group>";
 		};
 		CD1E45ED09C58D3F7BD4891B /* Frameworks */ = {
@@ -278,7 +302,6 @@
 			files = (
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
-				636B73A81DEFC6680042E7F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,9 +374,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636B73A51DEFC6680042E7F9 /* ViewController.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,
+				636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */,
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
+				636B73DC1DEFCC4B0042E7F9 /* StartViewController.m in Sources */,
+				636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */,
+				636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,14 +415,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		636B73A61DEFC6680042E7F9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				636B73A71DEFC6680042E7F9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		636B73AB1DEFC6680042E7F9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -502,9 +520,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z3J38YFUTH;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";
 				INFOPLIST_FILE = "GraduationProject-ZCC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zcc.----";
+				PRODUCT_BUNDLE_IDENTIFIER = zcc.com.gp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -515,9 +534,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z3J38YFUTH;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";
 				INFOPLIST_FILE = "GraduationProject-ZCC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zcc.----";
+				PRODUCT_BUNDLE_IDENTIFIER = zcc.com.gp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
