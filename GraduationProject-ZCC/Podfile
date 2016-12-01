@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+target "GraduationProject-ZCC" do
+pod 'SVProgressHUD'
+pod 'SDWebImage'
+pod 'AFNetworking'
+pod 'MJRefresh'
+pod 'UMengAnalytics'
+
+
+end
