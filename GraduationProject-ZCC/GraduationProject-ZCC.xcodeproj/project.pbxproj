@@ -17,6 +17,8 @@
 		636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */; };
 		636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */; };
 		636B73DC1DEFCC4B0042E7F9 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */; };
+		636B73E61DF004800042E7F9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73E41DF004800042E7F9 /* LoginViewController.m */; };
+		636B73E71DF004800042E7F9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B73E51DF004800042E7F9 /* LoginViewController.xib */; };
 		B4558E84024977644CA6C418 /* libPods-GraduationProject-ZCC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,9 @@
 		636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		636B73DD1DEFCCA10042E7F9 /* MyPch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPch.pch; sourceTree = "<group>"; };
 		636B73DE1DEFCCB00042E7F9 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		636B73E31DF004800042E7F9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		636B73E41DF004800042E7F9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		636B73E51DF004800042E7F9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A963949E3CD318923A096B6A /* Pods-GraduationProject-ZCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +136,9 @@
 				636B73A11DEFC6680042E7F9 /* AppDelegate.m */,
 				636B73DA1DEFCC4B0042E7F9 /* StartViewController.h */,
 				636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */,
+				636B73E31DF004800042E7F9 /* LoginViewController.h */,
+				636B73E41DF004800042E7F9 /* LoginViewController.m */,
+				636B73E51DF004800042E7F9 /* LoginViewController.xib */,
 				636B739D1DEFC6680042E7F9 /* Supporting Files */,
 			);
 			path = "GraduationProject-ZCC";
@@ -302,6 +310,7 @@
 			files = (
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
+				636B73E71DF004800042E7F9 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +387,7 @@
 				636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */,
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
 				636B73DC1DEFCC4B0042E7F9 /* StartViewController.m in Sources */,
+				636B73E61DF004800042E7F9 /* LoginViewController.m in Sources */,
 				636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */,
 				636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */,
 			);
