@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "StartViewController.h"
 
+#define kBmobID @"9566251bffe6cac91c8f35d21abbb199"
+
 @interface AppDelegate ()
 
 @end
@@ -21,6 +23,9 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     self.window.backgroundColor = [UIColor lightGrayColor];
+    
+    //注册Bmob
+    [Bmob registerWithAppKey:kBmobID];
     
     //设置跟试图控制器
     StartViewController *startVC = [[StartViewController alloc]init];

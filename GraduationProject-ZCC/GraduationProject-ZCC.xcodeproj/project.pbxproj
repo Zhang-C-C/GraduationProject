@@ -16,9 +16,17 @@
 		636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D21DEFCC1B0042E7F9 /* BaseNavigationController.m */; };
 		636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */; };
 		636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */; };
-		636B73DC1DEFCC4B0042E7F9 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */; };
-		636B73E61DF004800042E7F9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73E41DF004800042E7F9 /* LoginViewController.m */; };
-		636B73E71DF004800042E7F9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B73E51DF004800042E7F9 /* LoginViewController.xib */; };
+		636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EA1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m */; };
+		636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */; };
+		636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73F51DF01CCF0042E7F9 /* AppTools.m */; };
+		636B74081DF024080042E7F9 /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73FE1DF024080042E7F9 /* BindPhoneViewController.m */; };
+		636B74091DF024080042E7F9 /* BindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B73FF1DF024080042E7F9 /* BindPhoneViewController.xib */; };
+		636B740A1DF024080042E7F9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74011DF024080042E7F9 /* LoginViewController.m */; };
+		636B740B1DF024080042E7F9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B74021DF024080042E7F9 /* LoginViewController.xib */; };
+		636B740C1DF024080042E7F9 /* RestPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74041DF024080042E7F9 /* RestPasswordViewController.m */; };
+		636B740D1DF024080042E7F9 /* RestPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B74051DF024080042E7F9 /* RestPasswordViewController.xib */; };
+		636B740E1DF024080042E7F9 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74071DF024080042E7F9 /* StartViewController.m */; };
+		636B74111DF029F60042E7F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74101DF029F60042E7F9 /* MainViewController.m */; };
 		B4558E84024977644CA6C418 /* libPods-GraduationProject-ZCC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */; };
 /* End PBXBuildFile section */
 
@@ -61,13 +69,27 @@
 		636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		636B73D71DEFCC3B0042E7F9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		636B73DA1DEFCC4B0042E7F9 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
-		636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		636B73DD1DEFCCA10042E7F9 /* MyPch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPch.pch; sourceTree = "<group>"; };
 		636B73DE1DEFCCB00042E7F9 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
-		636B73E31DF004800042E7F9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		636B73E41DF004800042E7F9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		636B73E51DF004800042E7F9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		636B73E91DF014810042E7F9 /* UIBarButtonItem+CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CustomButton.h"; sourceTree = "<group>"; };
+		636B73EA1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CustomButton.m"; sourceTree = "<group>"; };
+		636B73EB1DF014810042E7F9 /* UIViewController+HUDHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUDHelper.h"; sourceTree = "<group>"; };
+		636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUDHelper.m"; sourceTree = "<group>"; };
+		636B73F41DF01CCF0042E7F9 /* AppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTools.h; sourceTree = "<group>"; };
+		636B73F51DF01CCF0042E7F9 /* AppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTools.m; sourceTree = "<group>"; };
+		636B73FD1DF024080042E7F9 /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = "<group>"; };
+		636B73FE1DF024080042E7F9 /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = "<group>"; };
+		636B73FF1DF024080042E7F9 /* BindPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindPhoneViewController.xib; sourceTree = "<group>"; };
+		636B74001DF024080042E7F9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		636B74011DF024080042E7F9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		636B74021DF024080042E7F9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		636B74031DF024080042E7F9 /* RestPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestPasswordViewController.h; sourceTree = "<group>"; };
+		636B74041DF024080042E7F9 /* RestPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestPasswordViewController.m; sourceTree = "<group>"; };
+		636B74051DF024080042E7F9 /* RestPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestPasswordViewController.xib; sourceTree = "<group>"; };
+		636B74061DF024080042E7F9 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		636B74071DF024080042E7F9 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		636B740F1DF029F60042E7F9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		636B74101DF029F60042E7F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A963949E3CD318923A096B6A /* Pods-GraduationProject-ZCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,14 +153,15 @@
 		636B739C1DEFC6680042E7F9 /* GraduationProject-ZCC */ = {
 			isa = PBXGroup;
 			children = (
+				636B73E81DF014460042E7F9 /* CategoryTools */,
 				636B73D01DEFCBFD0042E7F9 /* BaseTools */,
 				636B73A01DEFC6680042E7F9 /* AppDelegate.h */,
 				636B73A11DEFC6680042E7F9 /* AppDelegate.m */,
-				636B73DA1DEFCC4B0042E7F9 /* StartViewController.h */,
-				636B73DB1DEFCC4B0042E7F9 /* StartViewController.m */,
-				636B73E31DF004800042E7F9 /* LoginViewController.h */,
-				636B73E41DF004800042E7F9 /* LoginViewController.m */,
-				636B73E51DF004800042E7F9 /* LoginViewController.xib */,
+				636B740F1DF029F60042E7F9 /* MainViewController.h */,
+				636B74101DF029F60042E7F9 /* MainViewController.m */,
+				636B73F41DF01CCF0042E7F9 /* AppTools.h */,
+				636B73F51DF01CCF0042E7F9 /* AppTools.m */,
+				636B73FC1DF024080042E7F9 /* Login */,
 				636B739D1DEFC6680042E7F9 /* Supporting Files */,
 			);
 			path = "GraduationProject-ZCC";
@@ -186,6 +209,35 @@
 				636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */,
 			);
 			path = BaseTools;
+			sourceTree = "<group>";
+		};
+		636B73E81DF014460042E7F9 /* CategoryTools */ = {
+			isa = PBXGroup;
+			children = (
+				636B73E91DF014810042E7F9 /* UIBarButtonItem+CustomButton.h */,
+				636B73EA1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m */,
+				636B73EB1DF014810042E7F9 /* UIViewController+HUDHelper.h */,
+				636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */,
+			);
+			path = CategoryTools;
+			sourceTree = "<group>";
+		};
+		636B73FC1DF024080042E7F9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				636B74061DF024080042E7F9 /* StartViewController.h */,
+				636B74071DF024080042E7F9 /* StartViewController.m */,
+				636B74001DF024080042E7F9 /* LoginViewController.h */,
+				636B74011DF024080042E7F9 /* LoginViewController.m */,
+				636B74021DF024080042E7F9 /* LoginViewController.xib */,
+				636B73FD1DF024080042E7F9 /* BindPhoneViewController.h */,
+				636B73FE1DF024080042E7F9 /* BindPhoneViewController.m */,
+				636B73FF1DF024080042E7F9 /* BindPhoneViewController.xib */,
+				636B74031DF024080042E7F9 /* RestPasswordViewController.h */,
+				636B74041DF024080042E7F9 /* RestPasswordViewController.m */,
+				636B74051DF024080042E7F9 /* RestPasswordViewController.xib */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		CD1E45ED09C58D3F7BD4891B /* Frameworks */ = {
@@ -308,9 +360,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636B740B1DF024080042E7F9 /* LoginViewController.xib in Resources */,
+				636B74091DF024080042E7F9 /* BindPhoneViewController.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
-				636B73E71DF004800042E7F9 /* LoginViewController.xib in Resources */,
+				636B740D1DF024080042E7F9 /* RestPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,11 +437,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,
+				636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */,
 				636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */,
+				636B740A1DF024080042E7F9 /* LoginViewController.m in Sources */,
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
-				636B73DC1DEFCC4B0042E7F9 /* StartViewController.m in Sources */,
-				636B73E61DF004800042E7F9 /* LoginViewController.m in Sources */,
+				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
+				636B74081DF024080042E7F9 /* BindPhoneViewController.m in Sources */,
+				636B740C1DF024080042E7F9 /* RestPasswordViewController.m in Sources */,
+				636B740E1DF024080042E7F9 /* StartViewController.m in Sources */,
+				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,
 				636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */,
 				636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */,
 			);
@@ -530,6 +590,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z3J38YFUTH;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";
 				INFOPLIST_FILE = "GraduationProject-ZCC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -544,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z3J38YFUTH;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";
 				INFOPLIST_FILE = "GraduationProject-ZCC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

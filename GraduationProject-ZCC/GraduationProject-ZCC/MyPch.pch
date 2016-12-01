@@ -9,7 +9,14 @@
 #ifndef MyPch_h
 #define MyPch_h
 
-#import "Const.h"
-#import "BaseNavigationController.h"
+#import "Const.h"//常量们
+#import "BaseNavigationController.h"//导航控制器
+
+#import "AppTools.h"//全局对象,单例
+#import <BmobSDK/BmobSDK.h>//Bmob云服务器
+#import <MJRefresh.h>//上下拉刷新
+#import "UIViewController+HUDHelper.h"//HUDHelper提示信息
+#import "UIBarButtonItem+CustomButton.h"//导航栏按妞
+#import "MainViewController.h"//tabBar控制器
 
 #endif /* MyPch_h */

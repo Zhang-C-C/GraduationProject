@@ -231,9 +231,9 @@
 /**
  *  账号密码登录，账号可以为用户名、手机号或者邮箱
  *
- *  @param account  <#account description#>
- *  @param password <#password description#>
- *  @param block    <#block description#>
+ *  @param account
+ *  @param password
+ *  @param block
  */
 +(void)loginInbackgroundWithAccount:(NSString*)account
                         andPassword:(NSString*)password
@@ -242,8 +242,8 @@
 /**
  *  手机号码加验证码登录
  *
- *  @param phoneNumber <#phoneNumber description#>
- *  @param smsCode     <#smsCode description#>
+ *  @param phoneNumber
+ *  @param smsCode
  */
 +(void)loginInbackgroundWithMobilePhoneNumber:(NSString*)phoneNumber
                                    andSMSCode:(NSString*)smsCode
@@ -252,9 +252,9 @@
 /**
  *  利用短信验证码重置帐号密码，只有填写手机号码的用户可用
  *
- *  @param phoneNumber <#phoneNumber description#>
- *  @param smscode     <#smscode description#>
- *  @param block       <#block description#>
+ *  @param phoneNumber
+ *  @param smscode
+ *  @param block
  */
 +(void)resetPasswordInbackgroundWithSMSCode:(NSString*)SMSCode
                                               andNewPassword:(NSString*)newPassword

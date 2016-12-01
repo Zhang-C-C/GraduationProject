@@ -7,6 +7,7 @@
 //
 
 #import "StartViewController.h"
+#import "LoginViewController.h"
 
 @interface StartViewController ()
 
@@ -16,11 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    LoginViewController *loginVC = [[LoginViewController alloc]init];
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 @end
