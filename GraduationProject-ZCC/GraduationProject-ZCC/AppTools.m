@@ -10,8 +10,9 @@
 
 @interface AppTools ()
 
+//记录计时器时间
 @property(nonatomic,assign)NSInteger time;
-//遮盖试图
+//发送验证码按钮上的遮盖试图
 @property(nonatomic,strong)UIView *maskView;
 
 @end
@@ -132,7 +133,6 @@
 - (void)timeChangeAction:(NSTimer *)timer
 {
     NSDictionary *dic = timer.userInfo;
-    
     UIButton *sendSMSBtn = dic[@"sendBtn"];
     
     self.time --;
