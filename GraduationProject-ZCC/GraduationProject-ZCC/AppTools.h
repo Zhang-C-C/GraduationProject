@@ -30,4 +30,11 @@ typedef void(^CancleBtn)(void);
 + (void)alertViewWithTitle:(NSString *)title WithMsg:(NSString *)msg WithSureBtn:(NSString *)sureBtn WithCancleBtn:(NSString *)cancleBtn WithVC:(UIViewController *)vc WithSureBtn:(SureBtn )sure WithCancleBtn:(CancleBtn )cancle;
 
 
+/**
+ 判断手机号码是否符合规则
+
+ mobile
+*/
++ (BOOL)isValidateMobile:(NSString *)mobile;
+
 @end

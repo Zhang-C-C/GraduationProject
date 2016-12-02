@@ -16,6 +16,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *sendSMSBtn;
 
+//定时器时间
+@property(nonatomic,assign)NSInteger time;
+
 @end
 
 @implementation BindPhoneViewController
@@ -23,19 +26,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.time = 10;
+
     [self initView];
 }
 
 - (void)initView
 {
-    self.sendSMSBtn.layer.cornerRadius = 5;
-    self.sendSMSBtn.clipsToBounds = YES;
-    self.sendSMSBtn.layer.borderColor = [UIColor redColor].CGColor;
-    self.sendSMSBtn.layer.borderWidth = 2;
-    
+       
+}
+
+//开启定时器
+- (void)startTimer
+{
+    dispatch_queue_t queue = dispatch_queue_create("lll", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue, ^{
+       
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeChangeAction:) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] run];// 如果没有这句，doSomething将不会执行！！！
+    });
 }
 
 #pragma mark ----Action----
+
+/**
+ 定时器事件
+
+ @param timer 定时器
+ */
+- (void)timeChangeAction:(NSTimer *)timer
+{
+    self.time --;
+    [self.sendSMSBtn setTitle:[NSString stringWithFormat:@"已发送%lds",self.time] forState:UIControlStateSelected];
+    if (self.time == 0) {
+        
+        [timer invalidate];
+        timer = nil;
+
+        self.time = 60;
+        self.sendSMSBtn.selected = NO;
+        [self.sendSMSBtn setTitle:@"请重试!" forState:UIControlStateNormal];
+    }
+}
 
 /**
  发送验证码按钮点击事件
@@ -44,8 +76,36 @@
  */
 - (IBAction)sendSMSBtnAction:(UIButton *)sender {
     
-
+    sender.selected = !sender.selected;
+    //开启定时器
+    sender.selected?[self startTimer]:0;
+    
+    return ;
+    
+    
+    //安全判断手机号码
+    if ([AppTools isValidateMobile:self.phoneNum.text]) {
+      
+        
+        
+        //获取验证码
+        [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:self.phoneNum.text andTemplate:@"测试SMS" resultBlock:^(int number, NSError *error) {
+            
+            if (!error) {
+                
+                [self showSuccessWith:@"发送成功,请注意查收"];
+                
+            }else{
+                
+                [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            }
+        }];
+    
+    }else{
+        
+        [self showErrorWith:@"请输入正确的手机号码"];
     }
+}
 
 
 /**
@@ -53,6 +113,11 @@
  */
 - (IBAction)finishBtnAction {
     
+    if (![AppTools isValidateMobile:self.phoneNum.text]) {
+        
+        [self showErrorWith:@"请输入正确的手机号码"];
+        return ;
+    }
     if (self.sms.text.length == 0) {
         
         [self showErrorWith:@"请输入验证码"];
@@ -64,19 +129,15 @@
         if (isSuccessful) {
             //修改绑定手机
             BmobUser *buser = [BmobUser currentUser];
-            buser.mobilePhoneNumber = self.phoneNum.text;
             
-            [buser setObject:[NSNumber numberWithBool:YES] forKey:@"mobilePhoneNumberVerified"];
+            //保存信息
+            [buser setObject:[NSNumber numberWithBool:YES] forKey:@"mobilePhoneNumberVer"];
             [buser setObject:self.phoneNum.text forKey:@"mobilePhoneNumber"];
             
             [buser updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                 if (isSuccessful) {
                     
-                    NSLog(@"%@",buser);
-                    
-                    [self showSuccessWith:@"绑定成功"];
-                    [kUserDefaultDict setObject:@(NO) forKey:kBindPhone];
-                    
+                    [self showSuccessWith:@"绑定手机号码成功"];
                     [self dismissViewControllerAnimated:YES completion:nil];
                     
                 }else{

@@ -17,14 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initView];
+    [self initBackground];
 }
 
 #pragma mark ----Init----
 
-- (void)initView
+- (void)initBackground
 {
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImg-1.jpg"]];
     
 }
 

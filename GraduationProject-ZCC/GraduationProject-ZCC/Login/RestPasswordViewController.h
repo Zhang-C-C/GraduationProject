@@ -6,8 +6,8 @@
 //  Copyright © 2016年 诺达科技. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface RestPasswordViewController : UIViewController
+@interface RestPasswordViewController : BaseViewController
 
 @end

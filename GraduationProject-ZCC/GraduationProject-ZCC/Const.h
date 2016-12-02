@@ -19,10 +19,10 @@
 #define kUserName @"userName"
 //密码
 #define kPassword @"userPassword"
-//是绑定手机号码
-#define kBindPhone @"bindingPhone"
 
 //跟试图控制器
 #define kRootViewController [UIApplication sharedApplication].keyWindow.rootViewController
+
+#define REDRGB [UIColor colorWithRed:136 / 255.0 green:34 / 255.0  blue:15 / 255.0  alpha:1.0]
 
 #endif /* Const_h */

@@ -10,7 +10,7 @@
 #import "BindPhoneViewController.h"
 #import "RestPasswordViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UITextFieldDelegate>
 
 //登录框宽度
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginViewWidth;
@@ -44,9 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor orangeColor];
-    
+
     [self initData];
 }
 
@@ -62,6 +60,11 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self viewEndEniting];
+}
+
 - (void)initData
 {
     //计算偏移距离
@@ -75,6 +78,8 @@
     
     if (userName && password) {
         
+        self.account.text = userName;
+        self.password.text = password;
         [self loginWithAccount:userName WithPassword:password];
         
     }else if (userName){
@@ -92,7 +97,7 @@
 - (void)loginWithAccount:(NSString *)userName WithPassword:(NSString *)passweod
 {
     //根据账号登录,可以使手机号
-    [BmobUser loginInbackgroundWithAccount:self.account.text andPassword:self.password.text block:^(BmobUser *user, NSError *error) {
+    [BmobUser loginInbackgroundWithAccount:userName andPassword:passweod block:^(BmobUser *user, NSError *error) {
         
         if (!error) {
             
@@ -111,6 +116,32 @@
     }];
 }
 
+//结束编辑
+- (void)viewEndEniting
+{
+    [self.view endEditing:YES];
+    [UIView animateWithDuration:.5 animations:^{
+        
+        self.loginView.transform = CGAffineTransformIdentity;
+        self.registerView.transform = CGAffineTransformIdentity;
+    }];
+}
+
+#pragma mark ----Delegate----
+
+#pragma mark ----UITextFieldDelegate----
+
+//将要开始编辑
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [UIView animateWithDuration:.5 animations:^{
+        
+        self.loginView.transform = CGAffineTransformMakeTranslation(0, -40);
+        self.registerView.transform = CGAffineTransformMakeTranslation(0, -40);
+    }];
+    return YES;
+}
+
 #pragma mark ----Action----
 
 /**
@@ -120,6 +151,7 @@
  */
 - (IBAction)changeViewBtnAction:(UIButton *)sender {
     
+    [self.view endEditing:YES];
     sender.selected = !sender.selected;
     //弹出与收起注册框
     sender.selected?(self.loginViewConstarint.constant = - (self.space +self.loginViewWidth.constant)):(self.loginViewConstarint.constant = 0);
@@ -140,6 +172,7 @@
  */
 - (IBAction)loginBtnAction:(UIButton *)sender {
     
+    [self viewEndEniting];
     //根据账号登录,可以使手机号
     [self loginWithAccount:self.account.text WithPassword:self.password.text];
 }
@@ -149,6 +182,9 @@
  */
 - (IBAction)resetPasswordBtnAction {
     
+    //键盘消失
+    [self viewEndEniting];
+    //弹出新界面
     RestPasswordViewController *restVC = [[RestPasswordViewController alloc]init];
     restVC.title = @"忘记密码";
     [self.navigationController pushViewController:restVC animated:YES];
@@ -161,6 +197,7 @@
  */
 - (IBAction)registerBtnAction:(UIButton *)sender {
     
+    [self viewEndEniting];
     //注册账号
     BmobUser *user = [[BmobUser alloc]init];
     [user setUsername:self.accountNotR.text];

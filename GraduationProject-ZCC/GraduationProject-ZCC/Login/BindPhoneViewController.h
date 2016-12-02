@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface BindPhoneViewController : UIViewController
+@interface BindPhoneViewController : BaseViewController
 
 @end
