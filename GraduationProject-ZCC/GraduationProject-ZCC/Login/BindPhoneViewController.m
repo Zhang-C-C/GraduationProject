@@ -18,6 +18,8 @@
 
 //定时器时间
 @property(nonatomic,assign)NSInteger time;
+//遮盖试图
+@property(nonatomic,strong)UIView *maskView;
 
 @end
 
@@ -26,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.time = 10;
+    self.time = 60;
 
     [self initView];
 }
@@ -66,6 +68,7 @@
         self.time = 60;
         self.sendSMSBtn.selected = NO;
         [self.sendSMSBtn setTitle:@"请重试!" forState:UIControlStateNormal];
+        self.maskView.hidden = YES;
     }
 }
 
@@ -76,17 +79,15 @@
  */
 - (IBAction)sendSMSBtnAction:(UIButton *)sender {
     
-    sender.selected = !sender.selected;
-    //开启定时器
-    sender.selected?[self startTimer]:0;
-    
-    return ;
-    
-    
     //安全判断手机号码
     if ([AppTools isValidateMobile:self.phoneNum.text]) {
       
-        
+        //UI变化
+        sender.selected = !sender.selected;
+        //开启定时器
+        sender.selected?[self startTimer]:0;
+        self.maskView.hidden = NO;
+        [sender addSubview:self.maskView];
         
         //获取验证码
         [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:self.phoneNum.text andTemplate:@"测试SMS" resultBlock:^(int number, NSError *error) {
@@ -163,6 +164,18 @@
        
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
+}
+
+#pragma mark ----Lazy----
+
+- (UIView *)maskView
+{
+    if (!_maskView) {
+        _maskView = [[UIView alloc]initWithFrame:self.sendSMSBtn.bounds];
+        _maskView.backgroundColor = [UIColor grayColor];
+        _maskView.alpha = 0.5;
+    }
+    return _maskView;
 }
 
 - (void)didReceiveMemoryWarning {
