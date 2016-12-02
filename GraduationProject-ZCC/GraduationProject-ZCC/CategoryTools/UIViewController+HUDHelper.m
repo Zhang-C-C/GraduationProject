@@ -24,13 +24,13 @@
 
 - (void)showMsgWith:(NSString *)msg
 {
-    [SVProgressHUD showWithStatus:msg];
+    [SVProgressHUD showInfoWithStatus:msg];
     [self performSelector:@selector(dismissHUD) withObject:nil afterDelay:1];
 }
 
 - (void)showLoadingWith:(NSString *)msg
 {
-    [SVProgressHUD showInfoWithStatus:msg];
+    [SVProgressHUD showWithStatus:msg];
     [self performSelector:@selector(dismissHUD) withObject:nil afterDelay:1];
 }
 

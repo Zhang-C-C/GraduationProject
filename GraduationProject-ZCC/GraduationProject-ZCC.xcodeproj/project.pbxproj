@@ -19,14 +19,19 @@
 		636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EA1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m */; };
 		636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */; };
 		636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73F51DF01CCF0042E7F9 /* AppTools.m */; };
-		636B74081DF024080042E7F9 /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73FE1DF024080042E7F9 /* BindPhoneViewController.m */; };
-		636B74091DF024080042E7F9 /* BindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B73FF1DF024080042E7F9 /* BindPhoneViewController.xib */; };
-		636B740A1DF024080042E7F9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74011DF024080042E7F9 /* LoginViewController.m */; };
-		636B740B1DF024080042E7F9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B74021DF024080042E7F9 /* LoginViewController.xib */; };
-		636B740C1DF024080042E7F9 /* RestPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74041DF024080042E7F9 /* RestPasswordViewController.m */; };
-		636B740D1DF024080042E7F9 /* RestPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636B74051DF024080042E7F9 /* RestPasswordViewController.xib */; };
-		636B740E1DF024080042E7F9 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74071DF024080042E7F9 /* StartViewController.m */; };
 		636B74111DF029F60042E7F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74101DF029F60042E7F9 /* MainViewController.m */; };
+		638E81331DF160C200BB7654 /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81251DF160C200BB7654 /* BindPhoneViewController.m */; };
+		638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E81261DF160C200BB7654 /* BindPhoneViewController.xib */; };
+		638E81351DF160C200BB7654 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81281DF160C200BB7654 /* LoginViewController.m */; };
+		638E81361DF160C200BB7654 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E81291DF160C200BB7654 /* LoginViewController.xib */; };
+		638E81371DF160C200BB7654 /* PerfectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E812B1DF160C200BB7654 /* PerfectViewController.m */; };
+		638E81381DF160C200BB7654 /* RestPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E812D1DF160C200BB7654 /* RestPasswordViewController.m */; };
+		638E81391DF160C200BB7654 /* RestPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E812E1DF160C200BB7654 /* RestPasswordViewController.xib */; };
+		638E813A1DF160C200BB7654 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81301DF160C200BB7654 /* StartViewController.m */; };
+		638E813D1DF160DA00BB7654 /* PerfectHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E813C1DF160DA00BB7654 /* PerfectHeadView.m */; };
+		638E813F1DF1612700BB7654 /* PerfectHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E813E1DF1612700BB7654 /* PerfectHeadView.xib */; };
+		638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81411DF16A7800BB7654 /* PerfectMsgCell.m */; };
+		638E81441DF16A7800BB7654 /* PerfectMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E81421DF16A7800BB7654 /* PerfectMsgCell.xib */; };
 		B4558E84024977644CA6C418 /* libPods-GraduationProject-ZCC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */; };
 /* End PBXBuildFile section */
 
@@ -77,19 +82,27 @@
 		636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUDHelper.m"; sourceTree = "<group>"; };
 		636B73F41DF01CCF0042E7F9 /* AppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTools.h; sourceTree = "<group>"; };
 		636B73F51DF01CCF0042E7F9 /* AppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTools.m; sourceTree = "<group>"; };
-		636B73FD1DF024080042E7F9 /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = "<group>"; };
-		636B73FE1DF024080042E7F9 /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = "<group>"; };
-		636B73FF1DF024080042E7F9 /* BindPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindPhoneViewController.xib; sourceTree = "<group>"; };
-		636B74001DF024080042E7F9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		636B74011DF024080042E7F9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		636B74021DF024080042E7F9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		636B74031DF024080042E7F9 /* RestPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestPasswordViewController.h; sourceTree = "<group>"; };
-		636B74041DF024080042E7F9 /* RestPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestPasswordViewController.m; sourceTree = "<group>"; };
-		636B74051DF024080042E7F9 /* RestPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestPasswordViewController.xib; sourceTree = "<group>"; };
-		636B74061DF024080042E7F9 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
-		636B74071DF024080042E7F9 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		636B740F1DF029F60042E7F9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		636B74101DF029F60042E7F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		638E81241DF160C200BB7654 /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = "<group>"; };
+		638E81251DF160C200BB7654 /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = "<group>"; };
+		638E81261DF160C200BB7654 /* BindPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindPhoneViewController.xib; sourceTree = "<group>"; };
+		638E81271DF160C200BB7654 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		638E81281DF160C200BB7654 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		638E81291DF160C200BB7654 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		638E812A1DF160C200BB7654 /* PerfectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfectViewController.h; sourceTree = "<group>"; };
+		638E812B1DF160C200BB7654 /* PerfectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfectViewController.m; sourceTree = "<group>"; };
+		638E812C1DF160C200BB7654 /* RestPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestPasswordViewController.h; sourceTree = "<group>"; };
+		638E812D1DF160C200BB7654 /* RestPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestPasswordViewController.m; sourceTree = "<group>"; };
+		638E812E1DF160C200BB7654 /* RestPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestPasswordViewController.xib; sourceTree = "<group>"; };
+		638E812F1DF160C200BB7654 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		638E81301DF160C200BB7654 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		638E813B1DF160DA00BB7654 /* PerfectHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfectHeadView.h; sourceTree = "<group>"; };
+		638E813C1DF160DA00BB7654 /* PerfectHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfectHeadView.m; sourceTree = "<group>"; };
+		638E813E1DF1612700BB7654 /* PerfectHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerfectHeadView.xib; sourceTree = "<group>"; };
+		638E81401DF16A7800BB7654 /* PerfectMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfectMsgCell.h; sourceTree = "<group>"; };
+		638E81411DF16A7800BB7654 /* PerfectMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfectMsgCell.m; sourceTree = "<group>"; };
+		638E81421DF16A7800BB7654 /* PerfectMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerfectMsgCell.xib; sourceTree = "<group>"; };
 		A963949E3CD318923A096B6A /* Pods-GraduationProject-ZCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,19 +238,51 @@
 		636B73FC1DF024080042E7F9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				636B74061DF024080042E7F9 /* StartViewController.h */,
-				636B74071DF024080042E7F9 /* StartViewController.m */,
-				636B74001DF024080042E7F9 /* LoginViewController.h */,
-				636B74011DF024080042E7F9 /* LoginViewController.m */,
-				636B74021DF024080042E7F9 /* LoginViewController.xib */,
-				636B73FD1DF024080042E7F9 /* BindPhoneViewController.h */,
-				636B73FE1DF024080042E7F9 /* BindPhoneViewController.m */,
-				636B73FF1DF024080042E7F9 /* BindPhoneViewController.xib */,
-				636B74031DF024080042E7F9 /* RestPasswordViewController.h */,
-				636B74041DF024080042E7F9 /* RestPasswordViewController.m */,
-				636B74051DF024080042E7F9 /* RestPasswordViewController.xib */,
+				638E81321DF160C200BB7654 /* View */,
+				638E81231DF160C200BB7654 /* Controller */,
+				638E81311DF160C200BB7654 /* Model */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		638E81231DF160C200BB7654 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				638E812F1DF160C200BB7654 /* StartViewController.h */,
+				638E81301DF160C200BB7654 /* StartViewController.m */,
+				638E81271DF160C200BB7654 /* LoginViewController.h */,
+				638E81281DF160C200BB7654 /* LoginViewController.m */,
+				638E81291DF160C200BB7654 /* LoginViewController.xib */,
+				638E812A1DF160C200BB7654 /* PerfectViewController.h */,
+				638E812B1DF160C200BB7654 /* PerfectViewController.m */,
+				638E812C1DF160C200BB7654 /* RestPasswordViewController.h */,
+				638E812D1DF160C200BB7654 /* RestPasswordViewController.m */,
+				638E812E1DF160C200BB7654 /* RestPasswordViewController.xib */,
+				638E81241DF160C200BB7654 /* BindPhoneViewController.h */,
+				638E81251DF160C200BB7654 /* BindPhoneViewController.m */,
+				638E81261DF160C200BB7654 /* BindPhoneViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		638E81311DF160C200BB7654 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		638E81321DF160C200BB7654 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				638E813B1DF160DA00BB7654 /* PerfectHeadView.h */,
+				638E813C1DF160DA00BB7654 /* PerfectHeadView.m */,
+				638E813E1DF1612700BB7654 /* PerfectHeadView.xib */,
+				638E81401DF16A7800BB7654 /* PerfectMsgCell.h */,
+				638E81411DF16A7800BB7654 /* PerfectMsgCell.m */,
+				638E81421DF16A7800BB7654 /* PerfectMsgCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CD1E45ED09C58D3F7BD4891B /* Frameworks */ = {
@@ -360,11 +405,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636B740B1DF024080042E7F9 /* LoginViewController.xib in Resources */,
-				636B74091DF024080042E7F9 /* BindPhoneViewController.xib in Resources */,
+				638E81361DF160C200BB7654 /* LoginViewController.xib in Resources */,
+				638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
-				636B740D1DF024080042E7F9 /* RestPasswordViewController.xib in Resources */,
+				638E81441DF16A7800BB7654 /* PerfectMsgCell.xib in Resources */,
+				638E813F1DF1612700BB7654 /* PerfectHeadView.xib in Resources */,
+				638E81391DF160C200BB7654 /* RestPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,18 +484,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638E81331DF160C200BB7654 /* BindPhoneViewController.m in Sources */,
 				636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */,
+				638E813D1DF160DA00BB7654 /* PerfectHeadView.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,
+				638E813A1DF160C200BB7654 /* StartViewController.m in Sources */,
+				638E81381DF160C200BB7654 /* RestPasswordViewController.m in Sources */,
 				636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */,
 				636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */,
-				636B740A1DF024080042E7F9 /* LoginViewController.m in Sources */,
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
+				638E81371DF160C200BB7654 /* PerfectViewController.m in Sources */,
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
-				636B74081DF024080042E7F9 /* BindPhoneViewController.m in Sources */,
-				636B740C1DF024080042E7F9 /* RestPasswordViewController.m in Sources */,
-				636B740E1DF024080042E7F9 /* StartViewController.m in Sources */,
+				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,
 				636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */,
+				638E81351DF160C200BB7654 /* LoginViewController.m in Sources */,
 				636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

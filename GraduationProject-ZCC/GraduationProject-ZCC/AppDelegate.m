@@ -10,6 +10,7 @@
 #import "StartViewController.h"
 
 #define kBmobID @"9566251bffe6cac91c8f35d21abbb199"
+#define kUMengAppKey @"584111fd310c9374c400007e"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,8 @@
     [self.window makeKeyAndVisible];
     self.window.backgroundColor = [UIColor lightGrayColor];
     
+    //注册友盟
+    [self uMengShare];
     //注册Bmob
     [Bmob registerWithAppKey:kBmobID];
     
@@ -33,6 +36,54 @@
     self.window.rootViewController = nav;
     
     return YES;
+}
+
+
+/**
+ 友盟相关设置
+ */
+- (void)uMengShare
+{
+    //打开调试日志
+    [[UMSocialManager defaultManager] openLog:YES];
+    [[UMSocialManager defaultManager]setUmSocialAppkey:kUMengAppKey];
+
+    //设置微信的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+    
+    //设置分享到QQ互联的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"100424468"  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    
+    //设置新浪的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3363372238"  appSecret:@"73fd22b1ea01183b3b8bfc1184bda874" redirectURL:@"http://www.baidu.com"];
+}
+
+// 支持所有iOS系统
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
 }
 
 @end

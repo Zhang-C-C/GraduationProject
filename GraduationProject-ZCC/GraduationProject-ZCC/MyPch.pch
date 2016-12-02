@@ -18,5 +18,10 @@
 #import "UIViewController+HUDHelper.h"//HUDHelper提示信息
 #import "UIBarButtonItem+CustomButton.h"//导航栏按妞
 #import "MainViewController.h"//tabBar控制器
+#import <UMSocialQQHandler.h>
+#import <UMSocialSinaHandler.h>
+#import <UMSocialWechatHandler.h>
+#import <UMSocialCore/UMSocialCore.h>
+
 
 #endif /* MyPch_h */

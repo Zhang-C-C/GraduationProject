@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "BindPhoneViewController.h"
 #import "RestPasswordViewController.h"
+#import "PerfectViewController.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 
@@ -96,6 +97,16 @@
  */
 - (void)loginWithAccount:(NSString *)userName WithPassword:(NSString *)passweod
 {
+    if (userName.length == 0) {
+        
+        [self showErrorWith:@"请输入用户名或者手机号"];
+        return ;
+    }
+    if (passweod.length ==0) {
+        
+        [self showErrorWith:@"请输入密码"];
+        return ;
+    }
     //根据账号登录,可以使手机号
     [BmobUser loginInbackgroundWithAccount:userName andPassword:passweod block:^(BmobUser *user, NSError *error) {
         
@@ -197,6 +208,16 @@
  */
 - (IBAction)registerBtnAction:(UIButton *)sender {
     
+    PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
+    perfectVC.title = @"完善信息";
+    perfectVC.account = self.accountNotR.text;
+    perfectVC.account = self.passwordNotR.text;
+    [self.navigationController pushViewController:perfectVC animated:YES];
+    
+    return ;
+    
+    //=================
+    
     [self viewEndEniting];
     //注册账号
     BmobUser *user = [[BmobUser alloc]init];
@@ -207,7 +228,7 @@
        
         if (isSuccessful) {
             
-            [self showSuccessWith:@"注册用户成功"];
+            [self showLoadingWith:@"注册用户..."];
             
             //发起登录请求
             [BmobUser loginWithUsernameInBackground:self.accountNotR.text password:self.passwordNotR.text block:^(BmobUser *user, NSError *error) {
@@ -216,12 +237,12 @@
                     
                     [self showSuccessWith:@"登陆成功!"];
                     
-                    //保存用户名密码
-                    [kUserDefaultDict setObject:self.accountNotR.text forKey:kUserName];
-                    [kUserDefaultDict setObject:self.passwordNotR.text forKey:kPassword];
-
-                    //重新设置跟试图控制器
-                    kRootViewController = [[MainViewController alloc]init];
+                    //跳转到完善信息页面
+                    PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
+                    perfectVC.title = @"完善信息";
+                    perfectVC.account = self.accountNotR.text;
+                    perfectVC.account = self.passwordNotR.text;
+                    [self.navigationController pushViewController:perfectVC animated:YES];
                 
                 }else{
                     
@@ -236,6 +257,72 @@
     }];
 }
 
+/**
+ 获取三方登录的用户信息
+
+ @param platformType 类型
+ */
+- (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType
+{
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:self completion:^(id result, NSError *error) {
+        
+        if (error) {
+            
+            NSLog(@"三方登录失败:%@",error);
+            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            return ;
+        }
+        [self showLoadingWith:@"正在登陆"];
+        
+        UMSocialUserInfoResponse *userInfo = result;
+        UMSocialResponse *response = result;
+        //发起登陆操作
+        [self otherUserLoginWithToken:response.accessToken Withuid:response.uid WithExpirationDate:response.expiration WithuserInfo:userInfo];
+    }];
+}
+
+/**
+ 发起三方登录
+
+ @param token token
+ @param uid uid
+ @param date date
+ */
+- (void)otherUserLoginWithToken:(NSString *)token Withuid:(NSString *)uid WithExpirationDate:(NSDate *)date WithuserInfo:(UMSocialUserInfoResponse *)userInfo
+{
+    //得到授权信息，请按照例子来生成NSDictionary
+    NSDictionary *dic = @{@"access_token":token,@"uid":uid,@"expirationDate":date};
+    
+    //通过授权信息注册登录
+    [BmobUser loginInBackgroundWithAuthorDictionary:dic platform:BmobSNSPlatformSinaWeibo block:^(BmobUser *user, NSError *error) {
+       
+        if (!error) {
+            
+            //保存信息
+            [AppTools updateUserMsgWithUserName:userInfo.name WithPassword:@"123456" WithMobilePhone:nil WithImageUrl:userInfo.iconurl WithSaveSucBlock:^{
+                
+                [self showSuccessWith:@"登陆成功"];
+                //保存用户名密码 ,跳到首页
+                [kUserDefaultDict setObject:userInfo.name forKey:kUserName];
+                [kUserDefaultDict setObject:@"123456" forKey:kPassword];
+                kRootViewController = [[MainViewController alloc]init];
+                
+            } WithSaveError:^(NSError *error) {
+                
+                [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+                
+            }];
+            
+        }else{
+            
+            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+        }
+        
+         NSLog(@"user objectid is :%@",user.objectId);
+        
+    }];
+}
+
 #pragma mark ----三方登录按钮点击事件----
 
 /**
@@ -245,8 +332,7 @@
  */
 - (IBAction)qqBtnAction:(UIButton *)sender {
     
-    
-    
+    [self getUserInfoForPlatform:UMSocialPlatformType_QQ];
 }
 
 /**
@@ -256,6 +342,7 @@
  */
 - (IBAction)weiChatbtnAction:(UIButton *)sender {
     
+    [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession];
 }
 
 /**
@@ -265,6 +352,7 @@
  */
 - (IBAction)sinaBtnAction:(UIButton *)sender {
     
+    [self getUserInfoForPlatform:UMSocialPlatformType_Sina];
 }
 
 - (void)didReceiveMemoryWarning {

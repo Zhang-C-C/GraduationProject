@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+//确认按钮
 typedef void(^SureBtn)(void);
-
+//取消按钮
 typedef void(^CancleBtn)(void);
+
+//保存信息成功
+typedef void(^SaveSuccess)(void);
+//保存信息失败
+typedef void(^SaveError)(NSError *error);
 
 @interface AppTools : NSObject
 
@@ -44,5 +50,17 @@ typedef void(^CancleBtn)(void);
  @param time 总时间
  */
 - (void)startTimerWithBtn:(UIButton *)sendBtn WithTime:(NSInteger )time;
+
+/**
+ 更新用户信息
+
+ @param userName 昵称
+ @param password 密码
+ @param mobilePhone 手机号
+ @param imageUrl 头像url
+ @param success 保存成功
+ @param saveError 保存失败
+ */
++ (void)updateUserMsgWithUserName:(NSString *)userName WithPassword:(NSString *)password WithMobilePhone:(NSString *)mobilePhone WithImageUrl:(NSString *)imageUrl WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError;
 
 @end

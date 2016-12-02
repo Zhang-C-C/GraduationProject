@@ -30,6 +30,48 @@
     return tools;
 }
 
++ (void)updateUserMsgWithUserName:(NSString *)userName WithPassword:(NSString *)password WithMobilePhone:(NSString *)mobilePhone WithImageUrl:(NSString *)imageUrl WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError
+{
+    //保存信息
+    BmobUser *buser = [BmobUser currentUser];
+    
+    //保存信息
+    
+    if (userName.length >0) {
+        
+        [buser setObject:userName forKey:@"username"];
+    }
+    if (password.length >0) {
+        
+        [buser setObject:password forKey:@"password"];
+    }
+    
+    if (mobilePhone.length >0) {
+        
+        [buser setObject:mobilePhone forKey:@"mobilePhoneNumber"];
+    }
+    
+    if (imageUrl.length >0) {
+        
+        [buser setObject:imageUrl forKey:@"imageUrl"];
+    }
+    
+    [buser updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            
+            if (success) {
+                success();
+            }
+            
+        }else{
+            
+            if (saveError) {
+                saveError(error);
+            }
+        }
+    }];
+}
+
 + (void)alertViewWithTitle:(NSString *)title WithMsg:(NSString *)msg WithSureBtn:(NSString *)sureBtn WithCancleBtn:(NSString *)cancleBtn WithVC:(UIViewController *)vc WithSureBtn:(SureBtn )sure WithCancleBtn:(CancleBtn )cancle
 {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
