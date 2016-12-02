@@ -37,4 +37,12 @@ typedef void(^CancleBtn)(void);
 */
 + (BOOL)isValidateMobile:(NSString *)mobile;
 
+/**
+ 计时器开启
+
+ @param sendBtn 发送验证码的按钮
+ @param time 总时间
+ */
+- (void)startTimerWithBtn:(UIButton *)sendBtn WithTime:(NSInteger )time;
+
 @end

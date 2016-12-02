@@ -10,6 +10,10 @@
 
 @interface AppTools ()
 
+@property(nonatomic,assign)NSInteger time;
+//遮盖试图
+@property(nonatomic,strong)UIView *maskView;
+
 @end
 
 @implementation AppTools
@@ -102,4 +106,58 @@
         }
     }
 }
+
+//开启定时器
+- (void)startTimerWithBtn:(UIButton *)sendBtn WithTime:(NSInteger )time
+{
+    self.maskView.hidden = NO;
+    self.maskView.frame = sendBtn.bounds;
+    [sendBtn addSubview:self.maskView];
+    
+    self.time = time;
+    
+    dispatch_queue_t queue = dispatch_queue_create("lll", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue, ^{
+        
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeChangeAction:) userInfo:@{@"sendBtn":sendBtn} repeats:YES];
+        [[NSRunLoop currentRunLoop] run];// 如果没有这句，doSomething将不会执行！！！
+    });
+}
+
+/**
+ 定时器事件
+ 
+ @param timer 定时器
+ */
+- (void)timeChangeAction:(NSTimer *)timer
+{
+    NSDictionary *dic = timer.userInfo;
+    
+    UIButton *sendSMSBtn = dic[@"sendBtn"];
+    
+    self.time --;
+    [sendSMSBtn setTitle:[NSString stringWithFormat:@"已发送%lds",self.time] forState:UIControlStateSelected];
+    if (self.time == 0) {
+        
+        [timer invalidate];
+        timer = nil;
+        
+        self.time = 60;
+        sendSMSBtn.selected = NO;
+        [sendSMSBtn setTitle:@"请重试!" forState:UIControlStateNormal];
+        self.maskView.hidden = YES;
+    }
+}
+
+#pragma mark ---Lazy----
+- (UIView *)maskView
+{
+    if (!_maskView) {
+        _maskView = [[UIView alloc]init];
+        _maskView.backgroundColor = [UIColor grayColor];
+        _maskView.alpha = 0.5;
+    }
+    return _maskView;
+}
+
 @end
