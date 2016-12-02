@@ -7,5 +7,9 @@ pod 'MJRefresh'
 pod 'UMengAnalytics'
 pod 'BaiduMapKit'
 pod 'BmobSDK'
+pod 'UMengUShare/Social/Sina'
+pod 'UMengUShare/Social/QQ'
+pod 'UMengUShare/Social/WeChat'
+pod 'UMengUShare/UI'
 
 end

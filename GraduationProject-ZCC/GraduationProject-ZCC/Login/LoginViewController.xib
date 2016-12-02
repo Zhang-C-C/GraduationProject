@@ -160,23 +160,44 @@
                         <constraint firstAttribute="height" constant="200" id="zH3-rj-720"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8O-5T-L2I">
-                    <rect key="frame" x="60" y="587" width="30" height="30"/>
-                    <state key="normal" title="QQ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8O-5T-L2I" userLabel="QQ">
+                    <rect key="frame" x="60" y="575" width="32" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="I3s-1D-lpd"/>
+                        <constraint firstAttribute="height" constant="42" id="Knz-d7-dUn"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="QQ">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="qqBtnAction:" destination="-1" eventType="touchUpInside" id="zhU-mC-laX"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ol8-tv-vEP">
-                    <rect key="frame" x="172" y="587" width="31" height="30"/>
-                    <state key="normal" title="微信">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ol8-tv-vEP" userLabel="weiChat">
+                    <rect key="frame" x="167" y="579" width="41" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="41" id="Ida-QA-OQ8"/>
+                        <constraint firstAttribute="height" constant="38" id="NUR-hl-2V7"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="wchat">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="weiChatbtnAction:" destination="-1" eventType="touchUpInside" id="qVD-Cc-aK6"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8f-k6-OtB">
-                    <rect key="frame" x="284" y="587" width="31" height="30"/>
-                    <state key="normal" title="微博">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8f-k6-OtB" userLabel="sina">
+                    <rect key="frame" x="276" y="577" width="39" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="39" id="Ixv-48-8lk"/>
+                        <constraint firstAttribute="height" constant="40" id="giI-wM-Pgg"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="weibo">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="sinaBtnAction:" destination="-1" eventType="touchUpInside" id="4N3-Dl-sWV"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWO-B7-xEa">
                     <rect key="frame" x="243" y="155" width="65" height="29"/>
@@ -192,15 +213,23 @@
                         <action selector="changeViewBtnAction:" destination="-1" eventType="touchUpInside" id="nq2-hT-5Rj"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GraduationProject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-t9-adn">
+                    <rect key="frame" x="87" y="80" width="201" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
                 <constraint firstItem="dCx-RF-X5Z" firstAttribute="top" secondItem="pks-dR-Px0" secondAttribute="top" id="3Nz-eN-Pon"/>
+                <constraint firstItem="Vqe-t9-adn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Acd-aB-RhZ"/>
                 <constraint firstItem="i8O-5T-L2I" firstAttribute="bottom" secondItem="Ol8-tv-vEP" secondAttribute="bottom" id="G0y-m0-VXm"/>
                 <constraint firstItem="dCx-RF-X5Z" firstAttribute="height" secondItem="pks-dR-Px0" secondAttribute="height" id="Ixh-rl-SBH"/>
                 <constraint firstAttribute="trailing" secondItem="J8f-k6-OtB" secondAttribute="trailing" constant="60" id="QuY-Io-FO0"/>
                 <constraint firstItem="dCx-RF-X5Z" firstAttribute="width" secondItem="pks-dR-Px0" secondAttribute="width" id="QyA-JG-ujS"/>
                 <constraint firstItem="pks-dR-Px0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-49.5" id="YI8-LM-os2"/>
                 <constraint firstItem="i8O-5T-L2I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="ZUB-HL-aMw"/>
+                <constraint firstItem="Vqe-t9-adn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="aya-oG-Pll"/>
                 <constraint firstItem="J8f-k6-OtB" firstAttribute="bottom" secondItem="Ol8-tv-vEP" secondAttribute="bottom" id="bmF-at-wvo"/>
                 <constraint firstItem="pks-dR-Px0" firstAttribute="top" secondItem="mWO-B7-xEa" secondAttribute="bottom" id="cQx-bz-Gyn"/>
                 <constraint firstAttribute="bottom" secondItem="Ol8-tv-vEP" secondAttribute="bottom" constant="50" id="h1l-B8-kNC"/>
@@ -212,4 +241,9 @@
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="QQ" width="14" height="17"/>
+        <image name="wchat" width="20" height="17"/>
+        <image name="weibo" width="21" height="17"/>
+    </resources>
 </document>

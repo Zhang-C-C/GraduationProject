@@ -236,6 +236,37 @@
     }];
 }
 
+#pragma mark ----三方登录按钮点击事件----
+
+/**
+ QQ登录按钮点击事件
+
+ @param sender 按钮
+ */
+- (IBAction)qqBtnAction:(UIButton *)sender {
+    
+    
+    
+}
+
+/**
+ 微信登录按钮点击事件
+
+ @param sender 按钮
+ */
+- (IBAction)weiChatbtnAction:(UIButton *)sender {
+    
+}
+
+/**
+ 新浪微博登录按钮点击事件
+
+ @param sender 按钮
+ */
+- (IBAction)sinaBtnAction:(UIButton *)sender {
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
