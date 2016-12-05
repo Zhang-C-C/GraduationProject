@@ -335,13 +335,26 @@ static NSString *identifier = @"perfectMsgCell";
     
     if (textView == nameCell.inPutView) {
         
+        self.nickName = textView.text;
+        
+    }else if (textView == QMCell.QMTextView){
+        
+        //保存用户输入
+        self.QMString = textView.text;
+    }
+}
+
+//结束编辑
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    PerfectMsgCell *nameCell = [self getSelectedCellWithRow:0 WithSection:0];
+    PerfectMsgCell *QMCell = [self getSelectedCellWithRow:0 WithSection:1];
+    
+    if (textView == nameCell.inPutView) {
+        
         if ([textView.text isEqualToString:@""]) {
             
             textView.text = @"请输入昵称";
-            
-        }else{
-            
-            self.nickName = textView.text;
         }
         
     }else if (textView == QMCell.QMTextView){
@@ -349,21 +362,11 @@ static NSString *identifier = @"perfectMsgCell";
         if ([textView.text isEqualToString:@""]) {
             
             textView.text = @"请输入您的个性签名";
-            
-        }else{
-            
-            //保存用户输入
-            self.QMString = textView.text;
-            
-            //CGRect rect = [textView.text boundingRectWithSize:CGSizeMake(280, 999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]} context:nil];
-            
-            //self.QMCellHeight = rect.size.height;
-            //刷新指定的一行数据
-            //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-            //[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }
     }
+    return YES;
 }
+
 
 #pragma mark ----Lazy----
 
