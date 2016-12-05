@@ -25,7 +25,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入用户名" translatesAutoresizingMaskIntoConstraints="NO" id="9l3-eu-2kr">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入昵称" translatesAutoresizingMaskIntoConstraints="NO" id="9l3-eu-2kr">
                         <rect key="frame" x="70" y="3" width="210" height="44"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>

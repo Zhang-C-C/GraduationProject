@@ -10,6 +10,9 @@
 
 @interface PerfectViewController : BaseViewController
 
+//安全判断,用于隐藏绑定信息 默认值为0 
+@property(nonatomic,assign)BOOL isLogin;
+
 @property(nonatomic,copy)NSString *account;
 @property(nonatomic,copy)NSString *password;
 

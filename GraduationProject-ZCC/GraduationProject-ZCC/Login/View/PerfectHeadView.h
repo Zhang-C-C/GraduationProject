@@ -10,11 +10,15 @@
 
 @interface PerfectHeadView : UIView
 
+//从nib加载
 + (instancetype)loadView;
 
-
+//定位按钮
 @property (weak, nonatomic) IBOutlet UIButton *locationBtn;
-
+//头像按钮
 @property (weak, nonatomic) IBOutlet UIButton *headImgVBtn;
+
+//图片本地路径
+@property(nonatomic,copy)NSString *imgPath;
 
 @end

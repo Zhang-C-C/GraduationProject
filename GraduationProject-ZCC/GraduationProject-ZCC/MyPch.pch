@@ -22,6 +22,6 @@
 #import <UMSocialSinaHandler.h>
 #import <UMSocialWechatHandler.h>
 #import <UMSocialCore/UMSocialCore.h>
-
+#import "UIView+ViewController.h"
 
 #endif /* MyPch_h */

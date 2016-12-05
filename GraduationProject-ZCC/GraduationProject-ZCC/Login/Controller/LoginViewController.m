@@ -208,15 +208,27 @@
  */
 - (IBAction)registerBtnAction:(UIButton *)sender {
     
-    PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
-    perfectVC.title = @"完善信息";
-    perfectVC.account = self.accountNotR.text;
-    perfectVC.account = self.passwordNotR.text;
-    [self.navigationController pushViewController:perfectVC animated:YES];
-    
-    return ;
+//    PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
+//    perfectVC.title = @"完善信息";
+//    perfectVC.isLogin = NO;
+//    perfectVC.account = self.accountNotR.text;
+//    perfectVC.password = self.passwordNotR.text;
+//    [self.navigationController pushViewController:perfectVC animated:YES];
+//    
+//    return ;
     
     //=================
+    
+    if (self.accountNotR.text.length == 0) {
+        
+        [self showErrorWith:@"请输入用户名"];
+        return ;
+    }
+    if (self.passwordNotR.text.length ==0) {
+        
+        [self showErrorWith:@"请输入密码"];
+        return ;
+    }
     
     [self viewEndEniting];
     //注册账号
@@ -240,8 +252,9 @@
                     //跳转到完善信息页面
                     PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
                     perfectVC.title = @"完善信息";
+                    perfectVC.isLogin = NO;
                     perfectVC.account = self.accountNotR.text;
-                    perfectVC.account = self.passwordNotR.text;
+                    perfectVC.password = self.passwordNotR.text;
                     [self.navigationController pushViewController:perfectVC animated:YES];
                 
                 }else{

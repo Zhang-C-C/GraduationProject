@@ -11,6 +11,7 @@
 #import "PerfectHeadView.h"
 #import "PerfectMsgCell.h"
 #import "SexPickerTools.h"
+#import "HCDataHelper.h"
 
 static NSString *identifier = @"perfectMsgCell";
 
@@ -27,9 +28,10 @@ static NSString *identifier = @"perfectMsgCell";
 //记录单元格高度
 //@property(nonatomic,assign)CGFloat QMCellHeight;
 
-@property(nonatomic,copy)NSString *userName;
+@property(nonatomic,copy)NSString *nickName;
+@property(nonatomic,copy)NSString *imgURL;
 @property(nonatomic,copy)NSString *QMString;
-@property(nonatomic,copy)NSString *sex;
+@property(nonatomic,strong)NSNumber *sex;
 
 @end
 
@@ -100,9 +102,41 @@ static NSString *identifier = @"perfectMsgCell";
  */
 - (void)finishBtnAction
 {
-    NSLog(@"昵称:%@,性别:%@,签名:%@",self.userName,self.sex,self.QMString);
+    NSLog(@"%@-------%@",self.nickName,self.QMString);
     
+    PerfectHeadView *headView = (PerfectHeadView *)self.tableView.tableHeaderView;
+    [self showLoadingWith:@"保存中"];
     
+    //上传头像
+    BmobObject *obj = [[BmobObject alloc] initWithClassName:@"_User"];
+    BmobFile *file1 = [[BmobFile alloc] initWithFilePath:headView.imgPath];
+    [file1 saveInBackground:^(BOOL isSuccessful, NSError *error) {
+        
+        //如果文件保存成功，则把文件添加到filetype列
+        if (isSuccessful) {
+
+            [obj saveInBackground];
+            
+            //更新用户数据
+            [AppTools updateUserMsgWithNickName:self.nickName WithImageUrl:file1.url WithSex:self.sex WithQM:self.QMString WithSaveSucBlock:^{
+                
+                [self showSuccessWith:@"保存成功"];
+                //重新设置跟试图控制器
+                [kUserDefaultDict setObject:self.account forKey:kUserName];
+                [kUserDefaultDict setObject:self.password forKey:kPassword];
+                kRootViewController = [[MainViewController alloc]init];
+                
+            } WithSaveError:^(NSError *error) {
+                
+                [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            }];
+            
+        }else{
+            
+            //进行处理
+            [self showErrorWith:@"上传失败,请重试"];
+        }
+    }];
 }
 
 /**
@@ -116,7 +150,7 @@ static NSString *identifier = @"perfectMsgCell";
     NSDictionary *dic = note.userInfo;
     NSLog(@"当前选中的为:%@",dic[@"row"]);
     //赋值保存
-    self.sex = [NSString stringWithFormat:@"%ld",[dic[@"row"] integerValue]];
+    self.sex = dic[@"row"];
 }
 
 /**
@@ -153,6 +187,11 @@ static NSString *identifier = @"perfectMsgCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (self.isLogin) {
+        return 3;
+    }else{
+        return 2;
+    }
     return 3;
 }
 
@@ -239,7 +278,12 @@ static NSString *identifier = @"perfectMsgCell";
         return @"签名";
     }else if (section == 1){
         
-        return @"账号绑定";
+        if (self.isLogin) {
+            
+            return @"账号绑定";
+        }else{
+            return @"";
+        }
     }
     return @"";
 }
@@ -268,7 +312,7 @@ static NSString *identifier = @"perfectMsgCell";
     
     if (textView == nameCell.inPutView) {
         
-        if ([textView.text isEqualToString:@"请输入用户名"]) {
+        if ([textView.text isEqualToString:@"请输入昵称"]) {
             
             textView.text = nil;
         }
@@ -283,8 +327,8 @@ static NSString *identifier = @"perfectMsgCell";
     return YES;
 }
 
-//结束编辑时调用
-- (void)textViewDidEndEditing:(UITextView *)textView
+//输入有变化时调用
+- (void)textViewDidChange:(UITextView *)textView
 {
     PerfectMsgCell *nameCell = [self getSelectedCellWithRow:0 WithSection:0];
     PerfectMsgCell *QMCell = [self getSelectedCellWithRow:0 WithSection:1];
@@ -293,11 +337,11 @@ static NSString *identifier = @"perfectMsgCell";
         
         if ([textView.text isEqualToString:@""]) {
             
-            textView.text = @"请输入用户名";
-        
+            textView.text = @"请输入昵称";
+            
         }else{
             
-            self.userName = textView.text;
+            self.nickName = textView.text;
         }
         
     }else if (textView == QMCell.QMTextView){

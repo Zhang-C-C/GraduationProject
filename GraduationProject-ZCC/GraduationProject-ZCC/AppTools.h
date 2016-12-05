@@ -54,7 +54,7 @@ typedef void(^SaveError)(NSError *error);
 /**
  更新用户信息
 
- @param userName 昵称
+ @param userName 用户名
  @param password 密码
  @param mobilePhone 手机号
  @param imageUrl 头像url
@@ -62,5 +62,20 @@ typedef void(^SaveError)(NSError *error);
  @param saveError 保存失败
  */
 + (void)updateUserMsgWithUserName:(NSString *)userName WithPassword:(NSString *)password WithMobilePhone:(NSString *)mobilePhone WithImageUrl:(NSString *)imageUrl WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError;
+
+/**
+ 更新用户信息
+
+ @param nickName 昵称
+ @param imageUrl 头像地址
+ @param sex 性别
+ @param qm 签名
+ @param success 成功
+ @param saveError 失败
+ */
++ (void)updateUserMsgWithNickName:(NSString *)nickName WithImageUrl:(NSString *)imageUrl WithSex:(NSNumber *)sex WithQM:(NSString *)qm WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError;
+
+//图片压缩到指定大小
++ (UIImage*)imageByScalingAndCroppingWithImg:(UIImage *)sourceImage ForSize:(CGSize)targetSize;
 
 @end

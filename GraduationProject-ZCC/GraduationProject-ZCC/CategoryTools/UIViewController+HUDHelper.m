@@ -31,7 +31,7 @@
 - (void)showLoadingWith:(NSString *)msg
 {
     [SVProgressHUD showWithStatus:msg];
-    [self performSelector:@selector(dismissHUD) withObject:nil afterDelay:1];
+    //[self performSelector:@selector(dismissHUD) withObject:nil afterDelay:1];
 }
 
 - (void)showProgressWith:(CGFloat )progress
