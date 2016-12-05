@@ -16,4 +16,7 @@
 @property(nonatomic,copy)NSString *account;
 @property(nonatomic,copy)NSString *password;
 
+//数据
+@property(nonatomic,strong)BmobObject *user;
+
 @end

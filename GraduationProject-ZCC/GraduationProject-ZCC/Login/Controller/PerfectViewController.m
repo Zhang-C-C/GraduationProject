@@ -55,18 +55,35 @@ static NSString *identifier = @"perfectMsgCell";
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.backgroundColor = [UIColor clearColor];
     //设置表视图头试图
-    tableView.tableHeaderView = [PerfectHeadView loadView];
+    PerfectHeadView *view = [PerfectHeadView loadView];
+    tableView.tableHeaderView = view;
+    
+    if (self.user) {
+        
+        [view.headImgVBtn sd_setImageWithURL:[NSURL URLWithString:[self.user objectForKey:@"imageUrl"]] forState:UIControlStateNormal];
+    }
     
     [tableView registerClass:[PerfectMsgCell class] forCellReuseIdentifier:identifier];
     
     self.tableView = tableView;
     [self.view addSubview:tableView];
     
-    //设置导航栏右侧按钮
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithSize:CGSizeMake(50, 50) Title:@"跳过" target:self action:@selector(skipAction)];
+    if (!self.isLogin) {
+        
+        //设置导航栏右侧按钮
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"跳过" target:self action:@selector(skipAction)];
+    }
     
     //添加完成按钮
     [self addFinishBtn];
+}
+
+//获取数据
+- (void)setUser:(BmobObject *)user
+{
+    _user = user;
+    
+    NSLog(@"获取数据:=======%@=======",_user);
 }
 
 //保存密码,并跳转到首页
@@ -102,8 +119,6 @@ static NSString *identifier = @"perfectMsgCell";
  */
 - (void)finishBtnAction
 {
-    NSLog(@"%@-------%@",self.nickName,self.QMString);
-    
     PerfectHeadView *headView = (PerfectHeadView *)self.tableView.tableHeaderView;
     [self showLoadingWith:@"保存中"];
     
@@ -121,6 +136,13 @@ static NSString *identifier = @"perfectMsgCell";
             [AppTools updateUserMsgWithNickName:self.nickName WithImageUrl:file1.url WithSex:self.sex WithQM:self.QMString WithSaveSucBlock:^{
                 
                 [self showSuccessWith:@"保存成功"];
+                
+                //保存数据
+                [SaveDataTools sharedInstance].nickName = self.nickName;
+                [SaveDataTools sharedInstance].sex = self.sex;
+                [SaveDataTools sharedInstance].qmString = self.QMString;
+                [SaveDataTools sharedInstance].imgPath = headView.imgPath;
+                
                 //重新设置跟试图控制器
                 [kUserDefaultDict setObject:self.account forKey:kUserName];
                 [kUserDefaultDict setObject:self.password forKey:kPassword];
@@ -148,7 +170,6 @@ static NSString *identifier = @"perfectMsgCell";
 {
     [self tapAction];
     NSDictionary *dic = note.userInfo;
-    NSLog(@"当前选中的为:%@",dic[@"row"]);
     //赋值保存
     self.sex = dic[@"row"];
 }
@@ -219,6 +240,7 @@ static NSString *identifier = @"perfectMsgCell";
         
         PerfectMsgCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"PerfectMsgCell" owner:nil options:nil] lastObject];
         cell.indexPath = indexPath;
+        cell.obj = self.user;
         
         return cell;
     }
@@ -228,7 +250,8 @@ static NSString *identifier = @"perfectMsgCell";
     //设置代理对象
     cell.inPutView.delegate = self;
     cell.QMTextView.delegate = self;
-    
+    cell.obj = self.user;
+   
     return cell;
 }
 

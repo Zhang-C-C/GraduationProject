@@ -26,23 +26,12 @@
 - (void)initNavBtn
 {
     //设置返回按钮的样式
-//    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-//    
-//    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-//    //偏移按钮位置
-//    [button setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
-//    
-//    [button addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc]initWithCustomView:button];
-//    self.navigationItem.leftBarButtonItem = leftBarItem;
-    
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithSize:CGSizeMake(50, 50) imgae:@"back" target:self action:@selector(backBtnAction:)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNoramlImgae:@"back" SelectedImage:nil target:self action:@selector(backBtnAction:)];
 }
 
 - (void)initBackground
 {
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImg-1.jpg"]];
-    
 }
 
 #pragma mark ----Action----

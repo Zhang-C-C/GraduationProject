@@ -35,5 +35,6 @@
 
 //===== 传递数据
 @property(nonatomic,strong)NSIndexPath *indexPath;
+@property(nonatomic,strong)BmobObject *obj;
 
 @end

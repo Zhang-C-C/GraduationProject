@@ -38,7 +38,6 @@
     return YES;
 }
 
-
 /**
  友盟相关设置
  */
@@ -58,12 +57,12 @@
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3363372238"  appSecret:@"73fd22b1ea01183b3b8bfc1184bda874" redirectURL:@"http://www.baidu.com"];
 }
 
-// 支持所有iOS系统
+//支持所有iOS系统
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
     if (!result) {
-        // 其他如支付等SDK的回调
+        //其他如支付等SDK的回调
     }
     return result;
 }
@@ -84,6 +83,39 @@
         // 其他如支付等SDK的回调
     }
     return result;
+}
+
++ (instancetype)sharedAppDelegate{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+//推出控制器
+- (void)pushViewController:(UIViewController *)viewController
+{
+    @autoreleasepool
+    {
+        viewController.hidesBottomBarWhenPushed = YES;
+        [[self navigationViewController] pushViewController:viewController animated:YES];
+    }
+}
+
+// 获取当前活动的navigationcontroller
+- (UINavigationController *)navigationViewController
+{
+    if ([self.window.rootViewController isKindOfClass:[UINavigationController class]])
+    {
+        return (UINavigationController *)self.window.rootViewController;
+    
+    }else if ([self.window.rootViewController isKindOfClass:[UITabBarController class]]){
+       
+        UIViewController *selectVc = [((UITabBarController *)self.window.rootViewController) selectedViewController];
+        
+        if ([selectVc isKindOfClass:[UINavigationController class]]){
+            
+            return (UINavigationController *)selectVc;
+        }
+    }
+    return nil;
 }
 
 @end

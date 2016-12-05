@@ -12,6 +12,14 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (instancetype)sharedAppDelegate;
+
+/**
+ 推出控制器
+
+ @param viewController 控制器
+ */
+- (void)pushViewController:(UIViewController *)viewController;
 
 @end
 

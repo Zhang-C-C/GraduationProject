@@ -10,12 +10,12 @@
 
 @implementation UIBarButtonItem (CustomButton)
 
-+(instancetype)itemWithSize:(CGSize )size Title:(NSString*)title target:(id)target action:(SEL)action{
++(instancetype)itemWithTitle:(NSString*)title target:(id)target action:(SEL)action{
     
     //添加左侧按钮
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:title forState:UIControlStateNormal];
-    button.frame = CGRectMake(0, 0, size.width, size.height);
+    button.frame = CGRectMake(0, 0, 50, 50);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -23,12 +23,19 @@
     return [[self alloc]initWithCustomView:button];
 }
 
-+ (instancetype )itemWithSize:(CGSize)size imgae:(NSString *)imageName target:(id)target action:(SEL)action
++ (instancetype )itemWithNoramlImgae:(NSString *)normal SelectedImage:(NSString *)selectedImg target:(id)target action:(SEL)action
 {
     //设置返回按钮的样式
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     
-    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:normal] forState:UIControlStateNormal];
+    
+    if (selectedImg.length >0) {
+        
+        [button setImage:[UIImage imageNamed:selectedImg] forState:UIControlStateHighlighted];
+        [button setImage:[UIImage imageNamed:selectedImg] forState:UIControlStateSelected];
+    }
+    
     //偏移按钮位置
     [button setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
     

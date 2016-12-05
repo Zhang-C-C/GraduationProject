@@ -11,25 +11,24 @@
 @interface UIBarButtonItem (CustomButton)
 
 /**
- 创建一个UIBarButtonItem对象
+ 创建文字按钮
 
- @param size 大小
  @param title 文字
  @param target 目标
- @param action 点击事件
- @return 对象
+ @param action 事件
+ @return 按钮
  */
-+(instancetype)itemWithSize:(CGSize )size Title:(NSString*)title target:(id)target action:(SEL)action;
++(instancetype)itemWithTitle:(NSString*)title target:(id)target action:(SEL)action;
 
 /**
- 创建一个UIBarButtonItem对象
- 
- @param size 大小
- @param imageName 图片
+ 创建UIBarItem对象
+
+ @param normal 默认图片
+ @param selectedImg 选中图片
  @param target 目标
- @param action 点击事件
- @return 对象
+ @param action 事件
+ @return 按钮
  */
-+ (instancetype )itemWithSize:(CGSize)size imgae:(NSString *)imageName target:(id)target action:(SEL)action;
++ (instancetype )itemWithNoramlImgae:(NSString *)normal SelectedImage:(NSString *)selectedImg target:(id)target action:(SEL)action;
 
 @end

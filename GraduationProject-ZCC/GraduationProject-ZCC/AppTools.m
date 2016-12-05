@@ -87,7 +87,10 @@
         [buser setObject:imageUrl forKey:@"imageUrl"];
     }
     
-    [buser setObject:sex forKey:@"sex"];
+    if (sex) {
+        
+        [buser setObject:sex forKey:@"sex"];
+    }
     
     if (qm.length >0) {
         

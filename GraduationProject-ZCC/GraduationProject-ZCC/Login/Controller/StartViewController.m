@@ -47,6 +47,7 @@
  */
 - (void)loginWithAccount:(NSString *)userName WithPassword:(NSString *)passweod
 {
+    [self showLoadingWith:@"正在登陆"];
     //根据账号登录,可以使手机号
     [BmobUser loginInbackgroundWithAccount:userName andPassword:passweod block:^(BmobUser *user, NSError *error) {
         

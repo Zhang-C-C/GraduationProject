@@ -122,7 +122,12 @@
             
         }else{
             
-            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            [AppTools alertViewWithTitle:@"登录失败" WithMsg:[NSString stringWithFormat:@"%@",error] WithSureBtn:@"重试" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
+                
+                //重新发起登录
+                [self loginWithAccount:self.account.text WithPassword:self.password.text];
+                
+            } WithCancleBtn:nil];
         }
     }];
 }
@@ -207,18 +212,8 @@
  @param sender 按钮
  */
 - (IBAction)registerBtnAction:(UIButton *)sender {
-    
-//    PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
-//    perfectVC.title = @"完善信息";
-//    perfectVC.isLogin = NO;
-//    perfectVC.account = self.accountNotR.text;
-//    perfectVC.password = self.passwordNotR.text;
-//    [self.navigationController pushViewController:perfectVC animated:YES];
-//    
-//    return ;
-    
-    //=================
-    
+
+    //安全判断
     if (self.accountNotR.text.length == 0) {
         
         [self showErrorWith:@"请输入用户名"];

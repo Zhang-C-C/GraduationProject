@@ -23,5 +23,8 @@
 #import <UMSocialWechatHandler.h>
 #import <UMSocialCore/UMSocialCore.h>
 #import "UIView+ViewController.h"
+#import "SaveDataTools.h"
+#import "AppDelegate.h"
+#import <UIButton+WebCache.h>
 
 #endif /* MyPch_h */

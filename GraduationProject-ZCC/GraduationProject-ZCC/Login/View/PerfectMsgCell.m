@@ -16,6 +16,11 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sexChangedNote:) name:@"sureBtn" object:nil];
 }
 
+/**
+ 性别显示
+
+ @param note 字典
+ */
 - (void)sexChangedNote:(NSNotification *)note
 {
     NSInteger index = [[note.userInfo objectForKey:@"row"] integerValue];
@@ -30,6 +35,45 @@
     }else if (index == 2){
         
        self.sexLabel.text = @"女";
+    }
+}
+
+//数据接收
+- (void)setObj:(BmobObject *)obj
+{
+    _obj = obj;
+    
+    self.inPutView.text = [obj objectForKey:@"nickName"];
+    self.QMTextView.text = [obj objectForKey:@"qm"];
+    
+    NSNumber *num = [obj objectForKey:@"sex"];
+    if ([num integerValue] == 0) {
+        
+        self.sexLabel.text = @"保密";
+        
+    }else if ([num integerValue] == 1){
+        
+        self.sexLabel.text = @"男";
+        
+    }else if ([num integerValue] == 2){
+        
+        self.sexLabel.text = @"女";
+    }
+    
+    //绑定信息显示
+    if (self.indexPath.section == 2){
+        
+        if (self.indexPath.row == 0) {
+            
+            self.topLabel.text = @"手机号";
+            self.imgV.image = [UIImage imageNamed:@"phone"];
+            
+            NSString *phone = [obj objectForKey:@"mobilePhoneNumber"];
+            self.bottomLabel.hidden = NO;
+            self.bottomLabel.text = phone;
+            self.rightLabel.text = @"已绑定";
+            self.rightLabel.textColor = REDRGB;
+        }
     }
 }
 

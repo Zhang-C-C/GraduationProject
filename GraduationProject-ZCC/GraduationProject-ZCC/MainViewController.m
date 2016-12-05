@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "BindPhoneViewController.h"
 #import "LoginViewController.h"
+#import "MeViewController.h"
 
 @interface MainViewController ()
 
@@ -16,40 +17,52 @@
 
 @implementation MainViewController
 
++ (void)initialize
+{
+    //设置标签栏按钮的选中未选中文字
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:REDRGB} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]} forState:UIControlStateNormal];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self initView];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [AppTools alertViewWithTitle:@"确认退出?" WithMsg:@"" WithSureBtn:@"退出" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
-        
-        //退出登录,删除密码
-        [BmobUser logout];
-        [kUserDefaultDict removeObjectForKey:kPassword];
-        
-        //重新设置跟试图控制器
-        LoginViewController *loginVC = [[LoginViewController alloc]init];
-        BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:loginVC];
-        kRootViewController = nav;
-        
-    } WithCancleBtn:nil];
-}
-
-- (void)initView
-{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
         [self chechPhoneBinded];
     });
+}
+
+- (void)initView
+{
+    //添加子控制器
+    MeViewController *meVC = [[MeViewController alloc]init];
+    
+    NSArray *vcs = @[meVC];
+    NSArray *titles = @[@"我"];
+    NSArray *normalImgs = @[@"me_normal"];
+    NSArray *selectedImg = @[@"me_selected"];
+    for (int i = 0; i< vcs.count; i ++) {
+        
+        UIViewController *vc = vcs[i];
+        vc.title = titles[i];
+        
+        BaseNavigationController *baseNav = [[BaseNavigationController alloc]initWithRootViewController:vc];
+        
+        //设置按钮图片
+        baseNav.tabBarItem.image = [UIImage imageNamed:normalImgs[i]];
+        baseNav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImg[i]];
+
+        [self addChildViewController:baseNav];
+    }
 }
 
 /**
