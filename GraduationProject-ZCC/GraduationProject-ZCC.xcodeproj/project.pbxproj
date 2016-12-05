@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDB41DF50A6400427097 /* SexPickerTools.m */; };
+		6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364CDB61DF50AA700427097 /* SexPickerTools.xib */; };
 		636B739F1DEFC6680042E7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B739E1DEFC6680042E7F9 /* main.m */; };
 		636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73A11DEFC6680042E7F9 /* AppDelegate.m */; };
 		636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B73A91DEFC6680042E7F9 /* Assets.xcassets */; };
@@ -55,6 +57,9 @@
 /* Begin PBXFileReference section */
 		156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GraduationProject-ZCC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16AA2B755B08F4471E6C839F /* Pods-GraduationProject-ZCC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.release.xcconfig"; sourceTree = "<group>"; };
+		6364CDB31DF50A6400427097 /* SexPickerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPickerTools.h; sourceTree = "<group>"; };
+		6364CDB41DF50A6400427097 /* SexPickerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPickerTools.m; sourceTree = "<group>"; };
+		6364CDB61DF50AA700427097 /* SexPickerTools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPickerTools.xib; sourceTree = "<group>"; };
 		636B739A1DEFC6680042E7F9 /* GraduationProject-ZCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraduationProject-ZCC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636B739E1DEFC6680042E7F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		636B73A01DEFC6680042E7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -281,6 +286,9 @@
 				638E81401DF16A7800BB7654 /* PerfectMsgCell.h */,
 				638E81411DF16A7800BB7654 /* PerfectMsgCell.m */,
 				638E81421DF16A7800BB7654 /* PerfectMsgCell.xib */,
+				6364CDB31DF50A6400427097 /* SexPickerTools.h */,
+				6364CDB41DF50A6400427097 /* SexPickerTools.m */,
+				6364CDB61DF50AA700427097 /* SexPickerTools.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,6 +415,7 @@
 			files = (
 				638E81361DF160C200BB7654 /* LoginViewController.xib in Resources */,
 				638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */,
+				6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
 				638E81441DF16A7800BB7654 /* PerfectMsgCell.xib in Resources */,
@@ -494,6 +503,7 @@
 				636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */,
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
 				638E81371DF160C200BB7654 /* PerfectViewController.m in Sources */,
+				6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */,
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,

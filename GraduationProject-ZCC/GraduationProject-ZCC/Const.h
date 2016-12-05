@@ -25,4 +25,7 @@
 
 #define REDRGB [UIColor colorWithRed:136 / 255.0 green:34 / 255.0  blue:15 / 255.0  alpha:1.0]
 
+#define kBtnHeight 35
+#define kBtnWidth 240
+
 #endif /* Const_h */

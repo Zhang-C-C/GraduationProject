@@ -12,12 +12,34 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sexChangedNote:) name:@"sureBtn" object:nil];
+}
+
+- (void)sexChangedNote:(NSNotification *)note
+{
+    NSInteger index = [[note.userInfo objectForKey:@"row"] integerValue];
+    if (index == 0) {
+        
+        self.sexLabel.text = @"保密";
+        
+    }else if (index == 1){
+        
+        self.sexLabel.text = @"男";
+        
+    }else if (index == 2){
+        
+       self.sexLabel.text = @"女";
+    }
 }
 
 - (void)setIndexPath:(NSIndexPath *)indexPath
 {
     _indexPath = indexPath;
     self.inPutView.hidden = YES;
+    self.QMTextView.hidden = YES;
+    self.leftlabel.hidden = NO;
+    self.sexLabel.hidden = YES;
     
     if (indexPath.section == 0) {
         
@@ -29,13 +51,15 @@
         }else if (indexPath.row == 1){
             
             self.leftlabel.text = @"性别";
-            
-            
+            self.sexLabel.hidden = NO;
         }
         
     }else if (indexPath.section == 1){
         
-        self.leftlabel.text = @"请输入您的个性签名";
+        //个性签名
+        self.leftlabel.hidden = YES;
+        self.QMTextView.hidden = NO;
+        
         
     }else if (indexPath.section == 2){
         
@@ -62,6 +86,10 @@
     }
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

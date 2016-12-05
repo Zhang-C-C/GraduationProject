@@ -8,17 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PerfectMsgCell : UITableViewCell
+@interface PerfectMsgCell : UITableViewCell 
 
+//==== NormalCell
 //左侧文字展示
 @property (weak, nonatomic) IBOutlet UILabel *leftlabel;
 
 //右侧输入框,根据情况隐藏
 @property (weak, nonatomic) IBOutlet UITextView *inPutView;
 
-@property(nonatomic,strong)NSIndexPath *indexPath;
+//个性签名输入View
+@property (weak, nonatomic) IBOutlet UITextView *QMTextView;
+//性别
+@property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 
-//====
+
+//==== BindingCell
 //头像
 @property (weak, nonatomic) IBOutlet UIImageView *imgV;
 
@@ -27,5 +32,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *rightLabel;
+
+//===== 传递数据
+@property(nonatomic,strong)NSIndexPath *indexPath;
 
 @end
