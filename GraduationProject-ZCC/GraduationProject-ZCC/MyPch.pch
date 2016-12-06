@@ -26,5 +26,6 @@
 #import "SaveDataTools.h"
 #import "AppDelegate.h"
 #import <UIButton+WebCache.h>
+#import "LoadManager.h"
 
 #endif /* MyPch_h */

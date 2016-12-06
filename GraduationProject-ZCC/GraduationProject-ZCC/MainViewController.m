@@ -52,11 +52,12 @@
 {
     //添加子控制器
     MeViewController *meVC = [[MeViewController alloc]init];
+    BaseViewController *baseVC = [[BaseViewController alloc]init];
     
-    NSArray *vcs = @[meVC];
-    NSArray *titles = @[@"我"];
-    NSArray *normalImgs = @[@"me_normal"];
-    NSArray *selectedImg = @[@"me_selected"];
+    NSArray *vcs = @[meVC,baseVC];
+    NSArray *titles = @[@"我",@"Test"];
+    NSArray *normalImgs = @[@"me_normal",@"me_normal"];
+    NSArray *selectedImg = @[@"me_selected",@"me_selected"];
     for (int i = 0; i< vcs.count; i ++) {
         
         UIViewController *vc = vcs[i];

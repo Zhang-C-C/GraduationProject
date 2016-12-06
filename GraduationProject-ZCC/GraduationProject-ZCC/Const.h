@@ -27,6 +27,8 @@
 
 #define REDRGB [UIColor colorWithRed:136 / 255.0 green:34 / 255.0  blue:15 / 255.0  alpha:1.0]
 
+#define rgbColor(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0  blue:(b) / 255.0  alpha:a]
+
 #define kBtnHeight 35
 #define kBtnWidth 240
 

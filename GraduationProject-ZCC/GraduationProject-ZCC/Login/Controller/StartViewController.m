@@ -19,6 +19,9 @@
     [super viewDidLoad];
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    //[[LoadManager sharedInstance]startloading];
+    
     [self initData];
 }
 
