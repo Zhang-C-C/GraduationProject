@@ -314,7 +314,7 @@
     //通过授权信息注册登录
     [BmobUser loginInBackgroundWithAuthorDictionary:dic platform:type block:^(BmobUser *user, NSError *error) {
        
-        if (!error) {
+        if (!error && user.username.length == 0) {
             
             [self showMsgWith:@"请设置用户名和密码"];
             //弹出输入框
@@ -335,18 +335,7 @@
             UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                 
                 //保存信息
-                [AppTools updateUserMsgWithUserName:nil WithNickname:userInfo.name WithPassword:nil WithMobilePhone:nil WithImageUrl:userInfo.iconurl WithSaveSucBlock:^{
-                    
-                    [self showSuccessWith:@"登陆成功"];
-                    //跳到首页
-                    kRootViewController = [[MainViewController alloc]init];
-                    //保存用户的昵称
-                    [kUserDefaultDict setObject:userInfo.name forKey:knickName];
-                    
-                } WithSaveError:^(NSError *error) {
-                    
-                    [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
-                }];
+                [self updateUserMsgWithUserName:nil NickName:nil Password:nil ImageUrl:userInfo.iconurl];
             }];
             [alertVC addAction:cancle];
             
@@ -356,25 +345,10 @@
                 UITextField *userName = alertVC.textFields[0];
                 UITextField *password = alertVC.textFields[1];
                 
-                NSLog(@"-------%@,%@------",userName.text,password.text);
-                
                 if (userName.text.length >0 &&password.text.length >0) {
                     
                     //保存信息
-                    [AppTools updateUserMsgWithUserName:userName.text WithNickname:userInfo.name WithPassword:@"123456" WithMobilePhone:nil WithImageUrl:userInfo.iconurl WithSaveSucBlock:^{
-                        
-                        [self showSuccessWith:@"登陆成功"];
-                        //保存用户名密码 ,跳到首页
-                        [kUserDefaultDict setObject:userName.text forKey:kUserName];
-                        [kUserDefaultDict setObject:password.text forKey:kPassword];
-                        kRootViewController = [[MainViewController alloc]init];
-                        //保存用户的昵称
-                        [kUserDefaultDict setObject:userInfo.name forKey:knickName];
-                        
-                    } WithSaveError:^(NSError *error) {
-                        
-                        [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
-                    }];
+                    [self updateUserMsgWithUserName:userName.text NickName:userInfo.name Password:password.text ImageUrl:userInfo.iconurl];
                     
                 }else{
                     
@@ -385,10 +359,50 @@
 
             [self presentViewController:alertVC animated:YES completion:nil];
             
+        }else if (!error && user.username.length >0 ){
+            
+            //保存信息
+            [self updateUserMsgWithUserName:user.username NickName:nil Password:nil ImageUrl:nil];
+            
         }else{
             
             [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
         }
+    }];
+}
+
+/**
+ 保存用户信息
+
+ @param userName 用户名
+ @param nickName 昵称
+ @param password 密码
+ @param imgURL 头像地址
+ */
+- (void)updateUserMsgWithUserName:(NSString *)userName NickName:(NSString *)nickName Password:(NSString *)password ImageUrl:(NSString *)imgURL
+{
+    //保存信息
+    [AppTools updateUserMsgWithUserName:userName WithNickname:nickName WithPassword:password WithMobilePhone:nil WithImageUrl:imgURL WithSaveSucBlock:^{
+        
+        [self showSuccessWith:@"登陆成功"];
+        
+        //保存用户名密码 ,跳到首页
+        if (userName.length >0) {
+            
+            [kUserDefaultDict setObject:userName forKey:kUserName];
+            
+        }else if (password.length >0){
+            
+           [kUserDefaultDict setObject:password forKey:kPassword];
+        }
+        kRootViewController = [[MainViewController alloc]init];
+        
+        //保存用户的昵称
+        [kUserDefaultDict setObject:nickName forKey:knickName];
+        
+    } WithSaveError:^(NSError *error) {
+        
+        [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
     }];
 }
 

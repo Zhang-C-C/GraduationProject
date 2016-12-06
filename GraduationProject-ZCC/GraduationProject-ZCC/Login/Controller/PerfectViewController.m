@@ -340,7 +340,6 @@ static NSString *identifier = @"perfectMsgCell";
                 
                 [AppTools alertViewWithTitle:@"提示" WithMsg:@"解除与微信的绑定" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
                     
-                    [self showLoadingWith:@"解除绑定中"];
                     //解除绑定
                     [self unBindAccountWithType:BmobSNSPlatformWeiXin WithCell:cell];
                     
@@ -358,7 +357,6 @@ static NSString *identifier = @"perfectMsgCell";
                 
                 [AppTools alertViewWithTitle:@"提示" WithMsg:@"解除与QQ的绑定" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
                     
-                    [self showLoadingWith:@"解除绑定中"];
                     //解除绑定
                     [self unBindAccountWithType:BmobSNSPlatformQQ WithCell:cell];
                     
@@ -376,7 +374,6 @@ static NSString *identifier = @"perfectMsgCell";
                 
                 [AppTools alertViewWithTitle:@"提示" WithMsg:@"解除与微博的绑定" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
                     
-                    [self showLoadingWith:@"解除绑定中"];
                     //解除绑定
                     [self unBindAccountWithType:BmobSNSPlatformSinaWeibo WithCell:cell];
                     
@@ -404,8 +401,6 @@ static NSString *identifier = @"perfectMsgCell";
         UMSocialUserInfoResponse *userInfo = result;
         UMSocialResponse *response = result;
         
-        [self showLoadingWith:@"正在绑定"];
-        
         //发起登陆操作
         if (platformType == UMSocialPlatformType_QQ) {
             
@@ -431,6 +426,8 @@ static NSString *identifier = @"perfectMsgCell";
  */
 - (void)bindingAccoutWithToken:(NSString *)token WithUid:(NSString *)uid WithDate:(NSDate *)date WithNickName:(NSString *)name WithType:(BmobSNSPlatform )type WithCell:(PerfectMsgCell *)cell
 {
+    [self showLoadingWith:@"正在绑定"];
+
     NSDictionary *dic = @{@"access_token":token,@"uid":uid,@"expirationDate":date};
     BmobUser *currentUser = [BmobUser currentUser];
     [currentUser linkedInBackgroundWithAuthorDictionary:dic platform:type block:^(BOOL isSuccessful, NSError *error) {
@@ -445,6 +442,7 @@ static NSString *identifier = @"perfectMsgCell";
             
             //保存用户的昵称
             [kUserDefaultDict setObject:name forKey:knickName];
+            [self showSuccessWith:@"绑定成功"];
             
             //刷新表视图
             cell.rightLabel.text = @"已绑定";
@@ -462,6 +460,8 @@ static NSString *identifier = @"perfectMsgCell";
  */
 - (void)unBindAccountWithType:(BmobSNSPlatform )type WithCell:(PerfectMsgCell *)cell
 {
+    [self showLoadingWith:@"解除绑定中"];
+    
     BmobUser *user = [BmobUser currentUser];
     [user cancelLinkedInBackgroundWithPlatform:type block:^(BOOL isSuccessful, NSError *error) {
         
