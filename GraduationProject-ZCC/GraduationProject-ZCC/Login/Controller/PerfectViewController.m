@@ -12,6 +12,7 @@
 #import "PerfectMsgCell.h"
 #import "SexPickerTools.h"
 #import "HCDataHelper.h"
+#import "BindPhoneViewController.h"
 
 static NSString *identifier = @"perfectMsgCell";
 
@@ -121,6 +122,7 @@ static NSString *identifier = @"perfectMsgCell";
     tools.nickName = [user objectForKey:@"nickName"];
     tools.qmString = [user objectForKey:@"qm"];
     tools.sex = [user objectForKey:@"sex"];
+    tools.phoneNum = [user objectForKey:@"bindedPhone"];
 }
 
 /**
@@ -310,11 +312,173 @@ static NSString *identifier = @"perfectMsgCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.view endEditing:YES];
+    PerfectMsgCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
     if (indexPath.section == 0 && indexPath.row == 1) {
         
         //弹出性别选择器
         [self sexPickView];
+    
+    }else if (indexPath.section == 2){
+        
+        if (indexPath.row == 0) {
+            
+            BindPhoneViewController *bindVC = [[BindPhoneViewController alloc]init];
+            NSString *title = nil;
+            [SaveDataTools sharedInstance].phoneNum.length >0 ?(title = @"修改手机号"):(title = @"绑定手机号");
+            bindVC.title = title;
+            [self.navigationController pushViewController:bindVC animated:YES];
+       
+        }else if (indexPath.row == 1){
+            
+            //微信绑定
+            if ([cell.rightLabel.text isEqualToString:@"立即绑定"]) {
+                
+                [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession WithCell:cell];
+                
+            }else{
+                
+                [AppTools alertViewWithTitle:@"提示" WithMsg:@"解除与微信的绑定" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
+                    
+                    [self showLoadingWith:@"解除绑定中"];
+                    //解除绑定
+                    [self unBindAccountWithType:BmobSNSPlatformWeiXin WithCell:cell];
+                    
+                } WithCancleBtn:nil];
+            }
+            
+        }else if (indexPath.row == 2){
+            
+            //QQ绑定
+            if ([cell.rightLabel.text isEqualToString:@"立即绑定"]) {
+                
+                [self getUserInfoForPlatform:UMSocialPlatformType_QQ WithCell:cell];
+                
+            }else{
+                
+                [AppTools alertViewWithTitle:@"提示" WithMsg:@"解除与QQ的绑定" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
+                    
+                    [self showLoadingWith:@"解除绑定中"];
+                    //解除绑定
+                    [self unBindAccountWithType:BmobSNSPlatformQQ WithCell:cell];
+                    
+                } WithCancleBtn:nil];
+            }
+            
+        }else if (indexPath.row == 3){
+            
+            //微博绑定
+            if ([cell.rightLabel.text isEqualToString:@"立即绑定"]) {
+                
+                [self getUserInfoForPlatform:UMSocialPlatformType_Sina WithCell:cell];
+                
+            }else{
+                
+                [AppTools alertViewWithTitle:@"提示" WithMsg:@"解除与微博的绑定" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
+                    
+                    [self showLoadingWith:@"解除绑定中"];
+                    //解除绑定
+                    [self unBindAccountWithType:BmobSNSPlatformSinaWeibo WithCell:cell];
+                    
+                } WithCancleBtn:nil];
+            }
+        }
     }
+}
+
+/**
+ 获取三方登录的用户信息
+ 
+ @param platformType 类型
+ */
+- (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType WithCell:(PerfectMsgCell *)cell
+{
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:self completion:^(id result, NSError *error) {
+        
+        if (error) {
+            
+            NSLog(@"三方登录失败:%@",error);
+            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            return ;
+        }
+        UMSocialUserInfoResponse *userInfo = result;
+        UMSocialResponse *response = result;
+        
+        [self showLoadingWith:@"正在绑定"];
+        
+        //发起登陆操作
+        if (platformType == UMSocialPlatformType_QQ) {
+            
+            [self bindingAccoutWithToken:response.accessToken WithUid:response.uid WithDate:response.expiration WithNickName:userInfo.name WithType:BmobSNSPlatformQQ WithCell:cell];
+            
+        }else if (platformType == UMSocialPlatformType_Sina){
+            
+            [self bindingAccoutWithToken:response.accessToken WithUid:response.uid WithDate:response.expiration WithNickName:userInfo.name WithType:BmobSNSPlatformSinaWeibo WithCell:cell];
+        }else{
+            
+            [self bindingAccoutWithToken:response.accessToken WithUid:response.uid WithDate:response.expiration WithNickName:userInfo.name WithType:BmobSNSPlatformWeiXin WithCell:cell];
+        }
+    }];
+}
+
+/**
+ 绑定账号
+
+ @param token token
+ @param uid uid
+ @param date date
+ @param type 类型
+ */
+- (void)bindingAccoutWithToken:(NSString *)token WithUid:(NSString *)uid WithDate:(NSDate *)date WithNickName:(NSString *)name WithType:(BmobSNSPlatform )type WithCell:(PerfectMsgCell *)cell
+{
+    NSDictionary *dic = @{@"access_token":token,@"uid":uid,@"expirationDate":date};
+    BmobUser *currentUser = [BmobUser currentUser];
+    [currentUser linkedInBackgroundWithAuthorDictionary:dic platform:type block:^(BOOL isSuccessful, NSError *error) {
+       
+        if (error) {
+            
+            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            return ;
+        }
+        
+        if (isSuccessful) {
+            
+            //保存用户的昵称
+            [kUserDefaultDict setObject:name forKey:knickName];
+            
+            //刷新表视图
+            cell.rightLabel.text = @"已绑定";
+            cell.rightLabel.textColor = REDRGB;
+            cell.bottomLabel.hidden = NO;
+            cell.bottomLabel.text = name;
+        }
+    }];
+}
+
+/**
+ 解除绑定
+
+ @param type 类型
+ */
+- (void)unBindAccountWithType:(BmobSNSPlatform )type WithCell:(PerfectMsgCell *)cell
+{
+    BmobUser *user = [BmobUser currentUser];
+    [user cancelLinkedInBackgroundWithPlatform:type block:^(BOOL isSuccessful, NSError *error) {
+        
+        if (error) {
+            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            return ;
+        }
+        if (isSuccessful) {
+            
+            [self showSuccessWith:@"已解除绑定"];
+            
+            //刷新表视图
+            cell.rightLabel.text = @"立即绑定";
+            cell.rightLabel.textColor = [UIColor whiteColor];
+            cell.bottomLabel.hidden = YES;
+        }
+    }];
 }
 
 //单元格高度

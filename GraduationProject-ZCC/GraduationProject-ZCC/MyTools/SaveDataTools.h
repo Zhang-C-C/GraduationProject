@@ -16,6 +16,6 @@
 @property(nonatomic,copy)NSString *qmString;
 @property(nonatomic,strong)NSNumber *sex;
 @property(nonatomic,copy)NSString *imgPath;
-
+@property(nonatomic,copy)NSString *phoneNum;
 
 @end

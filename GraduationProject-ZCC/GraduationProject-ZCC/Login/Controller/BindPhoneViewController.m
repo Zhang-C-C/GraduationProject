@@ -97,8 +97,17 @@
             [buser updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                 if (isSuccessful) {
                     
-                    [self showSuccessWith:@"绑定手机号码成功"];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    if ([self.title isEqualToString:@"绑定手机号"]) {
+                        
+                        [self showSuccessWith:@"绑定手机号码成功"];
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                    }else{
+                        
+                        [self showSuccessWith:@"修改手机号码成功"];
+                        [self.navigationController popViewControllerAnimated:YES];
+                        [SaveDataTools sharedInstance].phoneNum = self.phoneNum.text;
+                    }
                     
                 }else{
                     

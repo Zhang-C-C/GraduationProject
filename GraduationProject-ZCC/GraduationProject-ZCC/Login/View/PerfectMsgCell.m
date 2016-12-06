@@ -180,7 +180,7 @@
     self.topLabel.text = @"手机号";
     self.imgV.image = [UIImage imageNamed:@"phone"];
     
-    NSString *phone = [self.obj objectForKey:@"bindedPhone"];
+    NSString *phone = [SaveDataTools sharedInstance].phoneNum;
     
     if (phone.length >0) {
         self.bottomLabel.hidden = NO;
