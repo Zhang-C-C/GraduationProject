@@ -10,8 +10,13 @@
 #import "BindPhoneViewController.h"
 #import "LoginViewController.h"
 #import "MeViewController.h"
+#import "LeftViewController.h"
 
 @interface MainViewController ()
+
+@property(nonatomic,strong)UIView *blackView;
+
+@property(nonatomic,strong)LeftViewController *leftVC;
 
 @end
 
@@ -74,6 +79,9 @@
     //设置标签栏样式
     self.tabBar.barStyle = UIBarStyleBlack;
     self.tabBar.alpha = 0.7;
+    
+    //添加侧滑手势
+    [self addLeftMenu];
 }
 
 /**
@@ -83,11 +91,11 @@
 {
     //根据用户名查询
     NSString *userName = [kUserDefaultDict objectForKey:kUserName];
-
+    
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"_User"];
     [bquery whereKey:@"username" equalTo:userName];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-       
+        
         if (!error) {
             
             for (BmobObject *obj in array) {
@@ -105,6 +113,94 @@
             NSLog(@"检查手机号码是否已绑定:%@",error);
         }
     }];
+}
+
+/**
+ 侧滑手势
+ */
+- (void)addLeftMenu
+{
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panAction:)];
+    
+    [self.view addGestureRecognizer:pan];
+}
+
+#pragma mark ----Action----
+
+/**
+ 平移手势事件
+
+ @param pan pan
+ */
+- (void)panAction:(UIPanGestureRecognizer *)pan
+{
+    NSInteger index = [pan translationInView:self.view].x;
+    if (index >0) {
+        
+        [UIView animateWithDuration:.5 animations:^{
+            
+            //显示侧边栏
+            self.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
+            self.leftVC.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
+            
+        } completion:^(BOOL finished) {
+            
+            //添加蒙版
+            self.blackView.hidden = NO;
+        }];
+
+    }else{
+        
+        //移除蒙版
+        self.blackView.hidden = YES;
+        [UIView animateWithDuration:.5 animations:^{
+            
+            self.view.transform = CGAffineTransformMakeTranslation(0, 0);
+            self.leftVC.view.transform = CGAffineTransformMakeTranslation(0, 0);
+        }];
+    }
+}
+
+/**
+ 点击事件.收起侧边栏
+ */
+- (void)tapAction
+{
+    //移除蒙版
+    self.blackView.hidden = YES;
+    [UIView animateWithDuration:.5 animations:^{
+        
+        self.view.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.leftVC.view.transform = CGAffineTransformMakeTranslation(0, 0);
+    }];
+}
+
+#pragma mark ----Lazy----
+
+- (UIView *)blackView
+{
+    if (!_blackView) {
+        
+        _blackView = [[UIView alloc]initWithFrame:CGRectMake(leftSpace, 0, kScreenWidth-leftSpace, kScreenHeight)];
+        _blackView.backgroundColor = [UIColor grayColor];
+        _blackView.alpha = 0.3;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
+        [_blackView addGestureRecognizer:tap];
+        
+        [[UIApplication sharedApplication].keyWindow addSubview:_blackView];
+    }
+    return _blackView;
+}
+
+- (LeftViewController *)leftVC
+{
+    if (!_leftVC) {
+        _leftVC = [[LeftViewController alloc]init];
+        _leftVC.view.frame = CGRectMake(-leftSpace, 0, leftSpace, kScreenHeight);
+        [[UIApplication sharedApplication].keyWindow addSubview:self.leftVC.view];
+    }
+    return _leftVC;
 }
 
 - (void)didReceiveMemoryWarning {

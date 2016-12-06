@@ -94,6 +94,11 @@
 {
     @autoreleasepool
     {
+        if ([self.window.rootViewController isKindOfClass:[MainViewController class]]) {
+            
+            MainViewController *mainVC = (MainViewController *)self.window.rootViewController;
+            [mainVC tapAction];
+        }
         viewController.hidesBottomBarWhenPushed = YES;
         [[self navigationViewController] pushViewController:viewController animated:YES];
     }

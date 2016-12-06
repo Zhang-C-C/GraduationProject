@@ -31,6 +31,7 @@
 		636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */; };
 		636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73F51DF01CCF0042E7F9 /* AppTools.m */; };
 		636B74111DF029F60042E7F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74101DF029F60042E7F9 /* MainViewController.m */; };
+		638407ED1DF6BD460004ACD3 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638407EB1DF6BD460004ACD3 /* LeftViewController.m */; };
 		638E81331DF160C200BB7654 /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81251DF160C200BB7654 /* BindPhoneViewController.m */; };
 		638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E81261DF160C200BB7654 /* BindPhoneViewController.xib */; };
 		638E81351DF160C200BB7654 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81281DF160C200BB7654 /* LoginViewController.m */; };
@@ -114,6 +115,8 @@
 		636B73F51DF01CCF0042E7F9 /* AppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppTools.m; path = ../AppTools.m; sourceTree = "<group>"; };
 		636B740F1DF029F60042E7F9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		636B74101DF029F60042E7F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		638407EA1DF6BD460004ACD3 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		638407EB1DF6BD460004ACD3 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		638E81241DF160C200BB7654 /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = "<group>"; };
 		638E81251DF160C200BB7654 /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = "<group>"; };
 		638E81261DF160C200BB7654 /* BindPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindPhoneViewController.xib; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				636B73A11DEFC6680042E7F9 /* AppDelegate.m */,
 				636B740F1DF029F60042E7F9 /* MainViewController.h */,
 				636B74101DF029F60042E7F9 /* MainViewController.m */,
+				638407EA1DF6BD460004ACD3 /* LeftViewController.h */,
+				638407EB1DF6BD460004ACD3 /* LeftViewController.m */,
 				6364CDC61DF553C200427097 /* MeSetting */,
 				636B73FC1DF024080042E7F9 /* Login */,
 				636B739D1DEFC6680042E7F9 /* Supporting Files */,
@@ -600,6 +605,7 @@
 				6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */,
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
 				6364CDD21DF5540700427097 /* MeViewController.m in Sources */,
+				638407ED1DF6BD460004ACD3 /* LeftViewController.m in Sources */,
 				6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */,
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,

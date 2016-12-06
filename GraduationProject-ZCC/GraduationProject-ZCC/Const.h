@@ -32,4 +32,6 @@
 #define kBtnHeight 35
 #define kBtnWidth 240
 
+#define leftSpace [UIScreen mainScreen].bounds.size.width *0.8
+
 #endif /* Const_h */
