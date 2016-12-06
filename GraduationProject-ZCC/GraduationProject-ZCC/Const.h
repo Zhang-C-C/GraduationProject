@@ -19,6 +19,8 @@
 #define kUserName @"userName"
 //密码
 #define kPassword @"userPassword"
+//三方登录的昵称
+#define knickName @"nickName"
 
 //跟试图控制器
 #define kRootViewController [UIApplication sharedApplication].keyWindow.rootViewController

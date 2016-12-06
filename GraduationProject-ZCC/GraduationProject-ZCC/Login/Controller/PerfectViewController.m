@@ -114,6 +114,8 @@ static NSString *identifier = @"perfectMsgCell";
 {
     _user = user;
     
+    NSLog(@"====:%@",user);
+    
     //保存进单例中
     SaveDataTools *tools = [SaveDataTools sharedInstance];
     tools.nickName = [user objectForKey:@"nickName"];
@@ -154,7 +156,6 @@ static NSString *identifier = @"perfectMsgCell";
         
         [self saveUsrMsgWithImgV:nil];
     }
-    
 }
 
 /**

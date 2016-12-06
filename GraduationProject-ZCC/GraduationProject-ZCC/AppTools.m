@@ -30,7 +30,7 @@
     return tools;
 }
 
-+ (void)updateUserMsgWithUserName:(NSString *)userName WithPassword:(NSString *)password WithMobilePhone:(NSString *)mobilePhone WithImageUrl:(NSString *)imageUrl WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError
++ (void)updateUserMsgWithUserName:(NSString *)userName WithNickname:(NSString *)nickName WithPassword:(NSString *)password WithMobilePhone:(NSString *)mobilePhone WithImageUrl:(NSString *)imageUrl WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError
 {
     //保存信息
     BmobUser *buser = [BmobUser currentUser];
@@ -39,6 +39,10 @@
     if (userName.length >0) {
         
         [buser setObject:userName forKey:@"username"];
+    }
+    if (nickName.length >0) {
+        
+        [buser setObject:nickName forKey:@"nickName"];
     }
     if (password.length >0) {
         
@@ -75,8 +79,6 @@
 {
     //保存信息
     BmobUser *buser = [BmobUser currentUser];
-    
-    NSLog(@"当前用户的手机号码:%@",buser.mobilePhoneNumber);
     
     //保存信息
     if (nickName.length >0) {

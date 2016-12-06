@@ -55,13 +55,14 @@ typedef void(^SaveError)(NSError *error);
  更新用户信息
 
  @param userName 用户名
+ @param nickName 昵称
  @param password 密码
  @param mobilePhone 手机号
  @param imageUrl 头像url
  @param success 保存成功
  @param saveError 保存失败
  */
-+ (void)updateUserMsgWithUserName:(NSString *)userName WithPassword:(NSString *)password WithMobilePhone:(NSString *)mobilePhone WithImageUrl:(NSString *)imageUrl WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError;
++ (void)updateUserMsgWithUserName:(NSString *)userName WithNickname:(NSString *)nickName WithPassword:(NSString *)password WithMobilePhone:(NSString *)mobilePhone WithImageUrl:(NSString *)imageUrl WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError;
 
 /**
  更新用户信息
