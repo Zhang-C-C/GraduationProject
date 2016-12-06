@@ -78,15 +78,14 @@
             self.imgV.image = [UIImage imageNamed:@"phone"];
             
             NSString *phone = [obj objectForKey:@"bindedPhone"];
-            self.bottomLabel.hidden = NO;
-            self.bottomLabel.text = phone;
             
             if (phone.length >0) {
-                
+                self.bottomLabel.hidden = NO;
+                self.bottomLabel.text = phone;
                 self.rightLabel.text = @"已绑定";
                 self.rightLabel.textColor = REDRGB;
             }else{
-                
+                self.bottomLabel.hidden = YES;
                 self.rightLabel.text = @"立即绑定";
                 self.rightLabel.textColor = [UIColor whiteColor];
             }            

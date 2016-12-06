@@ -72,10 +72,15 @@ static NSString *identifier = @"perfectMsgCell";
         
         //设置导航栏右侧按钮
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"跳过" target:self action:@selector(skipAction)];
+        
+        //添加完成按钮
+        [self addFinishBtn];
+        
+    }else{
+        
+        //重新设置导航栏右侧按钮
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"完成" target:self action:@selector(finishBtnAction)];
     }
-    
-    //添加完成按钮
-    [self addFinishBtn];
 }
 
 //保存密码,并跳转到首页
