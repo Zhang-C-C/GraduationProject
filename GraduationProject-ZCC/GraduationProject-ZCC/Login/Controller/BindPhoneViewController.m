@@ -91,8 +91,8 @@
             BmobUser *buser = [BmobUser currentUser];
             
             //保存信息
-            [buser setObject:[NSNumber numberWithBool:YES] forKey:@"mobilePhoneNumberVer"];
-            [buser setObject:self.phoneNum.text forKey:@"mobilePhoneNumber"];
+            //[buser setObject:[NSNumber numberWithBool:YES] forKey:@"mobilePhoneNumberVer"];
+            [buser setObject:self.phoneNum.text forKey:@"bindedPhone"];
             
             [buser updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                 if (isSuccessful) {

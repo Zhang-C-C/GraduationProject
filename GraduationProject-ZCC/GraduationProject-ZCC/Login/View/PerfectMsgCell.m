@@ -43,8 +43,17 @@
 {
     _obj = obj;
     
-    self.inPutView.text = [obj objectForKey:@"nickName"];
-    self.QMTextView.text = [obj objectForKey:@"qm"];
+    NSString *nickName = [obj objectForKey:@"nickName"];
+    NSString *qm = [obj objectForKey:@"qm"];
+    
+    if (nickName.length >0) {
+        
+        self.inPutView.text = nickName;
+    }
+    if (qm.length >0) {
+        
+        self.QMTextView.text = qm;
+    }
     
     NSNumber *num = [obj objectForKey:@"sex"];
     if ([num integerValue] == 0) {
@@ -68,15 +77,28 @@
             self.topLabel.text = @"手机号";
             self.imgV.image = [UIImage imageNamed:@"phone"];
             
-            NSString *phone = [obj objectForKey:@"mobilePhoneNumber"];
+            NSString *phone = [obj objectForKey:@"bindedPhone"];
             self.bottomLabel.hidden = NO;
             self.bottomLabel.text = phone;
-            self.rightLabel.text = @"已绑定";
-            self.rightLabel.textColor = REDRGB;
+            
+            if (phone.length >0) {
+                
+                self.rightLabel.text = @"已绑定";
+                self.rightLabel.textColor = REDRGB;
+            }else{
+                
+                self.rightLabel.text = @"立即绑定";
+                self.rightLabel.textColor = [UIColor whiteColor];
+            }            
         }
     }
 }
 
+/**
+ 显示
+
+ @param indexPath 单元格
+ */
 - (void)setIndexPath:(NSIndexPath *)indexPath
 {
     _indexPath = indexPath;

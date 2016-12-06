@@ -36,7 +36,6 @@
     BmobUser *buser = [BmobUser currentUser];
     
     //保存信息
-    
     if (userName.length >0) {
         
         [buser setObject:userName forKey:@"username"];
@@ -77,6 +76,8 @@
     //保存信息
     BmobUser *buser = [BmobUser currentUser];
     
+    NSLog(@"当前用户的手机号码:%@",buser.mobilePhoneNumber);
+    
     //保存信息
     if (nickName.length >0) {
         
@@ -87,10 +88,7 @@
         [buser setObject:imageUrl forKey:@"imageUrl"];
     }
     
-    if (sex) {
-        
-        [buser setObject:sex forKey:@"sex"];
-    }
+    [buser setObject:sex forKey:@"sex"];    
     
     if (qm.length >0) {
         

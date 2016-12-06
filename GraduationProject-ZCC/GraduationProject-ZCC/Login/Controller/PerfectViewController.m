@@ -78,14 +78,6 @@ static NSString *identifier = @"perfectMsgCell";
     [self addFinishBtn];
 }
 
-//获取数据
-- (void)setUser:(BmobObject *)user
-{
-    _user = user;
-    
-    NSLog(@"获取数据:=======%@=======",_user);
-}
-
 //保存密码,并跳转到首页
 - (void)skipToRootVC
 {
@@ -112,6 +104,92 @@ static NSString *identifier = @"perfectMsgCell";
     [self.tableView addSubview:btn];
 }
 
+//接收数据
+- (void)setUser:(BmobObject *)user
+{
+    _user = user;
+    
+    //保存进单例中
+    SaveDataTools *tools = [SaveDataTools sharedInstance];
+    tools.nickName = [user objectForKey:@"nickName"];
+    tools.qmString = [user objectForKey:@"qm"];
+    tools.sex = [user objectForKey:@"sex"];
+}
+
+/**
+ 注册时候的完善信息
+ */
+- (void)saveUsrMsgOfRegister
+{
+    PerfectHeadView *headView = (PerfectHeadView *)self.tableView.tableHeaderView;
+    
+    BmobObject *obj = [[BmobObject alloc] initWithClassName:@"_User"];
+    
+    //安全判断有无图片修改
+    if (headView.imgPath.length >0) {
+        
+        BmobFile *file1 = [[BmobFile alloc] initWithFilePath:headView.imgPath];
+        [file1 saveInBackground:^(BOOL isSuccessful, NSError *error) {
+            
+            //如果文件保存成功，则把文件添加到image列
+            if (isSuccessful) {
+                
+                [obj saveInBackground];
+                //上传到服务器
+                [self saveUsrMsgWithImgV:file1.url];
+                
+            }else{
+                
+                //进行处理
+                [self showErrorWith:@"上传失败,请重试"];
+            }
+        }];
+
+    }else{
+        
+        [self saveUsrMsgWithImgV:nil];
+    }
+    
+}
+
+/**
+ 保存用户信息到服务器
+
+ @param imgPath 头像路径
+ */
+- (void)saveUsrMsgWithImgV:(NSString *)imgPath
+{
+    self.nickName >0 ?(self.nickName = self.nickName):(self.nickName = [SaveDataTools sharedInstance].nickName);
+    
+    self.QMString >0 ?(self.QMString = self.QMString):(self.QMString = [SaveDataTools sharedInstance].qmString);
+    
+    //更新用户数据
+    [AppTools updateUserMsgWithNickName:self.nickName WithImageUrl:imgPath WithSex:self.sex WithQM:self.QMString WithSaveSucBlock:^{
+        
+        [self showSuccessWith:@"保存成功"];
+        
+        //保存数据
+        [SaveDataTools sharedInstance].nickName = self.nickName;
+        [SaveDataTools sharedInstance].sex = self.sex;
+        [SaveDataTools sharedInstance].qmString = self.QMString;
+        [SaveDataTools sharedInstance].imgPath = imgPath;
+        
+        if (self.isLogin) {
+            
+            [self showSuccessWith:@"修改成功"];
+            return ;
+        }
+        //重新设置跟试图控制器
+        [kUserDefaultDict setObject:self.account forKey:kUserName];
+        [kUserDefaultDict setObject:self.password forKey:kPassword];
+        kRootViewController = [[MainViewController alloc]init];
+        
+    } WithSaveError:^(NSError *error) {
+        
+        [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+    }];
+}
+
 #pragma mark ----Action----
 
 /**
@@ -119,46 +197,11 @@ static NSString *identifier = @"perfectMsgCell";
  */
 - (void)finishBtnAction
 {
-    PerfectHeadView *headView = (PerfectHeadView *)self.tableView.tableHeaderView;
+    [self.view endEditing:YES];
     [self showLoadingWith:@"保存中"];
     
     //上传头像
-    BmobObject *obj = [[BmobObject alloc] initWithClassName:@"_User"];
-    BmobFile *file1 = [[BmobFile alloc] initWithFilePath:headView.imgPath];
-    [file1 saveInBackground:^(BOOL isSuccessful, NSError *error) {
-        
-        //如果文件保存成功，则把文件添加到filetype列
-        if (isSuccessful) {
-
-            [obj saveInBackground];
-            
-            //更新用户数据
-            [AppTools updateUserMsgWithNickName:self.nickName WithImageUrl:file1.url WithSex:self.sex WithQM:self.QMString WithSaveSucBlock:^{
-                
-                [self showSuccessWith:@"保存成功"];
-                
-                //保存数据
-                [SaveDataTools sharedInstance].nickName = self.nickName;
-                [SaveDataTools sharedInstance].sex = self.sex;
-                [SaveDataTools sharedInstance].qmString = self.QMString;
-                [SaveDataTools sharedInstance].imgPath = headView.imgPath;
-                
-                //重新设置跟试图控制器
-                [kUserDefaultDict setObject:self.account forKey:kUserName];
-                [kUserDefaultDict setObject:self.password forKey:kPassword];
-                kRootViewController = [[MainViewController alloc]init];
-                
-            } WithSaveError:^(NSError *error) {
-                
-                [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
-            }];
-            
-        }else{
-            
-            //进行处理
-            [self showErrorWith:@"上传失败,请重试"];
-        }
-    }];
+    [self saveUsrMsgOfRegister];
 }
 
 /**

@@ -24,6 +24,11 @@
     [super viewDidLoad];
     
     [self initView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self initData];
 }
 
@@ -33,7 +38,7 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNoramlImgae:@"list_selected" SelectedImage:nil target:self action:@selector(listBtnAction)];
     
     //添加表视图
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 4, kScreenWidth, kScreenHeight-4) style:UITableViewStyleGrouped];
     tableView.backgroundColor = [UIColor clearColor];
     
     tableView.delegate = self;
@@ -55,6 +60,7 @@
 - (void)initData
 {
     [self.tableView.mj_header beginRefreshing];
+
     //获取数据
     [self.headView showUserMsgWithSucBlock:^{
         
@@ -66,12 +72,11 @@
         [self.tableView.mj_header endRefreshing];
         [AppTools alertViewWithTitle:@"获取个人信息失败" WithMsg:[NSString stringWithFormat:@"%@",error] WithSureBtn:@"重试" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
             
-            //[self initData];
+            [self initData];
             
         } WithCancleBtn:nil];
         
     }];
-    [self.tableView reloadData];
 }
 #pragma mark ----Delegate----
 

@@ -81,7 +81,7 @@
             
             for (BmobObject *obj in array) {
                 
-                NSString *phoneNum = [obj objectForKey:@"mobilePhoneNumber"];
+                NSString *phoneNum = [obj objectForKey:@"bindedPhone"];
                 if (phoneNum.length == 0) {
                     
                     //绑定手机号码页面
@@ -89,6 +89,9 @@
                     [self presentViewController:bindVC animated:YES completion:nil];
                 }
             }
+        }else{
+            
+            NSLog(@"检查手机号码是否已绑定:%@",error);
         }
     }];
 }
