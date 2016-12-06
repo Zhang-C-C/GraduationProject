@@ -59,8 +59,6 @@
 
 - (void)initData
 {
-    [self.tableView.mj_header beginRefreshing];
-
     //获取数据
     [self.headView showUserMsgWithSucBlock:^{
         
