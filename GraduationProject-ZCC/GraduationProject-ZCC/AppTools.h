@@ -18,6 +18,11 @@ typedef void(^SaveSuccess)(void);
 //保存信息失败
 typedef void(^SaveError)(NSError *error);
 
+//获取成功
+typedef void(^Success)(NSArray *array);
+//获取失败
+typedef void(^Error)(NSError *error);
+
 @interface AppTools : NSObject
 
 + (instancetype)sharedInstance;
@@ -91,5 +96,17 @@ typedef void(^SaveError)(NSError *error);
  @param vc 控制器
  */
 - (void)chechPhoneBindedWithVC:(UIViewController *)vc;
+
+
+/**
+ 查询某个表某一行数据
+
+ @param name 表名字
+ @param key 键
+ @param some 值
+ @param success 成功
+ @param erro 失败
+ */
++ (void)queryWithClassName:(NSString *)name Key:(NSString *)key EqualTo:(NSString *)some WithSuccess:(Success )success WithErroe:(Error )erro;
 
 @end

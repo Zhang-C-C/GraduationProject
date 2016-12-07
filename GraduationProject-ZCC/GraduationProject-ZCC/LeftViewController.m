@@ -7,6 +7,7 @@
 //
 
 #import "LeftViewController.h"
+#import "ThemeViewController.h"
 
 @interface LeftViewController ()
 
@@ -16,11 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initView];
 }
 
 - (void)initView
 {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    btn.frame = CGRectMake(100, 100, 80, 80);
+ 
+    [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.view addSubview:btn];
+}
+
+- (void)btnAction
+{
+    ThemeViewController *themeVC = [[ThemeViewController alloc]init];
+    themeVC.title = @"个性主题";
+    [[AppDelegate sharedAppDelegate] pushViewController:themeVC];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

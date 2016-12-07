@@ -18,4 +18,7 @@
 @property(nonatomic,copy)NSString *imgPath;
 @property(nonatomic,copy)NSString *phoneNum;
 
+//判断文件是否已经在沙盒中已经存在？
++ (BOOL)isFileExist:(NSString *)fileName;
+
 @end

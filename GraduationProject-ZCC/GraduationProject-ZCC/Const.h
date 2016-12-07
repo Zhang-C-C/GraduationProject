@@ -22,6 +22,9 @@
 //三方登录的昵称
 #define knickName @"nickName"
 
+#define kTheme @"themeSelected"
+#define kThemeChange @"themeChanged"
+
 //跟试图控制器
 #define kRootViewController [UIApplication sharedApplication].keyWindow.rootViewController
 

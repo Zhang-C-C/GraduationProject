@@ -108,9 +108,10 @@
 {
     [AppTools alertViewWithTitle:@"确认退出?" WithMsg:@"" WithSureBtn:@"退出" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
         
-        //退出登录,删除密码
+        //退出登录,删除密码 和主题
         [BmobUser logout];
         [kUserDefaultDict removeObjectForKey:kPassword];
+        [kUserDefaultDict removeObjectForKey:kTheme];
         
         //重新设置跟试图控制器
         LoginViewController *loginVC = [[LoginViewController alloc]init];

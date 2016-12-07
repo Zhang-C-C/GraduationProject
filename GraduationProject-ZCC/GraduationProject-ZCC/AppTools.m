@@ -320,6 +320,31 @@
     }
 }
 
+//查询
++ (void)queryWithClassName:(NSString *)name Key:(NSString *)key EqualTo:(NSString *)some WithSuccess:(Success )success WithErroe:(Error )erro
+{
+    BmobQuery *query = [BmobQuery queryWithClassName:name];
+    [query whereKey:key equalTo:some];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+       
+        if (!error) {
+            
+            if (success) {
+                
+                success(array);
+            }
+            
+        }else{
+            
+            if (error) {
+                
+                erro(error);
+            }
+        }
+    }];
+}
+
+
 #pragma mark ---Lazy----
 - (UIView *)maskView
 {

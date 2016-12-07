@@ -21,4 +21,16 @@
     return tools;
 }
 
+//判断文件是否已经在沙盒中已经存在？
++ (BOOL)isFileExist:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    NSString *filePath = [path stringByAppendingPathComponent:fileName];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL result = [fileManager fileExistsAtPath:filePath];
+    NSLog(@"这个文件已经存在：%@",result?@"是的":@"不存在");
+    return result;
+}
+
 @end
