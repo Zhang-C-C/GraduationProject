@@ -54,6 +54,7 @@ static NSString *identifier = @"perfectMsgCell";
     tableView.backgroundColor = [UIColor clearColor];
     //设置表视图头试图
     PerfectHeadView *view = [PerfectHeadView loadView];
+    [view getLocationMsg];
     tableView.tableHeaderView = view;
     
     if (self.user) {
@@ -150,7 +151,6 @@ static NSString *identifier = @"perfectMsgCell";
                 [self showErrorWith:@"上传失败,请重试"];
             }
         }];
-
     }else{
         
         [self saveUsrMsgWithImgV:nil];

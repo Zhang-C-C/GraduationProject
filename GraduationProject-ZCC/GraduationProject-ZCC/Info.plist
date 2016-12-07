@@ -105,11 +105,13 @@
 	<key>NSCameraUsageDescription</key>
 	<string>照相机</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>地位服务</string>
+	<string>允许App一直获取位置信息</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>访问相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>允许App使用期间获取位置信息</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

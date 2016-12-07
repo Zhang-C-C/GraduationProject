@@ -68,7 +68,7 @@
         UIViewController *vc = vcs[i];
         vc.title = titles[i];
         
-        //
+        //添加侧滑手势
         [self addLeftMenuWith:vc];
         
         BaseNavigationController *baseNav = [[BaseNavigationController alloc]initWithRootViewController:vc];
@@ -82,9 +82,6 @@
     //设置标签栏样式
     self.tabBar.barStyle = UIBarStyleBlack;
     self.tabBar.alpha = 0.7;
-    
-    //添加侧滑手势
-    //[self addLeftMenu];
 }
 
 /**
@@ -93,7 +90,6 @@
 - (void)addLeftMenuWith:(UIViewController *)vc
 {
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panAction:)];
-    
     [vc.view addGestureRecognizer:pan];
 }
 
@@ -122,6 +118,13 @@
 {
     NSInteger index = [pan translationInView:self.view].x;
     if (index >0) {
+
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            
+            self.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
+            self.leftVC.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
+        });
         
         [UIView animateWithDuration:.5 animations:^{
             

@@ -24,6 +24,7 @@
 		636790BD1DF7AF48000C3E31 /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790BB1DF7AF48000C3E31 /* ThemeCell.m */; };
 		636790BE1DF7AF48000C3E31 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636790BC1DF7AF48000C3E31 /* ThemeCell.xib */; };
 		636790C11DF7B572000C3E31 /* ThemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790C01DF7B572000C3E31 /* ThemeModel.m */; };
+		636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790C41DF7EF4F000C3E31 /* LocationViewController.m */; };
 		636B739F1DEFC6680042E7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B739E1DEFC6680042E7F9 /* main.m */; };
 		636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73A11DEFC6680042E7F9 /* AppDelegate.m */; };
 		636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B73A91DEFC6680042E7F9 /* Assets.xcassets */; };
@@ -102,6 +103,8 @@
 		636790BC1DF7AF48000C3E31 /* ThemeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
 		636790BF1DF7B572000C3E31 /* ThemeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeModel.h; sourceTree = "<group>"; };
 		636790C01DF7B572000C3E31 /* ThemeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeModel.m; sourceTree = "<group>"; };
+		636790C31DF7EF4F000C3E31 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		636790C41DF7EF4F000C3E31 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		636B739A1DEFC6680042E7F9 /* GraduationProject-ZCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraduationProject-ZCC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636B739E1DEFC6680042E7F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		636B73A01DEFC6680042E7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				638E81241DF160C200BB7654 /* BindPhoneViewController.h */,
 				638E81251DF160C200BB7654 /* BindPhoneViewController.m */,
 				638E81261DF160C200BB7654 /* BindPhoneViewController.xib */,
+				636790C31DF7EF4F000C3E31 /* LocationViewController.h */,
+				636790C41DF7EF4F000C3E31 /* LocationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 				6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */,
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
 				6364CDD21DF5540700427097 /* MeViewController.m in Sources */,
+				636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */,
 				638407ED1DF6BD460004ACD3 /* LeftViewController.m in Sources */,
 				6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */,
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,

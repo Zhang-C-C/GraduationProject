@@ -21,4 +21,9 @@
 //图片本地路径
 @property(nonatomic,copy)NSString *imgPath;
 
+/**
+ 定位信息
+ */
+- (void)getLocationMsg;
+
 @end

@@ -35,12 +35,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cO2-uz-4kV">
-                    <rect key="frame" x="169.5" y="63" width="50" height="20"/>
+                    <rect key="frame" x="162.5" y="63" width="64" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="hxa-Q6-iwS"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="北京" image="location">
+                    <state key="normal" title="定位中" image="location">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
