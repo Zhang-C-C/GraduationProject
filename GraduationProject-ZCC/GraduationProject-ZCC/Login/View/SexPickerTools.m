@@ -21,6 +21,11 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"SexPickerTools" owner:nil options:nil] lastObject];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"sureBtn" object:nil userInfo:@{@"row":@(self.selectedRow)}];
+}
+
 #pragma mark ----Delegate----
 
 #pragma mark ----UIPickerViewDataSource----
@@ -28,6 +33,7 @@
 //有几个表盘
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
+    self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     return 1;
 }
 

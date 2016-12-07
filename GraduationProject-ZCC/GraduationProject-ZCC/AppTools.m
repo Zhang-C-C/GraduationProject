@@ -121,14 +121,14 @@
     
     //修改标题
     NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:title];
-    [alertControllerStr addAttribute:NSForegroundColorAttributeName value:REDRGB range:NSMakeRange(0, title.length)];
+    [alertControllerStr addAttribute:NSForegroundColorAttributeName value:ALERTREDRGB range:NSMakeRange(0, title.length)];
     //[alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17] range:NSMakeRange(0, title.length)];
     
     [alertVC setValue:alertControllerStr forKey:@"attributedTitle"];
 
     //文本内容
     NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:msg];
-    [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:REDRGB range:NSMakeRange(0, msg.length)];
+    [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:ALERTREDRGB range:NSMakeRange(0, msg.length)];
     //[alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, msg.length)];
     
     [alertVC setValue:alertControllerMessageStr forKey:@"attributedMessage"];
@@ -154,7 +154,7 @@
                 sure();
             }
         }];
-        [sureAction setValue:REDRGB forKey:@"titleTextColor"];
+        [sureAction setValue:ALERTREDRGB forKey:@"titleTextColor"];
         [alertVC addAction:sureAction];
     }
     [vc presentViewController:alertVC animated:YES completion:nil];

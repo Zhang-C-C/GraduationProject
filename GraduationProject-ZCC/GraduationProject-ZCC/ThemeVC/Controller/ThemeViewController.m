@@ -36,7 +36,7 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     
     layout.itemSize = CGSizeMake(kScreenWidth *0.3, 1.4* kScreenWidth *0.3);
-    layout.minimumInteritemSpacing = 10;
+    layout.minimumInteritemSpacing = 5;
     layout.minimumLineSpacing = 10;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.headerReferenceSize =CGSizeMake(0, 40);

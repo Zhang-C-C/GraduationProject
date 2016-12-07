@@ -20,9 +20,6 @@ static NSString *identifier = @"perfectMsgCell";
 
 @property(nonatomic,strong)UITableView *tableView;
 
-//蒙版
-@property(nonatomic,strong)UIView *blacView;
-
 //性别选择器
 @property(nonatomic,strong)SexPickerTools *tools;
 
@@ -198,6 +195,17 @@ static NSString *identifier = @"perfectMsgCell";
     }];
 }
 
+/**
+ 性别选择器消失
+ */
+- (void)tapAction
+{
+    [UIView animateWithDuration:.5 animations:^{
+        
+        self.tools.transform = CGAffineTransformMakeTranslation(0, kScreenHeight);
+    }];
+}
+
 #pragma mark ----Action----
 
 /**
@@ -236,15 +244,13 @@ static NSString *identifier = @"perfectMsgCell";
 //性别选择器
 - (void)sexPickView
 {
-    [self.view addSubview:self.blacView];
-    
     SexPickerTools *tools = [SexPickerTools loadSexPickerView];
     [self.view addSubview:tools];
     self.tools = tools;
-    tools.transform = CGAffineTransformMakeTranslation(0, kScreenHeight +230);
+    tools.transform = CGAffineTransformMakeTranslation(0, kScreenHeight);
     [UIView animateWithDuration:.5 animations:^{
         
-        tools.transform = CGAffineTransformMakeTranslation(0, kScreenHeight -230);
+        tools.transform = CGAffineTransformMakeTranslation(0, 0);
     }];
 }
 
@@ -603,30 +609,8 @@ static NSString *identifier = @"perfectMsgCell";
     return YES;
 }
 
-
 #pragma mark ----Lazy----
 
-- (UIView *)blacView
-{
-    if (!_blacView) {
-        _blacView = [[UIView alloc]initWithFrame:self.view.bounds];
-        _blacView.backgroundColor = [UIColor grayColor];
-        _blacView.alpha = 0.5;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
-        [_blacView addGestureRecognizer:tap];
-    }
-    return _blacView;
-}
-
-- (void)tapAction
-{
-    [self.blacView removeFromSuperview];
-    
-    [UIView animateWithDuration:.5 animations:^{
-       
-        self.tools.transform = CGAffineTransformMakeTranslation(0, kScreenHeight+230);
-    }];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
