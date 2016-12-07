@@ -25,7 +25,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [[AppDelegate sharedAppDelegate] pushViewController:[[BaseViewController alloc]init]];
+    //[[AppDelegate sharedAppDelegate] pushViewController:[[BaseViewController alloc]init]];
 }
 
 - (void)didReceiveMemoryWarning {

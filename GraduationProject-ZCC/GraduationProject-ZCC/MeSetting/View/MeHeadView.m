@@ -34,14 +34,22 @@
             success();
         }
         
-        for (BmobObject *obj in array) {
+        if (![array isKindOfClass:[NSNull class]]) {
             
-            self.user = obj;
-            
-            self.nickName.text = [obj objectForKey:@"nickName"];
-            self.qmLabel.text = [obj objectForKey:@"qm"];
-            [self.headBtn sd_setImageWithURL:[NSURL URLWithString:[obj objectForKey:@"imageUrl"]] forState:UIControlStateNormal];
-        }
+            for (BmobObject *obj in array) {
+                
+                self.user = obj;
+                
+                //安全判断
+                if (![[obj objectForKey:@"nickName"] isKindOfClass:[NSNull class]]) {
+                    
+                    self.nickName.text = [obj objectForKey:@"nickName"];
+                }
+                
+                self.qmLabel.text = [obj objectForKey:@"qm"];
+                [self.headBtn sd_setImageWithURL:[NSURL URLWithString:[obj objectForKey:@"imageUrl"]] forState:UIControlStateNormal];
+            }
+        }        
     }];
 }
 

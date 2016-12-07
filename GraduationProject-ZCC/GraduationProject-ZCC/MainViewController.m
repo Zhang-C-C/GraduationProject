@@ -125,6 +125,20 @@
     [self.view addGestureRecognizer:pan];
 }
 
+/**
+ 移除蒙版
+ */
+- (void)removeBlackView
+{
+    //移除蒙版
+    self.blackView.hidden = YES;
+    [UIView animateWithDuration:.5 animations:^{
+        
+        self.view.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.leftVC.view.transform = CGAffineTransformMakeTranslation(0, 0);
+    }];
+}
+
 #pragma mark ----Action----
 
 /**
@@ -151,13 +165,7 @@
 
     }else{
         
-        //移除蒙版
-        self.blackView.hidden = YES;
-        [UIView animateWithDuration:.5 animations:^{
-            
-            self.view.transform = CGAffineTransformMakeTranslation(0, 0);
-            self.leftVC.view.transform = CGAffineTransformMakeTranslation(0, 0);
-        }];
+        [self removeBlackView];
     }
 }
 
@@ -166,13 +174,7 @@
  */
 - (void)tapAction
 {
-    //移除蒙版
-    self.blackView.hidden = YES;
-    [UIView animateWithDuration:.5 animations:^{
-        
-        self.view.transform = CGAffineTransformMakeTranslation(0, 0);
-        self.leftVC.view.transform = CGAffineTransformMakeTranslation(0, 0);
-    }];
+    [self removeBlackView];
 }
 
 #pragma mark ----Lazy----
@@ -182,9 +184,7 @@
     if (!_blackView) {
         
         _blackView = [[UIView alloc]initWithFrame:CGRectMake(leftSpace, 0, kScreenWidth-leftSpace, kScreenHeight)];
-        _blackView.backgroundColor = [UIColor grayColor];
-        _blackView.alpha = 0.3;
-        
+
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
         [_blackView addGestureRecognizer:tap];
         
