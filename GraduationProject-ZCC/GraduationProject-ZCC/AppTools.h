@@ -39,7 +39,7 @@ typedef void(^SaveError)(NSError *error);
 /**
  判断手机号码是否符合规则
 
- mobile
+ mobile 手机号码
 */
 + (BOOL)isValidateMobile:(NSString *)mobile;
 
@@ -76,7 +76,20 @@ typedef void(^SaveError)(NSError *error);
  */
 + (void)updateUserMsgWithNickName:(NSString *)nickName WithImageUrl:(NSString *)imageUrl WithSex:(NSNumber *)sex WithQM:(NSString *)qm WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError;
 
-//图片压缩到指定大小
+
+/**
+ 图片压缩到指定大小
+
+ @param sourceImage 原图片
+ @param targetSize 目标大小
+ @return 新图片
+ */
 + (UIImage*)imageByScalingAndCroppingWithImg:(UIImage *)sourceImage ForSize:(CGSize)targetSize;
+
+/**
+ 检查手机号码是否已绑定
+ @param vc 控制器
+ */
+- (void)chechPhoneBindedWithVC:(UIViewController *)vc;
 
 @end

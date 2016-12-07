@@ -49,7 +49,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        [self chechPhoneBinded];
+        [[AppTools sharedInstance] chechPhoneBindedWithVC:self];
     });
 }
 
@@ -68,6 +68,9 @@
         UIViewController *vc = vcs[i];
         vc.title = titles[i];
         
+        //
+        [self addLeftMenuWith:vc];
+        
         BaseNavigationController *baseNav = [[BaseNavigationController alloc]initWithRootViewController:vc];
     
         //设置按钮图片
@@ -81,48 +84,17 @@
     self.tabBar.alpha = 0.7;
     
     //添加侧滑手势
-    [self addLeftMenu];
-}
-
-/**
- 检查手机号码是否已绑定
- */
-- (void)chechPhoneBinded
-{
-    //根据用户名查询
-    NSString *userName = [kUserDefaultDict objectForKey:kUserName];
-    
-    BmobQuery *bquery = [BmobQuery queryWithClassName:@"_User"];
-    [bquery whereKey:@"username" equalTo:userName];
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        
-        if (!error) {
-            
-            for (BmobObject *obj in array) {
-                
-                NSString *phoneNum = [obj objectForKey:@"bindedPhone"];
-                if (phoneNum.length == 0) {
-                    
-                    //绑定手机号码页面
-                    BindPhoneViewController *bindVC = [[BindPhoneViewController alloc]init];
-                    [self presentViewController:bindVC animated:YES completion:nil];
-                }
-            }
-        }else{
-            
-            NSLog(@"检查手机号码是否已绑定:%@",error);
-        }
-    }];
+    //[self addLeftMenu];
 }
 
 /**
  侧滑手势
  */
-- (void)addLeftMenu
+- (void)addLeftMenuWith:(UIViewController *)vc
 {
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panAction:)];
     
-    [self.view addGestureRecognizer:pan];
+    [vc.view addGestureRecognizer:pan];
 }
 
 /**

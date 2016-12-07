@@ -7,6 +7,7 @@
 //
 
 #import "AppTools.h"
+#import "BindPhoneViewController.h"
 
 @interface AppTools ()
 
@@ -245,6 +246,37 @@
     //pop the context to get back to the default
     UIGraphicsEndImageContext();
     return newImage;
+}
+
+/**
+ 检查手机号码是否已绑定
+ */
+- (void)chechPhoneBindedWithVC:(UIViewController *)vc
+{
+    //根据用户名查询
+    NSString *userName = [kUserDefaultDict objectForKey:kUserName];
+    
+    BmobQuery *bquery = [BmobQuery queryWithClassName:@"_User"];
+    [bquery whereKey:@"username" equalTo:userName];
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        if (!error) {
+            
+            for (BmobObject *obj in array) {
+                
+                NSString *phoneNum = [obj objectForKey:@"bindedPhone"];
+                if (phoneNum.length == 0) {
+                    
+                    //绑定手机号码页面
+                    BindPhoneViewController *bindVC = [[BindPhoneViewController alloc]init];
+                    [vc presentViewController:bindVC animated:YES completion:nil];
+                }
+            }
+        }else{
+            
+            NSLog(@"检查手机号码是否已绑定:%@",error);
+        }
+    }];
 }
 
 //开启定时器

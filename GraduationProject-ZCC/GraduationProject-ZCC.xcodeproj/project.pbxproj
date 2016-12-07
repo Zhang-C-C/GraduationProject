@@ -18,6 +18,7 @@
 		6364CDD61DF55C0C00427097 /* MeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDD51DF55C0C00427097 /* MeHeadView.m */; };
 		6364CDD81DF55C1300427097 /* MeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364CDD71DF55C1300427097 /* MeHeadView.xib */; };
 		6364CDDC1DF561BF00427097 /* SaveDataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDDB1DF561BF00427097 /* SaveDataTools.m */; };
+		636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */; };
 		636B739F1DEFC6680042E7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B739E1DEFC6680042E7F9 /* main.m */; };
 		636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73A11DEFC6680042E7F9 /* AppDelegate.m */; };
 		636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B73A91DEFC6680042E7F9 /* Assets.xcassets */; };
@@ -86,6 +87,8 @@
 		6364CDD71DF55C1300427097 /* MeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeadView.xib; sourceTree = "<group>"; };
 		6364CDDA1DF561BF00427097 /* SaveDataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveDataTools.h; sourceTree = "<group>"; };
 		6364CDDB1DF561BF00427097 /* SaveDataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveDataTools.m; sourceTree = "<group>"; };
+		636790A71DF7A2FE000C3E31 /* NSNull+IsNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+IsNull.h"; sourceTree = "<group>"; };
+		636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+IsNull.m"; sourceTree = "<group>"; };
 		636B739A1DEFC6680042E7F9 /* GraduationProject-ZCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraduationProject-ZCC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636B739E1DEFC6680042E7F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		636B73A01DEFC6680042E7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -330,6 +333,8 @@
 				636B73EA1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m */,
 				636B73EB1DF014810042E7F9 /* UIViewController+HUDHelper.h */,
 				636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */,
+				636790A71DF7A2FE000C3E31 /* NSNull+IsNull.h */,
+				636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */,
 			);
 			path = CategoryTools;
 			sourceTree = "<group>";
@@ -611,6 +616,7 @@
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,
 				6364CDC51DF5463100427097 /* UICountingLabel.m in Sources */,
 				636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */,
+				636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */,
 				638E81351DF160C200BB7654 /* LoginViewController.m in Sources */,
 				636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */,
 				6364CDD61DF55C0C00427097 /* MeHeadView.m in Sources */,

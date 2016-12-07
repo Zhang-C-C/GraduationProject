@@ -54,7 +54,9 @@
     //根据账号登录,可以使手机号
     [BmobUser loginInbackgroundWithAccount:userName andPassword:passweod block:^(BmobUser *user, NSError *error) {
         
-        if ([error isKindOfClass:[NSNull class]]) {
+        NSLog(@"根据用户名密码登录:%@",error);
+        
+        if (!error) {
             
             [self showSuccessWith:@"登录成功"];
             //重新设置跟试图控制器
