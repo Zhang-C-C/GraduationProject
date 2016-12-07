@@ -18,6 +18,15 @@
     [super viewDidLoad];
 }
 
++ (void)initialize
+{
+    UINavigationBar* bar = [UINavigationBar appearance];
+    
+    //[bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    [bar setAlpha:0.1];
+    //[bar setTintColor:REDRGB];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

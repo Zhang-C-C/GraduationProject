@@ -46,7 +46,7 @@ static NSString *identifier = @"perfectMsgCell";
 
 - (void)initView
 {
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) style:UITableViewStyleGrouped];
     
     tableView.delegate = self;
     tableView.dataSource = self;

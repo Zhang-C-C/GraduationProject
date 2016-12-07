@@ -28,6 +28,7 @@
  
     [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     
+    self.view.clipsToBounds = YES;
     [self.view addSubview:btn];
 }
 

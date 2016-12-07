@@ -38,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     [self initView];
 }
 
@@ -72,7 +72,7 @@
         [self addLeftMenuWith:vc];
         
         BaseNavigationController *baseNav = [[BaseNavigationController alloc]initWithRootViewController:vc];
-    
+            
         //设置按钮图片
         baseNav.tabBarItem.image = [UIImage imageNamed:normalImgs[i]];
         baseNav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImg[i]];

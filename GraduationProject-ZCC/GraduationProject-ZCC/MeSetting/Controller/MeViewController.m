@@ -29,6 +29,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    //self.navigationController.navigationBar.hidden = YES;
+
     [self initData];
 }
 
@@ -38,7 +40,7 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNoramlImgae:@"list_selected" SelectedImage:nil target:self action:@selector(listBtnAction)];
     
     //添加表视图
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 4, kScreenWidth, kScreenHeight-4) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) style:UITableViewStyleGrouped];
     tableView.backgroundColor = [UIColor clearColor];
     
     tableView.delegate = self;
@@ -55,6 +57,9 @@
     
     self.tableView = tableView;
     [self.view addSubview:tableView];
+    
+    //设置表视图的偏移量
+    //[self setupTableViewInset];
 }
 
 - (void)initData
@@ -73,10 +78,46 @@
             [self initData];
             
         } WithCancleBtn:nil];
-        
     }];
 }
+
+- (void)setupTableViewInset
+{
+    if([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+        
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
+        UIEdgeInsets insets = self.tableView.contentInset;
+        
+        insets.top = self.navigationController.navigationBar.bounds.size.height;
+        
+        self.tableView.contentInset =insets;
+        
+        self.tableView.scrollIndicatorInsets = insets;
+    }
+    
+    self.tableView.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height);
+}
+
 #pragma mark ----Delegate----
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    if (velocity.y >0) {
+        
+        [UIView animateWithDuration:.5 animations:^{
+            
+            //self.navigationController.navigationBar.hidden = YES;
+        }];
+        
+    }else{
+        
+        [UIView animateWithDuration:.5 animations:^{
+            
+            //self.navigationController.navigationBar.hidden = NO;
+        }];
+    }
+}
 
 #pragma mark ----UITableViewDataSource----
 

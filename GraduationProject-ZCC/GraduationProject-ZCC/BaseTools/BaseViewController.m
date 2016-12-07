@@ -11,6 +11,8 @@
 
 @interface BaseViewController ()
 
+@property(nonatomic,strong)UIImageView *imgV;
+
 @end
 
 @implementation BaseViewController
@@ -41,11 +43,12 @@
         NSString *path = [caches stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",fileName]];
         NSData *data = [NSData dataWithContentsOfFile:path];
         UIImage *img = [UIImage imageWithData:data];
-        self.view.backgroundColor = [UIColor colorWithPatternImage:img];
+       
+        self.imgV.image = img;
         
     }else{
         
-        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImg-1.jpg"]];
+        self.imgV.image = [UIImage imageNamed:@"backgroundImg.jpg"];
     }
 }
 
@@ -67,6 +70,18 @@
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark ----Lazy----
+
+- (UIImageView *)imgV
+{
+    if (!_imgV) {
+        _imgV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        _imgV.contentMode = UIViewContentModeScaleToFill;
+        [self.view addSubview:_imgV];
+    }
+    return _imgV;
 }
 
 - (void)didReceiveMemoryWarning {
