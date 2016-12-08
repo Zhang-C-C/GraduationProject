@@ -28,6 +28,12 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(initBackground) name:kThemeChange object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.view sendSubviewToBack:self.imgV];
+}
+
 #pragma mark ----Init----
 
 /**
@@ -79,6 +85,12 @@
     if (!_imgV) {
         _imgV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         _imgV.contentMode = UIViewContentModeScaleToFill;
+        //添加一层蒙版
+        UIView *blackView = [[UIView alloc]initWithFrame:_imgV.frame];
+        blackView.backgroundColor = [UIColor blackColor];
+        blackView.alpha = 0.3;
+        [_imgV addSubview:blackView];
+        
         [self.view addSubview:_imgV];
     }
     return _imgV;

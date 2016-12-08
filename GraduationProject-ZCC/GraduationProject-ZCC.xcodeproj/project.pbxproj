@@ -14,13 +14,11 @@
 		6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDC11DF5463100427097 /* HCDataHelper.m */; };
 		6364CDC51DF5463100427097 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDC31DF5463100427097 /* UICountingLabel.m */; };
 		6364CDD21DF5540700427097 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDCE1DF5540700427097 /* MeViewController.m */; };
-		6364CDD31DF5540700427097 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364CDCF1DF5540700427097 /* MeViewController.xib */; };
 		6364CDD61DF55C0C00427097 /* MeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDD51DF55C0C00427097 /* MeHeadView.m */; };
 		6364CDD81DF55C1300427097 /* MeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364CDD71DF55C1300427097 /* MeHeadView.xib */; };
 		6364CDDC1DF561BF00427097 /* SaveDataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDDB1DF561BF00427097 /* SaveDataTools.m */; };
 		636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */; };
 		636790B81DF7AF21000C3E31 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790B41DF7AF21000C3E31 /* ThemeViewController.m */; };
-		636790B91DF7AF21000C3E31 /* ThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636790B51DF7AF21000C3E31 /* ThemeViewController.xib */; };
 		636790BD1DF7AF48000C3E31 /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790BB1DF7AF48000C3E31 /* ThemeCell.m */; };
 		636790BE1DF7AF48000C3E31 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636790BC1DF7AF48000C3E31 /* ThemeCell.xib */; };
 		636790C11DF7B572000C3E31 /* ThemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790C01DF7B572000C3E31 /* ThemeModel.m */; };
@@ -87,7 +85,6 @@
 		6364CDC31DF5463100427097 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 		6364CDCD1DF5540700427097 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		6364CDCE1DF5540700427097 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
-		6364CDCF1DF5540700427097 /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		6364CDD41DF55C0C00427097 /* MeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeHeadView.h; sourceTree = "<group>"; };
 		6364CDD51DF55C0C00427097 /* MeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeHeadView.m; sourceTree = "<group>"; };
 		6364CDD71DF55C1300427097 /* MeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeadView.xib; sourceTree = "<group>"; };
@@ -97,7 +94,6 @@
 		636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+IsNull.m"; sourceTree = "<group>"; };
 		636790B31DF7AF21000C3E31 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
 		636790B41DF7AF21000C3E31 /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
-		636790B51DF7AF21000C3E31 /* ThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeViewController.xib; sourceTree = "<group>"; };
 		636790BA1DF7AF48000C3E31 /* ThemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeCell.h; sourceTree = "<group>"; };
 		636790BB1DF7AF48000C3E31 /* ThemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCell.m; sourceTree = "<group>"; };
 		636790BC1DF7AF48000C3E31 /* ThemeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
@@ -219,7 +215,6 @@
 			children = (
 				6364CDCD1DF5540700427097 /* MeViewController.h */,
 				6364CDCE1DF5540700427097 /* MeViewController.m */,
-				6364CDCF1DF5540700427097 /* MeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,7 +264,6 @@
 			children = (
 				636790B31DF7AF21000C3E31 /* ThemeViewController.h */,
 				636790B41DF7AF21000C3E31 /* ThemeViewController.m */,
-				636790B51DF7AF21000C3E31 /* ThemeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -571,14 +565,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				638E81361DF160C200BB7654 /* LoginViewController.xib in Resources */,
-				6364CDD31DF5540700427097 /* MeViewController.xib in Resources */,
 				636790BE1DF7AF48000C3E31 /* ThemeCell.xib in Resources */,
 				638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */,
 				6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
 				638E81441DF16A7800BB7654 /* PerfectMsgCell.xib in Resources */,
-				636790B91DF7AF21000C3E31 /* ThemeViewController.xib in Resources */,
 				638E813F1DF1612700BB7654 /* PerfectHeadView.xib in Resources */,
 				6364CDD81DF55C1300427097 /* MeHeadView.xib in Resources */,
 				638E81391DF160C200BB7654 /* RestPasswordViewController.xib in Resources */,
