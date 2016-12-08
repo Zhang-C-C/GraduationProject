@@ -19,7 +19,7 @@
 
  @param viewController 控制器
  */
-- (void)pushViewController:(UIViewController *)viewController;
+- (void)pushViewController:(UIViewController *)viewController WithTitle:(NSString *)title;
 
 @end
 

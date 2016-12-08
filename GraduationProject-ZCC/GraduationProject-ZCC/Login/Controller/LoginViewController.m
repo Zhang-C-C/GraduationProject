@@ -113,6 +113,7 @@
         if (!error) {
             
             [self showSuccessWith:@"登录成功"];
+            
             //保存用户名密码
             [kUserDefaultDict setObject:self.account.text forKey:kUserName];
             [kUserDefaultDict setObject:self.password.text forKey:kPassword];

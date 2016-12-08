@@ -7,6 +7,7 @@
 //
 
 #import "StartViewController.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface StartViewController ()
 
@@ -19,9 +20,16 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
-    //[[LoadManager sharedInstance]startloading];
-    
-    [self initData];
+    //安全判断是否第一次登陆
+    if ([AppTools judgeIsFirstLogin]) {
+        
+        //加载引导页
+        [self initData];
+        
+    }else{
+        
+        [self initData];
+    }
 }
 
 - (void)initData

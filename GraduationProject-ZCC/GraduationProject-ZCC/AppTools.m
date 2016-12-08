@@ -464,6 +464,114 @@
     }
 }
 
++ (BOOL )judgeIsFirstLogin
+{
+    NSDictionary* infoDict =[[NSBundle mainBundle] infoDictionary];
+    NSString* versionNum =[infoDict objectForKey:@"CFBundleShortVersionString"];
+    NSString *saveVersion = [kUserDefaultDict objectForKey:kVersion];
+    
+    if(saveVersion && [versionNum isEqualToString:saveVersion]) {
+        
+        //不是第一次使用这个版本
+        return NO;
+        
+    }else{
+        
+        [kUserDefaultDict setObject:versionNum forKey:kVersion];
+        [kUserDefaultDict synchronize];
+        return YES;
+    }
+}
+
++ (NSString *)getUserIdentifier
+{
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970]*1000;
+    double i = time;      //NSTimeInterval返回的是double类型
+    NSString * uniqueString = [NSString stringWithFormat:@"%.f",i];
+    
+    return uniqueString;
+}
+
++ (BOOL)judgeIsSupportTouchID
+{
+    LAContext* context = [[LAContext alloc] init];
+    NSError* error = nil;
+    if (![context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        
+        return NO;
+    }else{
+        
+        return YES;
+    }
+}
+
++ (void)evaluateAuthenticateWithSuccess:(SaveSuccess )successBlock Error:(SaveError )failueBlock
+{
+    LAContext *context = [[LAContext alloc]init];
+    NSError *error = nil;
+    NSString *title = @"请验证已有指纹";
+    
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        
+        //支持指纹验证
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:title reply:^(BOOL success, NSError * _Nullable error) {
+            
+            if (success) {
+                
+                if (successBlock) {
+                    successBlock();
+                }
+                
+            }else{
+                
+                if (failueBlock) {
+                    failueBlock(error);
+                }
+            }
+        }];
+    }
+}
+
++ (void)saveDatatoPlistWithKey:(NSString *)key Value:(id )value FileName:(NSString *)fileName WithSuccess:(SaveSuccess )success Error:(SaveError )error
+{
+    //保存到plist文件
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    [dic setObject:value forKey:key];
+    
+    NSString *caches = [HCDataHelper libCachePath];
+    NSString *path = [caches stringByAppendingPathComponent:fileName];
+    
+    BOOL isOk = [dic writeToFile:path atomically:YES];
+    
+    if (isOk) {
+        
+        if (success) {
+            success();
+        }
+        
+    }else{
+        
+        if (error) {
+            error(nil);
+        }
+    }
+}
+
++ (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SaveSuccess )success
+{
+    NSString *path = [[HCDataHelper libCachePath]stringByAppendingPathComponent:fileName];
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+    NSLog(@"------%@----",dic);
+    
+    if ([dic[[BmobUser currentUser].username] boolValue]) {
+        
+        if (success) {
+            success();
+        }
+    }
+}
+
 #pragma mark ---Lazy----
 - (UIView *)maskView
 {

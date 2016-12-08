@@ -19,7 +19,15 @@ static NSString *identifier = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initView];
+    [self initData];
+    //[self initView];
+}
+
+- (void)initData
+{
+    self.version.text = [NSString stringWithFormat:@"当前版本号 %@",[kUserDefaultDict objectForKey:kVersion]];
+    
+    self.identifier.text = [NSString stringWithFormat:@"用户唯一标示码 %@",[AppTools getUserIdentifier]];
 }
 
 - (void)initView

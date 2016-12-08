@@ -18,18 +18,18 @@
 #import "UIViewController+HUDHelper.h"//HUDHelper提示信息
 #import "UIBarButtonItem+CustomButton.h"//导航栏按妞
 #import "MainViewController.h"//tabBar控制器
-#import <UMSocialQQHandler.h>
-#import <UMSocialSinaHandler.h>
-#import <UMSocialWechatHandler.h>
-#import <UMSocialCore/UMSocialCore.h>
-#import "UIView+ViewController.h"
-#import "SaveDataTools.h"
-#import "AppDelegate.h"
+#import <UMSocialQQHandler.h>//友盟相关
+#import <UMSocialSinaHandler.h>//友盟相关
+#import <UMSocialWechatHandler.h>//友盟相关
+#import <UMSocialCore/UMSocialCore.h>//友盟相关
+#import "UIView+ViewController.h"//获取响应者连的控制器
+#import "SaveDataTools.h"//保存数据的单例
+#import "AppDelegate.h"//全局单例
 #import <UIButton+WebCache.h>
 #import "LoadManager.h"
 #import "NSNull+IsNull.h"
 #import <UIImageView+WebCache.h>
-#import "HCDataHelper.h"
-#import "LoginViewController.h"
+#import "HCDataHelper.h"//沙盒路径相关
+#import "LoginViewController.h"//登录页面
 
 #endif /* MyPch_h */

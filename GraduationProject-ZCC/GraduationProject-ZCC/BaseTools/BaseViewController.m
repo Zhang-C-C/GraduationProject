@@ -27,12 +27,6 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(initBackground) name:kThemeChange object:nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.view sendSubviewToBack:self.imgV];
-}
-
 #pragma mark ----Init----
 
 /**
@@ -55,6 +49,7 @@
         
         self.imgV.image = [UIImage imageNamed:@"backgroundImg.jpg"];
     }
+    [self.view sendSubviewToBack:self.imgV];
 }
 
 #pragma mark ----Action----

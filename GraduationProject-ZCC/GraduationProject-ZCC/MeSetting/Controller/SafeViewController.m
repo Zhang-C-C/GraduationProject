@@ -7,6 +7,7 @@
 //
 
 #import "SafeViewController.h"
+#import "LockViewController.h"
 
 static NSString *identifier = @"cell";
 
@@ -40,12 +41,19 @@ static NSString *identifier = @"cell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 //单元格个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section == 0) {
+        
+        return 2;
+    }else{
+        
+        return 1;
+    }
     return 2;
 }
 
@@ -57,18 +65,23 @@ static NSString *identifier = @"cell";
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.textColor = [UIColor whiteColor];
     }
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         
         cell.textLabel.text = @"AppUser";
         BmobUser *user = [BmobUser currentUser];
         
-        cell.detailTextLabel.textColor = [UIColor whiteColor];
         cell.detailTextLabel.text = user.username;
         
-    }else if (indexPath.row == 1) {
+    }else if (indexPath.section == 0 && indexPath.row == 1) {
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"修改登录密码";
+        
+    }else if (indexPath.section == 1){
+        
+        cell.textLabel.text = @"App设备锁";
     }
     return cell;
 }
@@ -79,7 +92,7 @@ static NSString *identifier = @"cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 1) {
+    if (indexPath.row == 1 &&indexPath.section == 0) {
         
         [AppTools alertViewWithVC:self WithSuccessBlock:^(NSString *newPassword) {
             
@@ -108,6 +121,11 @@ static NSString *identifier = @"cell";
            
             [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
         }];
+        
+    }else if (indexPath.section == 1){
+        
+        LockViewController *lockVC = [[LockViewController alloc]init];
+        [[AppDelegate sharedAppDelegate] pushViewController:lockVC WithTitle:@"设备锁"];
     }
 }
 
@@ -118,7 +136,14 @@ static NSString *identifier = @"cell";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"当前登录账号";
+    if (section == 0) {
+        
+        return @"当前登录账号";
+    }else{
+        
+        return @"设备锁";
+    }
+    return @"";
 }
 
 - (void)didReceiveMemoryWarning {

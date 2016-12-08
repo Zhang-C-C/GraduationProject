@@ -62,11 +62,10 @@
     
     //跳转到完善信息页面
     PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
-    perfectVC.title = @"修改信息";
     perfectVC.isLogin = YES;
     perfectVC.user = self.user;
     
-    [[AppDelegate sharedAppDelegate] pushViewController:perfectVC];
+    [[AppDelegate sharedAppDelegate] pushViewController:perfectVC WithTitle:@"修改信息"];
 }
 
 /**

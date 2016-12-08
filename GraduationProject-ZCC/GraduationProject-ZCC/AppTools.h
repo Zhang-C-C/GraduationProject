@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <LocalAuthentication/LocalAuthentication.h>
 
 //确认按钮
 typedef void(^SureBtn)(void);
@@ -137,5 +138,51 @@ typedef void(^ClearSuccess)(NSString *newSize);
  清理缓存
 */
 + (void)clearCacheFileWithBlock:(ClearSuccess )success;
+
+/**
+ 判断当前版本号
+
+ @return 是否第一次启动
+ */
++ (BOOL )judgeIsFirstLogin;
+
+/**
+ 获取用户的唯一标示吗
+
+ @return 标志码
+ */
++ (NSString *)getUserIdentifier;
+
+/**
+ 是否支持Touch ID
+
+ @return 是否
+ */
++ (BOOL)judgeIsSupportTouchID;
+
+/**
+ 是否验证成功
+
+ @param successBlock 成功
+ @param failueBlock 失败
+ */
++ (void)evaluateAuthenticateWithSuccess:(SaveSuccess )successBlock Error:(SaveError )failueBlock;
+
+/**
+ 保存文件到沙盒
+
+ @param key key
+ @param value value
+ @param success 成功
+ @param error 失败
+ */
++ (void)saveDatatoPlistWithKey:(NSString *)key Value:(id )value FileName:(NSString *)fileName WithSuccess:(SaveSuccess )success Error:(SaveError )error;
+
+/**
+ 读取沙河文件
+
+ @param success 结果
+ */
++ (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SaveSuccess )success;
 
 @end

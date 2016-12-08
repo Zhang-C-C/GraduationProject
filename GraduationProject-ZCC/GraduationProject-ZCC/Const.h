@@ -14,15 +14,17 @@
 
 //偏好设置
 #define kUserDefaultDict [NSUserDefaults standardUserDefaults]
-
+//版本号
+#define kVersion @"versionAtNow"
 //用户名
 #define kUserName @"userName"
 //密码
 #define kPassword @"userPassword"
 //三方登录的昵称
 #define knickName @"nickName"
-
+//主题名字
 #define kTheme @"themeSelected"
+//切换主题的通知名字
 #define kThemeChange @"themeChanged"
 
 //跟试图控制器
@@ -33,9 +35,11 @@
 
 #define rgbColor(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0  blue:(b) / 255.0  alpha:a]
 
+//按钮的宽高
 #define kBtnHeight 35
 #define kBtnWidth 240
 
-#define leftSpace [UIScreen mainScreen].bounds.size.width *0.8
+#define kTouchIDFile @"lock.plist"
+#define kPasswordFile @"password.plist"
 
 #endif /* Const_h */

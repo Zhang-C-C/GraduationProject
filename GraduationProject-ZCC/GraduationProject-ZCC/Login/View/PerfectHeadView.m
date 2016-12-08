@@ -83,8 +83,7 @@
 - (IBAction)locationBtnAction:(UIButton *)sender {
     
     LocationViewController *locationVC = [[LocationViewController alloc]init];
-    locationVC.title = @"定位信息";
-    [[AppDelegate sharedAppDelegate]pushViewController:locationVC];
+    [[AppDelegate sharedAppDelegate]pushViewController:locationVC WithTitle:@"定位信息"];
 }
 
 /**

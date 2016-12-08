@@ -11,6 +11,7 @@
 #import "ThemeViewController.h"
 #import "SafeViewController.h"
 #import "AboutUSViewController.h"
+#import "PLockViewController.h"
 
 static NSString *identifier = @"cell";
 
@@ -35,7 +36,6 @@ static NSString *identifier = @"cell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //self.navigationController.navigationBar.hidden = YES;
 
     [self initData];
 }
@@ -62,8 +62,9 @@ static NSString *identifier = @"cell";
     
     //添加退出登录按钮
     [self addLogoutBtn];
-    //设置表视图的偏移量
-    //[self setupTableViewInset];
+    
+    //设置导航栏的左侧按钮
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNoramlImgae:@"" SelectedImage:@"" target:self action:@selector(leftBtnAction)];
 }
 
 - (void)initData
@@ -99,43 +100,10 @@ static NSString *identifier = @"cell";
     [self.tableView addSubview:logout];
 }
 
-- (void)setupTableViewInset
-{
-    if([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
-        
-        self.automaticallyAdjustsScrollViewInsets = NO;
-        
-        UIEdgeInsets insets = self.tableView.contentInset;
-        
-        insets.top = self.navigationController.navigationBar.bounds.size.height;
-        
-        self.tableView.contentInset =insets;
-        
-        self.tableView.scrollIndicatorInsets = insets;
-    }
-    
-    self.tableView.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height);
-}
+
 
 #pragma mark ----Delegate----
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-{
-    if (velocity.y >0) {
-        
-        [UIView animateWithDuration:.5 animations:^{
-            
-            //self.navigationController.navigationBar.hidden = YES;
-        }];
-        
-    }else{
-        
-        [UIView animateWithDuration:.5 animations:^{
-            
-            //self.navigationController.navigationBar.hidden = NO;
-        }];
-    }
-}
 
 #pragma mark ----UITableViewDataSource----
 
@@ -177,14 +145,12 @@ static NSString *identifier = @"cell";
     if (indexPath.row == 0) {
         
         SafeViewController *safeVC = [[SafeViewController alloc]init];
-        safeVC.title = @"账号安全";
-        [[AppDelegate sharedAppDelegate] pushViewController:safeVC];
+        [[AppDelegate sharedAppDelegate] pushViewController:safeVC WithTitle:@"账号安全"];
         
     }else if (indexPath.row == 1){
         
         ThemeViewController *themeVC = [[ThemeViewController alloc]init];
-        themeVC.title = @"个性主题";
-        [[AppDelegate sharedAppDelegate] pushViewController:themeVC];
+        [[AppDelegate sharedAppDelegate] pushViewController:themeVC WithTitle:@"个性主题"];
         
     }else if (indexPath.row == 2){
         
@@ -209,12 +175,21 @@ static NSString *identifier = @"cell";
     }else if (indexPath.row == 3){
         
         AboutUSViewController *aboutVC = [[AboutUSViewController alloc]init];
-        aboutVC.title = @"关于我们";
-        [[AppDelegate sharedAppDelegate] pushViewController:aboutVC];
+        [[AppDelegate sharedAppDelegate] pushViewController:aboutVC WithTitle:@"关于我们"];
     }
 }
 
 #pragma mark ----Action-----
+
+- (void)leftBtnAction
+{
+    [AppTools getDataFromPlistWithFileName:kTouchIDFile Success:^{
+        
+        //弹出密码验证页面
+        PLockViewController *plockVC = [[PLockViewController alloc]init];
+        [self presentViewController:plockVC animated:YES completion:nil];
+    }];
+}
 
 /**
  退出登录按钮

@@ -90,11 +90,12 @@
 }
 
 //推出控制器
-- (void)pushViewController:(UIViewController *)viewController
+- (void)pushViewController:(UIViewController *)viewController WithTitle:(NSString *)title
 {
     @autoreleasepool
     {
         viewController.hidesBottomBarWhenPushed = YES;
+        viewController.title = title;
         [[self navigationViewController] pushViewController:viewController animated:YES];
     }
 }
