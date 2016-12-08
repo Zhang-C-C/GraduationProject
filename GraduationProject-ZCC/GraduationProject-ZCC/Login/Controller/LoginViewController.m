@@ -324,11 +324,13 @@
                 textField.borderStyle = UITextBorderStyleRoundedRect;
                 //提示信息
                 textField.placeholder = @"请输入用户名";
+                textField.clearButtonMode = UITextFieldViewModeAlways;
             }];
             [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
                 textField.borderStyle = UITextBorderStyleRoundedRect;
                 textField.secureTextEntry = YES;
                 textField.placeholder = @"请输入密码";
+                textField.clearButtonMode = UITextFieldViewModeAlways;
             }];
             
             //取消按钮

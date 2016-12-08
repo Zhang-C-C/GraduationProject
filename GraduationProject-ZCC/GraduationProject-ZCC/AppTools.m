@@ -344,6 +344,61 @@
     }];
 }
 
++ (void)alertViewWithVC:(UIViewController *)vc WithSuccessBlock:(ChangeSuccess )success WithErrorBlock:(ChangeError )err
+{
+    //修改密码
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"修改密码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.placeholder = @"请输入旧密码";
+        textField.secureTextEntry = YES;
+        textField.clearButtonMode = UITextFieldViewModeAlways;
+    }];
+    
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.placeholder = @"请输入新密码";
+        textField.secureTextEntry = YES;
+        textField.clearButtonMode = UITextFieldViewModeAlways;
+    }];
+    
+    //取消按钮
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:nil];
+    [alertVC addAction:cancle];
+    
+    //确定按钮
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *old = alertVC.textFields[0].text;
+        NSString *new = alertVC.textFields[1].text;
+        
+        if (old.length >0 &&new.length >0) {
+            
+            BmobUser *user = [BmobUser currentUser];
+            [user updateCurrentUserPasswordWithOldPassword:old newPassword:new block:^(BOOL isSuccessful, NSError *error) {
+                
+                if (isSuccessful) {
+                    
+                    if (success) {
+                        
+                        success(new);
+                    }
+                    
+                } else {
+                    
+                    if (err) {
+                        err(error);
+                    }
+                }
+            }];
+        }
+    }];
+    [alertVC addAction:sure];
+    
+    [vc presentViewController:alertVC animated:YES completion:nil];
+}
 
 #pragma mark ---Lazy----
 - (UIView *)maskView

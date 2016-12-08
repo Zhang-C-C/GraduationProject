@@ -17,8 +17,6 @@
 
 @property(nonatomic,strong)UICollectionView *collectionView;
 
-@property(nonatomic,assign)BOOL isOk;
-
 @end
 
 @implementation ThemeViewController
@@ -26,9 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self showLoadingWith:@"正在获取更新"];
     [self initView];
     
-    [self initData];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [self initData];
+    });
 }
 
 - (void)initView
@@ -81,6 +83,7 @@
                 [self.dataList addObject:model];
                 [self.collectionView reloadData];
             }
+            [self showSuccessWith:@"更新数据成功"];
         }
     }];
 }

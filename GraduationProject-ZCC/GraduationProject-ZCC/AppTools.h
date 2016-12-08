@@ -23,6 +23,11 @@ typedef void(^Success)(NSArray *array);
 //获取失败
 typedef void(^Error)(NSError *error);
 
+//修改成功
+typedef void(^ChangeSuccess)(NSString *newPassword);
+//修改失败
+typedef void(^ChangeError)(NSError *error);
+
 @interface AppTools : NSObject
 
 + (instancetype)sharedInstance;
@@ -108,5 +113,15 @@ typedef void(^Error)(NSError *error);
  @param erro 失败
  */
 + (void)queryWithClassName:(NSString *)name Key:(NSString *)key EqualTo:(NSString *)some WithSuccess:(Success )success WithErroe:(Error )erro;
+
+
+/**
+ 修改密码
+
+ @param vc 控制器
+ @param success 成功
+ @param err 失败
+ */
++ (void)alertViewWithVC:(UIViewController *)vc WithSuccessBlock:(ChangeSuccess )success WithErrorBlock:(ChangeError )err;
 
 @end

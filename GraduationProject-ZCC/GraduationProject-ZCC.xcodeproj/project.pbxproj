@@ -36,7 +36,7 @@
 		636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */; };
 		636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73F51DF01CCF0042E7F9 /* AppTools.m */; };
 		636B74111DF029F60042E7F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74101DF029F60042E7F9 /* MainViewController.m */; };
-		638407ED1DF6BD460004ACD3 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638407EB1DF6BD460004ACD3 /* LeftViewController.m */; };
+		638660871DF90694006B353F /* SafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638660861DF90694006B353F /* SafeViewController.m */; };
 		638E81331DF160C200BB7654 /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81251DF160C200BB7654 /* BindPhoneViewController.m */; };
 		638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E81261DF160C200BB7654 /* BindPhoneViewController.xib */; };
 		638E81351DF160C200BB7654 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81281DF160C200BB7654 /* LoginViewController.m */; };
@@ -130,8 +130,8 @@
 		636B73F51DF01CCF0042E7F9 /* AppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppTools.m; path = ../AppTools.m; sourceTree = "<group>"; };
 		636B740F1DF029F60042E7F9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		636B74101DF029F60042E7F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		638407EA1DF6BD460004ACD3 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
-		638407EB1DF6BD460004ACD3 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		638660851DF90694006B353F /* SafeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeViewController.h; sourceTree = "<group>"; };
+		638660861DF90694006B353F /* SafeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeViewController.m; sourceTree = "<group>"; };
 		638E81241DF160C200BB7654 /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = "<group>"; };
 		638E81251DF160C200BB7654 /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = "<group>"; };
 		638E81261DF160C200BB7654 /* BindPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindPhoneViewController.xib; sourceTree = "<group>"; };
@@ -215,6 +215,8 @@
 			children = (
 				6364CDCD1DF5540700427097 /* MeViewController.h */,
 				6364CDCE1DF5540700427097 /* MeViewController.m */,
+				638660851DF90694006B353F /* SafeViewController.h */,
+				638660861DF90694006B353F /* SafeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,8 +322,6 @@
 				636B73A11DEFC6680042E7F9 /* AppDelegate.m */,
 				636B740F1DF029F60042E7F9 /* MainViewController.h */,
 				636B74101DF029F60042E7F9 /* MainViewController.m */,
-				638407EA1DF6BD460004ACD3 /* LeftViewController.h */,
-				638407EB1DF6BD460004ACD3 /* LeftViewController.m */,
 				636790AC1DF7AB2F000C3E31 /* ThemeVC */,
 				6364CDC61DF553C200427097 /* MeSetting */,
 				636B73FC1DF024080042E7F9 /* Login */,
@@ -653,6 +653,7 @@
 				6364CDDC1DF561BF00427097 /* SaveDataTools.m in Sources */,
 				638E813D1DF160DA00BB7654 /* PerfectHeadView.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,
+				638660871DF90694006B353F /* SafeViewController.m in Sources */,
 				638E813A1DF160C200BB7654 /* StartViewController.m in Sources */,
 				638E81381DF160C200BB7654 /* RestPasswordViewController.m in Sources */,
 				636790BD1DF7AF48000C3E31 /* ThemeCell.m in Sources */,
@@ -666,7 +667,6 @@
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
 				6364CDD21DF5540700427097 /* MeViewController.m in Sources */,
 				636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */,
-				638407ED1DF6BD460004ACD3 /* LeftViewController.m in Sources */,
 				6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */,
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,

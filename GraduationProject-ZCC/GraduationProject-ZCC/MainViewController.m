@@ -10,13 +10,10 @@
 #import "BindPhoneViewController.h"
 #import "LoginViewController.h"
 #import "MeViewController.h"
-#import "LeftViewController.h"
 
 @interface MainViewController ()
 
 @property(nonatomic,strong)UIView *blackView;
-
-@property(nonatomic,strong)LeftViewController *leftVC;
 
 @end
 
@@ -68,9 +65,6 @@
         UIViewController *vc = vcs[i];
         vc.title = titles[i];
         
-        //添加侧滑手势
-        [self addLeftMenuWith:vc];
-        
         BaseNavigationController *baseNav = [[BaseNavigationController alloc]initWithRootViewController:vc];
             
         //设置按钮图片
@@ -84,99 +78,11 @@
     self.tabBar.alpha = 0.7;
 }
 
-/**
- 侧滑手势
- */
-- (void)addLeftMenuWith:(UIViewController *)vc
-{
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panAction:)];
-    [vc.view addGestureRecognizer:pan];
-}
-
-/**
- 移除蒙版
- */
-- (void)removeBlackView
-{
-    //移除蒙版
-    self.blackView.hidden = YES;
-    [UIView animateWithDuration:.5 animations:^{
-        
-        self.view.transform = CGAffineTransformMakeTranslation(0, 0);
-        self.leftVC.view.transform = CGAffineTransformMakeTranslation(0, 0);
-    }];
-}
-
 #pragma mark ----Action----
 
-/**
- 平移手势事件
-
- @param pan pan
- */
-- (void)panAction:(UIPanGestureRecognizer *)pan
-{
-    NSInteger index = [pan translationInView:self.view].x;
-    if (index >0) {
-
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            
-            self.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
-            self.leftVC.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
-        });
-        
-        [UIView animateWithDuration:.5 animations:^{
-            
-            //显示侧边栏
-            self.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
-            self.leftVC.view.transform = CGAffineTransformMakeTranslation(leftSpace, 0);
-            
-        } completion:^(BOOL finished) {
-            
-            //添加蒙版
-            self.blackView.hidden = NO;
-        }];
-
-    }else{
-        
-        [self removeBlackView];
-    }
-}
-
-/**
- 点击事件.收起侧边栏
- */
-- (void)tapAction
-{
-    [self removeBlackView];
-}
 
 #pragma mark ----Lazy----
 
-- (UIView *)blackView
-{
-    if (!_blackView) {
-        
-        _blackView = [[UIView alloc]initWithFrame:CGRectMake(leftSpace, 0, kScreenWidth-leftSpace, kScreenHeight)];
-
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
-        [_blackView addGestureRecognizer:tap];
-        
-        [[UIApplication sharedApplication].keyWindow addSubview:_blackView];
-    }
-    return _blackView;
-}
-
-- (LeftViewController *)leftVC
-{
-    if (!_leftVC) {
-        _leftVC = [[LeftViewController alloc]init];
-        _leftVC.view.frame = CGRectMake(-leftSpace, 0, leftSpace, kScreenHeight);
-        [[UIApplication sharedApplication].keyWindow addSubview:self.leftVC.view];
-    }
-    return _leftVC;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

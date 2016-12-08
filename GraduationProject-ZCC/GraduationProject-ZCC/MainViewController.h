@@ -10,9 +10,4 @@
 
 @interface MainViewController : UITabBarController
 
-/**
- 收起侧边栏
- */
-- (void)tapAction;
-
 @end

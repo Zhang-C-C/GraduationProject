@@ -9,12 +9,18 @@
 #import "MeViewController.h"
 #import "MeHeadView.h"
 #import "LoginViewController.h"
+#import "ThemeViewController.h"
+#import "SafeViewController.h"
+
+static NSString *identifier = @"cell";
 
 @interface MeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
 
 @property(nonatomic,strong)MeHeadView *headView;
+
+@property(nonatomic,strong)NSArray *array;
 
 @end
 
@@ -54,16 +60,19 @@
         //刷新数据
         [self initData];
     }];
-    
     self.tableView = tableView;
     [self.view addSubview:tableView];
     
+    //添加退出登录按钮
+    [self addLogoutBtn];
     //设置表视图的偏移量
     //[self setupTableViewInset];
 }
 
 - (void)initData
 {
+    self.array = @[@"账号安全",@"个性主题",@"关于"];
+    
     //获取数据
     [self.headView showUserMsgWithSucBlock:^{
         
@@ -79,6 +88,18 @@
             
         } WithCancleBtn:nil];
     }];
+}
+
+- (void)addLogoutBtn
+{
+    UIButton *logout = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth-kBtnWidth)/2, kScreenHeight-kBtnHeight-144, kBtnWidth, kBtnHeight)];
+    [logout setBackgroundColor:REDRGB];
+    logout.layer.cornerRadius = 5;
+    [logout setTitle:@"退出当前账号" forState:UIControlStateNormal];
+    [logout setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [logout addTarget:self action:@selector(logoutBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.tableView addSubview:logout];
 }
 
 - (void)setupTableViewInset
@@ -124,13 +145,22 @@
 //单元格个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.array.count;
 }
 
 //单元格内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.textColor = [UIColor whiteColor];
+    }
+    cell.textLabel.text = self.array[indexPath.row];
+    
+    return cell;
 }
 
 #pragma mark ----UITableViewDelegate----
@@ -138,7 +168,23 @@
 //单元格点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        
+        SafeViewController *safeVC = [[SafeViewController alloc]init];
+        safeVC.title = @"账号安全";
+        [[AppDelegate sharedAppDelegate] pushViewController:safeVC];
+        
+    }else if (indexPath.row == 1){
+        
+        ThemeViewController *themeVC = [[ThemeViewController alloc]init];
+        themeVC.title = @"个性主题";
+        [[AppDelegate sharedAppDelegate] pushViewController:themeVC];
+        
+    }else if (indexPath.row == 2){
+        
+        
+    }
 }
 
 #pragma mark ----Action-----
@@ -147,6 +193,14 @@
  */
 - (void)listBtnAction
 {
+    
+}
+
+/**
+ 退出登录按钮
+ */
+- (void)logoutBtnAction
+{
     [AppTools alertViewWithTitle:@"确认退出?" WithMsg:@"" WithSureBtn:@"退出" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
         
         //退出登录,删除密码 和主题
@@ -154,13 +208,13 @@
         [kUserDefaultDict removeObjectForKey:kPassword];
         [kUserDefaultDict removeObjectForKey:kTheme];
         
+        [self showSuccessWith:@"已退出"];
         //重新设置跟试图控制器
         LoginViewController *loginVC = [[LoginViewController alloc]init];
         BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:loginVC];
         kRootViewController = nav;
         
     } WithCancleBtn:nil];
-
 }
 
 - (void)didReceiveMemoryWarning {
