@@ -9,7 +9,6 @@
 #import "ThemeViewController.h"
 #import "ThemeCell.h"
 #import "ThemeModel.h"
-#import "HCDataHelper.h"
 
 @interface ThemeViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 
@@ -165,14 +164,20 @@
     ThemeModel *model = self.dataList[indexPath.row];
     ThemeCell *cell = (ThemeCell *)[collectionView cellForItemAtIndexPath:indexPath];
 
+    if ([cell.label.text isEqual:@"正在使用"]) {
+        
+        [self showMsgWith:@"当前使用"];
+        return ;
+    }
+    
     //安全检查是否已经下载
     if ([SaveDataTools isFileExist:[NSString stringWithFormat:@"%@.png",model.name]]) {
         
         [self setUpBackImgWithCell:cell WithModel:model];
         return ;
     }
+  
     cell.label.text = @"正在下载...";
-    
     //下载到本地
     NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.url]];
     UIImage *image = [UIImage imageWithData:imgData];
@@ -185,6 +190,8 @@
     if (isOk) {
         
         [self setUpBackImgWithCell:cell WithModel:model];
+        //保存到相册
+        UIImageWriteToSavedPhotosAlbum(image, self, nil, NULL);
         
     }else{
         

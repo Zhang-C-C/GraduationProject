@@ -37,6 +37,7 @@
 		636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73F51DF01CCF0042E7F9 /* AppTools.m */; };
 		636B74111DF029F60042E7F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B74101DF029F60042E7F9 /* MainViewController.m */; };
 		638660871DF90694006B353F /* SafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638660861DF90694006B353F /* SafeViewController.m */; };
+		638660901DF926E5006B353F /* AboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6386608F1DF926E5006B353F /* AboutUSViewController.m */; };
 		638E81331DF160C200BB7654 /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81251DF160C200BB7654 /* BindPhoneViewController.m */; };
 		638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E81261DF160C200BB7654 /* BindPhoneViewController.xib */; };
 		638E81351DF160C200BB7654 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81281DF160C200BB7654 /* LoginViewController.m */; };
@@ -132,6 +133,8 @@
 		636B74101DF029F60042E7F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		638660851DF90694006B353F /* SafeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeViewController.h; sourceTree = "<group>"; };
 		638660861DF90694006B353F /* SafeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeViewController.m; sourceTree = "<group>"; };
+		6386608E1DF926E5006B353F /* AboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUSViewController.h; sourceTree = "<group>"; };
+		6386608F1DF926E5006B353F /* AboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUSViewController.m; sourceTree = "<group>"; };
 		638E81241DF160C200BB7654 /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = "<group>"; };
 		638E81251DF160C200BB7654 /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = "<group>"; };
 		638E81261DF160C200BB7654 /* BindPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindPhoneViewController.xib; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				6364CDCE1DF5540700427097 /* MeViewController.m */,
 				638660851DF90694006B353F /* SafeViewController.h */,
 				638660861DF90694006B353F /* SafeViewController.m */,
+				6386608E1DF926E5006B353F /* AboutUSViewController.h */,
+				6386608F1DF926E5006B353F /* AboutUSViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -652,6 +657,7 @@
 				636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */,
 				6364CDDC1DF561BF00427097 /* SaveDataTools.m in Sources */,
 				638E813D1DF160DA00BB7654 /* PerfectHeadView.m in Sources */,
+				638660901DF926E5006B353F /* AboutUSViewController.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,
 				638660871DF90694006B353F /* SafeViewController.m in Sources */,
 				638E813A1DF160C200BB7654 /* StartViewController.m in Sources */,

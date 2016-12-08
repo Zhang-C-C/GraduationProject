@@ -28,6 +28,9 @@ typedef void(^ChangeSuccess)(NSString *newPassword);
 //修改失败
 typedef void(^ChangeError)(NSError *error);
 
+//清理成功
+typedef void(^ClearSuccess)(NSString *newSize);
+
 @interface AppTools : NSObject
 
 + (instancetype)sharedInstance;
@@ -114,7 +117,6 @@ typedef void(^ChangeError)(NSError *error);
  */
 + (void)queryWithClassName:(NSString *)name Key:(NSString *)key EqualTo:(NSString *)some WithSuccess:(Success )success WithErroe:(Error )erro;
 
-
 /**
  修改密码
 
@@ -123,5 +125,17 @@ typedef void(^ChangeError)(NSError *error);
  @param err 失败
  */
 + (void)alertViewWithVC:(UIViewController *)vc WithSuccessBlock:(ChangeSuccess )success WithErrorBlock:(ChangeError )err;
+
+/**
+ 拿到缓存文件
+ 
+ @return 大小
+ */
++ (CGFloat )getClearCaches;
+
+/**
+ 清理缓存
+*/
++ (void)clearCacheFileWithBlock:(ClearSuccess )success;
 
 @end

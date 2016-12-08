@@ -8,9 +8,9 @@
 
 #import "MeViewController.h"
 #import "MeHeadView.h"
-#import "LoginViewController.h"
 #import "ThemeViewController.h"
 #import "SafeViewController.h"
+#import "AboutUSViewController.h"
 
 static NSString *identifier = @"cell";
 
@@ -42,9 +42,6 @@ static NSString *identifier = @"cell";
 
 - (void)initView
 {
-    //设置按钮样式
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNoramlImgae:@"list_selected" SelectedImage:nil target:self action:@selector(listBtnAction)];
-    
     //添加表视图
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) style:UITableViewStyleGrouped];
     tableView.backgroundColor = [UIColor clearColor];
@@ -71,7 +68,7 @@ static NSString *identifier = @"cell";
 
 - (void)initData
 {
-    self.array = @[@"账号安全",@"个性主题",@"关于"];
+    self.array = @[@"账号安全",@"个性主题",@"清理缓存",@"关于我们"];
     
     //获取数据
     [self.headView showUserMsgWithSucBlock:^{
@@ -153,13 +150,21 @@ static NSString *identifier = @"cell";
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.textColor = [UIColor whiteColor];
     }
     cell.textLabel.text = self.array[indexPath.row];
     
+    if (indexPath.row == 2) {
+        
+        CGFloat size = [AppTools getClearCaches];
+        NSString *text = nil;
+        size >= 1024.0?(text = [NSString stringWithFormat:@"%.2fMB",size/1024.0]):(text =  [NSString stringWithFormat:@"%.2fKB",size]);
+        cell.detailTextLabel.text = text;
+    }
     return cell;
 }
 
@@ -183,18 +188,33 @@ static NSString *identifier = @"cell";
         
     }else if (indexPath.row == 2){
         
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if ([cell.detailTextLabel.text isEqualToString:@"0.00 KB"]) {
+            
+            [self showMsgWith:@"无需清理"];
+            return ;
+        }
+        [AppTools alertViewWithTitle:@"确认清理?" WithMsg:@"清理缓存" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
+            
+            [self showLoadingWith:@"正在清理"];
+            //清理缓存
+            [AppTools clearCacheFileWithBlock:^(NSString *newSize) {
+               
+                cell.detailTextLabel.text = newSize;
+                [self showSuccessWith:@"清理完成"];
+            }];
+            
+        } WithCancleBtn:nil];
         
+    }else if (indexPath.row == 3){
+        
+        AboutUSViewController *aboutVC = [[AboutUSViewController alloc]init];
+        aboutVC.title = @"关于我们";
+        [[AppDelegate sharedAppDelegate] pushViewController:aboutVC];
     }
 }
 
 #pragma mark ----Action-----
-/**
- 导航栏左侧按钮点击事件
- */
-- (void)listBtnAction
-{
-    
-}
 
 /**
  退出登录按钮

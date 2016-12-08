@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "HCDataHelper.h"
 
 @interface BaseViewController ()
 

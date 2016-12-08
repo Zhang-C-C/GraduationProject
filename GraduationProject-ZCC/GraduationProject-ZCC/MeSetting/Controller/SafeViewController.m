@@ -7,7 +7,6 @@
 //
 
 #import "SafeViewController.h"
-#import "LoginViewController.h"
 
 static NSString *identifier = @"cell";
 
@@ -28,7 +27,6 @@ static NSString *identifier = @"cell";
     //添加表视图
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) style:UITableViewStyleGrouped];
     tableView.backgroundColor = [UIColor clearColor];
-    //tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     tableView.delegate = self;
     tableView.dataSource = self;

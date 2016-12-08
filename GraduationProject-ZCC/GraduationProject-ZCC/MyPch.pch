@@ -29,5 +29,7 @@
 #import "LoadManager.h"
 #import "NSNull+IsNull.h"
 #import <UIImageView+WebCache.h>
+#import "HCDataHelper.h"
+#import "LoginViewController.h"
 
 #endif /* MyPch_h */

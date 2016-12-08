@@ -8,7 +8,6 @@
 
 #import "MainViewController.h"
 #import "BindPhoneViewController.h"
-#import "LoginViewController.h"
 #import "MeViewController.h"
 
 @interface MainViewController ()

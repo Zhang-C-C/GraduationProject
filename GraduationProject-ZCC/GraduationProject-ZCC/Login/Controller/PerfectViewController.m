@@ -11,7 +11,6 @@
 #import "PerfectHeadView.h"
 #import "PerfectMsgCell.h"
 #import "SexPickerTools.h"
-#import "HCDataHelper.h"
 #import "BindPhoneViewController.h"
 
 static NSString *identifier = @"perfectMsgCell";

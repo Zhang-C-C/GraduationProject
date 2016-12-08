@@ -400,6 +400,70 @@
     [vc presentViewController:alertVC animated:YES completion:nil];
 }
 
+
+/**
+ 拿到缓存文件
+
+ @return 大小
+ */
++ (CGFloat )getClearCaches
+{
+    NSArray *array = [HCDataHelper GetFilesName:[HCDataHelper libCachePath]];
+    CGFloat sizeOfCaches;
+    
+    for (NSString *fileName in array) {
+        
+        NSString *filePath = [[HCDataHelper libCachePath] stringByAppendingPathComponent:fileName];
+        //计算大小
+        sizeOfCaches += [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil].fileSize;
+    }
+    //B K M
+    //CGFloat size = sizeOfCaches/1024.0/1024.0;
+    CGFloat size = sizeOfCaches/1024.0;
+    if (size <= 0.5) {
+        size = 0.00;
+    }
+    return size;
+}
+
+/**
+ 清理缓存
+
+ */
++ (void)clearCacheFileWithBlock:(ClearSuccess )success
+{
+    NSArray *array = [HCDataHelper GetFilesName:[HCDataHelper libCachePath]];
+    __block CGFloat sizeOfCaches;
+        
+    //异步清理缓存
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        for (NSString *fileName in array) {
+            
+            NSString *filePath = [[HCDataHelper libCachePath] stringByAppendingPathComponent:fileName];
+            
+            if (![fileName isEqualToString:[kUserDefaultDict objectForKey:kTheme]]) {
+                
+                //清除文件
+                [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+            }
+            //计算大小
+            sizeOfCaches += [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil].fileSize;
+        }
+        if (sizeOfCaches/1024.0 <=0.5) {
+            
+            
+        }
+    });
+    CGFloat size = sizeOfCaches/1024.0;
+    if (size <= 0.5) {
+        size = 0.00;
+    }
+    if (success) {
+        success([NSString stringWithFormat:@"%.2f KB",size]);
+    }
+}
+
 #pragma mark ---Lazy----
 - (UIView *)maskView
 {
