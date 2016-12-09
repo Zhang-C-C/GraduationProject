@@ -22,7 +22,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编辑资料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6Y-Eh-akt">
-                    <rect key="frame" x="328" y="31.5" width="58" height="17"/>
+                    <rect key="frame" x="328" y="32" width="58" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAz-2e-ZHY" userLabel="隐形按钮">
-                    <rect key="frame" x="60" y="0.0" width="354" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                     <connections>
                         <action selector="hiddenBtnAction" destination="iN0-l3-epB" eventType="touchUpInside" id="4bI-be-Ts5"/>
                     </connections>
@@ -78,7 +78,7 @@
                 <constraint firstAttribute="trailing" secondItem="aAz-2e-ZHY" secondAttribute="trailing" id="NwP-LG-Eub"/>
                 <constraint firstAttribute="bottom" secondItem="aAz-2e-ZHY" secondAttribute="bottom" id="T82-3O-nCq"/>
                 <constraint firstItem="i6Y-Eh-akt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TqR-61-lM9"/>
-                <constraint firstItem="aAz-2e-ZHY" firstAttribute="leading" secondItem="vmy-pk-ROe" secondAttribute="trailing" constant="1" id="Vbu-aR-Tc2"/>
+                <constraint firstItem="aAz-2e-ZHY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hH8-ZW-rDd"/>
                 <constraint firstItem="QdQ-Jh-T7Z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lXw-NM-3J1"/>
                 <constraint firstItem="vmy-pk-ROe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nW2-is-mb4"/>
                 <constraint firstItem="IvB-YS-OCr" firstAttribute="leading" secondItem="vmy-pk-ROe" secondAttribute="trailing" constant="8" id="ptm-hm-nh9"/>
