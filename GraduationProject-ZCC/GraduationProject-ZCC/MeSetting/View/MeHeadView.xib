@@ -50,7 +50,7 @@
                         <action selector="hiddenBtnAction" destination="iN0-l3-epB" eventType="touchUpInside" id="4bI-be-Ts5"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmy-pk-ROe">
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmy-pk-ROe">
                     <rect key="frame" x="10" y="16" width="49" height="49"/>
                     <color key="backgroundColor" red="0.019607843140000001" green="0.18039215689999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
