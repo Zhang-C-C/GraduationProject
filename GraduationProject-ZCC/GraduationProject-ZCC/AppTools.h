@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <LocalAuthentication/LocalAuthentication.h>
+#import <UserNotifications/UserNotifications.h>
 
 //确认按钮
 typedef void(^SureBtn)(void);
@@ -187,5 +188,14 @@ typedef void(^SavePSuccess)(NSDictionary *dic);
  @param success 结果
  */
 + (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SavePSuccess )success;
+
+/**
+ 本地推送
+
+ @param title 标题
+ @param body 副标题
+ @param second 几秒之后推送
+ */
++ (void)sendLocalNitificationWithTitle:(NSString *)title WithContent:(NSString *)body WithTime:(CGFloat )second;
 
 @end

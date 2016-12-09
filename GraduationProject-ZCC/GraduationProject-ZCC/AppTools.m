@@ -569,6 +569,34 @@
     }
 }
 
++ (void)sendLocalNitificationWithTitle:(NSString *)title WithContent:(NSString *)body WithTime:(CGFloat )second
+{
+    //使用UNUserNotificationCenter来管理通知
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    //创建包含待通知内容的UNMutableNotificationContent对象
+    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    
+    content.title = [NSString localizedUserNotificationStringForKey:title arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:body arguments:nil];
+    content.sound = [UNNotificationSound defaultSound];
+    
+    //在 alertTime 后推送本地推送
+    second == 0?(second = 0.1):(second = second);
+    UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:second repeats:NO];
+    
+    UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond" content:content trigger:trigger];
+    
+    //添加推送成功后的处理！
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"推送失败:%@",error);
+        }
+    }];
+}
+
+
 #pragma mark ---Lazy----
 - (UIView *)maskView
 {

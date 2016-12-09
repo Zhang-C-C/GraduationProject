@@ -110,6 +110,8 @@
 	<string>允许App访问相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphoneDesciption</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>允许App使用期间获取位置信息</string>
 	<key>UIRequiredDeviceCapabilities</key>

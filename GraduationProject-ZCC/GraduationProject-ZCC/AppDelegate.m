@@ -8,11 +8,12 @@
 
 #import "AppDelegate.h"
 #import "StartViewController.h"
+#import <UserNotifications/UserNotifications.h>
 
 #define kBmobID @"9566251bffe6cac91c8f35d21abbb199"
 #define kUMengAppKey @"584111fd310c9374c400007e"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
@@ -29,6 +30,8 @@
     [self uMengShare];
     //注册Bmob
     [Bmob registerWithAppKey:kBmobID];
+    //注册本地推送
+    [self registerLocalNotification];
     
     //设置跟试图控制器
     StartViewController *startVC = [[StartViewController alloc]init];
@@ -87,6 +90,47 @@
 
 + (instancetype)sharedAppDelegate{
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+//本地推送
+- (void)registerLocalNotification
+{
+    // 使用 UNUserNotificationCenter 来管理通知
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    //监听回调事件
+    center.delegate = self;
+    
+    //iOS 10 使用以下方法注册，才能得到授权
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
+                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                              
+                              if (granted) {
+                                  
+                                  //NSLog(@"已授权");
+                                  
+                              }else{
+                                  
+                                  NSLog(@"授权失败error:%@",error);
+                              }
+                              
+                          }];
+    
+    //获取当前的通知设置，UNNotificationSettings 是只读对象，不能直接修改，只能通过以下方法获取
+    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        
+        //NSLog(@"%@",settings);
+    }];
+}
+
+#pragma mark - UNUserNotificationCenterDelegate
+//在展示通知前进行处理，即有机会在展示通知前再修改通知内容。
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    
+    //1. 处理通知
+    
+    
+    //2. 处理完成后条用 completionHandler ，用于指示在前台显示通知的形式
+    completionHandler(UNNotificationPresentationOptionSound);
 }
 
 //推出控制器
