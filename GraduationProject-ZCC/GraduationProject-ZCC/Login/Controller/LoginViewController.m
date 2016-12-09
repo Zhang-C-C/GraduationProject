@@ -315,7 +315,8 @@
     //通过授权信息注册登录
     [BmobUser loginInBackgroundWithAuthorDictionary:dic platform:type block:^(BmobUser *user, NSError *error) {
        
-        if (!error && user.username.length == 0) {
+        NSString *nickName = [kUserDefaultDict objectForKey:knickName];
+        if (!error && nickName.length == 0) {
             
             [self showMsgWith:@"请设置用户名和密码"];
             //弹出输入框
@@ -362,7 +363,7 @@
 
             [self presentViewController:alertVC animated:YES completion:nil];
             
-        }else if (!error && user.username.length >0 ){
+        }else if (!error && nickName.length >0){
             
             //保存信息
             [self updateUserMsgWithUserName:user.username NickName:nil Password:nil ImageUrl:nil];
