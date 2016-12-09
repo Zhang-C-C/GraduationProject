@@ -80,11 +80,14 @@
     }
 }
 
+/**
+ 退出登录
+ */
 - (void)dismissVC
 {
     [self dismissViewControllerAnimated:YES completion:^{
         
-        [self showSuccessWith:@"已退出"];
+        [self showSuccessWith:@"解锁密码错误,请重新登录"];
         //重新设置跟试图控制器
         [kUserDefaultDict removeObjectForKey:kPassword];
         LoginViewController *loginVC = [[LoginViewController alloc]init];

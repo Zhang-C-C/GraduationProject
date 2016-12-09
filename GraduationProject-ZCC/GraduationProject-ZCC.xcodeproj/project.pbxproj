@@ -7,12 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		631EB8091DF9396D0088FA44 /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB8081DF9396D0088FA44 /* LockViewController.m */; };
 		631EB80D1DF93EF70088FA44 /* LockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB80B1DF93EF70088FA44 /* LockCell.m */; };
 		631EB80E1DF93EF70088FA44 /* LockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631EB80C1DF93EF70088FA44 /* LockCell.xib */; };
-		631EB8121DF94CE30088FA44 /* PLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB8101DF94CE30088FA44 /* PLockViewController.m */; };
-		631EB8171DF954500088FA44 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB8151DF954500088FA44 /* PasswordViewController.m */; };
-		631EB8181DF954500088FA44 /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631EB8161DF954500088FA44 /* PasswordViewController.xib */; };
 		631EB81B1DF966E80088FA44 /* PasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB81A1DF966E80088FA44 /* PasswordView.m */; };
 		631EB81D1DF966F60088FA44 /* PasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631EB81C1DF966F60088FA44 /* PasswordView.xib */; };
 		6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDB41DF50A6400427097 /* SexPickerTools.m */; };
@@ -31,6 +27,10 @@
 		636790BE1DF7AF48000C3E31 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636790BC1DF7AF48000C3E31 /* ThemeCell.xib */; };
 		636790C11DF7B572000C3E31 /* ThemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790C01DF7B572000C3E31 /* ThemeModel.m */; };
 		636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790C41DF7EF4F000C3E31 /* LocationViewController.m */; };
+		6367FC801DFA4911002B91BE /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367FC7A1DFA4911002B91BE /* LockViewController.m */; };
+		6367FC811DFA4912002B91BE /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367FC7C1DFA4911002B91BE /* PasswordViewController.m */; };
+		6367FC821DFA4912002B91BE /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6367FC7D1DFA4911002B91BE /* PasswordViewController.xib */; };
+		6367FC831DFA4912002B91BE /* PLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367FC7F1DFA4911002B91BE /* PLockViewController.m */; };
 		636B739F1DEFC6680042E7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B739E1DEFC6680042E7F9 /* main.m */; };
 		636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73A11DEFC6680042E7F9 /* AppDelegate.m */; };
 		636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B73A91DEFC6680042E7F9 /* Assets.xcassets */; };
@@ -82,16 +82,9 @@
 /* Begin PBXFileReference section */
 		156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GraduationProject-ZCC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16AA2B755B08F4471E6C839F /* Pods-GraduationProject-ZCC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.release.xcconfig"; sourceTree = "<group>"; };
-		631EB8071DF9396D0088FA44 /* LockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockViewController.h; sourceTree = "<group>"; };
-		631EB8081DF9396D0088FA44 /* LockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockViewController.m; sourceTree = "<group>"; };
 		631EB80A1DF93EF70088FA44 /* LockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockCell.h; sourceTree = "<group>"; };
 		631EB80B1DF93EF70088FA44 /* LockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockCell.m; sourceTree = "<group>"; };
 		631EB80C1DF93EF70088FA44 /* LockCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LockCell.xib; sourceTree = "<group>"; };
-		631EB80F1DF94CE30088FA44 /* PLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLockViewController.h; sourceTree = "<group>"; };
-		631EB8101DF94CE30088FA44 /* PLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLockViewController.m; sourceTree = "<group>"; };
-		631EB8141DF954500088FA44 /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
-		631EB8151DF954500088FA44 /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
-		631EB8161DF954500088FA44 /* PasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordViewController.xib; sourceTree = "<group>"; };
 		631EB8191DF966E80088FA44 /* PasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordView.h; sourceTree = "<group>"; };
 		631EB81A1DF966E80088FA44 /* PasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordView.m; sourceTree = "<group>"; };
 		631EB81C1DF966F60088FA44 /* PasswordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordView.xib; sourceTree = "<group>"; };
@@ -124,6 +117,13 @@
 		636790C01DF7B572000C3E31 /* ThemeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeModel.m; sourceTree = "<group>"; };
 		636790C31DF7EF4F000C3E31 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		636790C41DF7EF4F000C3E31 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		6367FC791DFA4911002B91BE /* LockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockViewController.h; sourceTree = "<group>"; };
+		6367FC7A1DFA4911002B91BE /* LockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockViewController.m; sourceTree = "<group>"; };
+		6367FC7B1DFA4911002B91BE /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
+		6367FC7C1DFA4911002B91BE /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
+		6367FC7D1DFA4911002B91BE /* PasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordViewController.xib; sourceTree = "<group>"; };
+		6367FC7E1DFA4911002B91BE /* PLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLockViewController.h; sourceTree = "<group>"; };
+		6367FC7F1DFA4911002B91BE /* PLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLockViewController.m; sourceTree = "<group>"; };
 		636B739A1DEFC6680042E7F9 /* GraduationProject-ZCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraduationProject-ZCC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636B739E1DEFC6680042E7F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		636B73A01DEFC6680042E7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -239,6 +239,7 @@
 		6364CDCC1DF5540700427097 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6367FC781DFA4911002B91BE /* PasswordViewController */,
 				6364CDCD1DF5540700427097 /* MeViewController.h */,
 				6364CDCE1DF5540700427097 /* MeViewController.m */,
 				638660851DF90694006B353F /* SafeViewController.h */,
@@ -246,13 +247,6 @@
 				6386608E1DF926E5006B353F /* AboutUSViewController.h */,
 				6386608F1DF926E5006B353F /* AboutUSViewController.m */,
 				638660911DF92E29006B353F /* AboutUSViewController.xib */,
-				631EB8071DF9396D0088FA44 /* LockViewController.h */,
-				631EB8081DF9396D0088FA44 /* LockViewController.m */,
-				631EB80F1DF94CE30088FA44 /* PLockViewController.h */,
-				631EB8101DF94CE30088FA44 /* PLockViewController.m */,
-				631EB8141DF954500088FA44 /* PasswordViewController.h */,
-				631EB8151DF954500088FA44 /* PasswordViewController.m */,
-				631EB8161DF954500088FA44 /* PasswordViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -329,6 +323,20 @@
 				636790BC1DF7AF48000C3E31 /* ThemeCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6367FC781DFA4911002B91BE /* PasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6367FC791DFA4911002B91BE /* LockViewController.h */,
+				6367FC7A1DFA4911002B91BE /* LockViewController.m */,
+				6367FC7B1DFA4911002B91BE /* PasswordViewController.h */,
+				6367FC7C1DFA4911002B91BE /* PasswordViewController.m */,
+				6367FC7D1DFA4911002B91BE /* PasswordViewController.xib */,
+				6367FC7E1DFA4911002B91BE /* PLockViewController.h */,
+				6367FC7F1DFA4911002B91BE /* PLockViewController.m */,
+			);
+			path = PasswordViewController;
 			sourceTree = "<group>";
 		};
 		636B73911DEFC6680042E7F9 = {
@@ -610,6 +618,7 @@
 				636790BE1DF7AF48000C3E31 /* ThemeCell.xib in Resources */,
 				638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */,
 				6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */,
+				6367FC821DFA4912002B91BE /* PasswordViewController.xib in Resources */,
 				638660921DF92E29006B353F /* AboutUSViewController.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
@@ -619,7 +628,6 @@
 				631EB80E1DF93EF70088FA44 /* LockCell.xib in Resources */,
 				631EB81D1DF966F60088FA44 /* PasswordView.xib in Resources */,
 				638E81391DF160C200BB7654 /* RestPasswordViewController.xib in Resources */,
-				631EB8181DF954500088FA44 /* PasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +711,7 @@
 				638660871DF90694006B353F /* SafeViewController.m in Sources */,
 				638E813A1DF160C200BB7654 /* StartViewController.m in Sources */,
 				638E81381DF160C200BB7654 /* RestPasswordViewController.m in Sources */,
+				6367FC811DFA4912002B91BE /* PasswordViewController.m in Sources */,
 				631EB81B1DF966E80088FA44 /* PasswordView.m in Sources */,
 				636790BD1DF7AF48000C3E31 /* ThemeCell.m in Sources */,
 				636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */,
@@ -711,20 +720,19 @@
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
 				638E81371DF160C200BB7654 /* PerfectViewController.m in Sources */,
 				636790B81DF7AF21000C3E31 /* ThemeViewController.m in Sources */,
+				6367FC801DFA4911002B91BE /* LockViewController.m in Sources */,
 				6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */,
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
-				631EB8121DF94CE30088FA44 /* PLockViewController.m in Sources */,
 				6364CDD21DF5540700427097 /* MeViewController.m in Sources */,
 				636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */,
 				6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */,
-				631EB8171DF954500088FA44 /* PasswordViewController.m in Sources */,
-				631EB8091DF9396D0088FA44 /* LockViewController.m in Sources */,
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,
 				6364CDC51DF5463100427097 /* UICountingLabel.m in Sources */,
 				631EB80D1DF93EF70088FA44 /* LockCell.m in Sources */,
 				636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */,
 				636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */,
+				6367FC831DFA4912002B91BE /* PLockViewController.m in Sources */,
 				638E81351DF160C200BB7654 /* LoginViewController.m in Sources */,
 				636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */,
 				6364CDD61DF55C0C00427097 /* MeHeadView.m in Sources */,

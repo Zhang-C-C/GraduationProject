@@ -112,7 +112,7 @@
             
             self.count --;
             self.alertLabel.text = [NSString stringWithFormat:@"请输入密码,解锁App,您有%ld次输入密码的机会",self.count];
-            
+             
             if (self.count == 0) {
                 
                 if (_passwordInputCorrect) {

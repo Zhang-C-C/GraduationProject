@@ -59,7 +59,7 @@ static NSString *identifier = @"lockCell";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 //单元格个数

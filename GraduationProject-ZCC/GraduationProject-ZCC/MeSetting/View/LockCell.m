@@ -31,6 +31,7 @@
             
             if ([dic[[BmobUser currentUser].username] boolValue]) {
                 
+                [self openPasswordLock];
                 [self.SwitchBtn setOn:YES];
             }
         }];
@@ -43,6 +44,7 @@
             NSString *pass = dic[kPasswordName];
             if (pass.length == 5) {
                
+                [self openPasswordLock];
                 [self.SwitchBtn setOn:YES];
             }
         }];
@@ -152,6 +154,28 @@
     }
 }
 
+/**
+ 开启密码锁的提示信息
+ */
+- (void)openPasswordLock
+{
+    [AppTools getDataFromPlistWithFileName:@"alert.plist" Success:^(NSDictionary *dic) {
+       
+        if (![[dic objectForKey:@"alert"] boolValue]) {
+            
+            [AppTools alertViewWithTitle:@"提示" WithMsg:@"您已开启密码锁,在'首页'-'我页面'-'点击屏幕左上角即可以进入保护模式',一般人我告诉他^_^" WithSureBtn:@"我知道了" WithCancleBtn:nil WithVC:self.viewController WithSureBtn:^{
+                
+                //保存此消息
+                [AppTools saveDatatoPlistWithKey:@"alert" Value:@(YES) FileName:@"alert.plist" WithSuccess:^{
+                    
+                } Error:^(NSError *error) {
+                    
+                }];
+                
+            } WithCancleBtn:nil];
+        }
+    }];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
