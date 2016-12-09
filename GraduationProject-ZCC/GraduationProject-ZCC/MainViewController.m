@@ -55,8 +55,8 @@
     MeViewController *meVC = [[MeViewController alloc]init];
     BaseViewController *baseVC = [[BaseViewController alloc]init];
     
-    NSArray *vcs = @[meVC,baseVC];
-    NSArray *titles = @[@"我",@"Test"];
+    NSArray *vcs = @[baseVC,meVC];
+    NSArray *titles = @[@"Test",@"我"];
     NSArray *normalImgs = @[@"me_normal",@"me_normal"];
     NSArray *selectedImg = @[@"me_selected",@"me_selected"];
     for (int i = 0; i< vcs.count; i ++) {

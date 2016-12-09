@@ -22,7 +22,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编辑资料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6Y-Eh-akt">
-                    <rect key="frame" x="328" y="16" width="58" height="17"/>
+                    <rect key="frame" x="328" y="31.5" width="58" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -50,12 +50,6 @@
                         <action selector="hiddenBtnAction" destination="iN0-l3-epB" eventType="touchUpInside" id="4bI-be-Ts5"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完善度 0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eID-j0-TfY" userLabel="资料完善度">
-                    <rect key="frame" x="328" y="41" width="58" height="15"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmy-pk-ROe">
                     <rect key="frame" x="10" y="16" width="49" height="49"/>
                     <color key="backgroundColor" red="0.019607843140000001" green="0.18039215689999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,12 +74,10 @@
                 <constraint firstAttribute="trailing" secondItem="i6Y-Eh-akt" secondAttribute="trailing" constant="28" id="3Co-dA-Jgo"/>
                 <constraint firstItem="aAz-2e-ZHY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7nW-ie-Ia2"/>
                 <constraint firstAttribute="trailing" secondItem="QdQ-Jh-T7Z" secondAttribute="trailing" constant="8" id="BOw-k6-EiL"/>
-                <constraint firstItem="eID-j0-TfY" firstAttribute="trailing" secondItem="i6Y-Eh-akt" secondAttribute="trailing" id="DoD-UJ-gEi"/>
                 <constraint firstItem="vmy-pk-ROe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="K5o-GH-1xb"/>
                 <constraint firstAttribute="trailing" secondItem="aAz-2e-ZHY" secondAttribute="trailing" id="NwP-LG-Eub"/>
-                <constraint firstItem="i6Y-Eh-akt" firstAttribute="top" secondItem="BWO-2Z-wdE" secondAttribute="top" id="SRM-xL-nZM"/>
                 <constraint firstAttribute="bottom" secondItem="aAz-2e-ZHY" secondAttribute="bottom" id="T82-3O-nCq"/>
-                <constraint firstItem="eID-j0-TfY" firstAttribute="top" secondItem="i6Y-Eh-akt" secondAttribute="bottom" constant="8" id="VRI-Lt-9Hv"/>
+                <constraint firstItem="i6Y-Eh-akt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TqR-61-lM9"/>
                 <constraint firstItem="aAz-2e-ZHY" firstAttribute="leading" secondItem="vmy-pk-ROe" secondAttribute="trailing" constant="1" id="Vbu-aR-Tc2"/>
                 <constraint firstItem="QdQ-Jh-T7Z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lXw-NM-3J1"/>
                 <constraint firstItem="vmy-pk-ROe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nW2-is-mb4"/>
@@ -99,7 +91,6 @@
             <connections>
                 <outlet property="headBtn" destination="vmy-pk-ROe" id="vOm-f4-1Rp"/>
                 <outlet property="nickName" destination="BWO-2Z-wdE" id="p6r-UA-ES8"/>
-                <outlet property="perfectNumLabel" destination="eID-j0-TfY" id="G7p-e5-hkP"/>
                 <outlet property="qmLabel" destination="IvB-YS-OCr" id="H7E-CE-pfO"/>
             </connections>
             <point key="canvasLocation" x="14" y="-13"/>
