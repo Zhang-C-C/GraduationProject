@@ -557,18 +557,15 @@
     }
 }
 
-+ (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SaveSuccess )success
++ (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SavePSuccess )success
 {
     NSString *path = [[HCDataHelper libCachePath]stringByAppendingPathComponent:fileName];
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:path];
     NSLog(@"------%@----",dic);
     
-    if ([dic[[BmobUser currentUser].username] boolValue]) {
-        
-        if (success) {
-            success();
-        }
+    if (success) {
+        success(dic);
     }
 }
 

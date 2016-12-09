@@ -11,7 +11,10 @@
 		631EB80D1DF93EF70088FA44 /* LockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB80B1DF93EF70088FA44 /* LockCell.m */; };
 		631EB80E1DF93EF70088FA44 /* LockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631EB80C1DF93EF70088FA44 /* LockCell.xib */; };
 		631EB8121DF94CE30088FA44 /* PLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB8101DF94CE30088FA44 /* PLockViewController.m */; };
-		631EB8131DF94CE30088FA44 /* PLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631EB8111DF94CE30088FA44 /* PLockViewController.xib */; };
+		631EB8171DF954500088FA44 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB8151DF954500088FA44 /* PasswordViewController.m */; };
+		631EB8181DF954500088FA44 /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631EB8161DF954500088FA44 /* PasswordViewController.xib */; };
+		631EB81B1DF966E80088FA44 /* PasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631EB81A1DF966E80088FA44 /* PasswordView.m */; };
+		631EB81D1DF966F60088FA44 /* PasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631EB81C1DF966F60088FA44 /* PasswordView.xib */; };
 		6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDB41DF50A6400427097 /* SexPickerTools.m */; };
 		6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364CDB61DF50AA700427097 /* SexPickerTools.xib */; };
 		6364CDBB1DF5314500427097 /* LoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDBA1DF5314500427097 /* LoadManager.m */; };
@@ -86,7 +89,12 @@
 		631EB80C1DF93EF70088FA44 /* LockCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LockCell.xib; sourceTree = "<group>"; };
 		631EB80F1DF94CE30088FA44 /* PLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLockViewController.h; sourceTree = "<group>"; };
 		631EB8101DF94CE30088FA44 /* PLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLockViewController.m; sourceTree = "<group>"; };
-		631EB8111DF94CE30088FA44 /* PLockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLockViewController.xib; sourceTree = "<group>"; };
+		631EB8141DF954500088FA44 /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
+		631EB8151DF954500088FA44 /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
+		631EB8161DF954500088FA44 /* PasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordViewController.xib; sourceTree = "<group>"; };
+		631EB8191DF966E80088FA44 /* PasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordView.h; sourceTree = "<group>"; };
+		631EB81A1DF966E80088FA44 /* PasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordView.m; sourceTree = "<group>"; };
+		631EB81C1DF966F60088FA44 /* PasswordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordView.xib; sourceTree = "<group>"; };
 		6364CDB31DF50A6400427097 /* SexPickerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPickerTools.h; sourceTree = "<group>"; };
 		6364CDB41DF50A6400427097 /* SexPickerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPickerTools.m; sourceTree = "<group>"; };
 		6364CDB61DF50AA700427097 /* SexPickerTools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPickerTools.xib; sourceTree = "<group>"; };
@@ -242,7 +250,9 @@
 				631EB8081DF9396D0088FA44 /* LockViewController.m */,
 				631EB80F1DF94CE30088FA44 /* PLockViewController.h */,
 				631EB8101DF94CE30088FA44 /* PLockViewController.m */,
-				631EB8111DF94CE30088FA44 /* PLockViewController.xib */,
+				631EB8141DF954500088FA44 /* PasswordViewController.h */,
+				631EB8151DF954500088FA44 /* PasswordViewController.m */,
+				631EB8161DF954500088FA44 /* PasswordViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -263,6 +273,9 @@
 				631EB80A1DF93EF70088FA44 /* LockCell.h */,
 				631EB80B1DF93EF70088FA44 /* LockCell.m */,
 				631EB80C1DF93EF70088FA44 /* LockCell.xib */,
+				631EB8191DF966E80088FA44 /* PasswordView.h */,
+				631EB81A1DF966E80088FA44 /* PasswordView.m */,
+				631EB81C1DF966F60088FA44 /* PasswordView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,14 +611,15 @@
 				638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */,
 				6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */,
 				638660921DF92E29006B353F /* AboutUSViewController.xib in Resources */,
-				631EB8131DF94CE30088FA44 /* PLockViewController.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
 				638E81441DF16A7800BB7654 /* PerfectMsgCell.xib in Resources */,
 				638E813F1DF1612700BB7654 /* PerfectHeadView.xib in Resources */,
 				6364CDD81DF55C1300427097 /* MeHeadView.xib in Resources */,
 				631EB80E1DF93EF70088FA44 /* LockCell.xib in Resources */,
+				631EB81D1DF966F60088FA44 /* PasswordView.xib in Resources */,
 				638E81391DF160C200BB7654 /* RestPasswordViewController.xib in Resources */,
+				631EB8181DF954500088FA44 /* PasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +703,7 @@
 				638660871DF90694006B353F /* SafeViewController.m in Sources */,
 				638E813A1DF160C200BB7654 /* StartViewController.m in Sources */,
 				638E81381DF160C200BB7654 /* RestPasswordViewController.m in Sources */,
+				631EB81B1DF966E80088FA44 /* PasswordView.m in Sources */,
 				636790BD1DF7AF48000C3E31 /* ThemeCell.m in Sources */,
 				636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */,
 				636790C11DF7B572000C3E31 /* ThemeModel.m in Sources */,
@@ -702,6 +717,7 @@
 				6364CDD21DF5540700427097 /* MeViewController.m in Sources */,
 				636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */,
 				6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */,
+				631EB8171DF954500088FA44 /* PasswordViewController.m in Sources */,
 				631EB8091DF9396D0088FA44 /* LockViewController.m in Sources */,
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,

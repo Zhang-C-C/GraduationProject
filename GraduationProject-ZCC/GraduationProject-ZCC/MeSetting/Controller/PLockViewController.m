@@ -7,6 +7,8 @@
 //
 
 #import "PLockViewController.h"
+#import "PasswordViewController.h"
+#import "PasswordView.h"
 
 @interface PLockViewController ()
 
@@ -22,15 +24,72 @@
 {
     [super viewWillAppear:animated];
     
-    [AppTools evaluateAuthenticateWithSuccess:^{
+    if (self.isTouchID) {
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [AppTools evaluateAuthenticateWithSuccess:^{
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        } Error:^(NSError *error) {
+            
+            if (self.isPassword) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                    //加载密码锁页面
+                    PasswordView *pView = [PasswordView loadView];
+                    pView.isOpenTouchID = YES;
+                    [pView setPasswordInputCorrect:^(BOOL isCorrect) {
+                       
+                        if (isCorrect) {
+                            
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                        
+                        }else{
+                            
+                            [self dismissVC];
+                        }
+                    }];
+                    
+                    [self.view addSubview:pView];
+                });
+                
+            }else{
+                
+                [self dismissVC];
+            }
+        }];
         
-    } Error:^(NSError *error) {
-       
+    }else{
+        
         //加载密码锁页面
+        PasswordView *pView = [PasswordView loadView];
+        pView.isOpenTouchID = NO;
+        [pView setPasswordInputCorrect:^(BOOL isCorrect) {
+            
+            if (isCorrect) {
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+                
+            }else{
+                
+                [self dismissVC];
+            }
+        }];
+        [self.view addSubview:pView];
+    }
+}
+
+- (void)dismissVC
+{
+    [self dismissViewControllerAnimated:YES completion:^{
         
-        
+        [self showSuccessWith:@"已退出"];
+        //重新设置跟试图控制器
+        [kUserDefaultDict removeObjectForKey:kPassword];
+        LoginViewController *loginVC = [[LoginViewController alloc]init];
+        BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:loginVC];
+        kRootViewController = nav;
     }];
 }
 

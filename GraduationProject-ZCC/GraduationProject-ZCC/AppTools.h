@@ -32,6 +32,9 @@ typedef void(^ChangeError)(NSError *error);
 //清理成功
 typedef void(^ClearSuccess)(NSString *newSize);
 
+//保存密码
+typedef void(^SavePSuccess)(NSDictionary *dic);
+
 @interface AppTools : NSObject
 
 + (instancetype)sharedInstance;
@@ -183,6 +186,6 @@ typedef void(^ClearSuccess)(NSString *newSize);
 
  @param success 结果
  */
-+ (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SaveSuccess )success;
++ (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SavePSuccess )success;
 
 @end

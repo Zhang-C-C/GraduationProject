@@ -33,7 +33,10 @@ static NSString *identifier = @"lockCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self initView];
 }
 

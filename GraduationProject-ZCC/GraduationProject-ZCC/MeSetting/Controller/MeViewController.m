@@ -183,12 +183,29 @@ static NSString *identifier = @"cell";
 
 - (void)leftBtnAction
 {
-    [AppTools getDataFromPlistWithFileName:kTouchIDFile Success:^{
+    //弹出密码验证页面
+    PLockViewController *plockVC = [[PLockViewController alloc]init];
+    
+    [AppTools getDataFromPlistWithFileName:kTouchIDFile Success:^(NSDictionary *dic) {
         
-        //弹出密码验证页面
-        PLockViewController *plockVC = [[PLockViewController alloc]init];
-        [self presentViewController:plockVC animated:YES completion:nil];
+        if ([dic[[BmobUser currentUser].username] boolValue]) {
+            
+            plockVC.isTouchID = YES;
+        }
     }];
+    
+    [AppTools getDataFromPlistWithFileName:kPasswordFile Success:^(NSDictionary *dic) {
+       
+        if ([dic[kPasswordName] length] == 5) {
+            
+            plockVC.isPassword = YES;
+        }
+    }];
+    
+    if (plockVC.isTouchID || plockVC.isPassword) {
+        
+        [self presentViewController:plockVC animated:YES completion:nil];
+    }
 }
 
 /**

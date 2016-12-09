@@ -41,5 +41,6 @@
 
 #define kTouchIDFile @"lock.plist"
 #define kPasswordFile @"password.plist"
+#define kPasswordName @"passwordName"
 
 #endif /* Const_h */

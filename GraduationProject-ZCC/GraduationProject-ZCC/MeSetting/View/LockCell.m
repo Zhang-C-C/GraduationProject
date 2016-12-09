@@ -7,6 +7,7 @@
 //
 
 #import "LockCell.h"
+#import "PasswordViewController.h"
 
 @implementation LockCell
 
@@ -26,15 +27,26 @@
     if (indexPath.section == 0) {
         
         self.leftLabel.text = @"开启touch ID 指纹解锁";
-        [AppTools getDataFromPlistWithFileName:kTouchIDFile Success:^{
-           
-            [self.SwitchBtn setOn:YES];
+        [AppTools getDataFromPlistWithFileName:kTouchIDFile Success:^(NSDictionary *dic) {
+            
+            if ([dic[[BmobUser currentUser].username] boolValue]) {
+                
+                [self.SwitchBtn setOn:YES];
+            }
         }];
         
     }else if (indexPath.section == 1){
         
         self.leftLabel.text = @"开启密码锁";
-    
+        [AppTools getDataFromPlistWithFileName:kPasswordFile Success:^(NSDictionary *dic) {
+            
+            NSString *pass = dic[kPasswordName];
+            if (pass.length == 5) {
+               
+                [self.SwitchBtn setOn:YES];
+            }
+        }];
+        
     }else if (indexPath.section == 2){
         
         self.leftLabel.hidden = YES;
@@ -54,6 +66,7 @@
                 
                 [AppTools alertViewWithTitle:@"关闭Touch ID?" WithMsg:@"在您启动App时不需要验证密码" WithSureBtn:@"关闭" WithCancleBtn:@"取消" WithVC:self.viewController WithSureBtn:^{
                     
+                    //保存信息
                     [AppTools saveDatatoPlistWithKey:[BmobUser currentUser].username Value:@(NO) FileName:kTouchIDFile WithSuccess:^{
                         
                         [self.viewController showSuccessWith:@"已关闭"];
@@ -74,6 +87,7 @@
                 
                 [AppTools alertViewWithTitle:@"启用Touch ID?" WithMsg:@"在您启动App时需要验证密码" WithSureBtn:@"启用" WithCancleBtn:@"取消" WithVC:self.viewController WithSureBtn:^{
         
+                    //保存信息
                     [AppTools saveDatatoPlistWithKey:[BmobUser currentUser].username Value:@(YES) FileName:kTouchIDFile WithSuccess:^{
                         
                         [self.viewController showSuccessWith:@"已开启"];
@@ -105,8 +119,16 @@
             
             [AppTools alertViewWithTitle:@"关闭密码锁?" WithMsg:@"在您启动App时不需要验证密码" WithSureBtn:@"关闭" WithCancleBtn:@"取消" WithVC:self.viewController WithSureBtn:^{
                 
-                [sender setOn:NO animated:YES];
-                
+                //保存信息
+                [AppTools saveDatatoPlistWithKey:kPasswordName Value:@"N" FileName:kPasswordFile WithSuccess:^{
+                    
+                    [sender setOn:NO animated:YES];
+                    
+                } Error:^(NSError *error) {
+                   
+                    [self.viewController showErrorWith:@"关闭失败,请重试"];
+                }];
+
             } WithCancleBtn:^{
                 
                 [sender setOn:YES animated:YES];
@@ -116,9 +138,11 @@
             
             [AppTools alertViewWithTitle:@"启用密码锁?" WithMsg:@"在您启动App时需要验证密码" WithSureBtn:@"启用" WithCancleBtn:@"取消" WithVC:self.viewController WithSureBtn:^{
                 
+                PasswordViewController *passwordVC = [[PasswordViewController alloc]init];
+                [[AppDelegate sharedAppDelegate] pushViewController:passwordVC WithTitle:@"设置解锁密码"];
                 
-                
-                [sender setOn:YES animated:YES];
+                //未设置密码时
+                [sender setOn:NO animated:YES];
                 
             } WithCancleBtn:^{
                 
