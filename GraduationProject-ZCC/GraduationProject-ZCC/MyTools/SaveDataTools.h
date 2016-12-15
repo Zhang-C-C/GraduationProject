@@ -21,4 +21,9 @@
 //判断文件是否已经在沙盒中已经存在？
 + (BOOL)isFileExist:(NSString *)fileName;
 
+//关注对象的名字
+@property(nonatomic,copy)NSString *focusName;
+//关注对象的头像
+@property(nonatomic,copy)NSString *imgV;
+
 @end

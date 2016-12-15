@@ -596,6 +596,47 @@
     }];
 }
 
++ (void)alertTextFieldWithVC:(UIViewController *)vc WithSuccessBlock:(SavePSuccess )success WithError:(Error )cancleBlock
+{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        //设置输入框的属性
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        //提示信息
+        textField.placeholder = @"请输入对方用户名";
+        textField.clearButtonMode = UITextFieldViewModeAlways;
+    }];
+    
+    //取消按钮
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (cancleBlock) {
+            cancleBlock(nil);
+        }
+        
+    }];
+    [alertVC addAction:cancle];
+    
+    //确定按钮
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        UITextField *userName = alertVC.textFields[0];
+        
+        if (userName.text.length >0) {
+            
+            if (success) {
+                
+                success(@{@"account":userName.text});
+            }
+            
+        }else{
+            
+        }
+    }];
+    [alertVC addAction:sure];
+    
+    [vc presentViewController:alertVC animated:YES completion:nil];
+}
 
 #pragma mark ---Lazy----
 - (UIView *)maskView

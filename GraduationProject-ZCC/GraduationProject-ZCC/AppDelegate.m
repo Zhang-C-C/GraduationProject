@@ -12,8 +12,11 @@
 
 #define kBmobID @"9566251bffe6cac91c8f35d21abbb199"
 #define kUMengAppKey @"584111fd310c9374c400007e"
+#define kBaiduMap @"GmMh5AqZfOAYt1hllOkck9w03zxn3tfH"
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
+
+@property(nonatomic,assign)int count;
 
 @end
 
@@ -32,6 +35,8 @@
     [Bmob registerWithAppKey:kBmobID];
     //注册本地推送
     [self registerLocalNotification];
+    //注册百度地图
+    [self registerBaiduMap];
     
     //设置跟试图控制器
     StartViewController *startVC = [[StartViewController alloc]init];
@@ -58,6 +63,19 @@
     
     //设置新浪的appKey和appSecret
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3363372238"  appSecret:@"73fd22b1ea01183b3b8bfc1184bda874" redirectURL:@"http://www.baidu.com"];
+}
+
+/**
+ 百度地图注册相关
+ */
+- (void)registerBaiduMap
+{
+    BMKMapManager *manager = [[BMKMapManager alloc]init];
+    BOOL ret = [manager start:kBaiduMap generalDelegate:nil];
+    if (!ret) {
+        
+        [self.window.rootViewController showErrorWith:@"百度地图管家启动失败"];
+    }
 }
 
 //支持所有iOS系统
@@ -101,19 +119,17 @@
     center.delegate = self;
     
     //iOS 10 使用以下方法注册，才能得到授权
-    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
-                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert +UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
                               
-                              if (granted) {
-                                  
-                                  //NSLog(@"已授权");
-                                  
-                              }else{
-                                  
-                                  NSLog(@"授权失败error:%@",error);
-                              }
-                              
-                          }];
+          if (granted) {
+              
+              //NSLog(@"已授权");
+              
+          }else{
+              
+              NSLog(@"授权失败error:%@",error);
+          }
+      }];
     
     //获取当前的通知设置，UNNotificationSettings 是只读对象，不能直接修改，只能通过以下方法获取
     [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
@@ -161,6 +177,40 @@
         }
     }
     return nil;
+}
+
+UIBackgroundTaskIdentifier taskId;
+
+//进入后台
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    NSLog(@"进入后台");
+    //开启一个后台任务 ->让程序一直运行
+    taskId = [application beginBackgroundTaskWithExpirationHandler:^{
+        
+        //结束指定的任务
+        [application endBackgroundTask:taskId];
+    }];
+
+     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
+}
+
+/**
+ 计时器事件
+
+ @param timer 计时器
+ */
+- (void)timerAction:(NSTimer *)timer {
+    self.count++;
+    
+    if (self.count % 500 == 0) {
+        UIApplication *application = [UIApplication sharedApplication];
+        //结束旧的后台任务
+        [application endBackgroundTask:taskId];
+        
+        //开启一个新的后台
+        taskId = [application beginBackgroundTaskWithExpirationHandler:NULL];
+    }
 }
 
 @end

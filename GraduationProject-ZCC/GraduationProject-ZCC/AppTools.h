@@ -94,7 +94,6 @@ typedef void(^SavePSuccess)(NSDictionary *dic);
  */
 + (void)updateUserMsgWithNickName:(NSString *)nickName WithImageUrl:(NSString *)imageUrl WithSex:(NSNumber *)sex WithQM:(NSString *)qm WithSaveSucBlock:(SaveSuccess )success WithSaveError:(SaveError )saveError;
 
-
 /**
  图片压缩到指定大小
 
@@ -109,7 +108,6 @@ typedef void(^SavePSuccess)(NSDictionary *dic);
  @param vc 控制器
  */
 - (void)chechPhoneBindedWithVC:(UIViewController *)vc;
-
 
 /**
  查询某个表某一行数据
@@ -197,5 +195,14 @@ typedef void(^SavePSuccess)(NSDictionary *dic);
  @param second 几秒之后推送
  */
 + (void)sendLocalNitificationWithTitle:(NSString *)title WithContent:(NSString *)body WithTime:(CGFloat )second;
+
+/**
+ 输入用户名密码
+
+ @param vc 控制器
+ @param success 成功回调
+ @param cancleBlock 失败回调
+ */
++ (void)alertTextFieldWithVC:(UIViewController *)vc WithSuccessBlock:(SavePSuccess )success WithError:(Error )cancleBlock;
 
 @end
