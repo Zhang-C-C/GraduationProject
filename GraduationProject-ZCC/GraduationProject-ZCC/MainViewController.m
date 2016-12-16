@@ -10,6 +10,7 @@
 #import "BindPhoneViewController.h"
 #import "MeViewController.h"
 #import "HomeViewController.h"
+#import "MsgViewController.h"
 
 @interface MainViewController ()<BmobEventDelegate>
 //HomeVC
@@ -26,13 +27,6 @@
     //设置标签栏按钮的选中未选中文字
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:REDRGB} forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]} forState:UIControlStateNormal];
-    
-    //设置导航栏透明
-//    baseNav.navigationBar.barTintColor = [UIColor redColor];
-//    baseNav.navigationBar.tintColor = [UIColor whiteColor];
-    
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImg-1.jpg"]]];
-//    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
 }
 
 - (void)viewDidLoad {
@@ -107,7 +101,6 @@
     }];
 }
 
-
 /**
  监听更新数据
  */
@@ -148,23 +141,58 @@
     NSString *imgV = dic[@"imageUrl"];
     [SaveDataTools sharedInstance].imgV = imgV;
     
+    BMKMapPoint point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(0,0));
+    BMKMapPoint point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(0,0));
+    
     if ([userName isEqualToString:[BmobUser currentUser].username]) {
+        
+        //登录账号的位置信息
+        point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([latitude doubleValue],[longitude doubleValue]));
+        
+        [SaveDataTools sharedInstance].myAddressDic = @{@"latitude":latitude,@"longitude":longitude};
         
         return ;
         
     }else if ([userName isEqualToString:[SaveDataTools sharedInstance].focusName]){
         
         //安全判断,是否是关注对象位置信息变化
+        [SaveDataTools sharedInstance].TaAddressDic = @{@"latitude":latitude,@"longitude":longitude};
+        
         NSLog(@"数据更新,接收到更新:====%@===%@===%@",latitude,longitude,userName);
+        point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([latitude doubleValue],[longitude doubleValue]));
 
         [self.homeVC addAnnotationWithLatitude:[latitude floatValue] Longitude:[longitude floatValue]];
     }
-}
-
-//发生错误
--(void)bmobEvent:(BmobEvent*)event error:(NSError *)error
-{
-    NSLog(@"发生错误:%@",error);
+    
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       
+        CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
+        if (distance >= 0) {
+            
+            self.homeVC.distance = distance;
+            [SaveDataTools sharedInstance].distance = distance;
+            
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                
+                [AppTools sendLocalNitificationWithTitle:@"通知" WithContent:@"Ta在你附近100米哦" WithTime:0 WithName:[SaveDataTools sharedInstance].focusName WithImgV:[SaveDataTools sharedInstance].imgV WithBock:^{
+                    
+                    [AppTools alertViewWithTitle:@"提示" WithMsg:@"收到一条新消息" WithSureBtn:@"立即查看" WithCancleBtn:@"我知道了" WithVC:self WithSureBtn:^{
+                        
+                        if (![self isKindOfClass:[MsgViewController class]]) {
+                            
+                            MsgViewController *msgVC = [[MsgViewController alloc]init];
+                            [[AppDelegate sharedAppDelegate] pushViewController:msgVC WithTitle:@"消息中心"];
+                        }
+                        
+                    } WithCancleBtn:nil];
+                    
+                }];
+                
+            });
+        }
+        NSLog(@"距离是:%f",distance);
+    });
 }
 
 //可以开始监听
@@ -172,7 +200,6 @@
 {
     //检测表的变化,检测行变化,只能检测本人的
     [event listenTableChange:BmobActionTypeUpdateTable tableName:@"_User"];
-    
     //[event listenRowChange:BmobActionTypeUpdateRow tableName:@"_User" objectId:@"	4dfa4104bb"];
 }
 

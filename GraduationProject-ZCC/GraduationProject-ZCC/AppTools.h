@@ -36,6 +36,9 @@ typedef void(^ClearSuccess)(NSString *newSize);
 //保存密码
 typedef void(^SavePSuccess)(NSDictionary *dic);
 
+//保存密码
+typedef void(^SaveFileSuccess)(NSMutableArray *array);
+
 @interface AppTools : NSObject
 
 + (instancetype)sharedInstance;
@@ -194,7 +197,7 @@ typedef void(^SavePSuccess)(NSDictionary *dic);
  @param body 副标题
  @param second 几秒之后推送
  */
-+ (void)sendLocalNitificationWithTitle:(NSString *)title WithContent:(NSString *)body WithTime:(CGFloat )second;
++ (void)sendLocalNitificationWithTitle:(NSString *)title WithContent:(NSString *)body WithTime:(CGFloat )second WithName:(NSString *)name WithImgV:(NSString *)imgV WithBock:(SureBtn )success;
 
 /**
  输入用户名密码
@@ -204,5 +207,13 @@ typedef void(^SavePSuccess)(NSDictionary *dic);
  @param cancleBlock 失败回调
  */
 + (void)alertTextFieldWithVC:(UIViewController *)vc WithSuccessBlock:(SavePSuccess )success WithError:(Error )cancleBlock;
+
+/**
+ 本地文件数组
+
+ @param fileName 文件名
+ @param success 回调
+ */
++ (void)getArrayFromPlistWithFileName:(NSString *)fileName Success:(SaveFileSuccess )success;
 
 @end

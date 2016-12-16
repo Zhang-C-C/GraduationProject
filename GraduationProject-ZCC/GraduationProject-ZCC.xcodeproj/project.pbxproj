@@ -26,6 +26,7 @@
 		6360C6E31DFFE80B00A437D1 /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360C6D11DFFE80B00A437D1 /* ThemeCell.m */; };
 		6360C6E41DFFE80B00A437D1 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6360C6D21DFFE80B00A437D1 /* ThemeCell.xib */; };
 		6360C6E71DFFE83900A437D1 /* FocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360C6E61DFFE83900A437D1 /* FocusViewController.m */; };
+		6361C8651E03886A00AE033D /* NSDictionary+FromString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361C8641E03886A00AE033D /* NSDictionary+FromString.m */; };
 		6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDB41DF50A6400427097 /* SexPickerTools.m */; };
 		6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364CDB61DF50AA700427097 /* SexPickerTools.xib */; };
 		6364CDBB1DF5314500427097 /* LoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDBA1DF5314500427097 /* LoadManager.m */; };
@@ -33,6 +34,13 @@
 		6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDC11DF5463100427097 /* HCDataHelper.m */; };
 		6364CDC51DF5463100427097 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDC31DF5463100427097 /* UICountingLabel.m */; };
 		6364CDDC1DF561BF00427097 /* SaveDataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDDB1DF561BF00427097 /* SaveDataTools.m */; };
+		636553F61E02670B00E2D5E0 /* FocusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 636553F41E02670B00E2D5E0 /* FocusCell.m */; };
+		636553F71E02670B00E2D5E0 /* FocusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636553F51E02670B00E2D5E0 /* FocusCell.xib */; };
+		636553FA1E027A0300E2D5E0 /* DetailAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636553F91E027A0300E2D5E0 /* DetailAddressViewController.m */; };
+		636553FD1E02947E00E2D5E0 /* MsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636553FC1E02947E00E2D5E0 /* MsgViewController.m */; };
+		636554011E02968300E2D5E0 /* MsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 636553FF1E02968300E2D5E0 /* MsgCell.m */; };
+		636554021E02968300E2D5E0 /* MsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636554001E02968300E2D5E0 /* MsgCell.xib */; };
+		636554051E029BA000E2D5E0 /* MsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 636554041E029BA000E2D5E0 /* MsgModel.m */; };
 		636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */; };
 		636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790C41DF7EF4F000C3E31 /* LocationViewController.m */; };
 		636B739F1DEFC6680042E7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B739E1DEFC6680042E7F9 /* main.m */; };
@@ -116,6 +124,8 @@
 		6360C6D21DFFE80B00A437D1 /* ThemeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
 		6360C6E51DFFE83900A437D1 /* FocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusViewController.h; sourceTree = "<group>"; };
 		6360C6E61DFFE83900A437D1 /* FocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusViewController.m; sourceTree = "<group>"; };
+		6361C8631E03886A00AE033D /* NSDictionary+FromString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FromString.h"; sourceTree = "<group>"; };
+		6361C8641E03886A00AE033D /* NSDictionary+FromString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FromString.m"; sourceTree = "<group>"; };
 		6364CDB31DF50A6400427097 /* SexPickerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPickerTools.h; sourceTree = "<group>"; };
 		6364CDB41DF50A6400427097 /* SexPickerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPickerTools.m; sourceTree = "<group>"; };
 		6364CDB61DF50AA700427097 /* SexPickerTools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPickerTools.xib; sourceTree = "<group>"; };
@@ -129,6 +139,18 @@
 		6364CDC31DF5463100427097 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 		6364CDDA1DF561BF00427097 /* SaveDataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveDataTools.h; sourceTree = "<group>"; };
 		6364CDDB1DF561BF00427097 /* SaveDataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveDataTools.m; sourceTree = "<group>"; };
+		636553F31E02670B00E2D5E0 /* FocusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusCell.h; sourceTree = "<group>"; };
+		636553F41E02670B00E2D5E0 /* FocusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusCell.m; sourceTree = "<group>"; };
+		636553F51E02670B00E2D5E0 /* FocusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusCell.xib; sourceTree = "<group>"; };
+		636553F81E027A0300E2D5E0 /* DetailAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailAddressViewController.h; sourceTree = "<group>"; };
+		636553F91E027A0300E2D5E0 /* DetailAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailAddressViewController.m; sourceTree = "<group>"; };
+		636553FB1E02947E00E2D5E0 /* MsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgViewController.h; sourceTree = "<group>"; };
+		636553FC1E02947E00E2D5E0 /* MsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgViewController.m; sourceTree = "<group>"; };
+		636553FE1E02968300E2D5E0 /* MsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgCell.h; sourceTree = "<group>"; };
+		636553FF1E02968300E2D5E0 /* MsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgCell.m; sourceTree = "<group>"; };
+		636554001E02968300E2D5E0 /* MsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgCell.xib; sourceTree = "<group>"; };
+		636554031E029BA000E2D5E0 /* MsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgModel.h; sourceTree = "<group>"; };
+		636554041E029BA000E2D5E0 /* MsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgModel.m; sourceTree = "<group>"; };
 		636790A71DF7A2FE000C3E31 /* NSNull+IsNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+IsNull.h"; sourceTree = "<group>"; };
 		636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+IsNull.m"; sourceTree = "<group>"; };
 		636790C31DF7EF4F000C3E31 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
@@ -251,6 +273,9 @@
 		6360C6AA1DFFE80B00A437D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				636553F31E02670B00E2D5E0 /* FocusCell.h */,
+				636553F41E02670B00E2D5E0 /* FocusCell.m */,
+				636553F51E02670B00E2D5E0 /* FocusCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,6 +509,8 @@
 				636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */,
 				636790A71DF7A2FE000C3E31 /* NSNull+IsNull.h */,
 				636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */,
+				6361C8631E03886A00AE033D /* NSDictionary+FromString.h */,
+				6361C8641E03886A00AE033D /* NSDictionary+FromString.m */,
 			);
 			path = CategoryTools;
 			sourceTree = "<group>";
@@ -556,6 +583,8 @@
 		63B5811D1DFE9C5E00BC959C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				636554031E029BA000E2D5E0 /* MsgModel.h */,
+				636554041E029BA000E2D5E0 /* MsgModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -563,6 +592,9 @@
 		63B5811E1DFE9C5E00BC959C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				636553FE1E02968300E2D5E0 /* MsgCell.h */,
+				636553FF1E02968300E2D5E0 /* MsgCell.m */,
+				636554001E02968300E2D5E0 /* MsgCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -572,6 +604,10 @@
 			children = (
 				63B581201DFE9C7A00BC959C /* HomeViewController.h */,
 				63B581211DFE9C7A00BC959C /* HomeViewController.m */,
+				636553F81E027A0300E2D5E0 /* DetailAddressViewController.h */,
+				636553F91E027A0300E2D5E0 /* DetailAddressViewController.m */,
+				636553FB1E02947E00E2D5E0 /* MsgViewController.h */,
+				636553FC1E02947E00E2D5E0 /* MsgViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -699,7 +735,9 @@
 				638E81361DF160C200BB7654 /* LoginViewController.xib in Resources */,
 				638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */,
 				6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */,
+				636554021E02968300E2D5E0 /* MsgCell.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
+				636553F71E02670B00E2D5E0 /* FocusCell.xib in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
 				6360C6E41DFFE80B00A437D1 /* ThemeCell.xib in Resources */,
 				6360C6DC1DFFE80B00A437D1 /* LockCell.xib in Resources */,
@@ -782,12 +820,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636553FA1E027A0300E2D5E0 /* DetailAddressViewController.m in Sources */,
+				6361C8651E03886A00AE033D /* NSDictionary+FromString.m in Sources */,
 				6360C6D51DFFE80B00A437D1 /* MeViewController.m in Sources */,
 				638E81331DF160C200BB7654 /* BindPhoneViewController.m in Sources */,
 				6364CDBB1DF5314500427097 /* LoadManager.m in Sources */,
 				6360C6E21DFFE80B00A437D1 /* ThemeModel.m in Sources */,
 				6364CDBE1DF53C8500427097 /* UIView+ViewController.m in Sources */,
 				636B73F61DF01CCF0042E7F9 /* AppTools.m in Sources */,
+				636554051E029BA000E2D5E0 /* MsgModel.m in Sources */,
 				6360C6D31DFFE80B00A437D1 /* AboutUSViewController.m in Sources */,
 				6364CDDC1DF561BF00427097 /* SaveDataTools.m in Sources */,
 				6360C6E31DFFE80B00A437D1 /* ThemeCell.m in Sources */,
@@ -806,6 +847,7 @@
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
 				638E81371DF160C200BB7654 /* PerfectViewController.m in Sources */,
 				6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */,
+				636553F61E02670B00E2D5E0 /* FocusCell.m in Sources */,
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
 				6360C6DD1DFFE80B00A437D1 /* MeHeadView.m in Sources */,
 				636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */,
@@ -819,7 +861,9 @@
 				6360C6D91DFFE80B00A437D1 /* PLockViewController.m in Sources */,
 				636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */,
 				638E81351DF160C200BB7654 /* LoginViewController.m in Sources */,
+				636554011E02968300E2D5E0 /* MsgCell.m in Sources */,
 				636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */,
+				636553FD1E02947E00E2D5E0 /* MsgViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

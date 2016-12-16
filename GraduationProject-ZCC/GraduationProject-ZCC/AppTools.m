@@ -557,6 +557,43 @@
     }
 }
 
++ (void)saveArraytoPlistWithValue:(id )value FileName:(NSString *)fileName WithSuccess:(SaveSuccess )success Error:(SaveError )error
+{
+    //保存到plist文件
+    NSMutableArray *array = [[NSMutableArray alloc]init];
+    [array addObject:value];
+    
+    NSString *caches = [HCDataHelper libCachePath];
+    NSString *path = [caches stringByAppendingPathComponent:fileName];
+    
+    BOOL isOk = [array writeToFile:path atomically:YES];
+    
+    if (isOk) {
+        
+        if (success) {
+            success();
+        }
+        
+    }else{
+        
+        if (error) {
+            error(nil);
+        }
+    }
+}
+
++ (void)getArrayFromPlistWithFileName:(NSString *)fileName Success:(SaveFileSuccess )success
+{
+    NSString *path = [[HCDataHelper libCachePath]stringByAppendingPathComponent:fileName];
+    
+    NSMutableArray *array = [NSMutableArray arrayWithContentsOfFile:path];
+    NSLog(@"------%@----",array);
+    
+    if (success) {
+        success(array);
+    }
+}
+
 + (void)getDataFromPlistWithFileName:(NSString *)fileName Success:(SavePSuccess )success
 {
     NSString *path = [[HCDataHelper libCachePath]stringByAppendingPathComponent:fileName];
@@ -569,7 +606,7 @@
     }
 }
 
-+ (void)sendLocalNitificationWithTitle:(NSString *)title WithContent:(NSString *)body WithTime:(CGFloat )second
++ (void)sendLocalNitificationWithTitle:(NSString *)title WithContent:(NSString *)body WithTime:(CGFloat )second WithName:(NSString *)name WithImgV:(NSString *)imgV WithBock:(SureBtn )success
 {
     //使用UNUserNotificationCenter来管理通知
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
@@ -591,7 +628,57 @@
     [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
         
         if (error) {
+            
             NSLog(@"推送失败:%@",error);
+        
+        }else{
+            
+            NSLog(@"推送成功");
+            
+            //先去读取
+            BmobUser *user = [BmobUser currentUser];
+            BmobObject *obj = [BmobObject objectWithoutDataWithClassName:@"_User" objectId:[user objectId]];
+            
+            //转为json 数据
+            NSError *error = nil;
+
+            //保存位置信息
+            NSString *talatitude = [[SaveDataTools sharedInstance].TaAddressDic objectForKey:@"latitude"];
+            NSString *talongitude = [[SaveDataTools sharedInstance].TaAddressDic objectForKey:@"longitude"];
+            
+            NSString *mylatitude = [[SaveDataTools sharedInstance].myAddressDic objectForKey:@"latitude"];
+            NSString *mylongitude = [[SaveDataTools sharedInstance].myAddressDic objectForKey:@"longitude"];
+            
+            NSDictionary *dict = @{@"msg":body,@"time":[NSString stringWithFormat:@"%@",[NSDate date]],@"imgV":imgV,@"name":name,@"talatitude":talatitude,@"talongitude":talongitude,@"mylatitude":mylatitude,@"mylongitude":mylongitude};
+            
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+            NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+            if (error || str.length == 0) {
+                
+                NSLog(@"转为json失败:%@",error);
+                return ;
+            }
+            
+            [obj addObjectsFromArray:@[str] forKey:@"msgArray"];
+            [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                
+                if (!error) {
+                    
+                    NSLog(@"提交成功");
+                
+                    if (success) {
+                        success();
+                    }
+                    
+                }else{
+                    
+                    
+                    NSLog(@"提交:%@",error);
+                }
+                
+            }];
+           
         }
     }];
 }

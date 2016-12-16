@@ -20,4 +20,7 @@
  */
 @property(nonatomic,assign)NSInteger sex;
 
+//距离
+@property(nonatomic,assign)double distance;
+
 @end

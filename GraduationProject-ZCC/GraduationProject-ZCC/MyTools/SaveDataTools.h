@@ -25,5 +25,12 @@
 @property(nonatomic,copy)NSString *focusName;
 //关注对象的头像
 @property(nonatomic,copy)NSString *imgV;
+//距离
+@property(nonatomic,assign)double distance;
+
+//对方的详细信息
+@property(nonatomic,strong)NSDictionary *TaAddressDic;
+//我的详细信息
+@property(nonatomic,strong)NSDictionary *myAddressDic;
 
 @end

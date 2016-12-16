@@ -179,6 +179,7 @@
     return nil;
 }
 
+/*
 UIBackgroundTaskIdentifier taskId;
 
 //进入后台
@@ -195,11 +196,7 @@ UIBackgroundTaskIdentifier taskId;
      [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
 }
 
-/**
- 计时器事件
-
- @param timer 计时器
- */
+//计时器事件
 - (void)timerAction:(NSTimer *)timer {
     self.count++;
     
@@ -212,5 +209,6 @@ UIBackgroundTaskIdentifier taskId;
         taskId = [application beginBackgroundTaskWithExpirationHandler:NULL];
     }
 }
+*/
 
 @end
