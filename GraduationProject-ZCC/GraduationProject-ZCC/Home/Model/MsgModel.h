@@ -11,6 +11,8 @@
 @interface MsgModel : NSObject
 
 - (instancetype)initWithDic:(NSDictionary *)dic;
+//原始数据,用户删除
+@property(nonatomic,copy)NSString *originalStr;
 
 @property(nonatomic,copy)NSString *imgV;
 @property(nonatomic,copy)NSString *msg;

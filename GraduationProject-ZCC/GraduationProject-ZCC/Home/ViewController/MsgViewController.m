@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //设置导航栏右侧按钮
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"编辑" target:self action:@selector(rightBtnAction:)];
+    
     [self initData];
 }
 
@@ -63,6 +66,7 @@
                         dic = [dic dictionaryWithJsonString:str];
                         
                         MsgModel *model = [[MsgModel alloc]initWithDic:dic];
+                        model.originalStr = str;
                         [self.dataList addObject:model];
                     }
                     
@@ -103,6 +107,102 @@
     }
 }
 
+#pragma mark ---Action----
+
+/**
+ 导航栏右侧按钮点击事件
+ */
+- (void)rightBtnAction:(UIButton *)btn
+{
+    btn.selected = !btn.selected;
+    [btn setTitle:@"取消" forState:UIControlStateSelected];
+    
+    //编辑模式中,允许多选
+    self.tableView.allowsMultipleSelectionDuringEditing = btn.selected;
+    [self.tableView setEditing:btn.selected animated:YES];
+
+    if (btn.selected) {
+        
+        self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTitle:@"全选" target:self action:@selector(AllseleectedAction:)];
+        
+    } else {
+        
+        self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNoramlImgae:@"back" SelectedImage:nil target:self action:@selector(backBtnAction)];
+    }
+}
+
+/**
+ 全选按钮点击事件
+ */
+- (void)AllseleectedAction:(UIButton *)btn
+{
+    [btn setTitle:@"删除" forState:UIControlStateSelected];
+    [btn setTitleColor:REDRGB forState:UIControlStateSelected];
+    
+    if (btn.selected) {
+        
+        [AppTools alertViewWithTitle:@"提示" WithMsg:@"确认全部删除?" WithSureBtn:@"确定" WithCancleBtn:@"取消" WithVC:self WithSureBtn:^{
+
+            [self showLoadingWith:@"正在删除"];
+            
+            //获取所有选中的单元格
+            NSArray *selectedArr = [self.tableView indexPathsForSelectedRows];
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for (NSInteger i = selectedArr.count -1; i >= 0; i--) {
+                
+                NSIndexPath *indexpath = [selectedArr objectAtIndex:i];
+                MsgModel *model = self.dataList[indexpath.row];
+                
+                [arr addObject:model.originalStr];
+            }
+            
+            //删除服务器的数据
+            BmobObject *obj = [BmobObject objectWithoutDataWithClassName:@"_User" objectId:[BmobUser currentUser].objectId];
+            [obj removeObjectsInArray:arr forKey:@"msgArray"];
+            [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+               
+                if (!error) {
+                    
+                    btn.selected = NO;
+                    [self showSuccessWith:@"已删除"];
+                    
+                    //删除数据原数组
+                    for (NSInteger i = selectedArr.count -1; i >= 0; i--) {
+                        
+                        NSIndexPath *indexpath = [selectedArr objectAtIndex:i];
+                        MsgModel *model = self.dataList[indexpath.row];
+                        [self.dataList removeObject:model];
+                    }
+                    [self.tableView deleteRowsAtIndexPaths:selectedArr withRowAnimation:UITableViewRowAnimationFade];
+               
+                }else{
+                    
+                    NSLog(@"%@",error);
+                    [self showErrorWith:@"删除失败,请重试"];
+                }
+            }];
+            
+        } WithCancleBtn:nil];
+        
+    }else{
+        
+        btn.selected = YES;
+
+        for (int i = 0; i <self.dataList.count; i ++) {
+            
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+        }
+    }
+}
+/**
+ 返回按钮点击事件
+ */
+- (void)backBtnAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark ----Delegate----
 
 #pragma mark ----UITableViewDataSource----
@@ -137,6 +237,11 @@
 //单元格点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableView.editing) {
+        
+        return ;
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.indexPath = indexPath;
     
@@ -170,6 +275,42 @@
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
+
+//开启编辑模式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+//删除事件操作
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //删除数据
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self showLoadingWith:@"正在删除"];
+        
+        MsgModel *model = self.dataList[indexPath.row];
+        
+        BmobObject *obj = [BmobObject objectWithoutDataWithClassName:@"_User" objectId:[BmobUser currentUser].objectId];
+        [obj removeObjectsInArray:@[model.originalStr] forKey:@"msgArray"];
+        [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            
+            if (!error) {
+                
+                [self.dataList removeObject:model];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                
+                [self showSuccessWith:@"已删除"];
+                
+            }else{
+                [self showErrorWith:[NSString stringWithFormat:@"删除失败%@",error]];
+                NSLog(@"删除失败:%@",error);
+            }
+        }];
+    }
+}
+
 
 #pragma mark----BMKGeoCodeSearchDelegate-----
 

@@ -177,7 +177,7 @@
                 
                 [AppTools sendLocalNitificationWithTitle:@"通知" WithContent:@"Ta在你附近100米哦" WithTime:0 WithName:[SaveDataTools sharedInstance].focusName WithImgV:[SaveDataTools sharedInstance].imgV WithBock:^{
                     
-                    [AppTools alertViewWithTitle:@"提示" WithMsg:@"收到一条新消息" WithSureBtn:@"立即查看" WithCancleBtn:@"我知道了" WithVC:self WithSureBtn:^{
+                    [AppTools alertViewWithTitle:@"提示" WithMsg:@"Ta在你附近100米哦" WithSureBtn:@"立即查看" WithCancleBtn:@"我知道了" WithVC:self WithSureBtn:^{
                         
                         MsgViewController *msgVC = [[MsgViewController alloc]init];
                         [[AppDelegate sharedAppDelegate] pushViewController:msgVC WithTitle:@"消息中心"];
