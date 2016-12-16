@@ -646,10 +646,7 @@
             NSString *talatitude = [[SaveDataTools sharedInstance].TaAddressDic objectForKey:@"latitude"];
             NSString *talongitude = [[SaveDataTools sharedInstance].TaAddressDic objectForKey:@"longitude"];
             
-            NSString *mylatitude = [[SaveDataTools sharedInstance].myAddressDic objectForKey:@"latitude"];
-            NSString *mylongitude = [[SaveDataTools sharedInstance].myAddressDic objectForKey:@"longitude"];
-            
-            NSDictionary *dict = @{@"msg":body,@"time":[NSString stringWithFormat:@"%@",[NSDate date]],@"imgV":imgV,@"name":name,@"talatitude":talatitude,@"talongitude":talongitude,@"mylatitude":mylatitude,@"mylongitude":mylongitude};
+            NSDictionary *dict = @{@"msg":body,@"time":[NSString stringWithFormat:@"%@",[NSDate date]],@"imgV":imgV,@"name":name,@"talatitude":talatitude,@"talongitude":talongitude};
             
             NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
             NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

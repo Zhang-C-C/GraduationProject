@@ -63,6 +63,7 @@
     self.annotation.title = @"Ta在这里";
 }
 
+//距离显示
 - (void)setDistance:(double)distance
 {
     _distance = distance;

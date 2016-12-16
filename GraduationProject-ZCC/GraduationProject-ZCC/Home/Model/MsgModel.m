@@ -23,8 +23,6 @@
         self.msg = dic[@"msg"];
         self.talongitude = dic[@"talongitude"];
         self.talatitude = dic[@"talatitude"];
-        self.mylatitude = dic[@"mylatitude"];
-        self.mylongitude = dic[@"mylongitude"];
         self.isOpen = NO;
         self.locationText = @"获取信息中...";
         self.moreText = @">>>";
