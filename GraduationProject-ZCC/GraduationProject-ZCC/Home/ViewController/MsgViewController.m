@@ -64,6 +64,12 @@
                         
                         MsgModel *model = [[MsgModel alloc]initWithDic:dic];
                         [self.dataList addObject:model];
+                    }
+                    
+                    //倒序输出
+                    for (int i = 0; i<self.dataList.count/2.0; i++) {
+                        
+                        [self.dataList exchangeObjectAtIndex:i withObjectAtIndex:array.count-1-i];
                         [self.tableView reloadData];
                     }
                 }
