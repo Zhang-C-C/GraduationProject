@@ -6,12 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="msgCell" rowHeight="137" id="KGk-i7-Jjw" customClass="MsgCell">
+        <tableViewCell alpha="0.10000000000000001" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="msgCell" rowHeight="137" id="KGk-i7-Jjw" customClass="MsgCell">
             <rect key="frame" x="0.0" y="0.0" width="349" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -79,10 +80,19 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcW-F9-j0F">
+                        <rect key="frame" x="8" y="142" width="333" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Dci-5o-NbU"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0fG-aL-3f0" firstAttribute="leading" secondItem="NnX-wQ-Nlq" secondAttribute="leading" id="1oT-KD-n8s"/>
                     <constraint firstItem="qAN-cU-3tn" firstAttribute="top" secondItem="0fG-aL-3f0" secondAttribute="bottom" constant="10" id="4fp-rV-C5S"/>
+                    <constraint firstItem="EcW-F9-j0F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8z4-cB-p8H"/>
+                    <constraint firstItem="EcW-F9-j0F" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="2" id="ALD-iQ-CmK"/>
                     <constraint firstItem="iSF-LQ-HV2" firstAttribute="leading" secondItem="NnX-wQ-Nlq" secondAttribute="trailing" constant="8" id="AZO-tU-bDV"/>
                     <constraint firstItem="NnX-wQ-Nlq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="GYX-8y-wIp"/>
                     <constraint firstAttribute="bottom" secondItem="jJF-XO-jiE" secondAttribute="bottom" constant="8" id="HYr-Ua-A40"/>
@@ -95,6 +105,7 @@
                     <constraint firstItem="NnX-wQ-Nlq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="hpN-BA-Xhx"/>
                     <constraint firstItem="I39-VI-nwY" firstAttribute="leading" secondItem="iSF-LQ-HV2" secondAttribute="leading" id="rqP-4d-MWh"/>
                     <constraint firstItem="NOS-St-Pbd" firstAttribute="top" secondItem="NnX-wQ-Nlq" secondAttribute="top" id="t8C-GB-QCa"/>
+                    <constraint firstItem="EcW-F9-j0F" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tLE-8t-OoA"/>
                     <constraint firstAttribute="trailing" secondItem="NOS-St-Pbd" secondAttribute="trailing" constant="10" id="vPJ-yf-lPs"/>
                     <constraint firstItem="jJF-XO-jiE" firstAttribute="leading" secondItem="NnX-wQ-Nlq" secondAttribute="leading" id="ywv-zq-2aT"/>
                 </constraints>

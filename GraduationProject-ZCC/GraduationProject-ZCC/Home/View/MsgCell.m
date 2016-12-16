@@ -35,6 +35,19 @@
     self.moreLabel.text = _model.moreText;
 }
 
+//- (void)setFrame:(CGRect)frame{
+//    
+//    frame.origin.x = 10;
+//    
+//    //frame.size.width -= 2* frame.origin.x;
+//    
+//    //设置上下间距
+//    frame.size.height -=1;
+//    
+//    //继承父类
+//    [super setFrame:frame];
+//}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }

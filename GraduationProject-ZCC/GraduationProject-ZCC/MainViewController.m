@@ -179,11 +179,8 @@
                     
                     [AppTools alertViewWithTitle:@"提示" WithMsg:@"收到一条新消息" WithSureBtn:@"立即查看" WithCancleBtn:@"我知道了" WithVC:self WithSureBtn:^{
                         
-                        if (![self isKindOfClass:[MsgViewController class]]) {
-                            
-                            MsgViewController *msgVC = [[MsgViewController alloc]init];
-                            [[AppDelegate sharedAppDelegate] pushViewController:msgVC WithTitle:@"消息中心"];
-                        }
+                        MsgViewController *msgVC = [[MsgViewController alloc]init];
+                        [[AppDelegate sharedAppDelegate] pushViewController:msgVC WithTitle:@"消息中心"];
                         
                     } WithCancleBtn:nil];
                     
