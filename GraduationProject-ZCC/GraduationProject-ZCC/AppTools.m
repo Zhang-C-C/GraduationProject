@@ -722,6 +722,39 @@
     [vc presentViewController:alertVC animated:YES completion:nil];
 }
 
+/**
+ 判断今天是星期几
+ 
+ @param date 日期
+ @return 星期几
+ */
++ (NSInteger)firstDayInFirstWeekThisMonth:(NSDate *)date
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    [calendar setFirstWeekday:1];
+    NSDateComponents *comp = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
+    comp.day = 1;
+    NSDate *firstDayOfMonthDate = [calendar dateFromComponents:comp];
+    NSUInteger firstWeekday = [calendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:firstDayOfMonthDate];
+    return firstWeekday-1;
+}
+
+//获取日期详细信息
++ (NSDateComponents *)getDateComponentsFromDate:(NSDate *)date
+{
+    NSDateComponents *component = [[NSCalendar currentCalendar] components:
+                                   (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
+    return component;
+}
+
+//求出date的这个月有多少天
++ (NSInteger)totalDaysThisMonth:(NSDate *)date
+{
+    NSRange range = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:date];
+    return range.length;
+}
+
+
 #pragma mark ---Lazy----
 - (UIView *)maskView
 {

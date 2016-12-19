@@ -216,4 +216,18 @@ typedef void(^SaveFileSuccess)(NSMutableArray *array);
  */
 + (void)getArrayFromPlistWithFileName:(NSString *)fileName Success:(SaveFileSuccess )success;
 
+/**
+ 判断今天是星期几
+ 
+ @param date 日期
+ @return 星期几
+ */
++ (NSInteger)firstDayInFirstWeekThisMonth:(NSDate *)date;
+
+//获取日期详细信息
++ (NSDateComponents *)getDateComponentsFromDate:(NSDate *)date;
+
+//求出date的这个月有多少天
++ (NSInteger)totalDaysThisMonth:(NSDate *)date;
+
 @end

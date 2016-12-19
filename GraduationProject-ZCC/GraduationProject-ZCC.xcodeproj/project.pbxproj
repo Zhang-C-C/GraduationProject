@@ -68,6 +68,8 @@
 		638E813F1DF1612700BB7654 /* PerfectHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E813E1DF1612700BB7654 /* PerfectHeadView.xib */; };
 		638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 638E81411DF16A7800BB7654 /* PerfectMsgCell.m */; };
 		638E81441DF16A7800BB7654 /* PerfectMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E81421DF16A7800BB7654 /* PerfectMsgCell.xib */; };
+		638EAF7D1E0775B200F1AEB8 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EAF7C1E0775B200F1AEB8 /* CalendarView.m */; };
+		638EAF801E077F6800F1AEB8 /* SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EAF7F1E077F6800F1AEB8 /* SignViewController.m */; };
 		63B581221DFE9C7A00BC959C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B581211DFE9C7A00BC959C /* HomeViewController.m */; };
 		B4558E84024977644CA6C418 /* libPods-GraduationProject-ZCC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */; };
 /* End PBXBuildFile section */
@@ -203,6 +205,10 @@
 		638E81401DF16A7800BB7654 /* PerfectMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfectMsgCell.h; sourceTree = "<group>"; };
 		638E81411DF16A7800BB7654 /* PerfectMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfectMsgCell.m; sourceTree = "<group>"; };
 		638E81421DF16A7800BB7654 /* PerfectMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerfectMsgCell.xib; sourceTree = "<group>"; };
+		638EAF7B1E0775B200F1AEB8 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
+		638EAF7C1E0775B200F1AEB8 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
+		638EAF7E1E077F6800F1AEB8 /* SignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignViewController.h; sourceTree = "<group>"; };
+		638EAF7F1E077F6800F1AEB8 /* SignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignViewController.m; sourceTree = "<group>"; };
 		63B581201DFE9C7A00BC959C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		63B581211DFE9C7A00BC959C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		A963949E3CD318923A096B6A /* Pods-GraduationProject-ZCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -310,6 +316,8 @@
 				6360C6B31DFFE80B00A437D1 /* PasswordViewController */,
 				6360C6BB1DFFE80B00A437D1 /* SafeViewController.h */,
 				6360C6BC1DFFE80B00A437D1 /* SafeViewController.m */,
+				638EAF7E1E077F6800F1AEB8 /* SignViewController.h */,
+				638EAF7F1E077F6800F1AEB8 /* SignViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -347,6 +355,8 @@
 				6360C6C51DFFE80B00A437D1 /* PasswordView.h */,
 				6360C6C61DFFE80B00A437D1 /* PasswordView.m */,
 				6360C6C71DFFE80B00A437D1 /* PasswordView.xib */,
+				638EAF7B1E0775B200F1AEB8 /* CalendarView.h */,
+				638EAF7C1E0775B200F1AEB8 /* CalendarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -831,6 +841,7 @@
 				636554051E029BA000E2D5E0 /* MsgModel.m in Sources */,
 				6360C6D31DFFE80B00A437D1 /* AboutUSViewController.m in Sources */,
 				6364CDDC1DF561BF00427097 /* SaveDataTools.m in Sources */,
+				638EAF801E077F6800F1AEB8 /* SignViewController.m in Sources */,
 				6360C6E31DFFE80B00A437D1 /* ThemeCell.m in Sources */,
 				6360C6E11DFFE80B00A437D1 /* ThemeViewController.m in Sources */,
 				6360C6DF1DFFE80B00A437D1 /* PasswordView.m in Sources */,
@@ -853,6 +864,7 @@
 				636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */,
 				6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */,
 				6360C6D61DFFE80B00A437D1 /* LockViewController.m in Sources */,
+				638EAF7D1E0775B200F1AEB8 /* CalendarView.m in Sources */,
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,
 				6364CDC51DF5463100427097 /* UICountingLabel.m in Sources */,

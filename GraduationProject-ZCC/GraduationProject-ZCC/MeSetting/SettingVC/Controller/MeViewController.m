@@ -13,6 +13,7 @@
 #import "AboutUSViewController.h"
 #import "PLockViewController.h"
 #import "FocusViewController.h"
+#import "SignViewController.h"
 
 static NSString *identifier = @"cell";
 
@@ -70,7 +71,7 @@ static NSString *identifier = @"cell";
 
 - (void)initData
 {
-    self.array = @[@"账号安全",@"个性主题",@"我的关注",@"清理缓存",@"关于我们"];
+    self.array = @[@"账号安全",@"个性主题",@"我的签到",@"我的关注",@"清理缓存",@"关于我们"];
     
     //获取数据
     [self.headView showUserMsgWithSucBlock:^{
@@ -127,7 +128,7 @@ static NSString *identifier = @"cell";
     }
     cell.textLabel.text = self.array[indexPath.row];
     
-    if (indexPath.row == 3) {
+    if (indexPath.row == 4) {
         
         CGFloat size = [AppTools getClearCaches];
         NSString *text = nil;
@@ -145,21 +146,29 @@ static NSString *identifier = @"cell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         
+        //账号安全
         SafeViewController *safeVC = [[SafeViewController alloc]init];
         [[AppDelegate sharedAppDelegate] pushViewController:safeVC WithTitle:@"账号安全"];
         
     }else if (indexPath.row == 1){
         
+        //我的主题
         ThemeViewController *themeVC = [[ThemeViewController alloc]init];
         [[AppDelegate sharedAppDelegate] pushViewController:themeVC WithTitle:@"个性主题"];
         
     }else if (indexPath.row == 2){
      
+        //我的签到
+        SignViewController *signVC = [[SignViewController alloc]init];
+        [[AppDelegate sharedAppDelegate] pushViewController:signVC WithTitle:@"签到"];
+        
+    }else if (indexPath.row == 3){
+        
         //我的关注
         FocusViewController *focuesVC = [[FocusViewController alloc]init];
         [[AppDelegate sharedAppDelegate] pushViewController:focuesVC WithTitle:@"我的关注"];
         
-    }else if (indexPath.row == 3){
+    }else if (indexPath.row == 4){
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         if ([cell.detailTextLabel.text isEqualToString:@"0.00 KB"]) {
@@ -179,8 +188,9 @@ static NSString *identifier = @"cell";
             
         } WithCancleBtn:nil];
         
-    }else if (indexPath.row == 4){
+    }else if (indexPath.row == 5){
         
+        //关于我们
         AboutUSViewController *aboutVC = [[AboutUSViewController alloc]init];
         [[AppDelegate sharedAppDelegate] pushViewController:aboutVC WithTitle:@"关于我们"];
     }

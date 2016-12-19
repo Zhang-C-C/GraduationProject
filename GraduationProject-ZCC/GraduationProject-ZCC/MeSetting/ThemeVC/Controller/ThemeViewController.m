@@ -81,6 +81,7 @@
                 
                 [self.dataList addObject:model];
                 [self.collectionView reloadData];
+  
             }
             [self showSuccessWith:@"更新数据成功"];
         }

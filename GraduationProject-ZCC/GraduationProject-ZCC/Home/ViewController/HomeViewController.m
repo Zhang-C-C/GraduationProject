@@ -68,7 +68,8 @@
 {
     _distance = distance;
     
-    [self.distBtn setTitle:[NSString stringWithFormat:@"我们之间的距离:%.2f米,点击查看详情",_distance] forState:UIControlStateNormal];
+    CGFloat newDis = _distance/1000.0;
+    [self.distBtn setTitle:[NSString stringWithFormat:@"我们之间的距离:%.2f千米,点击查看对方详情",newDis] forState:UIControlStateNormal];
 }
 
 #pragma mark ----Action----

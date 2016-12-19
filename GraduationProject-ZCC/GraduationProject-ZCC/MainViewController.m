@@ -54,11 +54,12 @@
     //添加子控制器
     MeViewController *meVC = [[MeViewController alloc]init];
     HomeViewController *homeVC = [[HomeViewController alloc]init];
+    BaseViewController *baseVC = [[BaseViewController alloc]init];
     
-    NSArray *vcs = @[homeVC,meVC];
-    NSArray *titles = @[@"首页",@"我"];
-    NSArray *normalImgs = @[@"home_normal",@"me_normal"];
-    NSArray *selectedImg = @[@"home_selected",@"me_selected"];
+    NSArray *vcs = @[homeVC,baseVC,meVC];
+    NSArray *titles = @[@"首页",@"TEST",@"我"];
+    NSArray *normalImgs = @[@"home_normal",@"me_normal",@"me_normal"];
+    NSArray *selectedImg = @[@"home_selected",@"me_selected",@"me_selected"];
     for (int i = 0; i< vcs.count; i ++) {
         
         UIViewController *vc = vcs[i];
@@ -87,11 +88,11 @@
         
         if (!error) {
             
+            //获取关注人
             NSString *focusName = [object objectForKey:@"loverName"];
             if (focusName.length > 0) {
                 
                 //已存在
-                NSLog(@"已存在:%@",focusName);
                 [SaveDataTools sharedInstance].focusName = focusName;
             }
         }else{
@@ -102,13 +103,34 @@
 }
 
 /**
- 监听更新数据
+ 监听服务器更新数据
  */
 - (void)listenUpdatingdata
 {
     BmobEvent *event = [BmobEvent defaultBmobEvent];
     event.delegate = self;
     [event start];
+}
+
+/**
+ 本地推送
+ */
+- (void)sendLocalPushWithDis:(CGFloat )distance
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        [AppTools sendLocalNitificationWithTitle:@"通知" WithContent:@"Ta在你附近哦" WithTime:0 WithName:[SaveDataTools sharedInstance].focusName WithImgV:[SaveDataTools sharedInstance].imgV WithBock:^{
+            
+            [AppTools alertViewWithTitle:@"提示" WithMsg:[NSString stringWithFormat:@"Ta在你附近%.2f米哦",distance] WithSureBtn:@"立即查看" WithCancleBtn:@"我知道了" WithVC:self WithSureBtn:^{
+                
+                MsgViewController *msgVC = [[MsgViewController alloc]init];
+                [[AppDelegate sharedAppDelegate] pushViewController:msgVC WithTitle:@"消息中心"];
+                
+            } WithCancleBtn:nil];
+            
+        }];
+    });
 }
 
 #pragma mark ----Delegate----
@@ -141,6 +163,7 @@
     NSString *imgV = dic[@"imageUrl"];
     [SaveDataTools sharedInstance].imgV = imgV;
     
+    //计算距离
     BMKMapPoint point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(0,0));
     BMKMapPoint point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(0,0));
     
@@ -149,6 +172,7 @@
         //登录账号的位置信息
         point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([latitude doubleValue],[longitude doubleValue]));
         
+        //保存我的位置信息
         [SaveDataTools sharedInstance].myAddressDic = @{@"latitude":latitude,@"longitude":longitude};
         
         return ;
@@ -161,9 +185,11 @@
         NSLog(@"数据更新,接收到更新:====%@===%@===%@",latitude,longitude,userName);
         point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([latitude doubleValue],[longitude doubleValue]));
 
+        //在地图上添加大头针
         [self.homeVC addAnnotationWithLatitude:[latitude floatValue] Longitude:[longitude floatValue]];
     }
     
+    //计算距离
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
        
         CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
@@ -172,21 +198,19 @@
             self.homeVC.distance = distance;
             [SaveDataTools sharedInstance].distance = distance;
             
-            static dispatch_once_t onceToken;
-            dispatch_once(&onceToken, ^{
+            //本地推送
+            if (distance <= 10000) {
                 
-                [AppTools sendLocalNitificationWithTitle:@"通知" WithContent:@"Ta在你附近100米哦" WithTime:0 WithName:[SaveDataTools sharedInstance].focusName WithImgV:[SaveDataTools sharedInstance].imgV WithBock:^{
-                    
-                    [AppTools alertViewWithTitle:@"提示" WithMsg:@"Ta在你附近100米哦" WithSureBtn:@"立即查看" WithCancleBtn:@"我知道了" WithVC:self WithSureBtn:^{
-                        
-                        MsgViewController *msgVC = [[MsgViewController alloc]init];
-                        [[AppDelegate sharedAppDelegate] pushViewController:msgVC WithTitle:@"消息中心"];
-                        
-                    } WithCancleBtn:nil];
-                    
-                }];
+                [self sendLocalPushWithDis:10000];
+            
+            }else if(distance <= 1000){
                 
-            });
+                [self sendLocalPushWithDis:1000];
+                
+            }else if(distance <= 100){
+                
+                [self sendLocalPushWithDis:100];
+            }
         }
         NSLog(@"距离是:%f",distance);
     });
@@ -197,14 +221,11 @@
 {
     //检测表的变化,检测行变化,只能检测本人的
     [event listenTableChange:BmobActionTypeUpdateTable tableName:@"_User"];
-    //[event listenRowChange:BmobActionTypeUpdateRow tableName:@"_User" objectId:@"	4dfa4104bb"];
 }
 
 #pragma mark ----Action----
 
-
 #pragma mark ----Lazy----
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

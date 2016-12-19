@@ -10,4 +10,9 @@
 
 @interface BaseViewController : UIViewController
 
+/**
+ 设置App主题
+ */
+- (void)initBackground;
+
 @end

@@ -14,6 +14,9 @@
 #define kUMengAppKey @"584111fd310c9374c400007e"
 #define kBaiduMap @"GmMh5AqZfOAYt1hllOkck9w03zxn3tfH"
 
+//测试使用
+#import "SignViewController.h"
+
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @property(nonatomic,assign)int count;
@@ -39,9 +42,12 @@
     [self registerBaiduMap];
     
     //设置跟试图控制器
+//    SignViewController *startVC = [[SignViewController alloc]init];
+  
     StartViewController *startVC = [[StartViewController alloc]init];
     BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:startVC];
     self.window.rootViewController = nav;
+
     
     return YES;
 }
