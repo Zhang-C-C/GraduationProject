@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface BaseViewController ()
+@interface BaseViewController ()<UIGestureRecognizerDelegate>
 
 @property(nonatomic,strong)UIImageView *imgV;
 
@@ -21,7 +21,9 @@
     
     //设置返回按钮的样式
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNoramlImgae:@"back" SelectedImage:nil target:self action:@selector(backBtnAction:)];
-
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
     [self initBackground];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(initBackground) name:kThemeChange object:nil];
