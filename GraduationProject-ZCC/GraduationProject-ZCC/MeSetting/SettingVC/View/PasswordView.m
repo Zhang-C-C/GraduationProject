@@ -128,7 +128,7 @@
             self.p3.hidden = YES;
             self.p4.hidden = YES;
             self.p5.hidden = YES;
-            
+     
             [AppTools alertViewWithTitle:@"提示" WithMsg:[NSString stringWithFormat:@"您还有%ld次输入密码的机会",self.count] WithSureBtn:@"重新输入" WithCancleBtn:@"" WithVC:self.viewController WithSureBtn:^{
                 
             } WithCancleBtn:nil];

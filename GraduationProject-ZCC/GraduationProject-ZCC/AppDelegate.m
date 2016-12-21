@@ -15,7 +15,7 @@
 #define kBaiduMap @"GmMh5AqZfOAYt1hllOkck9w03zxn3tfH"
 
 //测试使用
-#import "SignViewController.h"
+#import "SettingViewController.h"
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
@@ -42,7 +42,7 @@
     [self registerBaiduMap];
     
     //设置跟试图控制器
-//    SignViewController *startVC = [[SignViewController alloc]init];
+//    SettingViewController *startVC = [[SettingViewController alloc]init];
   
     StartViewController *startVC = [[StartViewController alloc]init];
     BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:startVC];

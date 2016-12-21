@@ -47,7 +47,7 @@ static NSString *identifier = @"cell";
 
 - (void)getSignDay
 {
-    [self showLoadingWith:@"正在同步信息"];
+    //[self showLoadingWith:@"正在同步信息"];
     
     self.signDaysArr = [[NSMutableArray alloc]init];
     
@@ -60,7 +60,7 @@ static NSString *identifier = @"cell";
         
         if (!error) {
             
-            [self showSuccessWith:@"同步完成"];
+            //[self showSuccessWith:@"同步完成"];
             
             for (BmobObject *obj in array) {
                 

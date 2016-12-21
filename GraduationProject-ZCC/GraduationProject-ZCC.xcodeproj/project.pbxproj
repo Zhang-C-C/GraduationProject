@@ -27,6 +27,16 @@
 		6360C6E41DFFE80B00A437D1 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6360C6D21DFFE80B00A437D1 /* ThemeCell.xib */; };
 		6360C6E71DFFE83900A437D1 /* FocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360C6E61DFFE83900A437D1 /* FocusViewController.m */; };
 		6361C8651E03886A00AE033D /* NSDictionary+FromString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361C8641E03886A00AE033D /* NSDictionary+FromString.m */; };
+		6364808E1E0A4F7F003B627A /* PopoverAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364808A1E0A4F7F003B627A /* PopoverAnimator.m */; };
+		6364808F1E0A4F7F003B627A /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364808C1E0A4F7F003B627A /* PopoverViewController.m */; };
+		636480901E0A4F7F003B627A /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6364808D1E0A4F7F003B627A /* PopoverViewController.storyboard */; };
+		636480961E0A5440003B627A /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636480951E0A5440003B627A /* PresentViewController.m */; };
+		636480A31E0A5DF8003B627A /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364809A1E0A5DF8003B627A /* SettingCell.m */; };
+		636480A41E0A5DF8003B627A /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364809B1E0A5DF8003B627A /* SettingCell.xib */; };
+		636480A51E0A5DF8003B627A /* SettingCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364809D1E0A5DF8003B627A /* SettingCollectionReusableView.m */; };
+		636480A61E0A5DF8003B627A /* SettingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364809E1E0A5DF8003B627A /* SettingCollectionReusableView.xib */; };
+		636480A71E0A5DF8003B627A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636480A11E0A5DF8003B627A /* SettingViewController.m */; };
+		636480A81E0A5DF8003B627A /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636480A21E0A5DF8003B627A /* SettingViewController.xib */; };
 		6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDB41DF50A6400427097 /* SexPickerTools.m */; };
 		6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6364CDB61DF50AA700427097 /* SexPickerTools.xib */; };
 		6364CDBB1DF5314500427097 /* LoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6364CDBA1DF5314500427097 /* LoadManager.m */; };
@@ -50,7 +60,6 @@
 		636B73B81DEFC6690042E7F9 /* GraduationProject_ZCCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73B71DEFC6690042E7F9 /* GraduationProject_ZCCTests.m */; };
 		636B73C31DEFC6690042E7F9 /* GraduationProject_ZCCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73C21DEFC6690042E7F9 /* GraduationProject_ZCCUITests.m */; };
 		636B73D31DEFCC1B0042E7F9 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D21DEFCC1B0042E7F9 /* BaseNavigationController.m */; };
-		636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */; };
 		636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */; };
 		636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EA1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m */; };
 		636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73EC1DF014810042E7F9 /* UIViewController+HUDHelper.m */; };
@@ -128,6 +137,22 @@
 		6360C6E61DFFE83900A437D1 /* FocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusViewController.m; sourceTree = "<group>"; };
 		6361C8631E03886A00AE033D /* NSDictionary+FromString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FromString.h"; sourceTree = "<group>"; };
 		6361C8641E03886A00AE033D /* NSDictionary+FromString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FromString.m"; sourceTree = "<group>"; };
+		636480891E0A4F7F003B627A /* PopoverAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAnimator.h; sourceTree = "<group>"; };
+		6364808A1E0A4F7F003B627A /* PopoverAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAnimator.m; sourceTree = "<group>"; };
+		6364808B1E0A4F7F003B627A /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		6364808C1E0A4F7F003B627A /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		6364808D1E0A4F7F003B627A /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
+		636480941E0A5440003B627A /* PresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentViewController.h; sourceTree = "<group>"; };
+		636480951E0A5440003B627A /* PresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentViewController.m; sourceTree = "<group>"; };
+		636480991E0A5DF8003B627A /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
+		6364809A1E0A5DF8003B627A /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
+		6364809B1E0A5DF8003B627A /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		6364809C1E0A5DF8003B627A /* SettingCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCollectionReusableView.h; sourceTree = "<group>"; };
+		6364809D1E0A5DF8003B627A /* SettingCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCollectionReusableView.m; sourceTree = "<group>"; };
+		6364809E1E0A5DF8003B627A /* SettingCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCollectionReusableView.xib; sourceTree = "<group>"; };
+		636480A01E0A5DF8003B627A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		636480A11E0A5DF8003B627A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		636480A21E0A5DF8003B627A /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		6364CDB31DF50A6400427097 /* SexPickerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPickerTools.h; sourceTree = "<group>"; };
 		6364CDB41DF50A6400427097 /* SexPickerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPickerTools.m; sourceTree = "<group>"; };
 		6364CDB61DF50AA700427097 /* SexPickerTools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPickerTools.xib; sourceTree = "<group>"; };
@@ -172,8 +197,6 @@
 		636B73C41DEFC6690042E7F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		636B73D11DEFCC1B0042E7F9 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		636B73D21DEFCC1B0042E7F9 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
-		636B73D41DEFCC2A0042E7F9 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		636B73D71DEFCC3B0042E7F9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		636B73DD1DEFCCA10042E7F9 /* MyPch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPch.pch; sourceTree = "<group>"; };
@@ -252,6 +275,7 @@
 		6360C6A71DFFE80B00A437D1 /* MeSetting */ = {
 			isa = PBXGroup;
 			children = (
+				636480971E0A5DF8003B627A /* NewSetting */,
 				6360C6A81DFFE80B00A437D1 /* FoucesVC */,
 				6360C6AC1DFFE80B00A437D1 /* SettingVC */,
 				6360C6C81DFFE80B00A437D1 /* ThemeVC */,
@@ -399,6 +423,52 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		636480881E0A4F7F003B627A /* PopoverVC */ = {
+			isa = PBXGroup;
+			children = (
+				636480891E0A4F7F003B627A /* PopoverAnimator.h */,
+				6364808A1E0A4F7F003B627A /* PopoverAnimator.m */,
+				6364808B1E0A4F7F003B627A /* PopoverViewController.h */,
+				6364808C1E0A4F7F003B627A /* PopoverViewController.m */,
+				6364808D1E0A4F7F003B627A /* PopoverViewController.storyboard */,
+				636480941E0A5440003B627A /* PresentViewController.h */,
+				636480951E0A5440003B627A /* PresentViewController.m */,
+			);
+			path = PopoverVC;
+			sourceTree = "<group>";
+		};
+		636480971E0A5DF8003B627A /* NewSetting */ = {
+			isa = PBXGroup;
+			children = (
+				636480981E0A5DF8003B627A /* View */,
+				6364809F1E0A5DF8003B627A /* ViewController */,
+			);
+			path = NewSetting;
+			sourceTree = "<group>";
+		};
+		636480981E0A5DF8003B627A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				636480991E0A5DF8003B627A /* SettingCell.h */,
+				6364809A1E0A5DF8003B627A /* SettingCell.m */,
+				6364809B1E0A5DF8003B627A /* SettingCell.xib */,
+				6364809C1E0A5DF8003B627A /* SettingCollectionReusableView.h */,
+				6364809D1E0A5DF8003B627A /* SettingCollectionReusableView.m */,
+				6364809E1E0A5DF8003B627A /* SettingCollectionReusableView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6364809F1E0A5DF8003B627A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				636480A01E0A5DF8003B627A /* SettingViewController.h */,
+				636480A11E0A5DF8003B627A /* SettingViewController.m */,
+				636480A21E0A5DF8003B627A /* SettingViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		6364CDBF1DF5462800427097 /* CommonTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +483,7 @@
 		6364CDD91DF561A400427097 /* MyTools */ = {
 			isa = PBXGroup;
 			children = (
+				636480881E0A4F7F003B627A /* PopoverVC */,
 				636B73F41DF01CCF0042E7F9 /* AppTools.h */,
 				636B73F51DF01CCF0042E7F9 /* AppTools.m */,
 				6364CDB91DF5314500427097 /* LoadManager.h */,
@@ -500,8 +571,6 @@
 			children = (
 				636B73D11DEFCC1B0042E7F9 /* BaseNavigationController.h */,
 				636B73D21DEFCC1B0042E7F9 /* BaseNavigationController.m */,
-				636B73D41DEFCC2A0042E7F9 /* BaseTableViewController.h */,
-				636B73D51DEFCC2A0042E7F9 /* BaseTableViewController.m */,
 				636B73D71DEFCC3B0042E7F9 /* BaseViewController.h */,
 				636B73D81DEFCC3B0042E7F9 /* BaseViewController.m */,
 			);
@@ -746,17 +815,21 @@
 				638E81341DF160C200BB7654 /* BindPhoneViewController.xib in Resources */,
 				6364CDB71DF50AA700427097 /* SexPickerTools.xib in Resources */,
 				636554021E02968300E2D5E0 /* MsgCell.xib in Resources */,
+				636480A41E0A5DF8003B627A /* SettingCell.xib in Resources */,
 				636B73AD1DEFC6680042E7F9 /* LaunchScreen.storyboard in Resources */,
 				636553F71E02670B00E2D5E0 /* FocusCell.xib in Resources */,
 				636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */,
 				6360C6E41DFFE80B00A437D1 /* ThemeCell.xib in Resources */,
 				6360C6DC1DFFE80B00A437D1 /* LockCell.xib in Resources */,
 				638E81441DF16A7800BB7654 /* PerfectMsgCell.xib in Resources */,
+				636480A81E0A5DF8003B627A /* SettingViewController.xib in Resources */,
 				6360C6D41DFFE80B00A437D1 /* AboutUSViewController.xib in Resources */,
 				638E813F1DF1612700BB7654 /* PerfectHeadView.xib in Resources */,
+				636480A61E0A5DF8003B627A /* SettingCollectionReusableView.xib in Resources */,
 				638E81391DF160C200BB7654 /* RestPasswordViewController.xib in Resources */,
 				6360C6E01DFFE80B00A437D1 /* PasswordView.xib in Resources */,
 				6360C6DE1DFFE80B00A437D1 /* MeHeadView.xib in Resources */,
+				636480901E0A4F7F003B627A /* PopoverViewController.storyboard in Resources */,
 				6360C6D81DFFE80B00A437D1 /* PasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -832,7 +905,9 @@
 			files = (
 				636553FA1E027A0300E2D5E0 /* DetailAddressViewController.m in Sources */,
 				6361C8651E03886A00AE033D /* NSDictionary+FromString.m in Sources */,
+				636480A71E0A5DF8003B627A /* SettingViewController.m in Sources */,
 				6360C6D51DFFE80B00A437D1 /* MeViewController.m in Sources */,
+				636480A31E0A5DF8003B627A /* SettingCell.m in Sources */,
 				638E81331DF160C200BB7654 /* BindPhoneViewController.m in Sources */,
 				6364CDBB1DF5314500427097 /* LoadManager.m in Sources */,
 				6360C6E21DFFE80B00A437D1 /* ThemeModel.m in Sources */,
@@ -846,20 +921,24 @@
 				6360C6E11DFFE80B00A437D1 /* ThemeViewController.m in Sources */,
 				6360C6DF1DFFE80B00A437D1 /* PasswordView.m in Sources */,
 				6360C6E71DFFE83900A437D1 /* FocusViewController.m in Sources */,
+				6364808E1E0A4F7F003B627A /* PopoverAnimator.m in Sources */,
 				6360C6DA1DFFE80B00A437D1 /* SafeViewController.m in Sources */,
 				638E813D1DF160DA00BB7654 /* PerfectHeadView.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,
 				638E813A1DF160C200BB7654 /* StartViewController.m in Sources */,
+				636480961E0A5440003B627A /* PresentViewController.m in Sources */,
 				638E81381DF160C200BB7654 /* RestPasswordViewController.m in Sources */,
 				6360C6D71DFFE80B00A437D1 /* PasswordViewController.m in Sources */,
 				636B73ED1DF014810042E7F9 /* UIBarButtonItem+CustomButton.m in Sources */,
 				6360C6DB1DFFE80B00A437D1 /* LockCell.m in Sources */,
 				636B73D91DEFCC3B0042E7F9 /* BaseViewController.m in Sources */,
+				6364808F1E0A4F7F003B627A /* PopoverViewController.m in Sources */,
 				636B739F1DEFC6680042E7F9 /* main.m in Sources */,
 				638E81371DF160C200BB7654 /* PerfectViewController.m in Sources */,
 				6364CDB51DF50A6400427097 /* SexPickerTools.m in Sources */,
 				636553F61E02670B00E2D5E0 /* FocusCell.m in Sources */,
 				636B73EE1DF014810042E7F9 /* UIViewController+HUDHelper.m in Sources */,
+				636480A51E0A5DF8003B627A /* SettingCollectionReusableView.m in Sources */,
 				6360C6DD1DFFE80B00A437D1 /* MeHeadView.m in Sources */,
 				636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */,
 				6364CDC41DF5463100427097 /* HCDataHelper.m in Sources */,
@@ -868,7 +947,6 @@
 				638E81431DF16A7800BB7654 /* PerfectMsgCell.m in Sources */,
 				636B74111DF029F60042E7F9 /* MainViewController.m in Sources */,
 				6364CDC51DF5463100427097 /* UICountingLabel.m in Sources */,
-				636B73D61DEFCC2A0042E7F9 /* BaseTableViewController.m in Sources */,
 				63B581221DFE9C7A00BC959C /* HomeViewController.m in Sources */,
 				6360C6D91DFFE80B00A437D1 /* PLockViewController.m in Sources */,
 				636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */,

@@ -11,6 +11,7 @@
 #import "MeViewController.h"
 #import "HomeViewController.h"
 #import "MsgViewController.h"
+#import "SettingViewController.h"
 
 @interface MainViewController ()<BmobEventDelegate>
 //HomeVC
@@ -52,7 +53,8 @@
 - (void)initView
 {
     //添加子控制器
-    MeViewController *meVC = [[MeViewController alloc]init];
+    SettingViewController *meVC = [[SettingViewController alloc]init];
+    //MeViewController *meVC = [[MeViewController alloc]init];
     HomeViewController *homeVC = [[HomeViewController alloc]init];
     BaseViewController *baseVC = [[BaseViewController alloc]init];
     
