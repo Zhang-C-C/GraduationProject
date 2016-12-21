@@ -200,19 +200,21 @@ static NSString *identifier = @"collectionCell";
     
     [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
        
-        if (!error && success) {
+        if (!error ) {
             
             [self.viewController showSuccessWith:@"签到成功"];
             //比如 2016-12-15
             [self.dataList addObject:date];
             [self.collection reloadData];
-            success();
+            if (success) {
+                success();
+            }
             
-        }else{
+        }else {
             
-            if (failure) {
+            NSLog(@"签到失败:%@",error);
 
-                NSLog(@"签到失败:%@",error);
+            if (failure) {
                 failure();
             }
         }
