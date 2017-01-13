@@ -64,21 +64,21 @@
         NSString *imgURL = [obj objectForKey:@"adImgV"];
         NSString *adURL = [obj objectForKey:@"adUrl"];
         
-        //传值
-        vc.adImgV = imgURL;
-        vc.adUrl = adURL;
-        
         NSString *isExit = [[AppTools sharedInstance]checkIsExitWithUrl:imgURL];
 
         if (isExit.length >6) {
             
             vc.isAD = YES;
-            NSLog(@"已下载完成");
+            vc.adImgV = imgURL;
+            vc.adUrl = adURL;
+            //NSLog(@"已下载完成");
             
         }else{
             
             vc.isAD = NO;
-            NSLog(@"未下载完成");
+            vc.adImgV = nil;
+            vc.adUrl = nil;
+            //NSLog(@"未下载完成");
         }
     }];
 }
