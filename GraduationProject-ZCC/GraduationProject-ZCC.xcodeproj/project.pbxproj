@@ -53,6 +53,7 @@
 		636554051E029BA000E2D5E0 /* MsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 636554041E029BA000E2D5E0 /* MsgModel.m */; };
 		636790A91DF7A2FE000C3E31 /* NSNull+IsNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */; };
 		636790C51DF7EF4F000C3E31 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636790C41DF7EF4F000C3E31 /* LocationViewController.m */; };
+		63695C6B1E28CAC3004CC7D3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63695C6A1E28CAC3004CC7D3 /* WebViewController.m */; };
 		636B739F1DEFC6680042E7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B739E1DEFC6680042E7F9 /* main.m */; };
 		636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636B73A11DEFC6680042E7F9 /* AppDelegate.m */; };
 		636B73AA1DEFC6680042E7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B73A91DEFC6680042E7F9 /* Assets.xcassets */; };
@@ -182,6 +183,8 @@
 		636790A81DF7A2FE000C3E31 /* NSNull+IsNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+IsNull.m"; sourceTree = "<group>"; };
 		636790C31DF7EF4F000C3E31 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		636790C41DF7EF4F000C3E31 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		63695C691E28CAC3004CC7D3 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		63695C6A1E28CAC3004CC7D3 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		636B739A1DEFC6680042E7F9 /* GraduationProject-ZCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraduationProject-ZCC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636B739E1DEFC6680042E7F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		636B73A01DEFC6680042E7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				638E81261DF160C200BB7654 /* BindPhoneViewController.xib */,
 				636790C31DF7EF4F000C3E31 /* LocationViewController.h */,
 				636790C41DF7EF4F000C3E31 /* LocationViewController.m */,
+				63695C691E28CAC3004CC7D3 /* WebViewController.h */,
+				63695C6A1E28CAC3004CC7D3 /* WebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -922,6 +927,7 @@
 				6360C6DF1DFFE80B00A437D1 /* PasswordView.m in Sources */,
 				6360C6E71DFFE83900A437D1 /* FocusViewController.m in Sources */,
 				6364808E1E0A4F7F003B627A /* PopoverAnimator.m in Sources */,
+				63695C6B1E28CAC3004CC7D3 /* WebViewController.m in Sources */,
 				6360C6DA1DFFE80B00A437D1 /* SafeViewController.m in Sources */,
 				638E813D1DF160DA00BB7654 /* PerfectHeadView.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,

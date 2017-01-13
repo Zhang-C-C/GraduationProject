@@ -230,4 +230,16 @@ typedef void(^SaveFileSuccess)(NSMutableArray *array);
 //求出date的这个月有多少天
 + (NSInteger)totalDaysThisMonth:(NSDate *)date;
 
+/**
+ 检查是否存在
+ */
+- (NSString *)checkIsExitWithUrl:(NSString *)urlStr;
+
+/**
+ 根据URL在子线程开始缓存视频
+ 
+ @param urlStr url地址
+ */
+- (void)startCachesWithUR:(NSString *)urlStr;
+
 @end

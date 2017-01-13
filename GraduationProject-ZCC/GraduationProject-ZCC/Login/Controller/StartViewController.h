@@ -10,4 +10,9 @@
 
 @interface StartViewController : BaseViewController
 
+@property(nonatomic,copy)NSString *adUrl;
+@property(nonatomic,copy)NSString *adImgV;
+
+@property(nonatomic,assign)BOOL isAD;
+
 @end

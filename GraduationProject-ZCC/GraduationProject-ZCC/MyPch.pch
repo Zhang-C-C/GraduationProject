@@ -32,6 +32,7 @@
 #import "HCDataHelper.h"//沙盒路径相关
 #import "LoginViewController.h"//登录页面
 #import "NSDictionary+FromString.h"
+#import <AFNetworking.h>
 
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件

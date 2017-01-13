@@ -16,6 +16,9 @@
 //发送验证码按钮上的遮盖试图
 @property(nonatomic,strong)UIView *maskView;
 
+//是否正在下载文件
+@property(nonatomic,assign)BOOL isDownLoading;
+
 @end
 
 @implementation AppTools
@@ -754,6 +757,119 @@
     return range.length;
 }
 
+/**
+ 检查是否存在
+ */
+- (NSString *)checkIsExitWithUrl:(NSString *)urlStr
+{
+    //检查是否已经存在文件
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/video.plist"];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+    
+    if ([dic allKeys].count >0) {
+        
+        NSString *filePath = [NSString stringWithFormat:@"%@",dic[urlStr]];
+        
+        if (![filePath isEqualToString:@"(null)"]) {
+            
+            //拼接新地址
+            NSArray *arr = [filePath componentsSeparatedByString:@"/"];
+            NSString *videoName = arr.lastObject;
+            NSString *newStr = [path stringByReplacingOccurrencesOfString:@"video.plist" withString:videoName];
+            NSLog(@"已存在:%@",newStr);
+            
+            return newStr;
+            
+        }else{
+            
+            //开始缓存
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self startCachesWithUR:urlStr];
+            });
+            return nil;
+        }
+        
+    }else{
+        
+        //开始缓存
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self startCachesWithUR:urlStr];
+        });
+        return nil;
+    }
+    return nil;
+}
+
+/**
+ 根据URL在子线程开始缓存视频
+ 
+ @param urlStr url地址
+ */
+- (void)startCachesWithUR:(NSString *)urlStr
+{
+    if (self.isDownLoading) {
+        
+        NSLog(@"当前有任务正在下载...");
+        return ;
+    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //1.创建会话管理者
+        AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
+        
+        NSURL *url = [NSURL URLWithString:urlStr];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSURLSessionDownloadTask *download = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+            
+            //开始下载
+            self.isDownLoading = YES;
+            
+            //监听下载进度
+            NSLog(@"已下载:%f",1.0 *downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+            
+        } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+            
+            NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:response.suggestedFilename];
+            return [NSURL fileURLWithPath:fullPath];
+            
+        } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+            
+            //下载完成
+            self.isDownLoading = NO;
+            
+            //保存到沙河路径 以网址为key, 地址为value
+            NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches"];
+            NSString *files = [path stringByAppendingPathComponent:@"video.plist"];
+            
+            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:files];
+            
+            if ([dic allKeys].count == 0) {
+                
+                NSLog(@"不存在创建");
+                dic = [[NSMutableDictionary alloc]init];
+            }else{
+                
+                NSLog(@"已存在");
+            }
+            
+            if ([NSString stringWithFormat:@"%@",filePath].length >0) {
+                
+                [dic setObject:[[NSString stringWithFormat:@"%@",filePath] substringFromIndex:7] forKey:urlStr];
+            }
+            
+            BOOL isSave = [dic writeToFile:files atomically:YES];
+            
+            if (isSave) {
+                
+                NSLog(@"已保存");
+                NSLog(@"最终地址filePath:%@",filePath);
+            }
+        }];
+        
+        //3.执行Task
+        [download resume];
+    });
+}
 
 #pragma mark ---Lazy----
 - (UIView *)maskView

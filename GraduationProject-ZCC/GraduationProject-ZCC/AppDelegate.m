@@ -47,9 +47,40 @@
     StartViewController *startVC = [[StartViewController alloc]init];
     BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:startVC];
     self.window.rootViewController = nav;
-
+    
+    //下载广告
+    [self downLoadAdWithVC:startVC];
     
     return YES;
+}
+
+- (void)downLoadAdWithVC:(StartViewController *)vc
+{
+    BmobQuery *query = [BmobQuery queryWithClassName:@"ad"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+       
+        NSInteger index = arc4random() % array.count;
+        BmobObject *obj = array[index];
+        NSString *imgURL = [obj objectForKey:@"adImgV"];
+        NSString *adURL = [obj objectForKey:@"adUrl"];
+        
+        //传值
+        vc.adImgV = imgURL;
+        vc.adUrl = adURL;
+        
+        NSString *isExit = [[AppTools sharedInstance]checkIsExitWithUrl:imgURL];
+
+        if (isExit.length >6) {
+            
+            vc.isAD = YES;
+            NSLog(@"已下载完成");
+            
+        }else{
+            
+            vc.isAD = NO;
+            NSLog(@"未下载完成");
+        }
+    }];
 }
 
 /**
@@ -145,6 +176,7 @@
 }
 
 #pragma mark - UNUserNotificationCenterDelegate
+
 //在展示通知前进行处理，即有机会在展示通知前再修改通知内容。
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
     
@@ -184,6 +216,9 @@
     }
     return nil;
 }
+
+
+
 
 /*
 UIBackgroundTaskIdentifier taskId;
