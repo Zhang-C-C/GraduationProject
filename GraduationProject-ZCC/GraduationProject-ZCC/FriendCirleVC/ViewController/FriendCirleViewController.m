@@ -57,7 +57,7 @@ static NSString *identifier = @"FriendCirleCell";
     [self.navigationController setNavigationBarHidden:YES];
     [self.view addSubview:self.falseNavView];
     [self.addBtn setTitle:@"发布" forState:UIControlStateNormal];
-
+    self.titleLabel.text = @"好友动态";
     
 }
 
@@ -72,7 +72,7 @@ static NSString *identifier = @"FriendCirleCell";
 /**
  发布按钮点击事件
  */
-- (void)addBTnAction
+- (void)addBtnAction
 {
     
 }
@@ -127,21 +127,31 @@ static NSString *identifier = @"FriendCirleCell";
 {
     if (!_falseNavView) {
         _falseNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
-        _falseNavView.backgroundColor = [UIColor clearColor];
+        _falseNavView.backgroundColor = [UIColor lightGrayColor];
         
     }
     return _falseNavView;
 }
-
+//发布按钮
 - (UIButton *)addBtn
 {
     if (!_addBtn) {
-        _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, kScreenWidth-64-10, 50, 64)];
+        _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth-64-10, 20, 50, 44)];
         
-        [_addBtn addTarget:self action:@selector(addBTnAction) forControlEvents:UIControlStateNormal];
+        [_addBtn addTarget:self action:@selector(addBtnAction) forControlEvents:UIControlEventTouchUpInside];
         [self.falseNavView addSubview:_addBtn];
     }
     return _addBtn;
+}
+//标题文字
+- (UILabel *)titleLabel
+{
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2 -50, 20, 100, 44)];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self.falseNavView addSubview:_titleLabel];
+    }
+    return _titleLabel;
 }
 
 - (void)didReceiveMemoryWarning {
