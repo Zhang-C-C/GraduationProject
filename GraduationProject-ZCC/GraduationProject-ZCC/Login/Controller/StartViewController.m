@@ -16,6 +16,7 @@
 @property(nonatomic,strong)UIButton *jumpBtn;
 
 @property(nonatomic,assign)NSInteger second;
+@property(nonatomic,strong)NSTimer *timer;
 
 @end
 
@@ -82,7 +83,7 @@
     self.showImgV.image = [UIImage imageWithContentsOfFile:[[AppTools sharedInstance] checkIsExitWithUrl:self.adImgV]];
     
     //开启定时器
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeChangeAction:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeChangeAction:) userInfo:nil repeats:YES];
 }
 
 /**
@@ -156,6 +157,9 @@
  */
 - (void)jumpBtnAction
 {
+    [self.timer invalidate];
+    self.timer = nil;
+    
     [UIView animateWithDuration:.1 animations:^{
         
         self.showImgV.alpha = 0;
