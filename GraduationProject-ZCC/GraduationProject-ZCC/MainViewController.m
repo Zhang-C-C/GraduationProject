@@ -12,6 +12,7 @@
 #import "HomeViewController.h"
 #import "MsgViewController.h"
 #import "SettingViewController.h"
+#import "FriendCirleViewController.h"
 
 @interface MainViewController ()<BmobEventDelegate>
 //HomeVC
@@ -56,10 +57,10 @@
     SettingViewController *meVC = [[SettingViewController alloc]init];
     //MeViewController *meVC = [[MeViewController alloc]init];
     HomeViewController *homeVC = [[HomeViewController alloc]init];
-    BaseViewController *baseVC = [[BaseViewController alloc]init];
+    FriendCirleViewController *friendVC = [[FriendCirleViewController alloc]init];
     
-    NSArray *vcs = @[homeVC,baseVC,meVC];
-    NSArray *titles = @[@"首页",@"TEST",@"我"];
+    NSArray *vcs = @[homeVC,friendVC,meVC];
+    NSArray *titles = @[@"首页",@"好友动态",@"我"];
     NSArray *normalImgs = @[@"home_normal",@"me_normal",@"me_normal"];
     NSArray *selectedImg = @[@"home_selected",@"me_selected",@"me_selected"];
     for (int i = 0; i< vcs.count; i ++) {
