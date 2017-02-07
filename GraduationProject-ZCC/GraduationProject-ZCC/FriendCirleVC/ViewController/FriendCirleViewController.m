@@ -37,17 +37,12 @@ static NSString *identifier = @"FriendCirleCell";
        
         [self.tableView.mj_header endRefreshing];
     }];
-    //上拉刷新
+    //上拉刷新 7
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
        
         [self.tableView.mj_footer endRefreshing];
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
     }];
-    
-    
-
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,7 +103,7 @@ static NSString *identifier = @"FriendCirleCell";
 {
     if (!_tableView) {
         //添加表视图
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64-44) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-44) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -127,8 +122,8 @@ static NSString *identifier = @"FriendCirleCell";
 {
     if (!_falseNavView) {
         _falseNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
-        _falseNavView.backgroundColor = [UIColor lightGrayColor];
-        
+        //_falseNavView.backgroundColor = [UIColor lightGrayColor];
+        _falseNavView.backgroundColor = [[UIColor clearColor]colorWithAlphaComponent:0.0];
     }
     return _falseNavView;
 }

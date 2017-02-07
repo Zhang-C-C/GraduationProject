@@ -61,8 +61,8 @@
     
     NSArray *vcs = @[homeVC,friendVC,meVC];
     NSArray *titles = @[@"首页",@"好友动态",@"我"];
-    NSArray *normalImgs = @[@"home_normal",@"me_normal",@"me_normal"];
-    NSArray *selectedImg = @[@"home_selected",@"me_selected",@"me_selected"];
+    NSArray *normalImgs = @[@"home_normal",@"friendCircle",@"me_normal"];
+    NSArray *selectedImg = @[@"home_selected",@"friendCircle2",@"me_selected"];
     for (int i = 0; i< vcs.count; i ++) {
         
         UIViewController *vc = vcs[i];
