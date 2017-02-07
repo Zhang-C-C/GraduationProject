@@ -131,9 +131,7 @@ static NSString *identifier = @"cell";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat offsetY = scrollView.contentOffset.y;
-    NSLog(@"%f",offsetY);
-    
+    CGFloat offsetY = scrollView.contentOffset.y;    
     if (offsetY < 0) {
         
         self.headImgV.frame = CGRectMake(offsetY/2, offsetY, kScreenWidth- offsetY, self.tableHeadView.frame.size.height -offsetY);

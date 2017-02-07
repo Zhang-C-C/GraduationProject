@@ -8,6 +8,8 @@
 
 #import "FriendCirleViewController.h"
 #import "FriendCirleCell.h"
+#import "FriendCirleModel.h"
+#import "PublicViewController.h"
 
 static NSString *identifier = @"FriendCirleCell";
 
@@ -18,6 +20,8 @@ static NSString *identifier = @"FriendCirleCell";
 @property(nonatomic,strong)UIButton *addBtn;//发布按钮
 @property(nonatomic,strong)UILabel *titleLabel;//标题
 
+@property(nonatomic,strong)NSMutableArray *dataList;
+
 @end
 
 @implementation FriendCirleViewController
@@ -26,6 +30,8 @@ static NSString *identifier = @"FriendCirleCell";
     [super viewDidLoad];
     
     [self initView];
+    [self initData];
+
 }
 
 - (void)initView
@@ -35,6 +41,8 @@ static NSString *identifier = @"FriendCirleCell";
     //下拉刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        
+        [self.dataList removeAllObjects];
+        [self initData];
         [self.tableView.mj_header endRefreshing];
     }];
     //上拉刷新 7
@@ -42,6 +50,40 @@ static NSString *identifier = @"FriendCirleCell";
        
         [self.tableView.mj_footer endRefreshing];
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    }];
+}
+
+- (void)initData
+{
+    BmobQuery *query = [BmobQuery queryWithClassName:@"friendCircle"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+       
+        if (!error) {
+            
+            for (BmobObject *obj in array) {
+                
+                FriendCirleModel *model = [[FriendCirleModel alloc]init];
+                model.name = [obj objectForKey:@"name"];
+                model.time = [[NSString stringWithFormat:@"%@",obj.createdAt] substringToIndex:19];
+                model.content = [obj objectForKey:@"content"];
+                model.headImgV = [obj objectForKey:@"headImgV"];
+                
+                //多媒体数据
+                
+                
+                
+                [self.dataList addObject:model];
+            }
+            //倒序输出数组
+            NSArray* reversedArray = [[self.dataList reverseObjectEnumerator] allObjects];
+            self.dataList = (NSMutableArray *)reversedArray;
+            
+            [self.tableView reloadData];
+            
+        }else{
+            
+            [self showErrorWith:@"获取失败!"];
+        }
     }];
 }
 
@@ -65,11 +107,24 @@ static NSString *identifier = @"FriendCirleCell";
 #pragma mark ----Action----
 
 /**
+ 导航栏返回按钮点击事件
+ 
+ @param back 按钮
+ */
+- (void)backBtnAction:(UIButton *)back
+{
+    
+}
+
+
+/**
  发布按钮点击事件
  */
 - (void)addBtnAction
 {
-    
+    PublicViewController *publicVC = [[PublicViewController alloc]init];
+    publicVC.title = @"发布动态";
+    [self.navigationController pushViewController:publicVC animated:YES];
 }
 
 #pragma mark ----Delegate----
@@ -79,17 +134,25 @@ static NSString *identifier = @"FriendCirleCell";
 //单元格个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataList.count;
 }
 
 //单元格内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FriendCirleCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    cell.model = self.dataList[indexPath.row];
+    
     return cell;
 }
 
 #pragma mark ----UITableViewDelegate----
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FriendCirleModel *model = self.dataList[indexPath.row];
+    return model.cellHeight;
+}
 
 //单元格点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,14 +166,12 @@ static NSString *identifier = @"FriendCirleCell";
 {
     if (!_tableView) {
         //添加表视图
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-44) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-44-64) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
-        _tableView.rowHeight = 280;
         
         [_tableView registerNib:[UINib nibWithNibName:@"FriendCirleCell" bundle:nil] forCellReuseIdentifier:identifier];
     }
@@ -123,7 +184,7 @@ static NSString *identifier = @"FriendCirleCell";
     if (!_falseNavView) {
         _falseNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
         //_falseNavView.backgroundColor = [UIColor lightGrayColor];
-        _falseNavView.backgroundColor = [[UIColor clearColor]colorWithAlphaComponent:0.0];
+        _falseNavView.backgroundColor = [[UIColor grayColor]colorWithAlphaComponent:0.5];
     }
     return _falseNavView;
 }
@@ -147,6 +208,14 @@ static NSString *identifier = @"FriendCirleCell";
         [self.falseNavView addSubview:_titleLabel];
     }
     return _titleLabel;
+}
+
+- (NSMutableArray *)dataList
+{
+    if (!_dataList) {
+        _dataList = [[NSMutableArray alloc]init];
+    }
+    return _dataList;
 }
 
 - (void)didReceiveMemoryWarning {

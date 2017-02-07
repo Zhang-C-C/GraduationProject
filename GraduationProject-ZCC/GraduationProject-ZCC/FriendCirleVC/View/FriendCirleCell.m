@@ -16,6 +16,29 @@
     //self.mediaView.hidden = YES;
 }
 
+- (void)setModel:(FriendCirleModel *)model
+{
+    _model = model;
+    
+    self.name.text = _model.name;
+    self.content.text = _model.content;
+    self.time.text = _model.time;
+    
+    [self.headImgV sd_setImageWithURL:[NSURL URLWithString:_model.headImgV] placeholderImage:[UIImage imageNamed:@"headBackImgV"]];
+    
+    if (_model.medias.count == 0) {
+        
+        self.mediaView.hidden = YES;
+        self.topSpace.constant = _model.contentHeight;
+        
+        
+    }else{
+        
+        
+    }
+    
+}
+
 #pragma mark ----Override----
 
 - (void)setFrame:(CGRect)frame

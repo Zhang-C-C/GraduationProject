@@ -33,4 +33,9 @@
 //我的详细信息
 @property(nonatomic,strong)NSDictionary *myAddressDic;
 
+//发表选择的图片
+@property(nonatomic,strong)NSMutableArray *images;
+
+@property(nonatomic,strong)NSMutableDictionary *dict;
+
 @end

@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendCirleModel.h"
 
 @interface FriendCirleCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *mediaView;
+
+@property(nonatomic,strong)FriendCirleModel *model;
+@property (weak, nonatomic) IBOutlet UIImageView *headImgV;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *content;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpace;
 
 @end
