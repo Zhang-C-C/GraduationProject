@@ -139,8 +139,10 @@ static NSString *identifier = @"FriendCirleCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FriendCirleCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    cell.model = self.dataList[indexPath.row];
-    
+    if (self.dataList.count >0) {
+        
+         cell.model = self.dataList[indexPath.row];
+    }
     return cell;
 }
 
@@ -148,8 +150,14 @@ static NSString *identifier = @"FriendCirleCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FriendCirleModel *model = self.dataList[indexPath.row];
-    return model.cellHeight;
+    if (self.dataList.count >0) {
+        
+        FriendCirleModel *model = self.dataList[indexPath.row];
+        return model.cellHeight;
+    }else{
+        
+        return 0;
+    }
 }
 
 //单元格点击事件
