@@ -757,6 +757,28 @@
     return range.length;
 }
 
++ (BOOL)clearCacheWithFilePath:(NSString *)path{
+    
+    //拿到path路径的下一级目录的子文件夹
+    NSArray *subPathArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+    
+    NSString *filePath = nil;
+    
+    NSError *error = nil;
+    
+    for (NSString *subPath in subPathArr)
+    {
+        filePath = [path stringByAppendingPathComponent:subPath];
+        
+        //删除子文件夹
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+        if (error) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 /**
  检查是否存在
  */

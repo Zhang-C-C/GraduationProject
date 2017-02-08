@@ -242,4 +242,12 @@ typedef void(^SaveFileSuccess)(NSMutableArray *array);
  */
 - (void)startCachesWithUR:(NSString *)urlStr;
 
+/**
+ 清除缓存
+
+ @param path 路径
+ @return 返回
+ */
++ (BOOL)clearCacheWithFilePath:(NSString *)path;
+
 @end

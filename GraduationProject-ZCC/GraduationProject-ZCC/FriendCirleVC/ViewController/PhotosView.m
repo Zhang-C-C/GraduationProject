@@ -104,16 +104,13 @@ typedef void(^PhotosBlock)(UIImage *img);
 #pragma mark ----- photosDelegate
 -(void)returnSelectedPhotos:(NSArray *)photos
 {
-    //得到资源创建视图控件
-    NSLog(@"count %lu:",(unsigned long)photos.count);
-    
     //记录本次传递来的数据
     _selectedAsses = photos;
     
     //根据资源创建控件
     [self createPhotosItemWithArray:photos];
-    
 }
+
 //根据资源创建控件
 -(void)createPhotosItemWithArray:(NSArray *)assets
 {
@@ -124,33 +121,65 @@ typedef void(^PhotosBlock)(UIImage *img);
             [imgV removeFromSuperview];
         }
     }
+    [_itemArray removeAllObjects];
 
     for (int i=0; i<assets.count; i++) {
         
         //创建item控件
         UIImageView *item = [[UIImageView alloc] initWithFrame:[self getItemFrameWithIndex:i]];
-        
-        //添加点击事件
-//        item.userInteractionEnabled = YES;
-//        
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addBtnAction)];
-//        [item addGestureRecognizer:tap];
-        
+    
         [self addSubview:item];
         
         //设置image属性
         [self getImageWithAsset:assets[i] withBlock:^(UIImage *img) {
             
             item.image = img;
-            
         }];
         
         //添加item到数组中
         [_itemArray addObject:item];
     }
-    
     //修改btn的坐标
     _addBtn.frame = [self getItemFrameWithIndex:assets.count];
+    
+    //清空图片
+    BOOL isoK = [AppTools clearCacheWithFilePath:NSTemporaryDirectory()];
+    if (isoK) {
+        
+        //保存文件
+        [SaveDataTools sharedInstance].images = [[NSMutableArray alloc]init];
+        NSInteger index = 0;
+        for (UIImageView *imgV in _itemArray) {
+            
+            index ++;
+            //保存到沙河路径
+            NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
+            NSString *imgPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld.png",index]];
+            
+            
+            
+            
+            NSData *data = UIImagePNGRepresentation(imgV.image);
+            BOOL isSuccess = [data writeToFile:imgPath atomically:YES];
+            
+            if (isSuccess) {
+                
+                [[SaveDataTools sharedInstance].images addObject:imgPath];
+                NSLog(@"111");
+                
+            }else{
+                
+                [[SaveDataTools sharedInstance].images removeAllObjects];
+                NSLog(@"222");
+            }
+        }
+        
+    }else{
+        
+        [[SaveDataTools sharedInstance].images removeAllObjects];;
+        [self.viewController showErrorWith:@"请重试!"];
+        return ;
+    }
 }
 
 //根据当前下标返回frame
@@ -166,15 +195,8 @@ typedef void(^PhotosBlock)(UIImage *img);
 //根据asset获取image对象
 -(void)getImageWithAsset:(PHAsset *)asset withBlock:(PhotosBlock)block
 {
-    //根据asset请求图片
-    [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(90, 90) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-    
-//        NSMutableArray *arr = [SaveDataTools sharedInstance].images;
-//        for (NSMutableDictionary *dict in arr) {
-//            
-//            
-//            
-//        }
+    //根据asset请求图片 PHImageManagerMaximumSize CGSizeMake(90, 90)
+    [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         
         block(result);
     }];

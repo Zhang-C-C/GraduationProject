@@ -51,10 +51,13 @@
 - (void)publicBtnAction
 {
     //安全判断
-    NSMutableArray *array = [SaveDataTools sharedInstance].images;
-    
-    NSLog(@"array:%@",array);
-    NSLog(@"text:%@",self.textView.text);
+    NSMutableArray *arr = [SaveDataTools sharedInstance].images;
+        
+    if (arr.count == 0 &&[self.textView.text isEqualToString:@"说点什么吧..."]) {
+     
+        [self showErrorWith:@"请输入内容"];
+        return ;
+    }
     
     //更新表
     BmobUser *user = [BmobUser currentUser];
@@ -65,31 +68,51 @@
     [obj setObject:self.textView.text forKey:@"content"];
     [obj setObject:[user objectForKey:@"imageUrl"] forKey:@"headImgV"];
     
+    //先保存文字信息
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-       
-        if (isSuccessful) {
+        
+        if (isSuccessful &&arr.count == 0) {
             
             [self.navigationController popViewControllerAnimated:YES];
             [self showSuccessWith:@"已发表"];
             
-            
-//            //数组中添加数据
-//            BmobObject *object = [BmobObject objectWithoutDataWithClassName:@"friendCircle" objectId:user.objectId];
-//            
-//            [object addObjectsFromArray:@[] forKey:@"signDays"];
-//            
-//            [object updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-//                
-//                
-//            }];
-            
-        }else{
+        }else if(!isSuccessful){
             
             NSLog(@"error:%@",error);
             [self showErrorWith:@"网络出错!"];
         }
-        
     }];
+
+    //上传图片
+    for (NSString *imgName in arr) {
+        
+        [BmobFile filesUploadBatchWithPaths:@[imgName] progressBlock:nil resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+            
+            if (isSuccessful) {
+                
+                BmobFile *file = array[0];
+                
+                [obj addObjectsFromArray:@[file.url] forKey:@"medias"];
+                
+                [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                    
+                    if (!error ) {
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                        [self showSuccessWith:@"已发表"];
+                        
+                    }else {
+                        
+                        [self showErrorWith:@"网络出错!"];
+                        NSLog(@"error%@",error);
+                    }
+                }];
+            }else{
+                
+                NSLog(@"error:%@",error);
+            }
+        }];
+    }
 }
 
 #pragma mark ----UITextViewDelegate----

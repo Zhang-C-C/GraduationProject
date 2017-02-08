@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *content;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpace;
+//@property (weak, nonatomic) IBOutlet UIView *mediaView;
 
 @end

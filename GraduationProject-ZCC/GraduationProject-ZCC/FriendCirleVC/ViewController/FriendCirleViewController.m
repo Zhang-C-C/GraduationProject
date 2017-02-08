@@ -68,9 +68,8 @@ static NSString *identifier = @"FriendCirleCell";
                 model.content = [obj objectForKey:@"content"];
                 model.headImgV = [obj objectForKey:@"headImgV"];
                 
-                //多媒体数据
-                
-                
+                //查询数组中包含某些元素的记录
+                model.medias = [obj objectForKey:@"medias"];
                 
                 [self.dataList addObject:model];
             }
@@ -95,7 +94,6 @@ static NSString *identifier = @"FriendCirleCell";
     [self.view addSubview:self.falseNavView];
     [self.addBtn setTitle:@"发布" forState:UIControlStateNormal];
     self.titleLabel.text = @"好友动态";
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -205,6 +203,7 @@ static NSString *identifier = @"FriendCirleCell";
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2 -50, 20, 100, 44)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textColor = [UIColor whiteColor];
         [self.falseNavView addSubview:_titleLabel];
     }
     return _titleLabel;

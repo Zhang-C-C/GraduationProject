@@ -19,19 +19,15 @@
         _cellHeight = rect.size.height +120;
         self.contentHeight = rect.size.height;
         
-        if (self.medias.count == 0) {
+        if (self.medias.count == 1) {
             
-
+            _cellHeight +=200;
             
-        }else{
+        }else if (self.medias.count > 1){
             
-            
-            
+            _cellHeight += 180;
         }
-        
     }
-    
-    
     return _cellHeight;
 }
 

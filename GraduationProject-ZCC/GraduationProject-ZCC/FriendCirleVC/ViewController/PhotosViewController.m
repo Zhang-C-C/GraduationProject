@@ -154,15 +154,7 @@ typedef void(^Myblock)(UIImage *img);
 -(void)getImageWithAsset:(PHAsset *)asset withBlock:(Myblock)block
 {
     [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        
-//        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-//        [dic setObject:[info[@"PHImageFileURLKey"] substringFromIndex:7] forKey:info[@"PHImageResultRequestIDKey"]];
-//        
-//        [SaveDataTools sharedInstance].images = [[NSMutableArray alloc]init];
-//        [[SaveDataTools sharedInstance].images addObject:dic];
-//        
-//        NSLog(@"images:%@",[SaveDataTools sharedInstance].images);
-        
+ 
         block(result);
     }];
 }
@@ -176,13 +168,13 @@ typedef void(^Myblock)(UIImage *img);
     //获取图标控件
     UIImageView *checkImgV = [cell.contentView viewWithTag:102];
     
-//    //判断当前数组中个数是否已满9个，若已满则不允许添加
-//    if (_selcetPhotos.count>=9 && checkImgV.hidden == YES) {
-//        
-//        NSLog(@"目前数组中个数已到最大值，不允许添加");
-//        [self showMsgWith:@"目前数组中个数已到最大值，不允许添加"];
-//        return;
-//    }
+    //判断当前数组中个数是否已满9个，若已满则不允许添加
+    if (_selcetPhotos.count>=9 && checkImgV.hidden == YES) {
+        
+        NSLog(@"目前数组中个数已到最大值，不允许添加");
+        [self showMsgWith:@"目前数组中个数已到最大值，不允许添加"];
+        return;
+    }
     
     //隐藏属性取反
     checkImgV.hidden = !checkImgV.hidden;
