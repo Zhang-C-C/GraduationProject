@@ -58,7 +58,7 @@
         [self showErrorWith:@"请输入内容"];
         return ;
     }
-    
+    [self showLoadingWith:@"正在发表..."];
     //更新表
     BmobUser *user = [BmobUser currentUser];
     
@@ -82,7 +82,7 @@
             [self showErrorWith:@"网络出错!"];
         }
     }];
-
+    
     //上传图片
     for (NSString *imgName in arr) {
         

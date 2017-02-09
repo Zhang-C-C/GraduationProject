@@ -829,7 +829,8 @@
  */
 - (void)startCachesWithUR:(NSString *)urlStr
 {
-    if (self.isDownLoading) {
+    //关闭视频下载 !
+    if (!self.isDownLoading) {
         
         NSLog(@"当前有任务正在下载...");
         return ;

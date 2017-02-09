@@ -123,63 +123,63 @@ typedef void(^PhotosBlock)(UIImage *img);
     }
     [_itemArray removeAllObjects];
 
+    __block NSInteger index = 0;
+    //清空图片
+    BOOL isoK = [AppTools clearCacheWithFilePath:NSTemporaryDirectory()];
+    //保存文件
+    [SaveDataTools sharedInstance].images = [[NSMutableArray alloc]init];
+    
     for (int i=0; i<assets.count; i++) {
         
         //创建item控件
         UIImageView *item = [[UIImageView alloc] initWithFrame:[self getItemFrameWithIndex:i]];
-    
         [self addSubview:item];
         
         //设置image属性
         [self getImageWithAsset:assets[i] withBlock:^(UIImage *img) {
             
             item.image = img;
+            
+            if (isoK) {
+                
+                index ++;
+                //保存到沙河路径
+                NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
+                NSString *imgPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld.png",index]];
+                
+                //安全判断图片类型
+                NSData *data;
+                if (UIImagePNGRepresentation(img)) {
+                    
+                    data = UIImagePNGRepresentation(img);
+                    
+                }else{
+                    
+                    data = UIImageJPEGRepresentation(img, 1.0);
+                }
+                BOOL isSuccess = [data writeToFile:imgPath atomically:YES];
+                
+                if (isSuccess) {
+                    
+                    [[SaveDataTools sharedInstance].images addObject:imgPath];
+                    
+                }else{
+                    
+                    [[SaveDataTools sharedInstance].images removeAllObjects];
+                }
+                
+            }else{
+                
+                [[SaveDataTools sharedInstance].images removeAllObjects];;
+                [self.viewController showErrorWith:@"请重试!"];
+                return ;
+            }
         }];
-        
         //添加item到数组中
         [_itemArray addObject:item];
     }
     //修改btn的坐标
     _addBtn.frame = [self getItemFrameWithIndex:assets.count];
-    
-    //清空图片
-    BOOL isoK = [AppTools clearCacheWithFilePath:NSTemporaryDirectory()];
-    if (isoK) {
-        
-        //保存文件
-        [SaveDataTools sharedInstance].images = [[NSMutableArray alloc]init];
-        NSInteger index = 0;
-        for (UIImageView *imgV in _itemArray) {
-            
-            index ++;
-            //保存到沙河路径
-            NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
-            NSString *imgPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld.png",index]];
-            
-            
-            
-            
-            NSData *data = UIImagePNGRepresentation(imgV.image);
-            BOOL isSuccess = [data writeToFile:imgPath atomically:YES];
-            
-            if (isSuccess) {
-                
-                [[SaveDataTools sharedInstance].images addObject:imgPath];
-                NSLog(@"111");
-                
-            }else{
-                
-                [[SaveDataTools sharedInstance].images removeAllObjects];
-                NSLog(@"222");
-            }
-        }
-        
-    }else{
-        
-        [[SaveDataTools sharedInstance].images removeAllObjects];;
-        [self.viewController showErrorWith:@"请重试!"];
-        return ;
-    }
 }
 
 //根据当前下标返回frame
