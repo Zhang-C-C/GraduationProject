@@ -33,6 +33,26 @@
     
     [self.headImgV sd_setImageWithURL:[NSURL URLWithString:_model.headImgV] placeholderImage:[UIImage imageNamed:@"headBackImgV"]];
     
+    //点赞
+    if (_model.zans.count >0) {
+        
+        NSString *me = [[BmobUser currentUser] objectForKey:@"nickName"];
+
+        for (NSString *name in _model.zans) {
+            
+            if ([name isEqualToString:me]) {
+                
+                self.zan.selected = YES;
+            }else{
+                
+                self.zan.selected = NO;
+            }
+        }
+        
+    }else{
+        
+        self.zan.selected = NO;
+    }
     //移除图片组
     for (UIImageView *imgV in self.mediaView.subviews) {
         
@@ -131,6 +151,63 @@
     browser.delegate = self;
     //显示图片浏览器
     [browser show];
+}
+
+/**
+ 点赞按钮点击事件
+
+ @param sender 按钮
+ */
+- (IBAction)zanBtnAction:(UIButton *)sender {
+    
+    //点赞人加入到数组中
+    sender.selected = !sender.selected;
+    
+    BmobUser *user = [BmobUser currentUser];
+    BmobObject *obj = [BmobObject objectWithoutDataWithClassName:@"friendCircle" objectId:self.model.objectID];
+    
+    if (sender.selected) {
+        
+        [obj addObjectsFromArray:@[[user objectForKey:@"nickName"]] forKey:@"zan"];
+        
+        [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            
+            if (isSuccessful) {
+                
+            }else{
+                
+                sender.selected = !sender.selected;
+                NSLog(@"error:%@",error);
+                [self.viewController showErrorWith:@"网络出错,请重试!"];
+            }
+        }];
+        
+    }else{
+        
+        [obj removeObjectsInArray:@[[user objectForKey:@"nickName"]] forKey:@"zan"];
+        [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            
+            if (isSuccessful) {
+                
+            }else{
+                
+                sender.selected = !sender.selected;
+                NSLog(@"error:%@",error);
+                [self.viewController showErrorWith:@"网络出错,请重试!"];
+            }
+        }];
+    }
+}
+
+/**
+ 评论按钮点击事件
+ 
+ @param sender 按钮
+ */
+- (IBAction)plBtnAction:(UIButton *)sender {
+    
+    
+    
 }
 
 #pragma mark ----SDPhotoBrowserDelegate----

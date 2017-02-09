@@ -63,9 +63,12 @@ static NSString *identifier = @"FriendCirleCell";
                 model.time = [[NSString stringWithFormat:@"%@",obj.createdAt] substringToIndex:19];
                 model.content = [obj objectForKey:@"content"];
                 model.headImgV = [obj objectForKey:@"headImgV"];
+                model.objectID = [obj objectForKey:@"objectId"];
                 
                 //查询数组中包含某些元素的记录
                 model.medias = [obj objectForKey:@"medias"];
+                //点赞人
+                model.zans = [obj objectForKey:@"zan"];
                 
                 [self.dataList addObject:model];
             }

@@ -54,8 +54,8 @@
         return ;
     }
     //清空输入
-    if ([self.textView.text isEqualToString:@"说点什么吧..."]) {
-        self.textView.text = nil;
+    if (arr.count !=0 &&[self.textView.text isEqualToString:@"说点什么吧..."]) {
+        self.textView.text = @" ";
     }
     [self showLoadingWith:@"正在发表..."];
     //更新表

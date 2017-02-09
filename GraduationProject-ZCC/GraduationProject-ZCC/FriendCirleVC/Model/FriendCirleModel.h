@@ -10,13 +10,16 @@
 
 @interface FriendCirleModel : NSObject
 
+@property(nonatomic,copy)NSString *objectID;
+
 @property(nonatomic,copy)NSString *headImgV;
 @property(nonatomic,copy)NSString *name;
 @property(nonatomic,copy)NSString *time;
 //文字内容
 @property(nonatomic,copy)NSString *content;
 
-@property(nonatomic,strong)NSMutableArray *medias;
+@property(nonatomic,strong)NSMutableArray *medias;//图片
+@property(nonatomic,strong)NSMutableArray *zans;//点赞人
 
 @property(nonatomic,assign)CGFloat contentHeight;
 @property(nonatomic,assign)CGFloat cellHeight;

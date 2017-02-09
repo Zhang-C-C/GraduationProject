@@ -21,4 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpace;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mediaHeight;
 
+//点赞
+@property (weak, nonatomic) IBOutlet UIButton *zan;
+
 @end
