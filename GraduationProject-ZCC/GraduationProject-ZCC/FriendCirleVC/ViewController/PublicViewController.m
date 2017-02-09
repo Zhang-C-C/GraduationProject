@@ -33,11 +33,6 @@
     [self.view addSubview:self.photosView];
 }
 
-- (void)initData
-{
-    
-}
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.textView resignFirstResponder];

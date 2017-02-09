@@ -93,10 +93,22 @@ typedef void(^Myblock)(UIImage *img);
     //查询后所有图片资源
     PHFetchResult *results = [PHAsset fetchAssetsWithOptions:option];
     
-    //遍历资源集合 将所有资源添加到数据源数组
-    for (PHAsset *asset in results) {
+    if (results.count >=20) {
         
-        [_dataList addObject:asset];
+        //遍历资源集合 将所有资源添加到数据源数组
+        for (int i = 0; i <20; i++) {
+            
+            PHAsset *asset = results[i];
+            [_dataList addObject:asset];
+        }
+        
+    }else{
+        
+        //遍历资源集合 将所有资源添加到数据源数组
+        for (PHAsset *asset in results) {
+            
+            [_dataList addObject:asset];
+        }
     }
 }
 

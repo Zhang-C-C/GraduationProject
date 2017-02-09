@@ -28,10 +28,6 @@ static NSString *identifier = @"FriendCirleCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self initView];
-    [self initData];
-
 }
 
 - (void)initView
@@ -89,11 +85,17 @@ static NSString *identifier = @"FriendCirleCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self initView];
     //隐藏导航栏
     [self.navigationController setNavigationBarHidden:YES];
     [self.view addSubview:self.falseNavView];
     [self.addBtn setTitle:@"发布" forState:UIControlStateNormal];
     self.titleLabel.text = @"好友动态";
+    
+    //刷新
+    [self.dataList removeAllObjects];
+    [self initData];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -103,17 +105,6 @@ static NSString *identifier = @"FriendCirleCell";
 }
 
 #pragma mark ----Action----
-
-/**
- 导航栏返回按钮点击事件
- 
- @param back 按钮
- */
-- (void)backBtnAction:(UIButton *)back
-{
-    
-}
-
 
 /**
  发布按钮点击事件
