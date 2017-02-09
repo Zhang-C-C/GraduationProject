@@ -261,7 +261,7 @@
         _imgV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200,200)];
         _imgV.tag = 0;
         _imgV.userInteractionEnabled = YES;
-        
+        _imgV.contentMode = UIViewContentModeScaleAspectFit;
         //点击事件
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
         [_imgV addGestureRecognizer:tap];
