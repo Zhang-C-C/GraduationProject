@@ -59,6 +59,13 @@
     BmobQuery *query = [BmobQuery queryWithClassName:@"ad"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
        
+        if (array.count == 0) {
+            
+            vc.isAD = NO;
+            vc.adImgV = nil;
+            vc.adUrl = nil;
+            return ;
+        }
         NSInteger index = arc4random() % array.count;
         BmobObject *obj = array[index];
         NSString *imgURL = [obj objectForKey:@"adImgV"];

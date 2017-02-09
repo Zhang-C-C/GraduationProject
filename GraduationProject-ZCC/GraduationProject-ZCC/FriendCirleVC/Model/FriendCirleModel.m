@@ -25,7 +25,18 @@
             
         }else if (self.medias.count > 1){
             
-            _cellHeight += 180;
+            if (self.medias.count <=3) {
+                
+                _cellHeight += 100;
+                
+            }else if (self.medias.count >3 &&self.medias.count <=6) {
+                
+                _cellHeight += 200;
+                
+            }else if (self.medias.count >6 &&self.medias.count <=9) {
+                
+                _cellHeight += 300;
+            }
         }
     }
     return _cellHeight;

@@ -7,8 +7,9 @@
 //
 
 #import "FriendCirleCell.h"
+#import "SDPhotoBrowser.h"
 
-@interface FriendCirleCell ()
+@interface FriendCirleCell ()<SDPhotoBrowserDelegate>
 
 @property(nonatomic,strong)UIImageView *imgV;
 
@@ -18,8 +19,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    //self.mediaView.hidden = YES;
 }
 
 - (void)setModel:(FriendCirleModel *)model
@@ -32,6 +31,12 @@
     
     [self.headImgV sd_setImageWithURL:[NSURL URLWithString:_model.headImgV] placeholderImage:[UIImage imageNamed:@"headBackImgV"]];
     
+    //移除图片组
+    for (UIImageView *imgV in self.mediaView.subviews) {
+        
+        [imgV removeFromSuperview];
+    }
+    
     if (_model.medias.count == 0) {
         
         self.imgV.hidden = YES;
@@ -42,25 +47,98 @@
         
         self.mediaView.hidden = NO;
         self.topSpace.constant = 210;
+        self.mediaHeight.constant = 200;
         
         self.imgV.hidden = NO;
         NSString *img = _model.medias[0];
-        [self.imgV sd_setImageWithURL:[NSURL URLWithString:img] placeholderImage:[UIImage imageNamed:@""]];
+        [self.imgV sd_setImageWithURL:[NSURL URLWithString:img] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
         [self.mediaView addSubview:self.imgV];
         
     }else{
         
         self.mediaView.hidden = NO;
-        self.topSpace.constant = 190;
         
         self.imgV.hidden = YES;
         
+        if (_model.medias.count <=3) {
+            
+            self.topSpace.constant = 115;
+            self.mediaHeight.constant = 100;
+            
+        }else if (_model.medias.count >3 &&_model.medias.count <=6) {
+            
+            self.topSpace.constant = 215;
+            self.mediaHeight.constant = 200;
+            
+        }else if (_model.medias.count >6 &&_model.medias.count <=9) {
+            
+            self.topSpace.constant = 315;
+            self.mediaHeight.constant = 300;
+        }
         //创建数组
-        
-        
-        
-        
+        [self createImgVsWithArr:_model.medias];
     }
+}
+
+/**
+ 根据数组创建图片
+
+ @param arr 数组
+ */
+- (void)createImgVsWithArr:(NSMutableArray *)arr
+{
+    CGFloat width = 100;
+    for (int i = 0; i <arr.count; i++) {
+        
+        NSInteger x = i%3 *(width +5);
+        NSInteger y= i/3 *(width +5);
+        
+        UIImageView *imgV = [[UIImageView alloc]initWithFrame:CGRectMake(x, y, width, width)];
+        imgV.tag = i;
+        imgV.userInteractionEnabled = YES;
+        [imgV sd_setImageWithURL:[NSURL URLWithString:arr[i]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+        
+        //点击事件
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+        [imgV addGestureRecognizer:tap];
+        
+        [self.mediaView addSubview:imgV];
+    }
+}
+
+#pragma mark ----Action----
+
+/**
+ 图片点击事件
+ */
+- (void)tapAction:(UITapGestureRecognizer *)tap
+{
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    
+    //设置容器视图,父视图
+    browser.sourceImagesContainerView = self.mediaView;
+    UIImageView *imgV = (UIImageView *)[tap view];
+    browser.currentImageIndex = imgV.tag;
+    browser.imageCount = self.model.medias.count;
+    
+    //设置代理
+    browser.delegate = self;
+    //显示图片浏览器
+    [browser show];
+}
+
+#pragma mark ----SDPhotoBrowserDelegate----
+
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    //拿到显示的图片的高清图片地址
+    return self.model.medias[index];
+}
+
+//返回占位图片
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    return [UIImage imageNamed:@"placeholder.jpg"];
 }
 
 #pragma mark ----Override----
@@ -83,10 +161,14 @@
 {
     if (!_imgV) {
         _imgV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200,200)];
+        _imgV.tag = 0;
+        _imgV.userInteractionEnabled = YES;
         
+        //点击事件
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+        [_imgV addGestureRecognizer:tap];
     }
     return _imgV;
 }
-
 
 @end

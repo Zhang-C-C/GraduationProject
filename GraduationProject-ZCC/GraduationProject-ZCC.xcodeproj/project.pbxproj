@@ -89,6 +89,9 @@
 		63C87B0B1E49A36600A4CE58 /* PhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C87B081E49A36600A4CE58 /* PhotosView.m */; };
 		63C87B0C1E49A36600A4CE58 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C87B0A1E49A36600A4CE58 /* PhotosViewController.m */; };
 		63C87B0F1E49A3C500A4CE58 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C87B0E1E49A3C500A4CE58 /* UIViewExt.m */; };
+		63D682A71E4C18EE0058B9AA /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D682A11E4C18EE0058B9AA /* SDBrowserImageView.m */; };
+		63D682A81E4C18EE0058B9AA /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D682A31E4C18EE0058B9AA /* SDPhotoBrowser.m */; };
+		63D682A91E4C18EE0058B9AA /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D682A61E4C18EE0058B9AA /* SDWaitingView.m */; };
 		B4558E84024977644CA6C418 /* libPods-GraduationProject-ZCC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */; };
 /* End PBXBuildFile section */
 
@@ -260,6 +263,13 @@
 		63C87B0A1E49A36600A4CE58 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
 		63C87B0D1E49A3C500A4CE58 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewExt.h; path = PopoverVC/UIViewExt.h; sourceTree = "<group>"; };
 		63C87B0E1E49A3C500A4CE58 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewExt.m; path = PopoverVC/UIViewExt.m; sourceTree = "<group>"; };
+		63D682A01E4C18EE0058B9AA /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		63D682A11E4C18EE0058B9AA /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		63D682A21E4C18EE0058B9AA /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		63D682A31E4C18EE0058B9AA /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		63D682A41E4C18EE0058B9AA /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		63D682A51E4C18EE0058B9AA /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		63D682A61E4C18EE0058B9AA /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		A963949E3CD318923A096B6A /* Pods-GraduationProject-ZCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -509,6 +519,7 @@
 		6364CDD91DF561A400427097 /* MyTools */ = {
 			isa = PBXGroup;
 			children = (
+				63D6829F1E4C18EE0058B9AA /* SDPhotoBrowser */,
 				636480881E0A4F7F003B627A /* PopoverVC */,
 				636B73F41DF01CCF0042E7F9 /* AppTools.h */,
 				636B73F51DF01CCF0042E7F9 /* AppTools.m */,
@@ -766,6 +777,20 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		63D6829F1E4C18EE0058B9AA /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				63D682A01E4C18EE0058B9AA /* SDBrowserImageView.h */,
+				63D682A11E4C18EE0058B9AA /* SDBrowserImageView.m */,
+				63D682A21E4C18EE0058B9AA /* SDPhotoBrowser.h */,
+				63D682A31E4C18EE0058B9AA /* SDPhotoBrowser.m */,
+				63D682A41E4C18EE0058B9AA /* SDPhotoBrowserConfig.h */,
+				63D682A51E4C18EE0058B9AA /* SDWaitingView.h */,
+				63D682A61E4C18EE0058B9AA /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		CD1E45ED09C58D3F7BD4891B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,8 +1026,11 @@
 				6360C6DF1DFFE80B00A437D1 /* PasswordView.m in Sources */,
 				63C87B0B1E49A36600A4CE58 /* PhotosView.m in Sources */,
 				6360C6E71DFFE83900A437D1 /* FocusViewController.m in Sources */,
+				63D682A81E4C18EE0058B9AA /* SDPhotoBrowser.m in Sources */,
 				6364808E1E0A4F7F003B627A /* PopoverAnimator.m in Sources */,
 				63695C6B1E28CAC3004CC7D3 /* WebViewController.m in Sources */,
+				63D682A91E4C18EE0058B9AA /* SDWaitingView.m in Sources */,
+				63D682A71E4C18EE0058B9AA /* SDBrowserImageView.m in Sources */,
 				6360C6DA1DFFE80B00A437D1 /* SafeViewController.m in Sources */,
 				638E813D1DF160DA00BB7654 /* PerfectHeadView.m in Sources */,
 				636B73A21DEFC6680042E7F9 /* AppDelegate.m in Sources */,

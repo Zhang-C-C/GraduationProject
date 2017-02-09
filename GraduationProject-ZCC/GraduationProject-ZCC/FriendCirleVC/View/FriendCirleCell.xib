@@ -116,6 +116,7 @@
             <connections>
                 <outlet property="content" destination="KMf-cg-v4F" id="2Qa-Nq-3SP"/>
                 <outlet property="headImgV" destination="3vO-b5-FQh" id="SMK-hb-rSZ"/>
+                <outlet property="mediaHeight" destination="NX6-q7-NmZ" id="TEr-Du-7XA"/>
                 <outlet property="mediaView" destination="QJ4-hy-wAq" id="54y-OE-Cq7"/>
                 <outlet property="name" destination="sJe-yV-zyj" id="dPK-WK-RSM"/>
                 <outlet property="time" destination="Tds-eQ-ZNY" id="bsE-3M-91Y"/>
