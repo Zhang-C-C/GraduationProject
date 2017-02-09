@@ -9,12 +9,14 @@
 #import <Photos/Photos.h>
 #import "PhotosViewController.h"
 #import "UIViewExt.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 #define kSpace 10
 
 typedef void(^PhotosBlock)(UIImage *img);
 
-@interface PhotosView ()<PhotosViewControllerDelegate>
+@interface PhotosView ()<PhotosViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSMutableArray *_itemArray;//存放所有子控件
     
@@ -91,6 +93,23 @@ typedef void(^PhotosBlock)(UIImage *img);
     
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        //拍照
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES; //可编辑
+        
+        //判断是否可以打开照相机
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        {
+            //摄像头
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self.viewController presentViewController:picker animated:YES completion:nil];
+        
+        }else{
+            
+            NSLog(@"没有摄像头");
+        }
+        
     }];
     [alert addAction:action2];
     
@@ -99,6 +118,40 @@ typedef void(^PhotosBlock)(UIImage *img);
     [alert addAction:action3];
     
     [self.viewController presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+// 拍照完成回调
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
+{    
+    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera){
+       
+        //图片存入相册
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    [self.viewController dismissViewControllerAnimated:YES completion:^{
+        
+        //推出图片选择的视图界面
+        PhotosViewController *pVC = [[PhotosViewController alloc] init];
+        
+        //设置代理
+        pVC.delegate = self;
+        
+        //将上次选中的图片资源传递
+        pVC.selcetPhotos = _selectedAsses;
+        
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pVC];
+        
+        [self.viewController presentViewController:nav animated:YES completion:nil];
+
+    }];
+}
+
+//进入拍摄页面点击取消按钮
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark ----- photosDelegate

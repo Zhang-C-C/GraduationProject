@@ -8,7 +8,8 @@
 
 #import "PhotosViewController.h"
 #import <Photos/Photos.h>
-typedef void(^Myblock)(UIImage *img);
+
+typedef void(^Myblock)(NSData *img);
 
 @interface PhotosViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 {
@@ -121,14 +122,18 @@ typedef void(^Myblock)(UIImage *img);
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
     //判断当前单元格是否存在imgV控件
     if (![cell.contentView viewWithTag:101]) {
         //创建imgV
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
         imgV.tag = 101;
         [cell.contentView addSubview:imgV];
-
+        
         //选中图片视图
         UIImageView *selectV =[[UIImageView alloc] initWithFrame:CGRectMake(cell.contentView.frame.size.width-18, 0, 18, 18)];
         selectV.tag = 102;
@@ -140,11 +145,10 @@ typedef void(^Myblock)(UIImage *img);
     }
     
     //获取资源图片 并且设置给imgV控件
-    [self getImageWithAsset:_dataList[indexPath.row] withBlock:^(UIImage *img) {
+    [self getImageWithAsset:_dataList[indexPath.row] withBlock:^(NSData *img) {
         
         UIImageView *imgV = [cell.contentView viewWithTag:101];
-        
-        imgV.image = img;
+        imgV.image = [UIImage imageWithData:img];
     }];
     
     //显示已选中的图片
@@ -159,17 +163,28 @@ typedef void(^Myblock)(UIImage *img);
     {
         selectImgV.hidden = YES;
     }
-    return cell;
 }
 
 //获取资源图片
 -(void)getImageWithAsset:(PHAsset *)asset withBlock:(Myblock)block
 {
-    [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
- 
-        block(result);
-    }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            
+            if (UIImagePNGRepresentation(result)) {
+                
+                block(UIImagePNGRepresentation(result));
+                
+            }else{
+                
+                block(UIImageJPEGRepresentation(result, 0.6));
+            }
+        }];
+    });
 }
+
+
 
 //单元格点击方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
