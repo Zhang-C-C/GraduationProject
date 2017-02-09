@@ -58,6 +58,10 @@
         [self showErrorWith:@"请输入内容"];
         return ;
     }
+    //清空输入
+    if ([self.textView.text isEqualToString:@"说点什么吧..."]) {
+        self.textView.text = nil;
+    }
     [self showLoadingWith:@"正在发表..."];
     //更新表
     BmobUser *user = [BmobUser currentUser];
