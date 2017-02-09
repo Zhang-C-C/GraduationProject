@@ -29,8 +29,29 @@
     
     self.name.text = _model.name;
     self.content.text = _model.content;
-    self.time.text = _model.time;
     
+    //时间显示
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *dt1 = [[NSDate alloc] init];
+    dt1 = [df dateFromString:_model.time];
+    NSDate *dt2 = [NSDate date];
+    
+    NSInteger index = [AppTools getDaysFrom:dt1 To:dt2];
+    NSString *time = [_model.time substringWithRange:NSMakeRange(11, 5)];
+    if (index == 0) {
+        
+        self.time.text = [NSString stringWithFormat:@"今天%@",time];
+    
+    }else if (index == 1){
+        
+        self.time.text = [NSString stringWithFormat:@"昨天%@",time];
+        
+    }else{
+        
+        self.time.text = [NSString stringWithFormat:@"%ld天前",index];
+    }
+                       
     [self.headImgV sd_setImageWithURL:[NSURL URLWithString:_model.headImgV] placeholderImage:[UIImage imageNamed:@"headBackImgV"]];
     
     //点赞

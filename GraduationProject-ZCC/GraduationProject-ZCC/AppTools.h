@@ -250,4 +250,10 @@ typedef void(^SaveFileSuccess)(NSMutableArray *array);
  */
 + (BOOL)clearCacheWithFilePath:(NSString *)path;
 
+/**
+ 比较天数间隔
+
+ */
++(NSInteger)getDaysFrom:(NSDate *)serverDate To:(NSDate *)endDate;
+
 @end
