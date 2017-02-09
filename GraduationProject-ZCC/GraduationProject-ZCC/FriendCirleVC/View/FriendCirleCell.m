@@ -241,8 +241,7 @@
  */
 - (IBAction)plBtnAction:(UIButton *)sender {
     
-    
-    
+    [self.viewController showMsgWith:@"暂时无法使用!"];
 }
 
 #pragma mark ----SDPhotoBrowserDelegate----
