@@ -38,20 +38,24 @@
         
         NSString *me = [[BmobUser currentUser] objectForKey:@"nickName"];
 
-        for (NSString *name in _model.zans) {
+        [self.zan setTitle:[NSString stringWithFormat:@"已赞(%ld)",_model.zans.count] forState:UIControlStateNormal];
+
+        if ([_model.zans containsObject:me]) {
             
-            if ([name isEqualToString:me]) {
-                
-                self.zan.selected = YES;
-            }else{
-                
-                self.zan.selected = NO;
-            }
+            self.zan.selected = YES;
+            [self.zan setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        
+        }else{
+            
+            self.zan.selected = NO;
+            [self.zan setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
         
     }else{
         
         self.zan.selected = NO;
+        [self.zan setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.zan setTitle:[NSString stringWithFormat:@"已赞(%ld)",_model.zans.count] forState:UIControlStateNormal];
     }
     //移除图片组
     for (UIImageView *imgV in self.mediaView.subviews) {
@@ -161,12 +165,10 @@
 - (IBAction)zanBtnAction:(UIButton *)sender {
     
     //点赞人加入到数组中
-    sender.selected = !sender.selected;
-    
     BmobUser *user = [BmobUser currentUser];
     BmobObject *obj = [BmobObject objectWithoutDataWithClassName:@"friendCircle" objectId:self.model.objectID];
     
-    if (sender.selected) {
+    if (!sender.selected) {
         
         [obj addObjectsFromArray:@[[user objectForKey:@"nickName"]] forKey:@"zan"];
         
@@ -174,9 +176,15 @@
             
             if (isSuccessful) {
                 
+                sender.selected = YES;
+                [sender setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+                [sender setTitle:[NSString stringWithFormat:@"已赞(%ld)",self.model.zans.count +1] forState:UIControlStateNormal];
+                [self.model.zans addObject:[user objectForKey:@"nickName"]];
+                
             }else{
                 
-                sender.selected = !sender.selected;
+                [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                sender.selected = NO;
                 NSLog(@"error:%@",error);
                 [self.viewController showErrorWith:@"网络出错,请重试!"];
             }
@@ -189,9 +197,15 @@
             
             if (isSuccessful) {
                 
+                sender.selected = NO;
+                [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [sender setTitle:[NSString stringWithFormat:@"已赞(%ld)",self.model.zans.count -1] forState:UIControlStateNormal];
+                [self.model.zans removeObject:[user objectForKey:@"nickName"]];
+                
             }else{
                 
-                sender.selected = !sender.selected;
+                [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                sender.selected = YES;
                 NSLog(@"error:%@",error);
                 [self.viewController showErrorWith:@"网络出错,请重试!"];
             }

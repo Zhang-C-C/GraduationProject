@@ -61,9 +61,6 @@
                         <state key="normal" title="点赞">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <state key="selected" title="已赞">
-                            <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
                         <connections>
                             <action selector="zanBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vv1-CR-MO4"/>
                         </connections>
