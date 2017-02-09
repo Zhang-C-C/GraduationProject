@@ -13,6 +13,8 @@
 
 @property(nonatomic,strong)UIImageView *imgV;
 
+@property(nonatomic,strong)NSMutableArray *arr;
+
 @end
 
 @implementation FriendCirleCell
@@ -36,6 +38,7 @@
         
         [imgV removeFromSuperview];
     }
+    [self.arr removeAllObjects];
     
     if (_model.medias.count == 0) {
         
@@ -53,6 +56,7 @@
         NSString *img = _model.medias[0];
         [self.imgV sd_setImageWithURL:[NSURL URLWithString:img] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
         [self.mediaView addSubview:self.imgV];
+        [self.arr addObject:self.imgV.image];
         
     }else{
         
@@ -98,6 +102,8 @@
         imgV.userInteractionEnabled = YES;
         [imgV sd_setImageWithURL:[NSURL URLWithString:arr[i]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
         
+        [self.arr addObject:imgV.image];
+        
         //点击事件
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
         [imgV addGestureRecognizer:tap];
@@ -138,7 +144,8 @@
 //返回占位图片
 - (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
 {
-    return [UIImage imageNamed:@"placeholder.jpg"];
+    //return [UIImage imageNamed:@"placeholder.jpg"];
+    return self.arr[index];
 }
 
 #pragma mark ----Override----
@@ -169,6 +176,14 @@
         [_imgV addGestureRecognizer:tap];
     }
     return _imgV;
+}
+
+- (NSMutableArray *)arr
+{
+    if (!_arr) {
+        _arr = [[NSMutableArray alloc]init];
+    }
+    return _arr;
 }
 
 @end
