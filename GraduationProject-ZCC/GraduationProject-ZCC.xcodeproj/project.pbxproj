@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		634FB9A61E5AD06E00BE6F51 /* jcore-ios-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9A31E5AD06E00BE6F51 /* jcore-ios-1.1.1.a */; };
+		634FB9A71E5AD06E00BE6F51 /* jpush-ios-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9A41E5AD06E00BE6F51 /* jpush-ios-3.0.2.a */; };
+		634FB9A91E5AD09F00BE6F51 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9A81E5AD09F00BE6F51 /* CFNetwork.framework */; };
+		634FB9AB1E5AD0A700BE6F51 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9AA1E5AD0A700BE6F51 /* CoreFoundation.framework */; };
+		634FB9AD1E5AD0AF00BE6F51 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9AC1E5AD0AF00BE6F51 /* CoreTelephony.framework */; };
+		634FB9AF1E5AD0B500BE6F51 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9AE1E5AD0B500BE6F51 /* SystemConfiguration.framework */; };
+		634FB9B11E5AD0BD00BE6F51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9B01E5AD0BD00BE6F51 /* CoreGraphics.framework */; };
+		634FB9B31E5AD0C300BE6F51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9B21E5AD0C300BE6F51 /* Foundation.framework */; };
+		634FB9B51E5AD0CA00BE6F51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9B41E5AD0CA00BE6F51 /* UIKit.framework */; };
+		634FB9B71E5AD0D000BE6F51 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9B61E5AD0D000BE6F51 /* Security.framework */; };
+		634FB9B91E5AD0DA00BE6F51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9B81E5AD0DA00BE6F51 /* libz.tbd */; };
+		634FB9BB1E5AD0EC00BE6F51 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9BA1E5AD0EC00BE6F51 /* UserNotifications.framework */; };
+		634FB9BD1E5AD0FA00BE6F51 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 634FB9BC1E5AD0FA00BE6F51 /* libresolv.tbd */; };
 		6360C6D31DFFE80B00A437D1 /* AboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360C6AF1DFFE80B00A437D1 /* AboutUSViewController.m */; };
 		6360C6D41DFFE80B00A437D1 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6360C6B01DFFE80B00A437D1 /* AboutUSViewController.xib */; };
 		6360C6D51DFFE80B00A437D1 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360C6B21DFFE80B00A437D1 /* MeViewController.m */; };
@@ -115,6 +128,21 @@
 /* Begin PBXFileReference section */
 		156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GraduationProject-ZCC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16AA2B755B08F4471E6C839F /* Pods-GraduationProject-ZCC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraduationProject-ZCC.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraduationProject-ZCC/Pods-GraduationProject-ZCC.release.xcconfig"; sourceTree = "<group>"; };
+		634FB9A31E5AD06E00BE6F51 /* jcore-ios-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.1.a"; sourceTree = "<group>"; };
+		634FB9A41E5AD06E00BE6F51 /* jpush-ios-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.2.a"; sourceTree = "<group>"; };
+		634FB9A51E5AD06E00BE6F51 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		634FB9A81E5AD09F00BE6F51 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		634FB9AA1E5AD0A700BE6F51 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		634FB9AC1E5AD0AF00BE6F51 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		634FB9AE1E5AD0B500BE6F51 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		634FB9B01E5AD0BD00BE6F51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		634FB9B21E5AD0C300BE6F51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		634FB9B41E5AD0CA00BE6F51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		634FB9B61E5AD0D000BE6F51 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		634FB9B81E5AD0DA00BE6F51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		634FB9BA1E5AD0EC00BE6F51 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		634FB9BC1E5AD0FA00BE6F51 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		634FB9BE1E5AD97800BE6F51 /* GraduationProject-ZCC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GraduationProject-ZCC.entitlements"; sourceTree = "<group>"; };
 		6360C6AE1DFFE80B00A437D1 /* AboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUSViewController.h; sourceTree = "<group>"; };
 		6360C6AF1DFFE80B00A437D1 /* AboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUSViewController.m; sourceTree = "<group>"; };
 		6360C6B01DFFE80B00A437D1 /* AboutUSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSViewController.xib; sourceTree = "<group>"; };
@@ -278,7 +306,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634FB9BD1E5AD0FA00BE6F51 /* libresolv.tbd in Frameworks */,
+				634FB9BB1E5AD0EC00BE6F51 /* UserNotifications.framework in Frameworks */,
+				634FB9B91E5AD0DA00BE6F51 /* libz.tbd in Frameworks */,
+				634FB9B71E5AD0D000BE6F51 /* Security.framework in Frameworks */,
+				634FB9B51E5AD0CA00BE6F51 /* UIKit.framework in Frameworks */,
+				634FB9B31E5AD0C300BE6F51 /* Foundation.framework in Frameworks */,
+				634FB9B11E5AD0BD00BE6F51 /* CoreGraphics.framework in Frameworks */,
+				634FB9AF1E5AD0B500BE6F51 /* SystemConfiguration.framework in Frameworks */,
+				634FB9AD1E5AD0AF00BE6F51 /* CoreTelephony.framework in Frameworks */,
+				634FB9AB1E5AD0A700BE6F51 /* CoreFoundation.framework in Frameworks */,
+				634FB9A91E5AD09F00BE6F51 /* CFNetwork.framework in Frameworks */,
+				634FB9A71E5AD06E00BE6F51 /* jpush-ios-3.0.2.a in Frameworks */,
 				B4558E84024977644CA6C418 /* libPods-GraduationProject-ZCC.a in Frameworks */,
+				634FB9A61E5AD06E00BE6F51 /* jcore-ios-1.1.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +347,16 @@
 				16AA2B755B08F4471E6C839F /* Pods-GraduationProject-ZCC.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		634FB9A21E5AD06E00BE6F51 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				634FB9A31E5AD06E00BE6F51 /* jcore-ios-1.1.1.a */,
+				634FB9A41E5AD06E00BE6F51 /* jpush-ios-3.0.2.a */,
+				634FB9A51E5AD06E00BE6F51 /* JPUSHService.h */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 		6360C6A71DFFE80B00A437D1 /* MeSetting */ = {
@@ -508,6 +559,7 @@
 		6364CDBF1DF5462800427097 /* CommonTools */ = {
 			isa = PBXGroup;
 			children = (
+				634FB9A21E5AD06E00BE6F51 /* Lib */,
 				6364CDC01DF5463100427097 /* HCDataHelper.h */,
 				6364CDC11DF5463100427097 /* HCDataHelper.m */,
 				6364CDC21DF5463100427097 /* UICountingLabel.h */,
@@ -602,6 +654,7 @@
 		636B739C1DEFC6680042E7F9 /* GraduationProject-ZCC */ = {
 			isa = PBXGroup;
 			children = (
+				634FB9BE1E5AD97800BE6F51 /* GraduationProject-ZCC.entitlements */,
 				6364CDD91DF561A400427097 /* MyTools */,
 				6364CDBF1DF5462800427097 /* CommonTools */,
 				636B73E81DF014460042E7F9 /* CategoryTools */,
@@ -794,6 +847,17 @@
 		CD1E45ED09C58D3F7BD4891B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				634FB9BC1E5AD0FA00BE6F51 /* libresolv.tbd */,
+				634FB9BA1E5AD0EC00BE6F51 /* UserNotifications.framework */,
+				634FB9B81E5AD0DA00BE6F51 /* libz.tbd */,
+				634FB9B61E5AD0D000BE6F51 /* Security.framework */,
+				634FB9B41E5AD0CA00BE6F51 /* UIKit.framework */,
+				634FB9B21E5AD0C300BE6F51 /* Foundation.framework */,
+				634FB9B01E5AD0BD00BE6F51 /* CoreGraphics.framework */,
+				634FB9AE1E5AD0B500BE6F51 /* SystemConfiguration.framework */,
+				634FB9AC1E5AD0AF00BE6F51 /* CoreTelephony.framework */,
+				634FB9AA1E5AD0A700BE6F51 /* CoreFoundation.framework */,
+				634FB9A81E5AD09F00BE6F51 /* CFNetwork.framework */,
 				156D673C949F06C5CF32EFC3 /* libPods-GraduationProject-ZCC.a */,
 			);
 			name = Frameworks;
@@ -869,8 +933,16 @@
 				TargetAttributes = {
 					636B73991DEFC6680042E7F9 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Z3J38YFUTH;
+						DevelopmentTeam = 7BG3Q9CGT5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					636B73B21DEFC6690042E7F9 = {
 						CreatedOnToolsVersion = 8.1;
@@ -1134,7 +1206,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1182,7 +1255,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1207,16 +1281,24 @@
 			baseConfigurationReference = A963949E3CD318923A096B6A /* Pods-GraduationProject-ZCC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = Z3J38YFUTH;
+				CODE_SIGN_ENTITLEMENTS = "GraduationProject-ZCC/GraduationProject-ZCC.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7BG3Q9CGT5;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";
 				INFOPLIST_FILE = "GraduationProject-ZCC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zcc.com.gp;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GraduationProject-ZCC/CommonTools/Lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zcc.gp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1225,16 +1307,24 @@
 			baseConfigurationReference = 16AA2B755B08F4471E6C839F /* Pods-GraduationProject-ZCC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = Z3J38YFUTH;
+				CODE_SIGN_ENTITLEMENTS = "GraduationProject-ZCC/GraduationProject-ZCC.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7BG3Q9CGT5;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";
 				INFOPLIST_FILE = "GraduationProject-ZCC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zcc.com.gp;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GraduationProject-ZCC/CommonTools/Lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zcc.gp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
