@@ -202,15 +202,15 @@
             [SaveDataTools sharedInstance].distance = distance;
             
             //本地推送
-            if (distance <= 10000) {
+            if (distance <= 10000000000) {
                 
                 [self sendLocalPushWithDis:10000];
             
-            }else if(distance <= 1000){
+            }else if(distance <= 10000000){
                 
                 [self sendLocalPushWithDis:1000];
                 
-            }else if(distance <= 100){
+            }else if(distance <= 100000){
                 
                 [self sendLocalPushWithDis:100];
             }
