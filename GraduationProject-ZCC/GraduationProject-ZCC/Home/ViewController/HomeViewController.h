@@ -16,6 +16,11 @@
 - (void)addAnnotationWithLatitude:(CLLocationDegrees )latitude Longitude:(CLLocationDegrees )longitude;
 
 /**
+ 移除大头针
+ */
+- (void)notificationCancleFocus;
+
+/**
  0-保密 1-男 2-女
  */
 @property(nonatomic,assign)NSInteger sex;
