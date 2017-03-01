@@ -11,12 +11,13 @@
 #import "UIViewExt.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "TZImagePickerController.h"
 
 #define kSpace 10
 
 typedef void(^PhotosBlock)(UIImage *img);
 
-@interface PhotosView ()<PhotosViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface PhotosView ()<PhotosViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,TZImagePickerControllerDelegate>
 {
     NSMutableArray *_itemArray;//存放所有子控件
     
@@ -75,19 +76,22 @@ typedef void(^PhotosBlock)(UIImage *img);
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"从手机选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        //推出图片选择的视图界面
-        PhotosViewController *pVC = [[PhotosViewController alloc] init];
+//        //推出图片选择的视图界面
+//        PhotosViewController *pVC = [[PhotosViewController alloc] init];
+//        
+//        //设置代理
+//        pVC.delegate = self;
+//        
+//        //将上次选中的图片资源传递
+//        pVC.selcetPhotos = _selectedAsses;
+//        
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pVC];
+//        
+//        [self.viewController presentViewController:nav animated:YES completion:nil];
         
-        //设置代理
-        pVC.delegate = self;
+        TZImagePickerController *imageVC = [[TZImagePickerController alloc]initWithMaxImagesCount:9 delegate:self];
         
-        //将上次选中的图片资源传递
-        pVC.selcetPhotos = _selectedAsses;
-        
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pVC];
-        
-        [self.viewController presentViewController:nav animated:YES completion:nil];
-        
+        [self.viewController presentViewController:imageVC animated:YES completion:nil];
     }];
     [alert addAction:action1];
     
@@ -118,6 +122,26 @@ typedef void(^PhotosBlock)(UIImage *img);
     [alert addAction:action3];
     
     [self.viewController presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark ----TZImagePickerControllerDelegate----
+
+//获取的图片资源
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto
+{
+    [self createPhotosItemWithArray:assets];
+}
+
+//视频资源
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(id)asset
+{
+    
+}
+
+//gif资源
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingGifImage:(UIImage *)animatedImage sourceAssets:(id)asset
+{
+    
 }
 
 #pragma mark - UIImagePickerControllerDelegate
