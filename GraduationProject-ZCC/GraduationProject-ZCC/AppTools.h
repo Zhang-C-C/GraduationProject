@@ -39,6 +39,14 @@ typedef void(^SavePSuccess)(NSDictionary *dic);
 //保存密码
 typedef void(^SaveFileSuccess)(NSMutableArray *array);
 
+//枚举
+typedef NS_ENUM(NSInteger, CCShowType)
+{
+    CCSuccessType    = 0,
+    CCErrorType      = 1,
+    CCMsgType        = 2
+};
+
 @interface AppTools : NSObject
 
 + (instancetype)sharedInstance;
@@ -255,5 +263,13 @@ typedef void(^SaveFileSuccess)(NSMutableArray *array);
 
  */
 +(NSInteger)getDaysFrom:(NSDate *)serverDate To:(NSDate *)endDate;
+
+/**
+ 提示信息
+
+ @param type 类型
+ @param text 文本
+ */
+- (void)showHUDViewWithType:(CCShowType )type WithText:(NSString *)text;
 
 @end

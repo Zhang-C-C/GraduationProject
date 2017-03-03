@@ -51,14 +51,16 @@ static NSString *identifier = @"focusCell";
                 if (!error) {
                     
                     self.navigationItem.rightBarButtonItem = nil;
-                    [self showSuccessWith:@"关注成功"];
+                    //[self showSuccessWith:@"关注成功"];
+                    [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"关注成功"];
                     [SaveDataTools sharedInstance].focusName = userName;
                     [self initView];
                     
                 }else{
                     
                     NSLog(@"关注失败:%@",error);
-                    [self showErrorWith:@"关注失败"];
+                    [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"关注失败"];
+                    //[self showErrorWith:@"关注失败"];
                 }
             }];
         } WithError:nil];
@@ -110,7 +112,8 @@ static NSString *identifier = @"focusCell";
             
             if (!error) {
                 
-                [self showSuccessWith:@"取消关注"];
+                [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"取消关注"];
+                //[self showSuccessWith:@"取消关注"];
                 [SaveDataTools sharedInstance].focusName = @"";
                 [self.tableView reloadData];
                 //添加导航栏右侧按钮
@@ -121,7 +124,8 @@ static NSString *identifier = @"focusCell";
             }else{
                 
                 NSLog(@"关注失败:%@",error);
-                [self showErrorWith:@"取消失败"];
+                //[self showErrorWith:@"取消失败"];
+                [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"取消关注失败"];
             }
         }];
         

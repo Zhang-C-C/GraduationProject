@@ -148,7 +148,8 @@
     BOOL ret = [manager start:kBaiduMap generalDelegate:nil];
     if (!ret) {
         
-        [self.window.rootViewController showErrorWith:@"百度地图管家启动失败"];
+        [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"百度地图管家启动失败"];
+        //[self.window.rootViewController showErrorWith:@"百度地图管家启动失败"];
     }
 }
 

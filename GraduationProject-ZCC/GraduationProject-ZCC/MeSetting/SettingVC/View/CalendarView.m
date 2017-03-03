@@ -108,7 +108,8 @@ static NSString *identifier = @"collectionCell";
             
         }else{
             
-            [self.viewController showErrorWith:@"获取签到日期失败"];
+            [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"获取签到日期失败"];
+            //[self.viewController showErrorWith:@"获取签到日期失败"];
         }
     }];
 }
@@ -202,7 +203,9 @@ static NSString *identifier = @"collectionCell";
        
         if (!error ) {
             
-            [self.viewController showSuccessWith:@"签到成功"];
+            [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"签到成功"];
+            [self.viewController dismissHUD];
+            //[self.viewController showSuccessWith:@"签到成功"];
             //比如 2016-12-15
             [self.dataList addObject:date];
             [self.collection reloadData];
@@ -213,6 +216,7 @@ static NSString *identifier = @"collectionCell";
         }else {
             
             NSLog(@"签到失败:%@",error);
+            [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"签到失败"];
 
             if (failure) {
                 failure();
@@ -326,7 +330,8 @@ static NSString *identifier = @"collectionCell";
             
             if ([label.text isEqualToString:@"签"]) {
                 
-                [self.viewController showMsgWith:@"已签到"];
+                [[AppTools sharedInstance]showHUDViewWithType:CCMsgType WithText:@"已签到"];
+                //[self.viewController showMsgWith:@"已签到"];
                 return ;
             }
         }
@@ -344,7 +349,8 @@ static NSString *identifier = @"collectionCell";
         //开始签到
         [self startSignWithCell:indexPath WithDate:cellTime WithSuccess:nil WithFailure:^{
             
-            [self.viewController showErrorWith:@"签到失败"];
+            [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"签到失败"];
+            //[self.viewController showErrorWith:@"签到失败"];
         }];
     
     }else {
@@ -355,7 +361,8 @@ static NSString *identifier = @"collectionCell";
             //开始签到
             [self startSignWithCell:indexPath WithDate:cellTime WithSuccess:nil WithFailure:^{
                 
-                [self.viewController showErrorWith:@"签到失败"];
+                [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"签到失败"];
+                //[self.viewController showErrorWith:@"签到失败"];
             }];
         } WithCancleBtn:nil];
     }

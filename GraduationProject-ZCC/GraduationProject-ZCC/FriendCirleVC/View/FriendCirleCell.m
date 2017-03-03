@@ -207,7 +207,8 @@
                 [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 sender.selected = NO;
                 NSLog(@"error:%@",error);
-                [self.viewController showErrorWith:@"网络出错,请重试!"];
+                [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"网络出错,请重试!"];
+                //[self.viewController showErrorWith:@"网络出错,请重试!"];
             }
         }];
         
@@ -228,7 +229,9 @@
                 [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 sender.selected = YES;
                 NSLog(@"error:%@",error);
-                [self.viewController showErrorWith:@"网络出错,请重试!"];
+                [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"网络出错,请重试!"];
+
+                //[self.viewController showErrorWith:@"网络出错,请重试!"];
             }
         }];
     }
@@ -241,7 +244,9 @@
  */
 - (IBAction)plBtnAction:(UIButton *)sender {
     
-    [self.viewController showMsgWith:@"暂时无法使用!"];
+    [[AppTools sharedInstance]showHUDViewWithType:CCMsgType WithText:@"暂时无法使用!"];
+
+    //[self.viewController showMsgWith:@"暂时无法使用!"];
 }
 
 #pragma mark ----SDPhotoBrowserDelegate----

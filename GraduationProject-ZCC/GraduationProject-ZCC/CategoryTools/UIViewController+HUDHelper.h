@@ -23,4 +23,6 @@
 
 - (void)showProgressWith:(CGFloat )progress;
 
+- (void)dismissHUD;
+
 @end

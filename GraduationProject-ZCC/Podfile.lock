@@ -17,6 +17,7 @@ PODS:
   - BaiduMapKit (3.1.0)
   - BmobSDK (2.0.0)
   - MJRefresh (3.1.12)
+  - pop (1.0.9)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - BaiduMapKit
   - BmobSDK
   - MJRefresh
+  - pop
   - SDWebImage
   - SVProgressHUD
   - UMengAnalytics
@@ -52,11 +54,12 @@ SPEC CHECKSUMS:
   BaiduMapKit: 4cfaedb118cff7e157e9771859a4bf65a261b2a1
   BmobSDK: 0dac00820d4fc08e549ea0e8f4adeaf52709c673
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
   UMengAnalytics: 0bde5737767dfc18afb03a4cd6ba9d57bb2ad10d
   UMengUShare: 6c3902a68a06d01031bed6f426e97b89d4fc504f
 
-PODFILE CHECKSUM: 76ac68406911cca7042978992c6fd0fcc4e4feb9
+PODFILE CHECKSUM: 91b5854726532c20bd62da482f76bfe10d72516a
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.2.0

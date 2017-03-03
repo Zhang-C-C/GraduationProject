@@ -80,7 +80,8 @@ static NSString *identifier = @"FriendCirleCell";
             
         }else{
             
-            [self showErrorWith:@"获取失败!"];
+            [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"获取失败!"];
+            //[self showErrorWith:@"获取失败!"];
         }
     }];
 }

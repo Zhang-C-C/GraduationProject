@@ -53,17 +53,20 @@
             
             if (!error) {
                 
-                [self showSuccessWith:@"发送成功,请注意查收"];
+                //[self showSuccessWith:@"发送成功,请注意查收"];
+                [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"发送成功,请注意查收"];
                 
             }else{
                 
+                [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"发送失败,请重试"];
                 [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
             }
         }];
     
     }else{
         
-        [self showErrorWith:@"请输入正确的手机号码"];
+        [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"请输入正确的手机号码"];
+        //[self showErrorWith:@"请输入正确的手机号码"];
     }
 }
 
@@ -74,12 +77,14 @@
     
     if (![AppTools isValidateMobile:self.phoneNum.text]) {
         
-        [self showErrorWith:@"请输入正确的手机号码"];
+        [[AppTools sharedInstance]showHUDViewWithType:CCMsgType WithText:@"请输入正确的手机号码"];
+        //[self showErrorWith:@"请输入正确的手机号码"];
         return ;
     }
     if (self.sms.text.length == 0) {
         
-        [self showErrorWith:@"请输入验证码"];
+        [[AppTools sharedInstance]showHUDViewWithType:CCMsgType WithText:@"请输入验证码"];
+        //[self showErrorWith:@"请输入验证码"];
         return ;
     }
     //绑定手机号码
@@ -98,25 +103,29 @@
                     
                     if ([self.title isEqualToString:@"绑定手机号"]) {
                         
-                        [self showSuccessWith:@"绑定手机号码成功"];
+                        [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"绑定手机号码成功"];
+                        //[self showSuccessWith:@"绑定手机号码成功"];
                         [self dismissViewControllerAnimated:YES completion:nil];
                     
                     }else{
                         
-                        [self showSuccessWith:@"修改手机号码成功"];
+                        [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"修改手机号码成功"];
+                        //[self showSuccessWith:@"修改手机号码成功"];
                         [self.navigationController popViewControllerAnimated:YES];
                         [SaveDataTools sharedInstance].phoneNum = self.phoneNum.text;
                     }
                     
                 }else{
                     
-                    [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+                    [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"绑定手机号码失败"];
+                    //[self showErrorWith:[NSString stringWithFormat:@"%@",error]];
                 }
             }];
             
         }else{
             
-            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"绑定手机号码失败"];
+            //[self showErrorWith:[NSString stringWithFormat:@"%@",error]];
             NSLog(@"%@",error);
         }
     }];

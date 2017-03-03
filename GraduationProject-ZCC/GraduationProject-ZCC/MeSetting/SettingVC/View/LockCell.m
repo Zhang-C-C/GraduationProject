@@ -71,12 +71,14 @@
                     //保存信息
                     [AppTools saveDatatoPlistWithKey:[BmobUser currentUser].username Value:@(NO) FileName:kTouchIDFile WithSuccess:^{
                         
-                        [self.viewController showSuccessWith:@"已关闭"];
+                        [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"已关闭"];
+                        //[self.viewController showSuccessWith:@"已关闭"];
                         [sender setOn:NO animated:YES];
                         
                     } Error:^(NSError *error) {
                         
-                        [self.viewController showErrorWith:@"关闭失败,请重试"];
+                        [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"关闭失败,请重试"];
+                        //[self.viewController showErrorWith:@"关闭失败,请重试"];
                         [sender setOn:YES animated:YES];
                     }];
                     
@@ -92,12 +94,14 @@
                     //保存信息
                     [AppTools saveDatatoPlistWithKey:[BmobUser currentUser].username Value:@(YES) FileName:kTouchIDFile WithSuccess:^{
                         
-                        [self.viewController showSuccessWith:@"已开启"];
+                        [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"已开启"];
+                        //[self.viewController showSuccessWith:@"已开启"];
                         [sender setOn:YES animated:YES];
                         
                     } Error:^(NSError *error) {
                        
-                        [self.viewController showErrorWith:@"开启失败,请重试"];
+                        [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"开启失败,请重试"];
+                        //[self.viewController showErrorWith:@"开启失败,请重试"];
                         [sender setOn:NO animated:YES];
                     }];
                     
@@ -110,7 +114,9 @@
         }else{
             
             [sender setOn:NO animated:YES];
-            [self.viewController showErrorWith:@"您的设备不支持Touch ID"];
+            //[self.viewController showErrorWith:@"您的设备不支持Touch ID"];
+            [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"您的设备不支持Touch ID"];
+
             
             return ;
         }
@@ -128,7 +134,8 @@
                     
                 } Error:^(NSError *error) {
                    
-                    [self.viewController showErrorWith:@"关闭失败,请重试"];
+                    [[AppTools sharedInstance]showHUDViewWithType:CCErrorType WithText:@"关闭失败,请重试"];
+                    //[self.viewController showErrorWith:@"关闭失败,请重试"];
                 }];
 
             } WithCancleBtn:^{

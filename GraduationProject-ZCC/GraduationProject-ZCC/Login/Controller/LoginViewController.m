@@ -99,12 +99,14 @@
 {
     if (userName.length == 0) {
         
-        [self showErrorWith:@"请输入用户名或者手机号"];
+        [[AppTools sharedInstance]showHUDViewWithType:2 WithText:@"请输入用户名或者手机号"];
+        //[self showErrorWith:@"请输入用户名或者手机号"];
         return ;
     }
     if (passweod.length ==0) {
         
-        [self showErrorWith:@"请输入密码"];
+        [[AppTools sharedInstance]showHUDViewWithType:2 WithText:@"请输入密码"];
+        //[self showErrorWith:@"请输入密码"];
         return ;
     }
     //根据账号登录,可以使手机号
@@ -112,7 +114,8 @@
         
         if (!error) {
             
-            [self showSuccessWith:@"登录成功"];
+            //[self showSuccessWith:@"登录成功"];
+            [[AppTools sharedInstance]showHUDViewWithType:0 WithText:@"登陆成功"];
             
             //保存用户名密码
             [kUserDefaultDict setObject:self.account.text forKey:kUserName];
@@ -217,12 +220,14 @@
     //安全判断
     if (self.accountNotR.text.length == 0) {
         
-        [self showErrorWith:@"请输入用户名"];
+        [[AppTools sharedInstance]showHUDViewWithType:2 WithText:@"请输入用户名"];
+        //[self showErrorWith:@"请输入用户名"];
         return ;
     }
     if (self.passwordNotR.text.length ==0) {
         
-        [self showErrorWith:@"请输入密码"];
+        [[AppTools sharedInstance]showHUDViewWithType:2 WithText:@"请输入密码"];
+        //[self showErrorWith:@"请输入密码"];
         return ;
     }
     
@@ -243,8 +248,10 @@
                
                 if (!error) {
                     
-                    [self showSuccessWith:@"登陆成功!"];
-                    
+                    //[self showSuccessWith:@"登陆成功!"];
+                    [self dismissHUD];
+                    [[AppTools sharedInstance]showHUDViewWithType:0 WithText:@"登陆成功!"];
+
                     //跳转到完善信息页面
                     PerfectViewController *perfectVC = [[PerfectViewController alloc]init];
                     perfectVC.title = @"完善信息";
@@ -255,13 +262,15 @@
                 
                 }else{
                     
-                    [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+                    [[AppTools sharedInstance]showHUDViewWithType:1 WithText:@"登陆失败!"];
+                    //[self showErrorWith:[NSString stringWithFormat:@"%@",error]];
                 }
             }];
             
         }else{
             
-            [self showErrorWith:[NSString stringWithFormat:@"%@",error]];
+            [[AppTools sharedInstance]showHUDViewWithType:1 WithText:@"登陆失败!"];
+           //[self showErrorWith:[NSString stringWithFormat:@"%@",error]];
         }
     }];
 }

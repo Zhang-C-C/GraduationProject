@@ -8,6 +8,7 @@
 
 #import "AppTools.h"
 #import "BindPhoneViewController.h"
+#import <POP.h>
 
 @interface AppTools ()
 
@@ -18,6 +19,10 @@
 
 //是否正在下载文件
 @property(nonatomic,assign)BOOL isDownLoading;
+
+//HUD
+@property(nonatomic,strong)UIView *hudView;
+@property(nonatomic,strong)UILabel *label;
 
 @end
 
@@ -921,6 +926,76 @@
         _maskView.alpha = 0.5;
     }
     return _maskView;
+}
+
+#pragma mark ---NewHUD----
+
+- (void)showHUDViewWithType:(CCShowType )type WithText:(NSString *)text
+{
+    self.label.text = text;
+    if (type == CCSuccessType) {
+        
+        self.label.textColor = [UIColor blackColor];
+        
+    }else if (type == CCErrorType){
+        
+        self.label.textColor = [UIColor redColor];
+        
+    }else if (type == CCMsgType){
+        
+        self.label.textColor = [UIColor blackColor];
+    }
+    [self.hudView addSubview:self.label];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self.hudView];
+    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.hudView];
+    
+    POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    //开始的位置
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = 64;
+    CGFloat x = 0;
+    CGFloat startY = -height;
+    animation.fromValue = [NSValue valueWithCGRect:CGRectMake(x, startY, width, height)];
+    //最终的位置
+    CGFloat endY = 0;
+    animation.toValue = [NSValue valueWithCGRect:CGRectMake(x, endY, width, height)];
+    //延时
+    animation.beginTime = CACurrentMediaTime() +0.1;
+    
+    //设置振幅
+    animation.springBounciness = 8;
+    animation.springSpeed = 10;
+    
+    //添加动画
+    [self.hudView pop_addAnimation:animation forKey:@"spring"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [UIView animateWithDuration:.3 animations:^{
+            
+            self.hudView.frame = CGRectMake(0, -64, [UIScreen mainScreen].bounds.size.width, 64);
+        }];
+    });
+}
+
+- (UIView *)hudView
+{
+    if (!_hudView) {
+        _hudView = [[UIView alloc]initWithFrame:CGRectMake(0, -64, [UIScreen mainScreen].bounds.size.width, 64)];
+        _hudView.backgroundColor = [UIColor whiteColor];
+    }
+    return _hudView;
+}
+
+- (UILabel *)label
+{
+    if (!_label) {
+        _label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.hudView.frame.size.width, self.hudView.frame.size.height)];
+        _label.textAlignment = NSTextAlignmentCenter;
+        _label.textColor = [UIColor blackColor];
+    }
+    return _label;
 }
 
 @end

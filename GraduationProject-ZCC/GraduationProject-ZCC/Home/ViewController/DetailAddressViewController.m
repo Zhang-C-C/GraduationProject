@@ -155,7 +155,8 @@
     
     if (searcher == self.mySearch) {
         
-        [self showSuccessWith:@"查询完成"];
+        [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"查询成功"];
+        //[self showSuccessWith:@"查询完成"];
         
         //登录用户的的位置信息
         self.myAddresss = @[result.addressDetail.streetNumber,result.addressDetail.streetName,result.addressDetail.district,result.addressDetail.city,result.addressDetail.province];
@@ -165,7 +166,8 @@
         
     }else if (searcher == self.taSearch){
         
-        [self showSuccessWith:@"查询完成"];
+        [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"查询成功"];
+        //[self showSuccessWith:@"查询完成"];
         
         //关注用户的位置信息
         self.taAddresss = @[result.addressDetail.streetNumber,result.addressDetail.streetName,result.addressDetail.district,result.addressDetail.city,result.addressDetail.province];
