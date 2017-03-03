@@ -22,6 +22,7 @@
 
 //HUD
 @property(nonatomic,strong)UIView *hudView;
+@property(nonatomic,assign)BOOL isShow;
 @property(nonatomic,strong)UIButton *showBtn;
 
 @end
@@ -932,6 +933,11 @@
 
 - (void)showHUDViewWithType:(CCShowType )type WithText:(NSString *)text
 {
+    if (self.isShow) {
+        
+        return ;
+    }
+    self.isShow = YES;
     
     [self.showBtn setTitle:text forState:UIControlStateNormal];
     if (type == CCSuccessType) {
@@ -978,6 +984,7 @@
         [UIView animateWithDuration:.3 animations:^{
             
             self.hudView.frame = CGRectMake(0, -64, [UIScreen mainScreen].bounds.size.width, 64);
+            self.isShow = NO;
         }];
     });
 }
