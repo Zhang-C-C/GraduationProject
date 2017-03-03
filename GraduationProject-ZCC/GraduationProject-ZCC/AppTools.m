@@ -22,7 +22,7 @@
 
 //HUD
 @property(nonatomic,strong)UIView *hudView;
-@property(nonatomic,strong)UILabel *label;
+@property(nonatomic,strong)UIButton *showBtn;
 
 @end
 
@@ -932,20 +932,23 @@
 
 - (void)showHUDViewWithType:(CCShowType )type WithText:(NSString *)text
 {
-    self.label.text = text;
+    
+    [self.showBtn setTitle:text forState:UIControlStateNormal];
     if (type == CCSuccessType) {
         
-        self.label.textColor = [UIColor blackColor];
+        [self.showBtn setImage:[UIImage imageNamed:@"success"] forState:UIControlStateNormal];
+        [self.showBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
     }else if (type == CCErrorType){
         
-        self.label.textColor = [UIColor redColor];
+        [self.showBtn setImage:[UIImage imageNamed:@"error"] forState:UIControlStateNormal];
+        [self.showBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         
     }else if (type == CCMsgType){
         
-        self.label.textColor = [UIColor blackColor];
+        [self.showBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
-    [self.hudView addSubview:self.label];
+    [self.hudView addSubview:self.showBtn];
     
     [[UIApplication sharedApplication].keyWindow addSubview:self.hudView];
     [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.hudView];
@@ -988,14 +991,13 @@
     return _hudView;
 }
 
-- (UILabel *)label
+- (UIButton *)showBtn
 {
-    if (!_label) {
-        _label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.hudView.frame.size.width, self.hudView.frame.size.height)];
-        _label.textAlignment = NSTextAlignmentCenter;
-        _label.textColor = [UIColor blackColor];
+    if (!_showBtn) {
+        _showBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 30, self.hudView.frame.size.width, 30)];
+        _showBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
-    return _label;
+    return _showBtn;
 }
 
 @end
