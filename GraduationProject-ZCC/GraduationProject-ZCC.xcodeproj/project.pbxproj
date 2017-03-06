@@ -1009,7 +1009,7 @@
 				TargetAttributes = {
 					636B73991DEFC6680042E7F9 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7BG3Q9CGT5;
+						DevelopmentTeam = Z3J38YFUTH;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1374,7 +1374,7 @@
 				CODE_SIGN_ENTITLEMENTS = "GraduationProject-ZCC/GraduationProject-ZCC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7BG3Q9CGT5;
+				DEVELOPMENT_TEAM = Z3J38YFUTH;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";
@@ -1400,7 +1400,7 @@
 				CODE_SIGN_ENTITLEMENTS = "GraduationProject-ZCC/GraduationProject-ZCC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing huayu nuoda sports technology development co., LTD (7BG3Q9CGT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7BG3Q9CGT5;
+				DEVELOPMENT_TEAM = Z3J38YFUTH;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GraduationProject-ZCC/MyPch.pch";

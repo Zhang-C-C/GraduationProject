@@ -157,6 +157,7 @@
         
         [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"查询成功"];
         //[self showSuccessWith:@"查询完成"];
+        [self dismissHUD];
         
         //登录用户的的位置信息
         self.myAddresss = @[result.addressDetail.streetNumber,result.addressDetail.streetName,result.addressDetail.district,result.addressDetail.city,result.addressDetail.province];
@@ -168,6 +169,7 @@
         
         [[AppTools sharedInstance]showHUDViewWithType:CCSuccessType WithText:@"查询成功"];
         //[self showSuccessWith:@"查询完成"];
+        [self dismissHUD];
         
         //关注用户的位置信息
         self.taAddresss = @[result.addressDetail.streetNumber,result.addressDetail.streetName,result.addressDetail.district,result.addressDetail.city,result.addressDetail.province];
