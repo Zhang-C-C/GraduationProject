@@ -12,4 +12,6 @@ pod 'UMengUShare/Social/QQ'
 pod 'UMengUShare/Social/WeChat'
 pod 'UMengUShare/UI'
 pod 'pop'
+pod 'Hyphenate'
+
 end

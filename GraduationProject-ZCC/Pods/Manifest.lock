@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - BaiduMapKit (3.1.0)
   - BmobSDK (2.0.0)
+  - Hyphenate (3.3.0)
   - MJRefresh (3.1.12)
   - pop (1.0.9)
   - SDWebImage (3.8.2):
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - AFNetworking
   - BaiduMapKit
   - BmobSDK
+  - Hyphenate
   - MJRefresh
   - pop
   - SDWebImage
@@ -53,6 +55,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BaiduMapKit: 4cfaedb118cff7e157e9771859a4bf65a261b2a1
   BmobSDK: 0dac00820d4fc08e549ea0e8f4adeaf52709c673
+  Hyphenate: 828b314ee8629d34ce0e5ef085eac70b6d4cc89c
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
@@ -60,6 +63,6 @@ SPEC CHECKSUMS:
   UMengAnalytics: 0bde5737767dfc18afb03a4cd6ba9d57bb2ad10d
   UMengUShare: 6c3902a68a06d01031bed6f426e97b89d4fc504f
 
-PODFILE CHECKSUM: 91b5854726532c20bd62da482f76bfe10d72516a
+PODFILE CHECKSUM: f8b2b239fe7fbddafe2f8f4802fe399d7ed36738
 
 COCOAPODS: 1.2.0
