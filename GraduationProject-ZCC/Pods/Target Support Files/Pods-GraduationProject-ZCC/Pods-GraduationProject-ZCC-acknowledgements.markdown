@@ -728,6 +728,10 @@ Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 
 
+## Hyphenate
+
+Hyphenate Inc. 2016
+
 ## MJRefresh
 
 Copyright (c) 2013-2015 MJRefresh (https://github.com/CoderMJLee/MJRefresh)
